@@ -774,9 +774,6 @@ class AnswerTreatment {
                     }
                 }
             }
-            echo "\n\r ##### \n\r";
-            var_export($hotelStaticData);
-            echo "\n\r ##### \n\r";
             /*
              * Management object IMAGES
              */
