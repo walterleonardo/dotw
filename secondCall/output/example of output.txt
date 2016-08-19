@@ -1,0 +1,87 @@
+<?php
+
+Hotel\PreSupplier\HotelStaticData::__set_state(array(
+   'RoomTypeStaticDataList' => 
+  array (
+    0 => 
+    Hotel\PreSupplier\RoomTypeStaticData::__set_state(array(
+       'twin' => NULL,
+       'roomAmenities' => NULL,
+       'name' => NULL,
+       'roomInfo' => 
+      array (
+        0 => 
+        Hotel\PreSupplier\RoomInfo::__set_state(array(
+           'maxOccupancy' => NULL,
+           'maxAdultWithChildren' => NULL,
+           'minChildAge' => NULL,
+           'maxChildAge' => NULL,
+           'maxAdult' => NULL,
+           'maxExtraBed' => NULL,
+           'maxChildren' => NULL,
+        )),
+      ),
+    )),
+  ),
+   'description1' => NULL,
+   'description2' => NULL,
+   'geoPoints' => NULL,
+   'ratingDescription' => NULL,
+   'images' => 
+  array (
+    0 => 
+    Hotel\PreSupplier\ImageData::__set_state(array(
+       'thumb' => NULL,
+       'alt' => NULL,
+       'category' => NULL,
+       'url' => NULL,
+    )),
+  ),
+   'direct' => NULL,
+   'hotelPreference' => NULL,
+   'preferred' => NULL,
+   'builtYear' => NULL,
+   'renovationYear' => NULL,
+   'floors' => NULL,
+   'noOfRooms' => NULL,
+   'luxury' => NULL,
+   'hotelName' => NULL,
+   'address' => NULL,
+   'zipCode' => NULL,
+   'location' => NULL,
+   'locationId' => NULL,
+   'location1' => NULL,
+   'location2' => NULL,
+   'location3' => NULL,
+   'cityName' => NULL,
+   'cityCode' => NULL,
+   'stateName' => NULL,
+   'stateCode' => NULL,
+   'countryName' => NULL,
+   'countryCode' => NULL,
+   'regionName' => NULL,
+   'regionCode' => NULL,
+   'amenitie' => NULL,
+   'leisure' => NULL,
+   'business' => NULL,
+   'transportation' => 
+  array (
+    0 => 
+    Hotel\PreSupplier\TransportationData::__set_state(array(
+       'Name' => NULL,
+       'Dist' => NULL,
+       'DistanceUnit' => NULL,
+       'DistTime' => NULL,
+       'Directions' => NULL,
+    )),
+  ),
+   'hotelPhone' => NULL,
+   'hotelCheckIn' => NULL,
+   'hotelCheckOut' => NULL,
+   'minAge' => NULL,
+   'rating' => NULL,
+   'fireSafety' => NULL,
+   'geoPoint' => NULL,
+   'chain' => NULL,
+   'lastUpdated' => NULL,
+))
