@@ -22,7 +22,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS6_1.php';
+require 'classFromPartner_Demo_jiraWPS13.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -672,7 +672,7 @@ class AnswerTreatment {
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
     public static $LabelsTransportation = array('Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
     public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren');
-    public static $LabelsRoomTypeStaticData = array('twin', 'roomAmenities', 'name', 'roomInfo');
+    public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'roomInfo');
 
     public function distributeValues($data, $index = NULL) {
         $errorPrint = false;
@@ -758,14 +758,16 @@ class AnswerTreatment {
                                 $hotelStaticData->$var = (int) $valuefinal[$i];
                             }
                         } elseif ($type == 'boolean') {
-                            if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
+                            if (isset($valuefinal[$i])) {
                                 if ($valuefinal[$i] == 'Y') {
                                     $valuefinal[$i] = true;
                                 } elseif ($valuefinal[$i] == 'N') {
                                     $valuefinal[$i] = false;
+                                } else {
+                                    $valuefinal[$i] = NULL;
                                 }
                             }
-                                $hotelStaticData->$var = $valuefinal[$i];
+                            $hotelStaticData->$var = $valuefinal[$i];
                         } else {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
                                 $hotelStaticData->$var = $valuefinal[$i];
