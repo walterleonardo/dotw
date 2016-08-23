@@ -45,6 +45,4 @@ class ReturnHotelStaticData
     public $chain;
     public $lastUpdated;
 
-
-
 } 

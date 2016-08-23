@@ -22,7 +22,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS13.php';
+require 'classFromPartner_Demo_jiraWPS6_1.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -671,8 +671,12 @@ class AnswerTreatment {
     public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
     public static $LabelsTransportation = array('Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
+    public static $LabelsRoomInfoTypes = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren');
     public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren');
-    public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'roomInfo');
+    public static $LabelsRoomTypeStaticDataTypes = array('twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array');
+    public static $LabelsRoomTypeStaticData = array('twin', 'roomAmenities', 'name', 'roomInfo');
+
+    //public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'roomInfo');
 
     public function distributeValues($data, $index = NULL) {
         $errorPrint = false;
@@ -743,7 +747,7 @@ class AnswerTreatment {
                  * Management object HOTELSTATICDATA
                  */
                 for ($i = 0; $i < count($valuefinal); $i++) {
-                    if (preg_match('/~/', $valuefinal[$i]) or $i == 40 or $i == 39) {
+                    if (preg_match('/~/', $valuefinal[$i]) or $i == 40 or $i == 39 or $i == 28 or $i == 29 or $i == 30) {
                         $array1 = explode('~', $valuefinal[$i]);
                         $var = self::$Labels[$i];
 
@@ -756,17 +760,24 @@ class AnswerTreatment {
                         if ($type == 'integer') {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
                                 $hotelStaticData->$var = (int) $valuefinal[$i];
+                            } else {
+                                $hotelStaticData->$var = 0;
+                            }
+                        } elseif ($type == 'string') {
+                            if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
+                                $hotelStaticData->$var = $valuefinal[$i];
+                            } else {
+                                $hotelStaticData->$var = "00";
                             }
                         } elseif ($type == 'boolean') {
                             if (isset($valuefinal[$i])) {
                                 if ($valuefinal[$i] == 'Y') {
                                     $valuefinal[$i] = true;
-                                } elseif ($valuefinal[$i] == 'N') {
-                                    $valuefinal[$i] = false;
                                 } else {
-                                    $valuefinal[$i] = NULL;
-                                }
+                                    $valuefinal[$i] = false;
+                                } 
                             }
+
                             $hotelStaticData->$var = $valuefinal[$i];
                         } else {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
@@ -786,7 +797,11 @@ class AnswerTreatment {
                     $array1 = explode('#', $valueIn);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelImage = self::$LabelsImages[$keyInIn];
-                        $imageData->$labelImage = $valueInIn;
+                        if ($valueInIn != '') {
+                            $imageData->$labelImage = $valueInIn;
+                        } else {
+                            $imageData->$labelImage = NULL;
+                        }
                     }
                     $arrayImage[] = $imageData;
                 }
@@ -819,15 +834,18 @@ class AnswerTreatment {
                             if (preg_match('/{/', $valueIn)) {
                                 if (self::$LabelsRoomTypeStaticData[$keyIn] == 'roomInfo') {
                                     $arrayIn = explode('{', $valueIn);
-                                    //$roomInfo = new \Hotel\StaticData\RoomInfo();
                                     foreach ($arrayIn as $keytri => $valuetri) {
                                         if (isset($valuetri)) {
                                             $labelRoomInfo = self::$LabelsRoomInfo[$keytri];
+
+
                                             if ($labelRoomInfo == 'maxExtraBed') {
                                                 if ($valuetri == 'Y') {
                                                     $roomInfo->$labelRoomInfo = true;
-                                                } else {
+                                                } else if ($valuetri == 'N') {
                                                     $roomInfo->$labelRoomInfo = false;
+                                                } else {
+                                                    $roomInfo->$labelRoomInfo = NULL;
                                                 }
                                             } else {
                                                 $roomInfo->$labelRoomInfo = (int) $valuetri;
@@ -842,16 +860,28 @@ class AnswerTreatment {
                                     $roomTypeStaticData->$labelRoom = $arrayIn;
                                 }
                             } else {
-                                if (self::$LabelsRoomTypeStaticData[$keyIn] == 'twin') {
+
+                                if (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'boolean') {
                                     if (isset($valueIn)) {
                                         if ($valueIn == 'Y') {
                                             $valueIn = true;
-                                        } else {
+                                        } else if ($valueIn == 'N') {
                                             $valueIn = false;
                                         }
+                                    } else {
+                                        $valueIn = NULL;
                                     }
                                     $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $valueIn;
+                                } else if (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'array') {
+                                    if (isset($valueIn) and $valueIn != ""){
+                                    $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                    $roomTypeStaticData->$labelRoom = $valueIn;
+                                    } else {
+                                    $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                    $roomTypeStaticData->$labelRoom = array(); 
+                                    }
+                                   
                                 } else {
                                     $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $valueIn;
