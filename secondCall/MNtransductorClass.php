@@ -22,7 +22,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS9.php';
+require 'classFromPartner_Demo_jiraWPS6_1.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -905,12 +905,12 @@ class AnswerTreatment {
             if (isset($index["hotelIds"][$key])) {
                 $arrayKeys = $index["hotelIds"];
             } else {
-                foreach ($hotelStaticData->RoomTypeStaticDataList as $key22 => $value22) {
-                    $hotelStaticData->RoomTypeStaticDataList[$arrayRoomTypeCode[$key22]] = $hotelStaticData->RoomTypeStaticDataList[$key22];
-                    unset($hotelStaticData->RoomTypeStaticDataList[$key22]);
+                foreach ($hotelStaticData->RoomTypeStaticDataList as $keyRoomTypeIndex => $valueRoomTypeIndex) {
+                    $hotelStaticData->RoomTypeStaticDataList[$arrayRoomTypeCode[$keyRoomTypeIndex]] = $hotelStaticData->RoomTypeStaticDataList[$keyRoomTypeIndex];
+                    unset($hotelStaticData->RoomTypeStaticDataList[$keyRoomTypeIndex]);
                 }
             }
-            self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
+            self::$answerStatic = $hotelStaticData;
         }
 
         //ORGANIZE THE HOTEL ROOM DETAIL INDEX
