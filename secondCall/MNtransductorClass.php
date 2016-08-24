@@ -65,7 +65,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -852,7 +852,7 @@ class AnswerTreatment {
                                                 $roomInfo->$labelRoomInfo = (int) $valuetri;
                                             }
                                             $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-                                            $roomTypeStaticData->$labelRoom = array($roomInfo);
+                                            $roomTypeStaticData->$labelRoom = $roomInfo;
                                         }
                                     }
                                 } else {
