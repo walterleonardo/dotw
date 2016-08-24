@@ -34,7 +34,7 @@ class StaticInput {
 
 class ReturnHotelStaticData {
 
-    public $description1 = false; //NO MANDATORY BOOL
+    public $description1 = true; //NO MANDATORY BOOL
     public $description2 = true;
     public $geoPoints = true;
     public $ratingDescription = true;

@@ -65,7 +65,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -905,12 +905,15 @@ class AnswerTreatment {
             if (isset($index["hotelIds"][$key])) {
                 $arrayKeys = $index["hotelIds"];
             } else {
+                $arrayKeys = array_keys($index["hotelIds"]);
                 foreach ($hotelStaticData->RoomTypeStaticDataList as $keyRoomTypeIndex => $valueRoomTypeIndex) {
                     $hotelStaticData->RoomTypeStaticDataList[$arrayRoomTypeCode[$keyRoomTypeIndex]] = $hotelStaticData->RoomTypeStaticDataList[$keyRoomTypeIndex];
                     unset($hotelStaticData->RoomTypeStaticDataList[$keyRoomTypeIndex]);
                 }
             }
-            self::$answerStatic = $hotelStaticData;
+            //self::$answerStatic = $hotelStaticData;
+            self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
+            
         }
 
         //ORGANIZE THE HOTEL ROOM DETAIL INDEX
