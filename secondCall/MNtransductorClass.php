@@ -22,7 +22,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS15.php';
+require 'classFromPartner_Demo_jiraWPS7_1.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -821,7 +821,7 @@ class AnswerTreatment {
                 $hotelStaticData->transportation = array($transportationData);
             }
             
-            if (isset($hotelStaticData->lastUpdated)) {
+            if (isset($hotelStaticData->lastUpdated)  and $hotelStaticData->lastUpdated !='') {
                 $hotelStaticData->lastUpdated =  gmdate("Y-m-d H:i:s", $hotelStaticData->lastUpdated);
             }
             
