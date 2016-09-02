@@ -22,7 +22,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS6_1.php';
+require 'classFromPartner_Demo_jiraWPS15.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -65,7 +65,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -669,12 +669,12 @@ class AnswerTreatment {
     public static $TransportationData;
     public static $types = array('string', 'string', 'string', 'string', 'boolean', 'array', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array');
     public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation');
+    public static $LabelsImagesTypes = array('thumb' => 'string', 'alt' => 'string', 'category' => 'integer', 'url' => 'string');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
+    public static $LabelsTransportationTypes = array('Name' => 'integer', 'Dist' => 'integer', 'DistanceUnit' => 'integer', 'DistTime' => 'integer', 'Directions' => 'integer');
     public static $LabelsTransportation = array('Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
-    public static $LabelsRoomInfoTypes = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren');
+    public static $LabelsRoomInfoTypes = array('maxOccupancy' => 'integer', 'maxAdultWithChildren' => 'integer', 'minChildAge' => 'integer', 'maxChildAge' => 'integer', 'maxAdult' => 'integer', 'maxExtraBed' => 'integer', 'maxChildren' => 'integer');
     public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren');
-    //public static $LabelsRoomTypeStaticDataTypes = array('twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array');
-    //public static $LabelsRoomTypeStaticData = array('twin', 'roomAmenities', 'name', 'roomInfo');
     public static $LabelsRoomTypeStaticDataTypes = array('roomTypeID' => 'integer', 'twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array');
     public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'roomInfo');
 
@@ -767,7 +767,9 @@ class AnswerTreatment {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
                                 $hotelStaticData->$var = $valuefinal[$i];
                             } else {
-                                $hotelStaticData->$var = "00";
+                                //if($i == ){
+                                $hotelStaticData->$var = "";
+                                //}
                             }
                         } elseif ($type == 'boolean') {
                             if (isset($valuefinal[$i])) {
@@ -818,7 +820,14 @@ class AnswerTreatment {
                 }
                 $hotelStaticData->transportation = array($transportationData);
             }
-
+            
+            if (isset($hotelStaticData->lastUpdated)) {
+                $hotelStaticData->lastUpdated =  gmdate("Y-m-d H:i:s", $hotelStaticData->lastUpdated);
+            }
+            
+            if (isset($hotelStaticData->locationId)) {
+                $hotelStaticData->location =  $hotelStaticData->locationId;
+            }
             /*
              * Management object RoomTypeStaticDataList and the internal objects RoomINFO
              */
@@ -864,9 +873,9 @@ class AnswerTreatment {
 
                                 if (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'boolean') {
                                     if (isset($valueIn)) {
-                                        if ($valueIn == 'Y') {
+                                        if ($valueIn == 'Y' or $valueIn == '1') {
                                             $valueIn = true;
-                                        } else if ($valueIn == 'N') {
+                                        } else if ($valueIn == 'N' or $valueIn == '0' or $valueIn == '2') {
                                             $valueIn = false;
                                         }
                                     } else {
@@ -913,17 +922,7 @@ class AnswerTreatment {
             }
             //self::$answerStatic = $hotelStaticData;
             self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
-            
         }
-
-        //ORGANIZE THE HOTEL ROOM DETAIL INDEX
-//        foreach (self::$answerStatic as $key => $value) {
-//            echo "\n\rROOM TYPE STATIC\n\r";
-//            echo $key;
-//            echo "\n";
-//            var_dump($value);
-//            echo "\n\r#######\n\r";
-//        }
 
         unset($keytr, $valuetr, $valueIn, $array_need, $labelRoomInfo, $roomInfo, $array, $array1, $labelRoom, $data, $i, $arrayImage, $arrayIn, $arrayRoomTypeStatic, $hotelStaticData, $roomTypeStaticData, $transportationData, $labelTransportation);
         return true;
