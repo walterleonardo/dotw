@@ -22,7 +22,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS15.php';
+require 'classFromPartner_Demo_jiraWPS18.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -673,8 +673,8 @@ class AnswerTreatment {
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
     public static $LabelsTransportationTypes = array('Name' => 'integer', 'Dist' => 'integer', 'DistanceUnit' => 'integer', 'DistTime' => 'integer', 'Directions' => 'integer');
     public static $LabelsTransportation = array('Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
-    public static $LabelsRoomInfoTypes = array('maxOccupancy' => 'integer', 'maxAdultWithChildren' => 'integer', 'minChildAge' => 'integer', 'maxChildAge' => 'integer', 'maxAdult' => 'integer', 'maxExtraBed' => 'integer', 'maxChildren' => 'integer');
-    public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren');
+    public static $LabelsRoomInfoTypes = array('maxOccupancy' => 'integer', 'maxAdultWithChildren' => 'integer', 'minChildAge' => 'integer', 'maxChildAge' => 'integer', 'maxAdult' => 'integer', 'maxExtraBed' => 'integer', 'maxChildren' => 'integer', 'children' => 'integer');
+    public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren', 'children');
     public static $LabelsRoomTypeStaticDataTypes = array('roomTypeID' => 'integer', 'twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array');
     public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'roomInfo');
 
@@ -813,18 +813,33 @@ class AnswerTreatment {
              * Management object Transportation
              */
             if (isset($hotelStaticData->transportation) and is_array($hotelStaticData->transportation)) {
-                $transportationData = new \Hotel\StaticData\TransportationData();
-                foreach ($hotelStaticData->transportation as $keytr => $valuetr) {
-                    $labelTransportation = self::$LabelsTransportation[$keytr];
-                    $transportationData->$labelTransportation = trim($valuetr);
+                $arrayTransportation = array();
+                foreach ($hotelStaticData->transportation as $keyIn => $valueIn) {
+                    $transportationData = new \Hotel\StaticData\TransportationData();
+                    $array1 = explode('#', $valueIn);
+                    foreach ($array1 as $keyInIn => $valueInIn) {
+                        $labelTransportation = self::$LabelsTransportation[$keyInIn];
+                        if ($valueInIn != '') {
+                            $transportationData->$labelTransportation = $valueInIn;
+                        } else {
+                            $transportationData->$labelTransportation = '';
+                        }
+                    }
+                    $arrayTransportation[] = $transportationData;
                 }
-                $hotelStaticData->transportation = array($transportationData);
+                $hotelStaticData->transportation = $arrayTransportation;
             }
-            
+
+            /*
+             * Management object LastUpdate
+             */
             if (isset($hotelStaticData->lastUpdated)  and $hotelStaticData->lastUpdated !='') {
                 $hotelStaticData->lastUpdated =  gmdate("Y-m-d H:i:s", $hotelStaticData->lastUpdated);
             }
             
+            /*
+             * Management object Location ID
+             */
             if (isset($hotelStaticData->locationId)) {
                 $hotelStaticData->location =  $hotelStaticData->locationId;
             }

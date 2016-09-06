@@ -18,5 +18,6 @@ class RoomInfo {
     public $maxAdult;
     public $maxExtraBed;
     public $maxChildren;
+    public $children;
 
 } 
