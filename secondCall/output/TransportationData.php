@@ -11,7 +11,7 @@ namespace Hotel\StaticData;
 
 class TransportationData
 {
-
+    public $Type;
     public $Name;
     public $Dist;
     public $DistanceUnit;

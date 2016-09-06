@@ -65,7 +65,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -671,8 +671,8 @@ class AnswerTreatment {
     public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation');
     public static $LabelsImagesTypes = array('thumb' => 'string', 'alt' => 'string', 'category' => 'integer', 'url' => 'string');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
-    public static $LabelsTransportationTypes = array('Name' => 'integer', 'Dist' => 'integer', 'DistanceUnit' => 'integer', 'DistTime' => 'integer', 'Directions' => 'integer');
-    public static $LabelsTransportation = array('Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
+    public static $LabelsTransportationTypes = array('Type' => 'integer','Name' => 'integer', 'Dist' => 'integer', 'DistanceUnit' => 'integer', 'DistTime' => 'integer', 'Directions' => 'integer');
+    public static $LabelsTransportation = array('Type' ,'Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
     public static $LabelsRoomInfoTypes = array('maxOccupancy' => 'integer', 'maxAdultWithChildren' => 'integer', 'minChildAge' => 'integer', 'maxChildAge' => 'integer', 'maxAdult' => 'integer', 'maxExtraBed' => 'integer', 'maxChildren' => 'integer', 'children' => 'integer');
     public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren', 'children');
     public static $LabelsRoomTypeStaticDataTypes = array('roomTypeID' => 'integer', 'twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array');
