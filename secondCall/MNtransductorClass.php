@@ -65,7 +65,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -799,11 +799,12 @@ class AnswerTreatment {
                     $array1 = explode('#', $valueIn);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelImage = self::$LabelsImages[$keyInIn];
-                        if ($valueInIn != '') {
-                            $imageData->$labelImage = $valueInIn;
-                        } else {
-                            $imageData->$labelImage = NULL;
-                        }
+                        $imageData->$labelImage = $valueInIn;
+//                        if ($valueInIn != '') {
+//                            $imageData->$labelImage = $valueInIn;
+//                        } else {
+//                            $imageData->$labelImage = NULL;
+//                        }
                     }
                     $arrayImage[] = $imageData;
                 }
