@@ -902,7 +902,7 @@ class AnswerTreatment {
                                 } elseif (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'array') {
                                     if (isset($valueIn) and $valueIn != "") {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-                                        $roomTypeStaticData->$labelRoom = $valueIn;
+                                        $roomTypeStaticData->$labelRoom = array($valueIn);
                                         
                                     } else {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
@@ -917,6 +917,7 @@ class AnswerTreatment {
                                     $roomTypeStaticData->$labelRoom = $valueIn;
                                 }
                             }
+                            
                             $arrayRoomTypeStatic[$keytr] = $roomTypeStaticData;
                         }
                     } else {
