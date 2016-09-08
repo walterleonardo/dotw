@@ -22,7 +22,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS18.php';
+require 'classFromPartner_Demo_jiraWPS27.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -754,6 +754,9 @@ class AnswerTreatment {
                         if (isset($array1) and $array1[0] != "") {
                             $hotelStaticData->$var = $array1;
                         }
+                        else{
+                            $hotelStaticData->$var = array();
+                        }
                     } else {
                         $var = self::$Labels[$i];
                         $type = self::$types[$i];
@@ -767,9 +770,7 @@ class AnswerTreatment {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
                                 $hotelStaticData->$var = $valuefinal[$i];
                             } else {
-                                //if($i == ){
-                                $hotelStaticData->$var = "";
-                                //}
+                                $hotelStaticData->$var = '';
                             }
                         } elseif ($type == 'boolean') {
                             if (isset($valuefinal[$i])) {
@@ -829,6 +830,8 @@ class AnswerTreatment {
                     $arrayTransportation[] = $transportationData;
                 }
                 $hotelStaticData->transportation = $arrayTransportation;
+            } else {
+                $hotelStaticData->transportation = array();
             }
 
             /*
