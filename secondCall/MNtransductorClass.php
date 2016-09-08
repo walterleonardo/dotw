@@ -22,7 +22,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS27.php';
+require 'classFromPartner_Demo_jiraWPS25.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -762,7 +762,7 @@ class AnswerTreatment {
                         $type = self::$types[$i];
                         if ($type == 'integer') {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
-                                $hotelStaticData->$var = (int) $valuefinal[$i];
+                                $hotelStaticData->$var = (int) $valuefinal[$i]; //(int)
                             } else {
                                 $hotelStaticData->$var = 0;
                             }
@@ -877,14 +877,15 @@ class AnswerTreatment {
                                                     $roomInfo->$labelRoomInfo = NULL;
                                                 }
                                             } else {
-                                                $roomInfo->$labelRoomInfo = (int) $valuetri;
+                                                $roomInfo->$labelRoomInfo = (int)$valuetri;//(int)
                                             }
                                             $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                             $roomTypeStaticData->$labelRoom = $roomInfo;
                                         }
                                     }
                                 } else {
-                                    $arrayIn = array_map('intval', explode('{', $valueIn));
+                                    //$arrayIn = array_map('intval', explode('{', $valueIn));
+                                    $arrayIn = array_map(null, explode('{', $valueIn));
                                     $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $arrayIn;
                                 }

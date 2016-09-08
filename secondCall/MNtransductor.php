@@ -49,6 +49,10 @@ if ($answerRequest == false) {
     var_export($answerRequest);
     echo "\n\r";
     echo "## ";
+    echo "\n\r";
+    var_dump($answerRequest);
+    echo "\n\r";
+    echo "## ";
     echo "Hotels received ";
     var_export(count($answerRequest));
     echo " ##\n\r";
