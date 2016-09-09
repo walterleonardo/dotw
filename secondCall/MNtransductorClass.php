@@ -22,7 +22,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS25.php';
+require 'classFromPartner_Demo_jiraWPS28.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -65,7 +65,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -671,8 +671,8 @@ class AnswerTreatment {
     public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation');
     public static $LabelsImagesTypes = array('thumb' => 'string', 'alt' => 'string', 'category' => 'integer', 'url' => 'string');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
-    public static $LabelsTransportationTypes = array('Type' => 'integer','Name' => 'integer', 'Dist' => 'integer', 'DistanceUnit' => 'integer', 'DistTime' => 'integer', 'Directions' => 'integer');
-    public static $LabelsTransportation = array('Type' ,'Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
+    public static $LabelsTransportationTypes = array('Type' => 'integer', 'Name' => 'integer', 'Dist' => 'integer', 'DistanceUnit' => 'integer', 'DistTime' => 'integer', 'Directions' => 'integer');
+    public static $LabelsTransportation = array('Type', 'Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
     public static $LabelsRoomInfoTypes = array('maxOccupancy' => 'integer', 'maxAdultWithChildren' => 'integer', 'minChildAge' => 'integer', 'maxChildAge' => 'integer', 'maxAdult' => 'integer', 'maxExtraBed' => 'integer', 'maxChildren' => 'integer', 'children' => 'integer');
     public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren', 'children');
     public static $LabelsRoomTypeStaticDataTypes = array('roomTypeID' => 'integer', 'twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array');
@@ -753,8 +753,7 @@ class AnswerTreatment {
 
                         if (isset($array1) and $array1[0] != "") {
                             $hotelStaticData->$var = $array1;
-                        }
-                        else{
+                        } else {
                             $hotelStaticData->$var = array();
                         }
                     } else {
@@ -837,15 +836,15 @@ class AnswerTreatment {
             /*
              * Management object LastUpdate
              */
-            if (isset($hotelStaticData->lastUpdated)  and $hotelStaticData->lastUpdated !='') {
-                $hotelStaticData->lastUpdated =  gmdate("Y-m-d H:i:s", $hotelStaticData->lastUpdated);
+            if (isset($hotelStaticData->lastUpdated) and $hotelStaticData->lastUpdated != '') {
+                $hotelStaticData->lastUpdated = gmdate("Y-m-d H:i:s", $hotelStaticData->lastUpdated);
             }
-            
+
             /*
              * Management object Location ID
              */
             if (isset($hotelStaticData->locationId)) {
-                $hotelStaticData->location =  $hotelStaticData->locationId;
+                $hotelStaticData->location = $hotelStaticData->locationId;
             }
             /*
              * Management object RoomTypeStaticDataList and the internal objects RoomINFO
@@ -877,7 +876,7 @@ class AnswerTreatment {
                                                     $roomInfo->$labelRoomInfo = NULL;
                                                 }
                                             } else {
-                                                $roomInfo->$labelRoomInfo = (int)$valuetri;//(int)
+                                                $roomInfo->$labelRoomInfo = (int) $valuetri; //(int)
                                             }
                                             $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                             $roomTypeStaticData->$labelRoom = $roomInfo;
@@ -907,12 +906,11 @@ class AnswerTreatment {
                                     if (isset($valueIn) and $valueIn != "") {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = array($valueIn);
-                                        
                                     } else {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = array();
                                     }
-                                } elseif (self::$LabelsRoomTypeStaticData[$keyIn] == 'roomTypeID'){
+                                } elseif (self::$LabelsRoomTypeStaticData[$keyIn] == 'roomTypeID') {
 //                                    $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
 //                                    $roomTypeStaticData->$labelRoom = $valueIn;
                                     $arrayRoomTypeCode[$keytr] = $valueIn;
@@ -921,7 +919,7 @@ class AnswerTreatment {
                                     $roomTypeStaticData->$labelRoom = $valueIn;
                                 }
                             }
-                            
+
                             $arrayRoomTypeStatic[$keytr] = $roomTypeStaticData;
                         }
                     } else {
@@ -929,6 +927,7 @@ class AnswerTreatment {
                         return false;
                     }
                 }
+                
                 $hotelStaticData->RoomTypeStaticDataList = $arrayRoomTypeStatic;
             }
             //ORDER FROM INDEX_HOTELCODE, include like index the HOTELIDS in each case. 
@@ -940,6 +939,7 @@ class AnswerTreatment {
                     $hotelStaticData->RoomTypeStaticDataList[$arrayRoomTypeCode[$keyRoomTypeIndex]] = $hotelStaticData->RoomTypeStaticDataList[$keyRoomTypeIndex];
                     unset($hotelStaticData->RoomTypeStaticDataList[$keyRoomTypeIndex]);
                 }
+                ksort($hotelStaticData->RoomTypeStaticDataList);
             }
             //self::$answerStatic = $hotelStaticData;
             self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
