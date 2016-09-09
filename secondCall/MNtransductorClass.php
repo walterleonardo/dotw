@@ -849,6 +849,10 @@ class AnswerTreatment {
             /*
              * Management object RoomTypeStaticDataList and the internal objects RoomINFO
              */
+//            echo "\n\r";
+//            var_export($hotelStaticData->RoomTypeStaticDataList);
+//            echo "\n\r";
+
             if (isset($hotelStaticData->RoomTypeStaticDataList) and is_array($hotelStaticData->RoomTypeStaticDataList)) {
                 $arrayRoomTypeStatic = array();
                 $arrayRoomTypeCode = array();
@@ -857,8 +861,13 @@ class AnswerTreatment {
                     if (preg_match('/#/', $valuetr)) {
                         $array1 = explode('#', $valuetr);
                         $roomInfo = new \Hotel\StaticData\RoomInfo();
+
                         foreach ($array1 as $keyIn => $valueIn) {
 
+                            if ($keyIn == 0) {
+                                $arrayRoomTypeCode[] = $valueIn;
+                            }
+                            //ROOM INFO save and order.
                             if (preg_match('/{/', $valueIn)) {
                                 if (self::$LabelsRoomTypeStaticData[$keyIn] == 'roomInfo') {
                                     $arrayIn = explode('{', $valueIn);
@@ -889,7 +898,7 @@ class AnswerTreatment {
                                     $roomTypeStaticData->$labelRoom = $arrayIn;
                                 }
                             } else {
-
+                                //Convert and save booleans
                                 if (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'boolean') {
                                     if (isset($valueIn)) {
                                         if ($valueIn == 'Y' or $valueIn == '1') {
@@ -902,6 +911,7 @@ class AnswerTreatment {
                                     }
                                     $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $valueIn;
+                                    //Convert and save array
                                 } elseif (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'array') {
                                     if (isset($valueIn) and $valueIn != "") {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
@@ -910,38 +920,35 @@ class AnswerTreatment {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = array();
                                     }
-                                } elseif (self::$LabelsRoomTypeStaticData[$keyIn] == 'roomTypeID') {
-//                                    $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-//                                    $roomTypeStaticData->$labelRoom = $valueIn;
-                                    $arrayRoomTypeCode[$keytr] = $valueIn;
                                 } else {
+                                    //save all the values differ to roomtypeId
+                                    if (self::$LabelsRoomTypeStaticData[$keyIn] != 'roomTypeID') {
                                     $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $valueIn;
+                                    }
                                 }
                             }
 
-                            $arrayRoomTypeStatic[$keytr] = $roomTypeStaticData;
+                            $arrayRoomTypeStatic[$array1[0]] = $roomTypeStaticData;
                         }
                     } else {
                         echo "INCORRECT ROOMTYPESTATICDATALIST\n\r";
                         return false;
                     }
                 }
-                
+
                 $hotelStaticData->RoomTypeStaticDataList = $arrayRoomTypeStatic;
             }
-            //ORDER FROM INDEX_HOTELCODE, include like index the HOTELIDS in each case. 
+
+
+//            ORDER FROM INDEX_HOTELCODE, include like index the HOTELIDS in each case. 
             if (isset($index["hotelIds"][$key])) {
                 $arrayKeys = $index["hotelIds"];
+                ksort($hotelStaticData->RoomTypeStaticDataList);
             } else {
                 $arrayKeys = array_keys($index["hotelIds"]);
-                foreach ($hotelStaticData->RoomTypeStaticDataList as $keyRoomTypeIndex => $valueRoomTypeIndex) {
-                    $hotelStaticData->RoomTypeStaticDataList[$arrayRoomTypeCode[$keyRoomTypeIndex]] = $hotelStaticData->RoomTypeStaticDataList[$keyRoomTypeIndex];
-                    unset($hotelStaticData->RoomTypeStaticDataList[$keyRoomTypeIndex]);
-                }
                 ksort($hotelStaticData->RoomTypeStaticDataList);
             }
-            //self::$answerStatic = $hotelStaticData;
             self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
         }
 
