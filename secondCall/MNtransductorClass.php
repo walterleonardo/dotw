@@ -69,7 +69,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -162,7 +162,7 @@ class run {
 //            }
             $array_HotelCode = $contructor->returnArray();
 
-            if ($mngAnswer->distributeValues($answerFromTCP, $array_HotelCode, $aReturnHotelStaticData, $aReturnRoomTypeStaticData, $aReturnRateData)) {
+            if ($mngAnswer->distributeValues($answerFromTCP, $array_HotelCode)) {
                 if ($errorPrint) {
                     echo "\n\r# PASS DISTRIBUTE VALUES #\n\r";
                     echo "\n\r###\n\r";
@@ -284,7 +284,7 @@ class Constructor {
     }
 
     Public function insertVar() {
-        $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false,'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false);
+        $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false);
         $aStaticInput = get_object_vars($this->aStaticInput);
         $aReturnHotelStaticData = get_object_vars($this->aReturnHotelStaticData);
         if (isset($this->aReturnRoomTypeStaticData)) {
@@ -315,8 +315,8 @@ class Constructor {
     //Insert default value FALSE if not provide in input
     Public function insert_value(&$value, &$_arr) {
         foreach ($value as $inKey => $inValue) {
-            if(isset($_arr[$inKey])){
-                $value[$inKey]=$_arr[$inKey];
+            if (isset($_arr[$inKey])) {
+                $value[$inKey] = $_arr[$inKey];
             }
         }
     }
@@ -694,7 +694,7 @@ class AnswerTreatment {
     public static $LabelsRoomTypeStaticDataTypes = array('roomTypeID' => 'integer', 'twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array');
     public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'roomInfo');
 
-    public function distributeValues($data, $index = NULL, $aReturnHotelStaticData, $aReturnRoomTypeStaticData, $aReturnRateData) {
+    public function distributeValues($data, $index = NULL) {
         $errorPrint = false;
         if ($errorPrint) {
             echo "\n\r# 1st STEP DISTRIBUTE VALUES #\n\r";
@@ -976,6 +976,24 @@ class AnswerTreatment {
                 $arrayKeys = array_keys($index["hotelIds"]);
                 ksort($hotelStaticData->RoomTypeStaticDataList);
             }
+
+
+
+
+            
+            if (Constructor::$arrayConverted['ReturnRoomTypeStaticData']['twin'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomAmenities'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['name'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomInfo'] == 'N'){
+                  echo "\r\n  CAMBIADO \r\n ";
+                $hotelStaticData->RoomTypeStaticDataList = NULL;
+            }
+            
+            foreach ($hotelStaticData as $keyHSD => $valueHSD) {
+                if (isset(Constructor::$arrayConverted['ReturnHotelStaticData'][$keyHSD])) {
+                    if (Constructor::$arrayConverted['ReturnHotelStaticData'][$keyHSD] == 'N') {
+                        $hotelStaticData->$keyHSD = NULL;
+                    }
+                }
+            }
+
 
             self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
         }
