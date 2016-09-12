@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS31.php';
+require 'classFromPartner_Demo_jiraWPS33.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -284,6 +284,7 @@ class Constructor {
     }
 
     Public function insertVar() {
+        $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false,'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false);
         $aStaticInput = get_object_vars($this->aStaticInput);
         $aReturnHotelStaticData = get_object_vars($this->aReturnHotelStaticData);
         if (isset($this->aReturnRoomTypeStaticData)) {
@@ -303,10 +304,21 @@ class Constructor {
         }
         self::$arrayConverted['hotelIds'] = $array_need;
         self::$arrayConverted['LanguageId'] = $aStaticInput['LanguageId'];
-        self::$arrayConverted['ReturnHotelStaticData'] = $aReturnHotelStaticData;
+        //Verify that all the value are provided, if not, include FALSE attribute
+        self::insert_value($aArrayOfReturnHotelStaticData, $aReturnHotelStaticData);
+        self::$arrayConverted['ReturnHotelStaticData'] = $aArrayOfReturnHotelStaticData;
         self::$arrayConverted['ReturnRoomTypeStaticData'] = $aReturnRoomTypeStaticData;
         unset($aReturnHotelStaticData, $aReturnRoomTypeStaticData, $aStaticInput, $array_need, $key, $value, $values);
         return true;
+    }
+
+    //Insert default value FALSE if not provide in input
+    Public function insert_value(&$value, &$_arr) {
+        foreach ($value as $inKey => $inValue) {
+            if(isset($_arr[$inKey])){
+                $value[$inKey]=$_arr[$inKey];
+            }
+        }
     }
 
     Public function convertToBool() {
@@ -802,7 +814,7 @@ class AnswerTreatment {
             }
             /*
              * Management object IMAGES
-             */ 
+             */
             if (isset($hotelStaticData->images) and is_array($hotelStaticData->images)) {
                 $arrayImage = array();
                 foreach ($hotelStaticData->images as $keyIn => $valueIn) {
