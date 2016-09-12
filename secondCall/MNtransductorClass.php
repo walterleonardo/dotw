@@ -6,6 +6,10 @@ namespace Second;
 $platform = 'dev';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
+$aStaticInput;
+$aReturnHotelStaticData;
+$aReturnRoomTypeStaticData;
+$errorPrint = true;
 
 require 'output/HotelStaticData.php';
 require 'output/ImageData.php';
@@ -22,7 +26,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS28.php';
+require 'classFromPartner_Demo_jiraWPS31.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -65,7 +69,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -158,7 +162,7 @@ class run {
 //            }
             $array_HotelCode = $contructor->returnArray();
 
-            if ($mngAnswer->distributeValues($answerFromTCP, $array_HotelCode)) {
+            if ($mngAnswer->distributeValues($answerFromTCP, $array_HotelCode, $aReturnHotelStaticData, $aReturnRoomTypeStaticData, $aReturnRateData)) {
                 if ($errorPrint) {
                     echo "\n\r# PASS DISTRIBUTE VALUES #\n\r";
                     echo "\n\r###\n\r";
@@ -678,7 +682,7 @@ class AnswerTreatment {
     public static $LabelsRoomTypeStaticDataTypes = array('roomTypeID' => 'integer', 'twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array');
     public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'roomInfo');
 
-    public function distributeValues($data, $index = NULL) {
+    public function distributeValues($data, $index = NULL, $aReturnHotelStaticData, $aReturnRoomTypeStaticData, $aReturnRateData) {
         $errorPrint = false;
         if ($errorPrint) {
             echo "\n\r# 1st STEP DISTRIBUTE VALUES #\n\r";
@@ -728,18 +732,23 @@ class AnswerTreatment {
                 /*
                  * TRANSLATE DESCRIPTION1 & 2/GEOPOINT/RATING DESCRIPTION/ADDRESS
                  */
+
                 if (isset($valuefinal[0])) {
                     self::translateSimils($valuefinal[0]);
                 }
+
                 if (isset($valuefinal[1])) {
                     self::translateSimils($valuefinal[1]);
                 }
+
                 if (isset($valuefinal[2])) {
                     self::translateSimils($valuefinal[2]);
                 }
+
                 if (isset($valuefinal[3])) {
                     self::translateSimils($valuefinal[3]);
                 }
+
                 if (isset($valuefinal[13])) {
                     self::translateSimils($valuefinal[13]);
                 }
@@ -747,6 +756,7 @@ class AnswerTreatment {
                  * Management object HOTELSTATICDATA
                  */
                 for ($i = 0; $i < count($valuefinal); $i++) {
+                    //CHECK if is array of ~
                     if (preg_match('/~/', $valuefinal[$i]) or $i == 40 or $i == 39 or $i == 28 or $i == 29 or $i == 30) {
                         $array1 = explode('~', $valuefinal[$i]);
                         $var = self::$Labels[$i];
@@ -756,12 +766,13 @@ class AnswerTreatment {
                         } else {
                             $hotelStaticData->$var = array();
                         }
+                        //IF NOT IS ARRAY
                     } else {
                         $var = self::$Labels[$i];
                         $type = self::$types[$i];
                         if ($type == 'integer') {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
-                                $hotelStaticData->$var = (int) $valuefinal[$i]; //(int)
+                                $hotelStaticData->$var = (int) $valuefinal[$i];
                             } else {
                                 $hotelStaticData->$var = 0;
                             }
@@ -791,7 +802,7 @@ class AnswerTreatment {
             }
             /*
              * Management object IMAGES
-             */
+             */ 
             if (isset($hotelStaticData->images) and is_array($hotelStaticData->images)) {
                 $arrayImage = array();
                 foreach ($hotelStaticData->images as $keyIn => $valueIn) {
@@ -833,6 +844,8 @@ class AnswerTreatment {
                 $hotelStaticData->transportation = array();
             }
 
+
+
             /*
              * Management object LastUpdate
              */
@@ -840,12 +853,14 @@ class AnswerTreatment {
                 $hotelStaticData->lastUpdated = gmdate("Y-m-d H:i:s", $hotelStaticData->lastUpdated);
             }
 
+
             /*
              * Management object Location ID
              */
             if (isset($hotelStaticData->locationId)) {
                 $hotelStaticData->location = $hotelStaticData->locationId;
             }
+
             /*
              * Management object RoomTypeStaticDataList and the internal objects RoomINFO
              */
@@ -923,8 +938,8 @@ class AnswerTreatment {
                                 } else {
                                     //save all the values differ to roomtypeId
                                     if (self::$LabelsRoomTypeStaticData[$keyIn] != 'roomTypeID') {
-                                    $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-                                    $roomTypeStaticData->$labelRoom = $valueIn;
+                                        $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                        $roomTypeStaticData->$labelRoom = $valueIn;
                                     }
                                 }
                             }
@@ -949,6 +964,7 @@ class AnswerTreatment {
                 $arrayKeys = array_keys($index["hotelIds"]);
                 ksort($hotelStaticData->RoomTypeStaticDataList);
             }
+
             self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
         }
 

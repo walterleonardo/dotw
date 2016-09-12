@@ -57,6 +57,4 @@ class HotelStaticData
     public $fireSafety;
     public $chain;
     public $lastUpdated;
-    public $attraction;
-
 } 
