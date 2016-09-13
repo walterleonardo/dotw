@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS25.php';
+require 'classFromPartner_Demo_jiraWPS43.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -69,7 +69,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -324,7 +324,7 @@ class Constructor {
         self::insert_value($aArrayOfReturnHotelStaticData, $aReturnHotelStaticData);
         self::$arrayConverted['ReturnHotelStaticData'] = $aArrayOfReturnHotelStaticData;
         self::$arrayConverted['ReturnRoomTypeStaticData'] = $aReturnRoomTypeStaticData;
-        unset($aReturnHotelStaticData, $aReturnRoomTypeStaticData, $aStaticInput, $array_need, $key, $value, $values);
+        unset($aReturnHotelStaticData, $aArrayOfReturnHotelStaticData, $aReturnRoomTypeStaticData, $aStaticInput, $array_need, $key, $value, $values);
         return true;
     }
 
@@ -366,6 +366,7 @@ class Constructor {
                         }
                     }
                 }
+                
             } else {
                 $val = $value;
                 if (gettype($val) == 'boolean') {
@@ -795,6 +796,7 @@ class AnswerTreatment {
                             $hotelStaticData->$var = array();
                         }
                         //IF NOT IS ARRAY
+                        
                     } else {
                         $var = self::$Labels[$i];
                         $type = self::$types[$i];
@@ -826,6 +828,7 @@ class AnswerTreatment {
                             }
                         }
                     }
+                    unset($array1);
                 }
             }
             /*
@@ -833,7 +836,22 @@ class AnswerTreatment {
              */
             if (isset($hotelStaticData->images) and is_array($hotelStaticData->images)) {
                 $arrayImage = array();
-                foreach ($hotelStaticData->images as $keyIn => $valueIn) {
+                if (is_array($hotelStaticData->images)) {
+                    foreach ($hotelStaticData->images as $keyIn => $valueIn) {
+                        $imageData = new \Hotel\StaticData\ImageData();
+                        $array1 = explode('#', $valueIn);
+                        foreach ($array1 as $keyInIn => $valueInIn) {
+                            $labelImage = self::$LabelsImages[$keyInIn];
+                            $imageData->$labelImage = $valueInIn;
+//                        if ($valueInIn != '') {
+//                            $imageData->$labelImage = $valueInIn;
+//                        } else {
+//                            $imageData->$labelImage = NULL;
+//                        }
+                        }
+                        $arrayImage[] = $imageData;
+                    }
+                } else {
                     $imageData = new \Hotel\StaticData\ImageData();
                     $array1 = explode('#', $valueIn);
                     foreach ($array1 as $keyInIn => $valueInIn) {
@@ -848,15 +866,32 @@ class AnswerTreatment {
                     $arrayImage[] = $imageData;
                 }
                 $hotelStaticData->images = $arrayImage;
+                unset($imageData,$valueInIn, $keyInIn, $valueIn, $keyIn, $arrayImage);
             }
             /*
              * Management object Transportation
              */
-            if (isset($hotelStaticData->transportation) and is_array($hotelStaticData->transportation)) {
+
+            if (isset($hotelStaticData->transportation)) {
                 $arrayTransportation = array();
-                foreach ($hotelStaticData->transportation as $keyIn => $valueIn) {
+                if (is_array($hotelStaticData->transportation)) {
+                    foreach ($hotelStaticData->transportation as $keyIn => $valueIn) {
+                        $transportationData = new \Hotel\StaticData\TransportationData();
+                        $array1 = explode('#', $valueIn);
+                        foreach ($array1 as $keyInIn => $valueInIn) {
+                            $labelTransportation = self::$LabelsTransportation[$keyInIn];
+                            if ($valueInIn != '') {
+                                $transportationData->$labelTransportation = $valueInIn;
+                            } else {
+                                $transportationData->$labelTransportation = '';
+                            }
+                        }
+                        $arrayTransportation[] = $transportationData;
+                    }
+                    $hotelStaticData->transportation = $arrayTransportation;
+                } else {
                     $transportationData = new \Hotel\StaticData\TransportationData();
-                    $array1 = explode('#', $valueIn);
+                    $array1 = explode('#', $hotelStaticData->transportation);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelTransportation = self::$LabelsTransportation[$keyInIn];
                         if ($valueInIn != '') {
@@ -866,8 +901,10 @@ class AnswerTreatment {
                         }
                     }
                     $arrayTransportation[] = $transportationData;
+                    $hotelStaticData->transportation = $arrayTransportation;
+                    
                 }
-                $hotelStaticData->transportation = $arrayTransportation;
+                unset($valueInIn, $keyInIn, $valueIn, $keyIn);
             } else {
                 $hotelStaticData->transportation = array();
             }
@@ -1014,7 +1051,7 @@ class AnswerTreatment {
             self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
         }
 
-        unset($keytr, $valuetr, $valueIn, $array_need, $labelRoomInfo, $roomInfo, $array, $array1, $labelRoom, $data, $i, $arrayImage, $arrayIn, $arrayRoomTypeStatic, $hotelStaticData, $roomTypeStaticData, $transportationData, $labelTransportation);
+        unset($key, $x, $arrayTransportation, $arrayRoomTypeCode, $arrayKeys, $hotelStaticData, $keyHSD, $valueHSD, $keytr, $valuetr, $valueIn, $array_need, $labelRoomInfo, $roomInfo, $array, $array1, $labelRoom, $data, $i, $arrayImage, $arrayIn, $arrayRoomTypeStatic, $hotelStaticData, $roomTypeStaticData, $transportationData, $labelTransportation);
         return true;
     }
 

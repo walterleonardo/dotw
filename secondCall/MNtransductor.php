@@ -15,8 +15,8 @@
 require 'MNtransductorClass.php';
 
 error_reporting(E_ALL);
-ini_set('display_errors','On');
-ini_set('error_log','/logs/errors.log');
+ini_set('display_errors', 'On');
+ini_set('error_log', '/logs/errors.log');
 
 /*
  * This is a example of USE of the FUNCTION
@@ -27,38 +27,47 @@ $numberOfRequest = 1;
 $err = 0;
 $start = microtime(true);
 
-while ($requestNumber < $numberOfRequest){
-$run = new \Second\run;
-$answerRequest = $run->managerSupplierRequest(new \Hotel\StaticData\StaticInput);
+while ($requestNumber < $numberOfRequest) {
+    $run = new \Second\run;
+    $answerRequest = $run->managerSupplierRequest(new \Hotel\StaticData\StaticInput);
 
 
-if ($answerRequest == false) {
-    echo "Error: ";
-    print_r($run->getError());
-    echo "Error code: ";
-    print_r($run->getErrorCode());
-    echo "\n";
-    echo "Received value: ";
-    var_export($answerRequest);
-    echo "\n\r";
-    echo "##\n\r";
-    
-    $err++;
-} else {
-    echo "\n\r";
-    var_export($answerRequest);
-    echo "\n\r";
-    echo "## ";
-//    echo "\n\r";
-//    var_dump($answerRequest);
-//    echo "\n\r";
-//    echo "## ";
-    echo "Hotels received ";
-    var_export(count($answerRequest));
-    echo " ##\n\r";
-}
-$requestNumber++;
+    if ($answerRequest == false) {
+        echo "Error: ";
+        print_r($run->getError());
+        echo "Error code: ";
+        print_r($run->getErrorCode());
+        echo "\n";
+        echo "Received value: ";
+        var_export($answerRequest);
+        echo "\n\r";
+        echo "##\n\r";
 
+        $err++;
+    } else {
+        echo "\n\r";
+        var_export($answerRequest);
+        echo "\n\r";
+        echo "## ";
+        echo "Hotels received ";
+        var_export(count($answerRequest));
+        echo " ##\n\r";
+
+        foreach ($answerRequest as $key => $value) {
+            echo "For hotel ID ";
+            var_export($key);
+            echo "\n###################\n";
+
+            echo "Rooms :";
+            var_export(count($answerRequest[$key]->RoomTypeStaticDataList));
+            echo "\nImages :";
+            var_export(count($answerRequest[$key]->images));
+            echo "\nTransportations :";
+            var_export(count($answerRequest[$key]->transportation));
+            echo "\n###################\n\r";
+        }
+    }
+    $requestNumber++;
 }
 
 $time_elapsed_secs = microtime(true) - $start;
