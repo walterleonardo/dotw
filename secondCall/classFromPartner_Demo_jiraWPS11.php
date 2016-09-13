@@ -61,7 +61,7 @@ class ReturnHotelStaticData {
     public $countryName = false;
     public $regionName = false;
     public $regionCode = false;
-    public $attraction = false;
+    //public $attraction = false;
     public $amenitie = false;
     public $leisure = false;
     public $business = false;
@@ -72,7 +72,7 @@ class ReturnHotelStaticData {
     public $minAge = false;
     public $rating = false;
     public $fireSafety = false;
-    public $geoPoint = false;
+    //public $geoPoint = false;
     public $chain = false;
     public $lastUpdated = false;
 

@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS33.php';
+require 'classFromPartner_Demo_jiraWPS25.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -219,6 +219,14 @@ class Check {
 
     public function mandatoryTypeReturnRoomTypeStaticData(&$data) {
         $array = get_object_vars($data);
+        $mandatory = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false);
+        foreach ($mandatory as $key => $value) {
+            if ($value) {
+                if (!isset($array[$key])) {
+                    return false;
+                }
+            }
+        }
         foreach ($array as $value) {
             if (isset($value)) {
                 if (gettype($value) != 'boolean') {
@@ -232,6 +240,14 @@ class Check {
 
     public function mandatoryTypeReturnHotelStaticData(&$data) {
         $array = get_object_vars($data);
+        $mandatory = array('twin' => false, 'roomAmenities' => false, 'name' => false, 'roomInfo' => false);
+        foreach ($mandatory as $key => $value) {
+            if ($value) {
+                if (!isset($array[$key])) {
+                    return false;
+                }
+            }
+        }
         foreach ($array as $value) {
             if (isset($value)) {
                 if (gettype($value) != 'boolean') {
@@ -980,12 +996,12 @@ class AnswerTreatment {
 
 
 
-            
-            if (Constructor::$arrayConverted['ReturnRoomTypeStaticData']['twin'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomAmenities'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['name'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomInfo'] == 'N'){
-                  echo "\r\n  CAMBIADO \r\n ";
+
+            if (Constructor::$arrayConverted['ReturnRoomTypeStaticData']['twin'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomAmenities'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['name'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomInfo'] == 'N') {
+                echo "\r\n  CAMBIADO \r\n ";
                 $hotelStaticData->RoomTypeStaticDataList = NULL;
             }
-            
+
             foreach ($hotelStaticData as $keyHSD => $valueHSD) {
                 if (isset(Constructor::$arrayConverted['ReturnHotelStaticData'][$keyHSD])) {
                     if (Constructor::$arrayConverted['ReturnHotelStaticData'][$keyHSD] == 'N') {
