@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 //require 'input_demo_from_Client/StaticInput.php';
 //require 'input_demo_from_Client/ReturnHotelStaticData.php';
 //require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
-require 'classFromPartner_Demo_jiraWPS43.php';
+require 'classFromPartner_Demo_jiraWPS28.php';
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
@@ -217,9 +217,13 @@ class Check {
         return true;
     }
 
-    public function mandatoryTypeReturnRoomTypeStaticData(&$data) {
+    
+
+    public function mandatoryTypeReturnHotelStaticData(&$data) {
         $array = get_object_vars($data);
-        $mandatory = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false);
+        $mandatory = array('description1' => true, 'description2' => true, 'geoPoints' => true, 'ratingDescription' => true, 'images' => true, 'direct' => true, 'hotelPreference' => true, 'builtYear' => true, 'renovationYear' => true, 'floors' => true, 'noOfRooms' => true, 'luxury' => true, 'address' => true, 'zipCode' => true, 'location' => true, 'locationId' => true, 'location1' => true, 'location2' => true, 'location3' => true, 'stateName' => true, 'stateCode' => true, 'countryName' => true, 'regionName' => true, 'regionCode' => true, 'amenitie' => true, 'leisure' => true, 'business' => true, 'transportation' => true, 'hotelPhone' => true, 'hotelCheckIn' => true, 'hotelCheckOut' => true, 'minAge' => true, 'rating' => true, 'fireSafety' => true, 'chain' => true, 'lastUpdated' => true);
+
+        //$mandatory = array('twin' => false, 'roomAmenities' => false, 'name' => false, 'roomInfo' => false);
         foreach ($mandatory as $key => $value) {
             if ($value) {
                 if (!isset($array[$key])) {
@@ -237,10 +241,11 @@ class Check {
         unset($array, $data, $value);
         return true;
     }
-
-    public function mandatoryTypeReturnHotelStaticData(&$data) {
+    
+    public function mandatoryTypeReturnRoomTypeStaticData(&$data) {
         $array = get_object_vars($data);
-        $mandatory = array('twin' => false, 'roomAmenities' => false, 'name' => false, 'roomInfo' => false);
+        //$mandatory = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false);
+        $mandatory = array('twin' => true, 'roomAmenities' => true, 'name' => true, 'roomInfo' => true);
         foreach ($mandatory as $key => $value) {
             if ($value) {
                 if (!isset($array[$key])) {
@@ -1035,8 +1040,7 @@ class AnswerTreatment {
 
 
             if (Constructor::$arrayConverted['ReturnRoomTypeStaticData']['twin'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomAmenities'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['name'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomInfo'] == 'N') {
-                echo "\r\n  CAMBIADO \r\n ";
-                $hotelStaticData->RoomTypeStaticDataList = NULL;
+                $hotelStaticData->RoomTypeStaticDataList = array();
             }
 
             foreach ($hotelStaticData as $keyHSD => $valueHSD) {
