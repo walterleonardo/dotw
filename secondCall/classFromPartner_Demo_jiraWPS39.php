@@ -5,10 +5,11 @@ namespace Hotel\StaticData;
 class StaticInput {
 
     public $hotelIds = array(
-    0=>14,    
-        1=>84, 
-        2=>94, 
-        3=>174, 
+        0=>84,    
+        1=>14, 
+        2=>24,
+        3=>94, 
+        4=>174, 
     );
     public $LanguageId = 1;
     //MANDATORY ARRAY

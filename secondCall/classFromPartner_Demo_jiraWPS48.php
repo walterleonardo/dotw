@@ -5,19 +5,19 @@ namespace Hotel\StaticData;
 class StaticInput {
 
     public $hotelIds = array(
-        14 =>
-        array(
-            0 => 166350,
-            1 => 6043085,
-            2 => 6043105,
-            3 => 6043125,
-            4 => 6043135,
-            5 => 13113548,
-            6 => 13113558,
-            7 => 13113718,
-            8 => 13113798,
-            9 => 13113808,
-        ),
+ 14 => 
+    array (
+      0 => 166350,
+      1 => 6043085,
+      2 => 6043105,
+      3 => 6043125,
+      4 => 6043135,
+      5 => 13113548,
+      6 => 13113558,
+      7 => 13113718,
+      8 => 13113798,
+      9 => 13113808,
+    ),
     );
     public $LanguageId = 1;
     //MANDATORY ARRAY
@@ -35,7 +35,7 @@ class StaticInput {
      * @var ReturnRateData;
      */
     public $ReturnRateData = array();
-
+    
     function __construct() {
         $this->ReturnHotelStaticData = new ReturnHotelStaticData();
         $this->ReturnRoomTypeStaticData = new ReturnRoomTypeStaticData();
@@ -99,7 +99,6 @@ class ReturnRoomTypeStaticData {
 }
 
 class ReturnRateData {
-
     public $status = false;
     public $rateType = false;
     public $allowsExtraMeals = false;
@@ -121,5 +120,4 @@ class ReturnRateData {
     public $leftToSellDaily = false;
     public $dailyMinStay = false;
     public $freeStay = false;
-
 }
