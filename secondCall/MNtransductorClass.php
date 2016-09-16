@@ -30,7 +30,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS48.php';
+    require 'classFromPartner_Demo_jiraWPS30.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -75,7 +75,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -225,7 +225,7 @@ class Check {
 
     public function mandatoryTypeReturnHotelStaticData(&$data) {
         $array = get_object_vars($data);
-        $mandatory = array('description1' => true, 'description2' => true, 'geoPoints' => true, 'ratingDescription' => true, 'images' => true, 'direct' => true, 'hotelPreference' => true, 'builtYear' => true, 'renovationYear' => true, 'floors' => true, 'noOfRooms' => true, 'luxury' => true, 'address' => true, 'zipCode' => true, 'location' => true, 'locationId' => true, 'location1' => true, 'location2' => true, 'location3' => true, 'stateName' => true, 'stateCode' => true, 'countryName' => true, 'regionName' => true, 'regionCode' => true, 'amenitie' => true, 'leisure' => true, 'business' => true, 'transportation' => true, 'hotelPhone' => true, 'hotelCheckIn' => true, 'hotelCheckOut' => true, 'minAge' => true, 'rating' => true, 'fireSafety' => true, 'chain' => true, 'lastUpdated' => true);
+        $mandatory = array('description1' => true, 'description2' => true, 'geoPoints' => true, 'ratingDescription' => true, 'images' => true, 'direct' => true, 'hotelPreference' => true, 'builtYear' => true, 'renovationYear' => true, 'floors' => true, 'noOfRooms' => true, 'luxury' => true, 'address' => true, 'zipCode' => true, 'location' => true, 'locationId' => true, 'location1' => true, 'location2' => true, 'location3' => true, 'stateName' => true, 'stateCode' => true, 'countryName' => true, 'regionName' => true, 'regionCode' => true, 'amenitie' => true, 'leisure' => true, 'business' => true, 'transportation' => true, 'hotelPhone' => true, 'hotelCheckIn' => true, 'hotelCheckOut' => true, 'minAge' => true, 'rating' => true, 'fireSafety' => true, 'chain' => true, 'lastUpdated' => true, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false);
 
         //$mandatory = array('twin' => false, 'roomAmenities' => false, 'name' => false, 'roomInfo' => false);
         foreach ($mandatory as $key => $value) {
@@ -309,7 +309,8 @@ class Constructor {
     }
 
     Public function insertVar() {
-        $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false);
+        $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false);
+
         $aStaticInput = get_object_vars($this->aStaticInput);
         $aReturnHotelStaticData = get_object_vars($this->aReturnHotelStaticData);
         if (isset($this->aReturnRoomTypeStaticData)) {
@@ -708,8 +709,8 @@ class AnswerTreatment {
     public static $RoomInfo;
     public static $RoomTypeStaticData;
     public static $TransportationData;
-    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'array', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array');
-    public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation');
+    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'array', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'integer', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string');
+    public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation', 'transferMandatory', 'tariffNotes', 'chainName');
     public static $LabelsImagesTypes = array('thumb' => 'string', 'alt' => 'string', 'category' => 'integer', 'url' => 'string');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
     public static $LabelsTransportationTypes = array('Type' => 'integer', 'Name' => 'integer', 'Dist' => 'integer', 'DistanceUnit' => 'integer', 'DistTime' => 'integer', 'Directions' => 'integer');
@@ -765,7 +766,7 @@ class AnswerTreatment {
                 /*
                  * REMOVE "\r\n" from the last value
                  */
-                $valuefinal[41] = trim($valuefinal[41], "\t\n\r\0\x0B");
+                $valuefinal[44] = trim($valuefinal[44], "\t\n\r\0\x0B");
                 /*
                  * TRANSLATE DESCRIPTION1 & 2/GEOPOINT/RATING DESCRIPTION/ADDRESS
                  */
@@ -793,6 +794,9 @@ class AnswerTreatment {
                  * Management object HOTELSTATICDATA
                  */
                 for ($i = 0; $i < count($valuefinal); $i++) {
+//                    echo"\r\n *** \r\n";
+//                    var_export($valuefinal);
+//                    echo"\r\n *** \r\n";
                     //CHECK if is array of ~
                     if (preg_match('/~/', $valuefinal[$i]) or $i == 40 or $i == 39 or $i == 28 or $i == 29 or $i == 30) {
                         $array1 = explode('~', $valuefinal[$i]);
@@ -805,6 +809,11 @@ class AnswerTreatment {
                         }
                         //IF NOT IS ARRAY
                     } else {
+//                        echo"\r\n *** \r\n";
+//                        var_export(self::$Labels);
+//                        echo"\r\n *** \r\n";
+//                        var_export(self::$types);
+//                        echo"\r\n *** \r\n";
                         $var = self::$Labels[$i];
                         $type = self::$types[$i];
                         if ($type == 'integer') {
@@ -924,14 +933,6 @@ class AnswerTreatment {
                 $hotelStaticData->lastUpdated = gmdate("Y-m-d H:i:s", $hotelStaticData->lastUpdated);
             }
 
-
-            /*
-             * Management object Location ID
-             */
-            if (isset($hotelStaticData->locationId)) {
-                $hotelStaticData->location = $hotelStaticData->locationId;
-            }
-
             /*
              * Management object RoomTypeStaticDataList and the internal objects RoomINFO
              */
@@ -1011,6 +1012,7 @@ class AnswerTreatment {
                                     }
                                 }
                             }
+
                             foreach ($roomTypeStaticData as $keyRTSD => $valueRTSD) {
                                 if (Constructor::$arrayConverted['ReturnRoomTypeStaticData'][$keyRTSD] == 'N') {
                                     $roomTypeStaticData->$keyRTSD = NULL;

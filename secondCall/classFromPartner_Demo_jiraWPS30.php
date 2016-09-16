@@ -5,11 +5,16 @@ namespace Hotel\StaticData;
 class StaticInput {
 
     public $hotelIds = array(
-        0=>14,    
-        1=>84, 
-        2=>24,
-        3=>94, 
-        4=>174, 
+//        44 =>
+//        array(
+//            0 => 44,
+//        ),
+        24 =>
+        array(
+        ),
+//        14 =>
+//        array(
+//        ),
     );
     public $LanguageId = 1;
     //MANDATORY ARRAY
@@ -27,7 +32,7 @@ class StaticInput {
      * @var ReturnRateData;
      */
     public $ReturnRateData = array();
-    
+
     function __construct() {
         $this->ReturnHotelStaticData = new ReturnHotelStaticData();
         $this->ReturnRoomTypeStaticData = new ReturnRoomTypeStaticData();
@@ -38,6 +43,8 @@ class StaticInput {
 
 class ReturnHotelStaticData {
 
+    //
+    //
     public $description1 = true; //NO MANDATORY BOOL
     public $description2 = true;
     public $geoPoints = true;
@@ -53,7 +60,7 @@ class ReturnHotelStaticData {
     public $address = true;
     public $zipCode = true;
     public $location = true;
-    public $locationId = true;
+    public $locationId = false;
     public $location1 = true;
     public $location2 = true;
     public $location3 = true;
@@ -73,9 +80,12 @@ class ReturnHotelStaticData {
     public $minAge = true;
     public $rating = true;
     public $fireSafety = true;
-    public $geoPoint = true;
+    //public $geoPoint = true;
     public $chain = true;
     public $lastUpdated = true;
+    public $transferMandatory = true;
+    public $tariffNotes = true;
+    public $chainName = true;
 
 }
 
@@ -89,6 +99,7 @@ class ReturnRoomTypeStaticData {
 }
 
 class ReturnRateData {
+
     public $status = true;
     public $rateType = true;
     public $allowsExtraMeals = true;
@@ -110,4 +121,5 @@ class ReturnRateData {
     public $leftToSellDaily = true;
     public $dailyMinStay = true;
     public $freeStay = true;
+
 }

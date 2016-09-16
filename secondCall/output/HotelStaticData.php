@@ -57,4 +57,8 @@ class HotelStaticData
     public $fireSafety;
     public $chain;
     public $lastUpdated;
+    public $transferMandatory;
+    public $tariffNotes;
+    public $chainName;
+    
 } 
