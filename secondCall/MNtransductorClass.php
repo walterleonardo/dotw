@@ -30,7 +30,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS30.php';
+    require 'classFromPartner_Demo_jiraWPS50.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -75,7 +75,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -709,7 +709,7 @@ class AnswerTreatment {
     public static $RoomInfo;
     public static $RoomTypeStaticData;
     public static $TransportationData;
-    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'array', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'integer', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string');
+    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'array', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string');
     public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation', 'transferMandatory', 'tariffNotes', 'chainName');
     public static $LabelsImagesTypes = array('thumb' => 'string', 'alt' => 'string', 'category' => 'integer', 'url' => 'string');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
@@ -770,7 +770,9 @@ class AnswerTreatment {
                 /*
                  * TRANSLATE DESCRIPTION1 & 2/GEOPOINT/RATING DESCRIPTION/ADDRESS
                  */
-
+//                echo "\r\n##ANSWER## \r\n";
+//                var_export($valuefinal[20]);
+//                echo "\r\n#### \r\n";
                 if (isset($valuefinal[0])) {
                     self::translateSimils($valuefinal[0]);
                 }
@@ -809,11 +811,6 @@ class AnswerTreatment {
                         }
                         //IF NOT IS ARRAY
                     } else {
-//                        echo"\r\n *** \r\n";
-//                        var_export(self::$Labels);
-//                        echo"\r\n *** \r\n";
-//                        var_export(self::$types);
-//                        echo"\r\n *** \r\n";
                         $var = self::$Labels[$i];
                         $type = self::$types[$i];
                         if ($type == 'integer') {
@@ -824,6 +821,9 @@ class AnswerTreatment {
                             }
                         } elseif ($type == 'string') {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
+//                                echo"\r\n *** \r\n";
+//                                var_export($var);
+//                                echo"\r\n *** \r\n";
                                 $hotelStaticData->$var = $valuefinal[$i];
                             } else {
                                 $hotelStaticData->$var = '';
