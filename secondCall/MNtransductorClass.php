@@ -30,7 +30,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS50.php';
+    require 'classFromPartner_Demo_jiraWPS50_1.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -686,8 +686,8 @@ class ConnectorTCP {
           }
          */
         socket_close($sock);
-        unset($message, $server, $port, $seconds, $debug, $sock, $buffer, $var, $len, $string);
         self::$answer = $buf;
+        unset($message, $server, $port, $seconds, $debug, $sock, $buffer, $var, $len, $string,$buf);
         return true;
     }
 
@@ -1059,6 +1059,7 @@ class AnswerTreatment {
 
 
             self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
+            unset($key, $hotelStaticData);
         }
 
         unset($key, $x, $arrayTransportation, $arrayRoomTypeCode, $arrayKeys, $hotelStaticData, $keyHSD, $valueHSD, $keytr, $valuetr, $valueIn, $array_need, $labelRoomInfo, $roomInfo, $array, $array1, $labelRoom, $data, $i, $arrayImage, $arrayIn, $arrayRoomTypeStatic, $hotelStaticData, $roomTypeStaticData, $transportationData, $labelTransportation);
