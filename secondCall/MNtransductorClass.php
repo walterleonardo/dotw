@@ -7,10 +7,6 @@ namespace Second;
 $platform = 'dev';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
-$aStaticInput;
-$aReturnHotelStaticData;
-$aReturnRoomTypeStaticData;
-$errorPrint = true;
 
 require 'output/HotelStaticData.php';
 require 'output/ImageData.php';
@@ -75,7 +71,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -1005,12 +1001,25 @@ class AnswerTreatment {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = array();
                                     }
+                                }elseif (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'string') {
+                                    if (isset($valueIn) and $valueIn != "") {
+                                        $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                        $roomTypeStaticData->$labelRoom = self::translateSimilsAnswerData($valueIn);
+                                    } else {
+                                        $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                        $roomTypeStaticData->$labelRoom = '';
+                                    }
                                 } else {
                                     if (self::$LabelsRoomTypeStaticData[$keyIn] != 'roomTypeID') {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = $valueIn;
                                     }
                                 }
+                              
+                                
+                                
+                                
+                                
                             }
 
                             foreach ($roomTypeStaticData as $keyRTSD => $valueRTSD) {
@@ -1069,10 +1078,19 @@ class AnswerTreatment {
     //Function to translate characters from codes
     public function translateSimils(&$data) {
         //$data = 1;
-        $order = array("CRETURN", "COMMA", "PIPES");
-        $replace = array("\n\r", ",", "[");
+        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA","CBRACES");
+        $replace = array("\n\r", ",", "|||", "[","~","{");
         $data = str_replace($order, $replace, $data);
         return true;
+    }
+    
+    //Function to translate characters from codes
+    public function translateSimilsAnswerData($data) {
+        //$data = 1;
+        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA","CBRACES");
+        $replace = array("\n\r", ",", "|||", "[","~","{");
+        $data = str_replace($order, $replace, $data);
+        return $data;
     }
 
     public function returnAnswerStatic() {
