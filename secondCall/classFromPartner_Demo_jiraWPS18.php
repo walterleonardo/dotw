@@ -5,18 +5,12 @@ namespace Hotel\StaticData;
 class StaticInput {
 
     public $hotelIds = array(
-        54 =>
+
+        1414 =>
         array(
         ),
-        34 =>
-        array(
-        ),
-        44 =>
-        array(
-        ),
-        24 =>
-        array(
-        ),
+        1154 => array(),
+     
     );
     public $LanguageId = 1;
     //MANDATORY ARRAY
@@ -51,7 +45,7 @@ class ReturnHotelStaticData {
     public $description2 = true;
     public $geoPoints = false;
     public $ratingDescription = false;
-    public $images = true;
+    public $images = false;
     public $direct = false;
     public $hotelPreference = false;
     public $builtYear = false;
@@ -61,7 +55,7 @@ class ReturnHotelStaticData {
     public $luxury = false;
     public $address = false;
     public $zipCode = false;
-    public $location = true;
+    public $location = false;
     public $locationId = true;
     public $location1 = false;
     public $location2 = false;
@@ -75,7 +69,7 @@ class ReturnHotelStaticData {
     public $amenitie = false;
     public $leisure = false;
     public $business = false;
-    public $transportation = true;
+    public $transportation = false;
     public $hotelPhone = false;
     public $hotelCheckIn = false;
     public $hotelCheckOut = false;
@@ -85,18 +79,18 @@ class ReturnHotelStaticData {
     //public $geoPoint = false;
     public $chain = false;
     public $lastUpdated = false;
-    public $transferMandatory = false;
-    public $tariffNotes = false;
-    public $chainName = false;
+    public $transferMandatory = true;
+    public $tariffNotes = true;
+    public $chainName = true;
 
 }
 
 class ReturnRoomTypeStaticData {
 
-    public $twin = true; //NO MANDATORY BOOL
-    public $roomAmenities = true;
-    public $name = true;
-    public $roomInfo = true;
+    public $twin = false; //NO MANDATORY BOOL
+    public $roomAmenities = false;
+    public $name = false;
+    public $roomInfo = false;
 
 }
 

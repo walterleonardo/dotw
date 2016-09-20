@@ -11,6 +11,9 @@ $request = array(
     4 => "HOTELDATAREQUEST |64|1|N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N|N,N,N,N \r\n",
     5 => "HOTELDATAREQUEST |74|1|N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N|N,N,N,N \r\n",
     6 => "HOTELDATAREQUEST |84|1|N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N,N|N,N,N,N \r\n",
+    7 => "PSFILTER |334822|dev|1|Y||14864|||1011,1003,1004,1529,1005,1017,1022|2~~N~N|,,,101255~105575~130795~15754~15884~15944,,,,,,,,,,,,,|\r\n",
+    8 => "PSFILTER |1133698|dev|1|Y||22994|||1011,1003,1004,1529,1005,1017,1022|1~~N~N||\r\n",
+
 );
 error_reporting(E_ALL);
 /* Obtener el puerto para el servicio WWW. */
@@ -58,9 +61,9 @@ foreach ($request as $in) {
     }
     echo "Answer from DAEMON:";
     var_export($buf);
-
+    echo"##########\n";
 }
-    echo"\r";
+echo"\r";
 echo "Closing socket...";
 socket_close($socket);
 echo "OK.\n\n";

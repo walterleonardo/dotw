@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS50_1.php';
+    require 'classFromPartner_Demo_jiraWPS47.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -705,8 +705,8 @@ class AnswerTreatment {
     public static $RoomInfo;
     public static $RoomTypeStaticData;
     public static $TransportationData;
-    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'array', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string');
-    public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation', 'transferMandatory', 'tariffNotes', 'chainName');
+    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'array', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string', 'integer');
+    public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation', 'transferMandatory', 'tariffNotes', 'chainName', 'hotelIdentifier');
     public static $LabelsImagesTypes = array('thumb' => 'string', 'alt' => 'string', 'category' => 'integer', 'url' => 'string');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
     public static $LabelsTransportationTypes = array('Type' => 'integer', 'Name' => 'integer', 'Dist' => 'integer', 'DistanceUnit' => 'integer', 'DistTime' => 'integer', 'Directions' => 'integer');
@@ -744,11 +744,21 @@ class AnswerTreatment {
          */
 
         foreach ($array as $key => $value) {
+            
+//            echo "######\r\n";
+//            var_export($value);
+//                echo "\r\n";
             if ($errorPrint) {
                 echo "\n\r# 2dn STEP DISTRIBUTE VALUES #\n\r";
                 echo "\n\r###\n\r";
             }
             $valuefinal = explode("[", $value);
+            $indexFromLastValue = $valuefinal[45];
+            echo "#######\n\r";
+            var_export($indexFromLastValue);
+            echo "#######\n\r";
+            unset($valuefinal[45]);
+            unset($valuefinal[46]);
             $hotelStaticData = new \Hotel\StaticData\HotelStaticData();
             for ($x = 0; $x < count($key); $x++) {
 
@@ -1029,6 +1039,7 @@ class AnswerTreatment {
                             }
 
 
+                            //$arrayRoomTypeStatic[$array1[0]] = $roomTypeStaticData;
                             $arrayRoomTypeStatic[$array1[0]] = $roomTypeStaticData;
                         }
                     } else {
@@ -1041,14 +1052,14 @@ class AnswerTreatment {
             }
 
 
-//            ORDER FROM INDEX_HOTELCODE, include like index the HOTELIDS in each case. 
-            if (isset($index["hotelIds"][$key])) {
-                $arrayKeys = $index["hotelIds"];
-                ksort($hotelStaticData->RoomTypeStaticDataList);
-            } else {
-                $arrayKeys = array_keys($index["hotelIds"]);
-                ksort($hotelStaticData->RoomTypeStaticDataList);
-            }
+////            ORDER FROM INDEX_HOTELCODE, include like index the HOTELIDS in each case. 
+//            if (isset($index["hotelIds"][$key])) {
+//                $arrayKeys = $index["hotelIds"];
+//                ksort($hotelStaticData->RoomTypeStaticDataList);
+//            } else {
+//                $arrayKeys = array_keys($index["hotelIds"]);
+//                ksort($hotelStaticData->RoomTypeStaticDataList);
+//            }
 
 
 
@@ -1067,7 +1078,7 @@ class AnswerTreatment {
             }
 
 
-            self::$answerStatic[$arrayKeys[$key]] = $hotelStaticData;
+            self::$answerStatic[$indexFromLastValue] = $hotelStaticData;
             unset($key, $hotelStaticData);
         }
 
