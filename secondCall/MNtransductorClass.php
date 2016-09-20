@@ -753,12 +753,11 @@ class AnswerTreatment {
                 echo "\n\r###\n\r";
             }
             $valuefinal = explode("[", $value);
-            $indexFromLastValue = $valuefinal[45];
-            echo "#######\n\r";
-            var_export($indexFromLastValue);
-            echo "#######\n\r";
+            $indexFromLastValue =trim($valuefinal[45], "\t\n\r\0\x0B");
+//            echo "#######\n\r";
+//            var_export($indexFromLastValue);
+//            echo "#######\n\r";
             unset($valuefinal[45]);
-            unset($valuefinal[46]);
             $hotelStaticData = new \Hotel\StaticData\HotelStaticData();
             for ($x = 0; $x < count($key); $x++) {
 
@@ -772,7 +771,7 @@ class AnswerTreatment {
                 /*
                  * REMOVE "\r\n" from the last value
                  */
-                $valuefinal[44] = trim($valuefinal[44], "\t\n\r\0\x0B");
+                //$valuefinal[44] = trim($valuefinal[44], "\t\n\r\0\x0B");
                 /*
                  * TRANSLATE DESCRIPTION1 & 2/GEOPOINT/RATING DESCRIPTION/ADDRESS
                  */

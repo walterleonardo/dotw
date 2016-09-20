@@ -8,6 +8,7 @@ class StaticInput {
         
         340645 => array(),
         8674 => array(15578978),
+        44 => array(),
     );
     public $LanguageId = 1;
     //MANDATORY ARRAY

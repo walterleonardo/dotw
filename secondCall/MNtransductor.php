@@ -56,9 +56,9 @@ while ($requestNumber < $numberOfRequest) {
         foreach ($answerRequest as $key => $value) {
             echo "For hotel ID ";
             var_export($key);
-            echo "\t\t";
+            echo "\t";
 
-            echo "Rooms :";
+            echo "\tRooms :";
             var_export(count($answerRequest[$key]->RoomTypeStaticDataList));
             echo "\tImages :";
             var_export(count($answerRequest[$key]->images));
