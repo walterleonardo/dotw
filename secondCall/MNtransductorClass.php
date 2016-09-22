@@ -1061,8 +1061,8 @@ class AnswerTreatment {
     //Function to translate characters from codes
     public function translateSimils(&$data) {
         //$data = 1;
-        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA", "CBRACES");
-        $replace = array("\n\r", ",", "|||", "[", "~", "{");
+        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA", "CBRACES", "CPAD");
+        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
         $data = str_replace($order, $replace, $data);
         return true;
     }
@@ -1070,8 +1070,8 @@ class AnswerTreatment {
     //Function to translate characters from codes
     public function translateSimilsAnswerData($data) {
         //$data = 1;
-        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA", "CBRACES");
-        $replace = array("\n\r", ",", "|||", "[", "~", "{");
+        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA", "CBRACES", "CPAD");
+        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
         $data = str_replace($order, $replace, $data);
         return $data;
     }
