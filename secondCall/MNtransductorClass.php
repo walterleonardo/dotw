@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS50.php';
+    require 'classFromPartner_Demo_jiraWPS54.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -71,7 +71,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -773,32 +773,6 @@ class AnswerTreatment {
                  */
                 //$valuefinal[44] = trim($valuefinal[44], "\t\n\r\0\x0B");
                 /*
-                 * TRANSLATE DESCRIPTION1 & 2/GEOPOINT/RATING DESCRIPTION/ADDRESS
-                 */
-//                echo "\r\n##ANSWER## \r\n";
-//                var_export($valuefinal[20]);
-//                echo "\r\n#### \r\n";
-//                if (isset($valuefinal[0])) {
-//                    self::translateSimils($valuefinal[0]);
-//                }
-//
-//                if (isset($valuefinal[1])) {
-//                    self::translateSimils($valuefinal[1]);
-//                }
-//
-//                if (isset($valuefinal[2])) {
-//                    self::translateSimils($valuefinal[2]);
-//                }
-//
-//                if (isset($valuefinal[3])) {
-//                    self::translateSimils($valuefinal[3]);
-//                }
-//
-//                if (isset($valuefinal[13])) {
-//                    self::translateSimils($valuefinal[13]);
-//                }
-
-                /*
                  * Management object HOTELSTATICDATA
                  */
                 for ($i = 0; $i < count($valuefinal); $i++) {
@@ -806,26 +780,6 @@ class AnswerTreatment {
                     $type = self::$types[$i];
 
                     //CHECK if is array of ~
-//                    if (preg_match('/~/', $valuefinal[$i]) or $i == 28 or $i == 29 or $i == 30 or $i == 39 or $i == 40) {
-//
-//                        echo "\r\n########\r\n";
-//                        var_export($i);
-//                        echo " ---> ";
-//                        var_export($var);
-//                        echo " ---> ";
-//                        var_export($valuefinal[$i]);
-//                        echo "\r\n########\r\n";
-//                        if ($var != 'hotelPhone') {
-//                            $array1 = explode('~', $valuefinal[$i]);
-//                        }
-//
-//                        if (isset($array1) and $array1[0] != "") {
-//                            $hotelStaticData->$var = $array1;
-//                        } else {
-//                            $hotelStaticData->$var = array();
-//                        }
-//                        //IF NOT IS ARRAY
-//                    } else {
                     if ($type == 'array') {
                         $array1 = explode('~', $valuefinal[$i]);
                         if (isset($array1) and $array1[0] != "") {
@@ -834,41 +788,46 @@ class AnswerTreatment {
                             $hotelStaticData->$var = array();
                         }
                     } elseif ($type == 'integer') {
-                            if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
-                                $hotelStaticData->$var = (int) $valuefinal[$i];
-                            } else {
-                                $hotelStaticData->$var = 0;
-                            }
-                        } elseif ($type == 'string') {
-                            if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
-//                                echo "\r\n########\r\n";
-//                                var_export($var);
-//                                echo " ---> ";
-//                                var_export($valuefinal[$i]);
-//                                echo "\r\n########\r\n";
-                                /*
-                                 * Translate symbolsData to symbols
-                                 * 
-                                 */
-                                $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
-                            } else {
-                                $hotelStaticData->$var = '';
-                            }
-                        } elseif ($type == 'boolean') {
-                            if (isset($valuefinal[$i])) {
-                                if ($valuefinal[$i] == 'Y' or $valuefinal[$i] == '1') {
-                                    $valuefinal[$i] = true;
-                                } else {
-                                    $valuefinal[$i] = false;
-                                }
-                            }
-
-                            $hotelStaticData->$var = $valuefinal[$i];
+                        if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
+                            $hotelStaticData->$var = (int) $valuefinal[$i];
                         } else {
-                            if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
-                                $hotelStaticData->$var = $valuefinal[$i];
+                            $hotelStaticData->$var = 0;
+                        }
+                    } elseif ($type == 'string') {
+                        if (isset($valuefinal[$i])) {
+                            if ($valuefinal[$i] == '0CCOMMA0') {
+                                $valuefinal[$i] = '';
+                            }
+                            /*
+                             * Translate symbolsData to symbols
+                             * 
+                             */
+//                            echo "\r\n########\r\n";
+//                            var_export($i);
+//                            echo " ---> ";
+//                            var_export($var);
+//                            echo " ---> ";
+//                            var_export($valuefinal[$i]);
+//                            echo "\r\n########\r\n";
+                            $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
+                        } else {
+                            $hotelStaticData->$var = '';
+                        }
+                    } elseif ($type == 'boolean') {
+                        if (isset($valuefinal[$i])) {
+                            if ($valuefinal[$i] == 'Y' or $valuefinal[$i] == '1') {
+                                $valuefinal[$i] = true;
+                            } else {
+                                $valuefinal[$i] = false;
                             }
                         }
+
+                        $hotelStaticData->$var = $valuefinal[$i];
+                    } else {
+                        if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
+                            $hotelStaticData->$var = $valuefinal[$i];
+                        }
+                    }
                     //}
                     unset($array1);
                 }
