@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS54.php';
+    require 'classFromPartner_Demo_jiraWPS53.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -705,7 +705,7 @@ class AnswerTreatment {
     public static $RoomInfo;
     public static $RoomTypeStaticData;
     public static $TransportationData;
-    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'array', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string', 'integer');
+    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'string', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string', 'integer');
     public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation', 'transferMandatory', 'tariffNotes', 'chainName', 'hotelIdentifier');
     public static $LabelsImagesTypes = array('thumb' => 'string', 'alt' => 'string', 'category' => 'integer', 'url' => 'string');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
@@ -798,23 +798,20 @@ class AnswerTreatment {
                             if ($valuefinal[$i] == '0CCOMMA0') {
                                 $valuefinal[$i] = '';
                             }
-                            /*
-                             * Translate symbolsData to symbols
-                             * 
-                             */
-//                            echo "\r\n########\r\n";
-//                            var_export($i);
-//                            echo " ---> ";
-//                            var_export($var);
-//                            echo " ---> ";
-//                            var_export($valuefinal[$i]);
-//                            echo "\r\n########\r\n";
-                            $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
+                            if ($var == 'hotelPreference') {
+                                $hotelStaticData->$var = NULL;
+                            } else {
+                                /*
+                                 * Translate symbolsData to symbols
+                                 * 
+                                 */
+                                $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
+                            }
                         } else {
                             $hotelStaticData->$var = '';
                         }
                     } elseif ($type == 'boolean') {
-                        if (isset($valuefinal[$i])) {
+                        if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
                             if ($valuefinal[$i] == 'Y' or $valuefinal[$i] == '1') {
                                 $valuefinal[$i] = true;
                             } else {
