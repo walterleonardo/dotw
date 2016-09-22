@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS55.php';
+    require 'classFromPartner_Demo_jiraWPS50.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -71,7 +71,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -699,7 +699,7 @@ class ConnectorTCP {
 
 class AnswerTreatment {
 
-    public static $answerStatic = array();
+    public static $answerStatic = null;
     public static $HotelStaticData;
     public static $ImageData;
     public static $RoomInfo;
@@ -802,28 +802,38 @@ class AnswerTreatment {
                  * Management object HOTELSTATICDATA
                  */
                 for ($i = 0; $i < count($valuefinal); $i++) {
+                    $var = self::$Labels[$i];
+                    $type = self::$types[$i];
 
-
-//                    echo"\r\n *** \r\n";
-//                    var_export($valuefinal);
-//                    echo"\r\n *** \r\n";
                     //CHECK if is array of ~
-                    if (preg_match('/~/', $valuefinal[$i]) or $i == 40 or $i == 39 or $i == 28 or $i == 29 or $i == 30) {
-                        if($i != 31) {
+//                    if (preg_match('/~/', $valuefinal[$i]) or $i == 28 or $i == 29 or $i == 30 or $i == 39 or $i == 40) {
+//
+//                        echo "\r\n########\r\n";
+//                        var_export($i);
+//                        echo " ---> ";
+//                        var_export($var);
+//                        echo " ---> ";
+//                        var_export($valuefinal[$i]);
+//                        echo "\r\n########\r\n";
+//                        if ($var != 'hotelPhone') {
+//                            $array1 = explode('~', $valuefinal[$i]);
+//                        }
+//
+//                        if (isset($array1) and $array1[0] != "") {
+//                            $hotelStaticData->$var = $array1;
+//                        } else {
+//                            $hotelStaticData->$var = array();
+//                        }
+//                        //IF NOT IS ARRAY
+//                    } else {
+                    if ($type == 'array') {
                         $array1 = explode('~', $valuefinal[$i]);
-                        }
-                        $var = self::$Labels[$i];
-
                         if (isset($array1) and $array1[0] != "") {
                             $hotelStaticData->$var = $array1;
                         } else {
                             $hotelStaticData->$var = array();
                         }
-                        //IF NOT IS ARRAY
-                    } else {
-                        $var = self::$Labels[$i];
-                        $type = self::$types[$i];
-                        if ($type == 'integer') {
+                    } elseif ($type == 'integer') {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
                                 $hotelStaticData->$var = (int) $valuefinal[$i];
                             } else {
@@ -831,9 +841,11 @@ class AnswerTreatment {
                             }
                         } elseif ($type == 'string') {
                             if (isset($valuefinal[$i]) and $valuefinal[$i] != '') {
-//                                echo"\r\n *** \r\n";
+//                                echo "\r\n########\r\n";
 //                                var_export($var);
-//                                echo"\r\n *** \r\n";
+//                                echo " ---> ";
+//                                var_export($valuefinal[$i]);
+//                                echo "\r\n########\r\n";
                                 /*
                                  * Translate symbolsData to symbols
                                  * 
@@ -844,7 +856,7 @@ class AnswerTreatment {
                             }
                         } elseif ($type == 'boolean') {
                             if (isset($valuefinal[$i])) {
-                                if ($valuefinal[$i] == 'Y') {
+                                if ($valuefinal[$i] == 'Y' or $valuefinal[$i] == '1') {
                                     $valuefinal[$i] = true;
                                 } else {
                                     $valuefinal[$i] = false;
@@ -857,7 +869,7 @@ class AnswerTreatment {
                                 $hotelStaticData->$var = $valuefinal[$i];
                             }
                         }
-                    }
+                    //}
                     unset($array1);
                 }
             }

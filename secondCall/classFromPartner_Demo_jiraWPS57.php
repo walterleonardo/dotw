@@ -5,19 +5,9 @@ namespace Hotel\StaticData;
 class StaticInput {
 
     public $hotelIds = array(
-14 => 
-    array (
-      0 => 166350,
-//      1 => 6043085,
-//      2 => 6043105,
-//      3 => 6043125,
-//      4 => 6043135,
-//      5 => 13113548,
-//      6 => 13113558,
-//      7 => 13113718,
-//      8 => 13113798,
-//      9 => 13113808,
-    ),
+        0 => 46364,
+//        5 => 8674,
+//        8674 => array(15578918)
     );
     public $LanguageId = 1;
     //MANDATORY ARRAY
