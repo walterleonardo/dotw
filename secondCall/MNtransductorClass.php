@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS47.php';
+    require 'classFromPartner_Demo_jiraWPS55.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -71,7 +71,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -683,7 +683,7 @@ class ConnectorTCP {
          */
         socket_close($sock);
         self::$answer = $buf;
-        unset($message, $server, $port, $seconds, $debug, $sock, $buffer, $var, $len, $string,$buf);
+        unset($message, $server, $port, $seconds, $debug, $sock, $buffer, $var, $len, $string, $buf);
         return true;
     }
 
@@ -744,7 +744,7 @@ class AnswerTreatment {
          */
 
         foreach ($array as $key => $value) {
-            
+
 //            echo "######\r\n";
 //            var_export($value);
 //                echo "\r\n";
@@ -753,7 +753,7 @@ class AnswerTreatment {
                 echo "\n\r###\n\r";
             }
             $valuefinal = explode("[", $value);
-            $indexFromLastValue =trim($valuefinal[45], "\t\n\r\0\x0B");
+            $indexFromLastValue = trim($valuefinal[45], "\t\n\r\0\x0B");
 //            echo "#######\n\r";
 //            var_export($indexFromLastValue);
 //            echo "#######\n\r";
@@ -778,35 +778,40 @@ class AnswerTreatment {
 //                echo "\r\n##ANSWER## \r\n";
 //                var_export($valuefinal[20]);
 //                echo "\r\n#### \r\n";
-                if (isset($valuefinal[0])) {
-                    self::translateSimils($valuefinal[0]);
-                }
+//                if (isset($valuefinal[0])) {
+//                    self::translateSimils($valuefinal[0]);
+//                }
+//
+//                if (isset($valuefinal[1])) {
+//                    self::translateSimils($valuefinal[1]);
+//                }
+//
+//                if (isset($valuefinal[2])) {
+//                    self::translateSimils($valuefinal[2]);
+//                }
+//
+//                if (isset($valuefinal[3])) {
+//                    self::translateSimils($valuefinal[3]);
+//                }
+//
+//                if (isset($valuefinal[13])) {
+//                    self::translateSimils($valuefinal[13]);
+//                }
 
-                if (isset($valuefinal[1])) {
-                    self::translateSimils($valuefinal[1]);
-                }
-
-                if (isset($valuefinal[2])) {
-                    self::translateSimils($valuefinal[2]);
-                }
-
-                if (isset($valuefinal[3])) {
-                    self::translateSimils($valuefinal[3]);
-                }
-
-                if (isset($valuefinal[13])) {
-                    self::translateSimils($valuefinal[13]);
-                }
                 /*
                  * Management object HOTELSTATICDATA
                  */
                 for ($i = 0; $i < count($valuefinal); $i++) {
+
+
 //                    echo"\r\n *** \r\n";
 //                    var_export($valuefinal);
 //                    echo"\r\n *** \r\n";
                     //CHECK if is array of ~
                     if (preg_match('/~/', $valuefinal[$i]) or $i == 40 or $i == 39 or $i == 28 or $i == 29 or $i == 30) {
+                        if($i != 31) {
                         $array1 = explode('~', $valuefinal[$i]);
+                        }
                         $var = self::$Labels[$i];
 
                         if (isset($array1) and $array1[0] != "") {
@@ -829,7 +834,11 @@ class AnswerTreatment {
 //                                echo"\r\n *** \r\n";
 //                                var_export($var);
 //                                echo"\r\n *** \r\n";
-                                $hotelStaticData->$var = $valuefinal[$i];
+                                /*
+                                 * Translate symbolsData to symbols
+                                 * 
+                                 */
+                                $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
                             } else {
                                 $hotelStaticData->$var = '';
                             }
@@ -1010,7 +1019,7 @@ class AnswerTreatment {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = array();
                                     }
-                                }elseif (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'string') {
+                                } elseif (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'string') {
                                     if (isset($valueIn) and $valueIn != "") {
                                         $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = self::translateSimilsAnswerData($valueIn);
@@ -1024,11 +1033,6 @@ class AnswerTreatment {
                                         $roomTypeStaticData->$labelRoom = $valueIn;
                                     }
                                 }
-                              
-                                
-                                
-                                
-                                
                             }
 
                             foreach ($roomTypeStaticData as $keyRTSD => $valueRTSD) {
@@ -1088,17 +1092,17 @@ class AnswerTreatment {
     //Function to translate characters from codes
     public function translateSimils(&$data) {
         //$data = 1;
-        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA","CBRACES");
-        $replace = array("\n\r", ",", "|||", "[","~","{");
+        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA", "CBRACES");
+        $replace = array("\n\r", ",", "|||", "[", "~", "{");
         $data = str_replace($order, $replace, $data);
         return true;
     }
-    
+
     //Function to translate characters from codes
     public function translateSimilsAnswerData($data) {
         //$data = 1;
-        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA","CBRACES");
-        $replace = array("\n\r", ",", "|||", "[","~","{");
+        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGUILLA", "CBRACES");
+        $replace = array("\n\r", ",", "|||", "[", "~", "{");
         $data = str_replace($order, $replace, $data);
         return $data;
     }

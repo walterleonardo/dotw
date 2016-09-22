@@ -6,9 +6,9 @@ class StaticInput {
 
     public $hotelIds = array(
         
-        340645 => array(),
-        8674 => array(15578978),
-        44 => array(),
+        //340645 => array(),
+        //8674 => array(15578978),
+        24 => array(),
     );
     public $LanguageId = 1;
     //MANDATORY ARRAY
@@ -53,14 +53,14 @@ class ReturnHotelStaticData {
     public $luxury = false;
     public $address = false;
     public $zipCode = false;
-    public $location = false;
-    public $locationId = false;
+    public $location = true;
+    public $locationId = true;
     public $location1 = false;
     public $location2 = false;
     public $location3 = false;
-    public $stateName = false;
-    public $stateCode = false;
-    public $countryName = false;
+    public $stateName = true;
+    public $stateCode = true;
+    public $countryName = true;
     public $regionName = false;
     public $regionCode = false;
     public $attraction = false;
@@ -77,9 +77,9 @@ class ReturnHotelStaticData {
     //public $geoPoint = false;
     public $chain = false;
     public $lastUpdated = false;
-    public $transferMandatory = false;
-    public $tariffNotes = false;
-    public $chainName = false;
+    public $transferMandatory = true;
+    public $tariffNotes = true;
+    public $chainName = true;
 
 }
 

@@ -5,11 +5,8 @@ namespace Hotel\StaticData;
 class StaticInput {
 
     public $hotelIds = array(
-        0 => 54,
-        1 => 44,
-        2 => 34,
-        3 => 24,
-        4 => 14,
+        0 => 17184,
+        1 => 18464,
 //        5 => 8674,
 //        8674 => array(15578918)
     );
