@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS47.php';
+    require 'classFromPartner_Demo_jiraWPS58.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -709,7 +709,7 @@ class AnswerTreatment {
     public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation', 'transferMandatory', 'tariffNotes', 'chainName', 'hotelIdentifier');
     public static $LabelsImagesTypes = array('thumb' => 'string', 'alt' => 'string', 'category' => 'integer', 'url' => 'string');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
-    public static $LabelsTransportationTypes = array('Type' => 'integer', 'Name' => 'integer', 'Dist' => 'integer', 'DistanceUnit' => 'integer', 'DistTime' => 'integer', 'Directions' => 'integer');
+    public static $LabelsTransportationTypes = array('integer', 'string', 'integer', 'integer', 'integer', 'string');
     public static $LabelsTransportation = array('Type', 'Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
     public static $LabelsRoomInfoTypes = array('maxOccupancy' => 'integer', 'maxAdultWithChildren' => 'integer', 'minChildAge' => 'integer', 'maxChildAge' => 'integer', 'maxAdult' => 'integer', 'maxExtraBed' => 'integer', 'maxChildren' => 'integer', 'children' => 'integer');
     public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren', 'children');
@@ -880,7 +880,11 @@ class AnswerTreatment {
                         foreach ($array1 as $keyInIn => $valueInIn) {
                             $labelTransportation = self::$LabelsTransportation[$keyInIn];
                             if ($valueInIn != '') {
-                                $transportationData->$labelTransportation = $valueInIn;
+                                if (self::$LabelsTransportationTypes[$keyInIn] == 'string') {
+                                    $transportationData->$labelTransportation = self::translateSimilsAnswerData($valueInIn);
+                                } else {
+                                    $transportationData->$labelTransportation = $valueInIn;
+                                }
                             } else {
                                 $transportationData->$labelTransportation = '';
                             }
@@ -894,7 +898,11 @@ class AnswerTreatment {
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelTransportation = self::$LabelsTransportation[$keyInIn];
                         if ($valueInIn != '') {
-                            $transportationData->$labelTransportation = $valueInIn;
+                            if (self::$LabelsTransportationTypes[$keyInIn] == 'string') {
+                                $transportationData->$labelTransportation = self::translateSimilsAnswerData($valueInIn);
+                            } else {
+                                $transportationData->$labelTransportation = $valueInIn;
+                            }
                         } else {
                             $transportationData->$labelTransportation = '';
                         }
