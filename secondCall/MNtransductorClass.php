@@ -707,7 +707,7 @@ class AnswerTreatment {
     public static $TransportationData;
     public static $types = array('string', 'string', 'string', 'string', 'boolean', 'string', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string', 'integer');
     public static $Labels = array('description1', 'description2', 'geoPoints', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation', 'transferMandatory', 'tariffNotes', 'chainName', 'hotelIdentifier');
-    public static $LabelsImagesTypes = array('thumb' => 'string', 'alt' => 'string', 'category' => 'integer', 'url' => 'string');
+    public static $LabelsImagesTypes = array('string', 'string', 'integer', 'string');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url');
     public static $LabelsTransportationTypes = array('integer', 'string', 'integer', 'integer', 'integer', 'string');
     public static $LabelsTransportation = array('Type', 'Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
@@ -841,12 +841,11 @@ class AnswerTreatment {
                         $array1 = explode('#', $valueIn);
                         foreach ($array1 as $keyInIn => $valueInIn) {
                             $labelImage = self::$LabelsImages[$keyInIn];
-                            $imageData->$labelImage = $valueInIn;
-//                        if ($valueInIn != '') {
-//                            $imageData->$labelImage = $valueInIn;
-//                        } else {
-//                            $imageData->$labelImage = NULL;
-//                        }
+                            if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
+                                $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
+                            } else {
+                                $imageData->$labelImage = $valueInIn;
+                            }
                         }
                         $arrayImage[] = $imageData;
                     }
@@ -855,12 +854,11 @@ class AnswerTreatment {
                     $array1 = explode('#', $valueIn);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelImage = self::$LabelsImages[$keyInIn];
-                        $imageData->$labelImage = $valueInIn;
-//                        if ($valueInIn != '') {
-//                            $imageData->$labelImage = $valueInIn;
-//                        } else {
-//                            $imageData->$labelImage = NULL;
-//                        }
+                        if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
+                            $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
+                        } else {
+                            $imageData->$labelImage = $valueInIn;
+                        }
                     }
                     $arrayImage[] = $imageData;
                 }
