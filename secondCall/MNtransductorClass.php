@@ -26,7 +26,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS50.php';
+    require 'classFromPartner_Demo_jiraWPS55.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
