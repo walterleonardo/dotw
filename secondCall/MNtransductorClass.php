@@ -27,7 +27,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS47.php';
+    require 'classFromPartner_Demo_jiraWPS66a.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -72,7 +72,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
