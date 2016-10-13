@@ -27,7 +27,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS62.php';
+    require 'classFromPartner_Demo_jiraWPS66a.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -802,6 +802,10 @@ class AnswerTreatment {
                             }
                             if ($var == 'hotelPreference') {
                                 $hotelStaticData->$var = NULL;
+                            } elseif($var == 'description1') {
+                                
+                                $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);;
+                                
                             } else {
                                 /*
                                  * Translate symbolsData to symbols
@@ -812,7 +816,7 @@ class AnswerTreatment {
 //                                    echo "\n\r###---##\n\r";
 //                                    var_export($valuefinal[$i]);
 //                                    echo "\n\r###----##\n\r";
-                                    $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
+                                    $hotelStaticData->$var = $valuefinal[$i];//self::translateSimilsAnswerData($valuefinal[$i]);
                                 } else {
                                     $hotelStaticData->$var = '';
                                 }
@@ -857,7 +861,7 @@ class AnswerTreatment {
 //                                echo "\n\r###---##\n\r";
 //                                var_export($keyInIn);
 //                                echo "\n\r###----##\n\r";
-                                $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
+                                $imageData->$labelImage = $valueInIn;//self::translateSimilsAnswerData($valueInIn);
                             } else {
                                 $imageData->$labelImage = $valueInIn;
                             }
@@ -873,7 +877,7 @@ class AnswerTreatment {
 //                            echo "\n\r###---##\n\r";
 //                            var_export($keyInIn);
 //                            echo "\n\r###----##\n\r";
-                            $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
+                            $imageData->$labelImage = $valueInIn;//self::translateSimilsAnswerData($valueInIn);
                         } else {
                             $imageData->$labelImage = $valueInIn;
                         }
@@ -900,7 +904,7 @@ class AnswerTreatment {
 //                                    echo "\n\r###---##\n\r";
 //                                    var_export($keyInIn);
 //                                    echo "\n\r###----##\n\r";
-                                    $transportationData->$labelTransportation = self::translateSimilsAnswerData($valueInIn);
+                                    $transportationData->$labelTransportation = $valueInIn;//self::translateSimilsAnswerData($valueInIn);
                                 } else {
                                     $transportationData->$labelTransportation = $valueInIn;
                                 }
@@ -921,7 +925,7 @@ class AnswerTreatment {
 //                                echo "\n\r###---##\n\r";
 //                                var_export($keyInIn);
 //                                echo "\n\r###----##\n\r";
-                                $transportationData->$labelTransportation = self::translateSimilsAnswerData($valueInIn);
+                                $transportationData->$labelTransportation = $valueInIn;//self::translateSimilsAnswerData($valueInIn);
                             } else {
                                 $transportationData->$labelTransportation = $valueInIn;
                             }
@@ -1027,7 +1031,7 @@ class AnswerTreatment {
 //                                        echo "\n\r###---##\n\r";
 //                                        var_export($labelRoom);
 //                                        echo "\n\r###----##\n\r";
-                                        $roomTypeStaticData->$labelRoom = self::translateSimilsAnswerData($valueIn);
+                                        $roomTypeStaticData->$labelRoom = $valueIn;//self::translateSimilsAnswerData($valueIn);
                                     } else {
                                         $roomTypeStaticData->$labelRoom = '';
                                     }
@@ -1098,9 +1102,7 @@ class AnswerTreatment {
         //$data = 1;
 //        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
 //        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
-        $order = array("CRETURN", "CPIPES");
-        $replace = array("\n\r", "|||");
-        $data = str_replace($order, $replace, $data);
+        $data = str_replace("CRETURN", "\n\r", $data);
         //$data = preg_replace($order, $replace, $data);
         return true;
     }
@@ -1110,11 +1112,9 @@ class AnswerTreatment {
         //$data = 1;
 //        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
 //        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
-        $order = array("CRETURN", "CPIPES");
-        $replace = array("\n\r", "|||");
         //$data = str_replace($order, $replace, $data);
         //$data = preg_replace($order, $replace, $data);
-        return str_replace($order, $replace, $data);
+        return str_replace("CRETURN", "\n\r", $data);
     }
 
     public function returnAnswerStatic() {
