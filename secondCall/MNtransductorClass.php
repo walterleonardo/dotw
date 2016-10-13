@@ -754,7 +754,7 @@ class AnswerTreatment {
                 echo "\n\r# 2dn STEP DISTRIBUTE VALUES #\n\r";
                 echo "\n\r###\n\r";
             }
-            $valuefinal = explode("[", $value);
+            $valuefinal = explode("-[-", $value);
             $indexFromLastValue = trim($valuefinal[45], "\t\n\r\0\x0B");
 //            echo "#######\n\r";
 //            var_export($indexFromLastValue);
@@ -783,7 +783,7 @@ class AnswerTreatment {
 
                     //CHECK if is array of ~
                     if ($type == 'array') {
-                        $array1 = explode('~', $valuefinal[$i]);
+                        $array1 = explode('-~-', $valuefinal[$i]);
                         if (isset($array1) and $array1[0] != "") {
                             $hotelStaticData->$var = $array1;
                         } else {
@@ -850,7 +850,7 @@ class AnswerTreatment {
                 if (is_array($hotelStaticData->images)) {
                     foreach ($hotelStaticData->images as $keyIn => $valueIn) {
                         $imageData = new \Hotel\StaticData\ImageData();
-                        $array1 = explode('#', $valueIn);
+                        $array1 = explode('-#-', $valueIn);
                         foreach ($array1 as $keyInIn => $valueInIn) {
                             $labelImage = self::$LabelsImages[$keyInIn];
                             if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
@@ -866,7 +866,7 @@ class AnswerTreatment {
                     }
                 } else {
                     $imageData = new \Hotel\StaticData\ImageData();
-                    $array1 = explode('#', $valueIn);
+                    $array1 = explode('-#-', $valueIn);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelImage = self::$LabelsImages[$keyInIn];
                         if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
@@ -892,7 +892,7 @@ class AnswerTreatment {
                 if (is_array($hotelStaticData->transportation)) {
                     foreach ($hotelStaticData->transportation as $keyIn => $valueIn) {
                         $transportationData = new \Hotel\StaticData\TransportationData();
-                        $array1 = explode('#', $valueIn);
+                        $array1 = explode('-#-', $valueIn);
                         foreach ($array1 as $keyInIn => $valueInIn) {
                             $labelTransportation = self::$LabelsTransportation[$keyInIn];
                             if ($valueInIn != '') {
@@ -913,7 +913,7 @@ class AnswerTreatment {
                     $hotelStaticData->transportation = $arrayTransportation;
                 } else {
                     $transportationData = new \Hotel\StaticData\TransportationData();
-                    $array1 = explode('#', $hotelStaticData->transportation);
+                    $array1 = explode('-#-', $hotelStaticData->transportation);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelTransportation = self::$LabelsTransportation[$keyInIn];
                         if ($valueInIn != '') {
@@ -955,8 +955,8 @@ class AnswerTreatment {
                 $arrayRoomTypeCode = array();
                 foreach ($hotelStaticData->RoomTypeStaticDataList as $keytr => $valuetr) {
                     $roomTypeStaticData = new \Hotel\StaticData\RoomTypeStaticData;
-                    if (preg_match('/#/', $valuetr)) {
-                        $array1 = explode('#', $valuetr);
+                    if (preg_match('/-#-/', $valuetr)) {
+                        $array1 = explode('-#-', $valuetr);
                         $roomInfo = new \Hotel\StaticData\RoomInfo();
 
                         foreach ($array1 as $keyIn => $valueIn) {
@@ -967,9 +967,9 @@ class AnswerTreatment {
                             }
                             //ROOM INFO save and order.
                             
-                            if (preg_match('/{/', $valueIn)) {
+                            if (preg_match('/-{-/', $valueIn)) {
                                 if ($labelRoom == 'roomInfo') {
-                                    $arrayIn = explode('{', $valueIn);
+                                    $arrayIn = explode('-{-', $valueIn);
                                     foreach ($arrayIn as $keytri => $valuetri) {
                                         $labelRoomInfo = self::$LabelsRoomInfo[$keytri];
                                         if (isset($valuetri)) {
@@ -993,7 +993,7 @@ class AnswerTreatment {
                                     }
                                 } else {
                                     //$arrayIn = array_map('intval', explode('{', $valueIn));
-                                    $arrayIn = array_map(null, explode('{', $valueIn));
+                                    $arrayIn = array_map(null, explode('-{-', $valueIn));
                                     //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $arrayIn;
                                 }
@@ -1096,8 +1096,10 @@ class AnswerTreatment {
     //Function to translate characters from codes
     public function translateSimils(&$data) {
         //$data = 1;
-        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
-        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
+//        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
+//        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
+        $order = array("CRETURN", "CPIPES");
+        $replace = array("\n\r", "|||");
         $data = str_replace($order, $replace, $data);
         //$data = preg_replace($order, $replace, $data);
         return true;
@@ -1106,8 +1108,10 @@ class AnswerTreatment {
     //Function to translate characters from codes
     public function translateSimilsAnswerData($data) {
         //$data = 1;
-        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
-        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
+//        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
+//        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
+        $order = array("CRETURN", "CPIPES");
+        $replace = array("\n\r", "|||");
         //$data = str_replace($order, $replace, $data);
         //$data = preg_replace($order, $replace, $data);
         return str_replace($order, $replace, $data);
