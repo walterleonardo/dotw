@@ -2,6 +2,7 @@
 
 namespace Second;
 
+ini_set('memory_limit', '-1');
 //var_dump($argv);
 //INCLUDE LIKE $platform value these differents options 'dev|test|prod'
 $platform = 'dev';
@@ -26,7 +27,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS55.php';
+    require 'classFromPartner_Demo_jiraWPS62.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -654,7 +655,7 @@ class ConnectorTCP {
         //Connect socket to remote server
         $buf = NULL;
         while (true) {
-            if (false == ($buffer = socket_read($sock, 2048000, PHP_BINARY_READ))) {
+            if (false == ($buffer = socket_read($sock, 20480000, PHP_BINARY_READ))) {
                 break;
             }
             $buf .= $buffer;
@@ -796,7 +797,7 @@ class AnswerTreatment {
                         }
                     } elseif ($type == 'string') {
                         if (isset($valuefinal[$i])) {
-                            if ($valuefinal[$i] == '0CCOMMA0') {
+                            if ($valuefinal[$i] == '0,0') {
                                 $valuefinal[$i] = '';
                             }
                             if ($var == 'hotelPreference') {
@@ -806,7 +807,15 @@ class AnswerTreatment {
                                  * Translate symbolsData to symbols
                                  * 
                                  */
-                                $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
+
+                                if ($valuefinal[$i] != '') {
+//                                    echo "\n\r###---##\n\r";
+//                                    var_export($valuefinal[$i]);
+//                                    echo "\n\r###----##\n\r";
+                                    $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
+                                } else {
+                                    $hotelStaticData->$var = '';
+                                }
                             }
                         } else {
                             $hotelStaticData->$var = '';
@@ -835,6 +844,9 @@ class AnswerTreatment {
              */
             if (isset($hotelStaticData->images) and is_array($hotelStaticData->images)) {
                 $arrayImage = array();
+//                echo "\n\r###---##\n\r";
+//                var_export($hotelStaticData->images);
+//                echo "\n\r###----##\n\r";
                 if (is_array($hotelStaticData->images)) {
                     foreach ($hotelStaticData->images as $keyIn => $valueIn) {
                         $imageData = new \Hotel\StaticData\ImageData();
@@ -842,6 +854,9 @@ class AnswerTreatment {
                         foreach ($array1 as $keyInIn => $valueInIn) {
                             $labelImage = self::$LabelsImages[$keyInIn];
                             if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
+//                                echo "\n\r###---##\n\r";
+//                                var_export($keyInIn);
+//                                echo "\n\r###----##\n\r";
                                 $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
                             } else {
                                 $imageData->$labelImage = $valueInIn;
@@ -855,6 +870,9 @@ class AnswerTreatment {
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelImage = self::$LabelsImages[$keyInIn];
                         if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
+//                            echo "\n\r###---##\n\r";
+//                            var_export($keyInIn);
+//                            echo "\n\r###----##\n\r";
                             $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
                         } else {
                             $imageData->$labelImage = $valueInIn;
@@ -879,6 +897,9 @@ class AnswerTreatment {
                             $labelTransportation = self::$LabelsTransportation[$keyInIn];
                             if ($valueInIn != '') {
                                 if (self::$LabelsTransportationTypes[$keyInIn] == 'string') {
+//                                    echo "\n\r###---##\n\r";
+//                                    var_export($keyInIn);
+//                                    echo "\n\r###----##\n\r";
                                     $transportationData->$labelTransportation = self::translateSimilsAnswerData($valueInIn);
                                 } else {
                                     $transportationData->$labelTransportation = $valueInIn;
@@ -897,6 +918,9 @@ class AnswerTreatment {
                         $labelTransportation = self::$LabelsTransportation[$keyInIn];
                         if ($valueInIn != '') {
                             if (self::$LabelsTransportationTypes[$keyInIn] == 'string') {
+//                                echo "\n\r###---##\n\r";
+//                                var_export($keyInIn);
+//                                echo "\n\r###----##\n\r";
                                 $transportationData->$labelTransportation = self::translateSimilsAnswerData($valueInIn);
                             } else {
                                 $transportationData->$labelTransportation = $valueInIn;
@@ -936,17 +960,20 @@ class AnswerTreatment {
                         $roomInfo = new \Hotel\StaticData\RoomInfo();
 
                         foreach ($array1 as $keyIn => $valueIn) {
-
+                            //Obtain the label for the room data
+                            $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                             if ($keyIn == 0) {
                                 $arrayRoomTypeCode[] = $valueIn;
                             }
                             //ROOM INFO save and order.
+                            
                             if (preg_match('/{/', $valueIn)) {
-                                if (self::$LabelsRoomTypeStaticData[$keyIn] == 'roomInfo') {
+                                if ($labelRoom == 'roomInfo') {
                                     $arrayIn = explode('{', $valueIn);
                                     foreach ($arrayIn as $keytri => $valuetri) {
+                                        $labelRoomInfo = self::$LabelsRoomInfo[$keytri];
                                         if (isset($valuetri)) {
-                                            $labelRoomInfo = self::$LabelsRoomInfo[$keytri];
+                                            //$labelRoomInfo = self::$LabelsRoomInfo[$keytri];
 
 
                                             if ($labelRoomInfo == 'maxExtraBed') {
@@ -960,19 +987,19 @@ class AnswerTreatment {
                                             } else {
                                                 $roomInfo->$labelRoomInfo = (int) $valuetri; //(int)
                                             }
-                                            $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                            //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                             $roomTypeStaticData->$labelRoom = $roomInfo;
                                         }
                                     }
                                 } else {
                                     //$arrayIn = array_map('intval', explode('{', $valueIn));
                                     $arrayIn = array_map(null, explode('{', $valueIn));
-                                    $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                    //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $arrayIn;
                                 }
                             } else {
                                 //Convert and save booleans
-                                if (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'boolean') {
+                                if (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'boolean') {
                                     if (isset($valueIn)) {
                                         if ($valueIn == 'Y' or $valueIn == '1') {
                                             $valueIn = true;
@@ -982,29 +1009,31 @@ class AnswerTreatment {
                                     } else {
                                         $valueIn = NULL;
                                     }
-                                    $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                    //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $valueIn;
 
                                     //Convert and save array
-                                } elseif (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'array') {
+                                } elseif (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'array') {
                                     if (isset($valueIn) and $valueIn != "") {
-                                        $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                        //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = array($valueIn);
                                     } else {
-                                        $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                        //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = array();
                                     }
-                                } elseif (self::$LabelsRoomTypeStaticDataTypes[self::$LabelsRoomTypeStaticData[$keyIn]] == 'string') {
-                                    if (isset($valueIn) and $valueIn != "") {
-                                        $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                } elseif (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'string') {
+                                    //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                    if (isset($valueIn) && $valueIn != '') {
+//                                        echo "\n\r###---##\n\r";
+//                                        var_export($labelRoom);
+//                                        echo "\n\r###----##\n\r";
                                         $roomTypeStaticData->$labelRoom = self::translateSimilsAnswerData($valueIn);
                                     } else {
-                                        $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = '';
                                     }
                                 } else {
-                                    if (self::$LabelsRoomTypeStaticData[$keyIn] != 'roomTypeID') {
-                                        $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                    if ($labelRoom != 'roomTypeID') {
+                                        //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                         $roomTypeStaticData->$labelRoom = $valueIn;
                                     }
                                 }
@@ -1070,6 +1099,7 @@ class AnswerTreatment {
         $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
         $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
         $data = str_replace($order, $replace, $data);
+        //$data = preg_replace($order, $replace, $data);
         return true;
     }
 
@@ -1078,8 +1108,9 @@ class AnswerTreatment {
         //$data = 1;
         $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
         $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
-        $data = str_replace($order, $replace, $data);
-        return $data;
+        //$data = str_replace($order, $replace, $data);
+        //$data = preg_replace($order, $replace, $data);
+        return str_replace($order, $replace, $data);
     }
 
     public function returnAnswerStatic() {

@@ -6,9 +6,9 @@ class StaticInput {
 
     public $hotelIds = array(
         //23314 => array(),
-        1865828 => array(),
+        //1865828 => array(),
         //112622 => array(),
-        ///244626 => array(876646),
+        244626 => array(876646),
         ///1908505 => array(),
     );
     public $LanguageId = 1;

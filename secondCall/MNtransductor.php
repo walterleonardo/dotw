@@ -1,5 +1,5 @@
 <?php
-
+ini_set('memory_limit', '-1');
 //CLASS FROM PARTNER INCLUDE ALL THE OBJETS THAT WE NEED.
 //MNtransductor Class, include all the class that make the hard work.
 
@@ -48,11 +48,10 @@ while ($requestNumber < $numberOfRequest) {
         echo "\n\r";
         var_export($answerRequest);
         echo "\n\r";
-        echo "## ";
-        echo "Hotels received ";
-        var_export(count($answerRequest));
-        echo " ##\n\r";
-
+      
+        $roomsNumber = 0;
+        $imagesNumber = 0;
+        $transportationNumber = 0;
         foreach ($answerRequest as $key => $value) {
             echo "For hotel ID ";
             var_export($key);
@@ -60,12 +59,33 @@ while ($requestNumber < $numberOfRequest) {
 
             echo "\tRooms :";
             var_export(count($answerRequest[$key]->RoomTypeStaticDataList));
+            $roomsNumber += count($answerRequest[$key]->RoomTypeStaticDataList);
             echo "\tImages :";
             var_export(count($answerRequest[$key]->images));
+            $imagesNumber += count($answerRequest[$key]->images);
             echo "\tTransportations :";
             var_export(count($answerRequest[$key]->transportation));
+            $transportationNumber += count($answerRequest[$key]->transportation);
             echo "\n";
         }
+        
+        echo "## ";
+        echo "Hotels received ";
+        var_export(count($answerRequest));
+        echo " ##\n";
+        echo "## ";
+        echo "Rooms ";
+        var_export($roomsNumber);
+        echo " ##\n";
+        echo "## ";
+        echo "Images ";
+        var_export($imagesNumber);
+        echo " ##\n";
+        echo "## ";
+        echo "Transportation ";
+        var_export($transportationNumber);
+        echo " ##\n\r";
+        
     }
     $requestNumber++;
 }
