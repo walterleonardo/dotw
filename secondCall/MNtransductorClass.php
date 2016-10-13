@@ -27,7 +27,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS66a.php';
+    require 'classFromPartner_Demo_jiraWPS50.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -783,7 +783,7 @@ class AnswerTreatment {
 
                     //CHECK if is array of ~
                     if ($type == 'array') {
-                        $array1 = explode('-~-', $valuefinal[$i]);
+                        $array1 = explode("-~-", $valuefinal[$i]);
                         if (isset($array1) and $array1[0] != "") {
                             $hotelStaticData->$var = $array1;
                         } else {
@@ -802,10 +802,10 @@ class AnswerTreatment {
                             }
                             if ($var == 'hotelPreference') {
                                 $hotelStaticData->$var = NULL;
-                            } elseif($var == 'description1') {
-                                
-                                $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);;
-                                
+                            } elseif ($var == 'description1') {
+
+                                $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
+                                ;
                             } else {
                                 /*
                                  * Translate symbolsData to symbols
@@ -816,7 +816,7 @@ class AnswerTreatment {
 //                                    echo "\n\r###---##\n\r";
 //                                    var_export($valuefinal[$i]);
 //                                    echo "\n\r###----##\n\r";
-                                    $hotelStaticData->$var = $valuefinal[$i];//self::translateSimilsAnswerData($valuefinal[$i]);
+                                    $hotelStaticData->$var = $valuefinal[$i]; //self::translateSimilsAnswerData($valuefinal[$i]);
                                 } else {
                                     $hotelStaticData->$var = '';
                                 }
@@ -854,14 +854,14 @@ class AnswerTreatment {
                 if (is_array($hotelStaticData->images)) {
                     foreach ($hotelStaticData->images as $keyIn => $valueIn) {
                         $imageData = new \Hotel\StaticData\ImageData();
-                        $array1 = explode('-#-', $valueIn);
+                        $array1 = explode("-#-", $valueIn);
                         foreach ($array1 as $keyInIn => $valueInIn) {
                             $labelImage = self::$LabelsImages[$keyInIn];
                             if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
 //                                echo "\n\r###---##\n\r";
 //                                var_export($keyInIn);
 //                                echo "\n\r###----##\n\r";
-                                $imageData->$labelImage = $valueInIn;//self::translateSimilsAnswerData($valueInIn);
+                                $imageData->$labelImage = $valueInIn; //self::translateSimilsAnswerData($valueInIn);
                             } else {
                                 $imageData->$labelImage = $valueInIn;
                             }
@@ -870,14 +870,14 @@ class AnswerTreatment {
                     }
                 } else {
                     $imageData = new \Hotel\StaticData\ImageData();
-                    $array1 = explode('-#-', $valueIn);
+                    $array1 = explode("-#-", $valueIn);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelImage = self::$LabelsImages[$keyInIn];
                         if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
 //                            echo "\n\r###---##\n\r";
 //                            var_export($keyInIn);
 //                            echo "\n\r###----##\n\r";
-                            $imageData->$labelImage = $valueInIn;//self::translateSimilsAnswerData($valueInIn);
+                            $imageData->$labelImage = $valueInIn; //self::translateSimilsAnswerData($valueInIn);
                         } else {
                             $imageData->$labelImage = $valueInIn;
                         }
@@ -896,7 +896,7 @@ class AnswerTreatment {
                 if (is_array($hotelStaticData->transportation)) {
                     foreach ($hotelStaticData->transportation as $keyIn => $valueIn) {
                         $transportationData = new \Hotel\StaticData\TransportationData();
-                        $array1 = explode('-#-', $valueIn);
+                        $array1 = explode("-#-", $valueIn);
                         foreach ($array1 as $keyInIn => $valueInIn) {
                             $labelTransportation = self::$LabelsTransportation[$keyInIn];
                             if ($valueInIn != '') {
@@ -904,7 +904,7 @@ class AnswerTreatment {
 //                                    echo "\n\r###---##\n\r";
 //                                    var_export($keyInIn);
 //                                    echo "\n\r###----##\n\r";
-                                    $transportationData->$labelTransportation = $valueInIn;//self::translateSimilsAnswerData($valueInIn);
+                                    $transportationData->$labelTransportation = $valueInIn; //self::translateSimilsAnswerData($valueInIn);
                                 } else {
                                     $transportationData->$labelTransportation = $valueInIn;
                                 }
@@ -917,7 +917,7 @@ class AnswerTreatment {
                     $hotelStaticData->transportation = $arrayTransportation;
                 } else {
                     $transportationData = new \Hotel\StaticData\TransportationData();
-                    $array1 = explode('-#-', $hotelStaticData->transportation);
+                    $array1 = explode("-#-", $hotelStaticData->transportation);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelTransportation = self::$LabelsTransportation[$keyInIn];
                         if ($valueInIn != '') {
@@ -925,7 +925,7 @@ class AnswerTreatment {
 //                                echo "\n\r###---##\n\r";
 //                                var_export($keyInIn);
 //                                echo "\n\r###----##\n\r";
-                                $transportationData->$labelTransportation = $valueInIn;//self::translateSimilsAnswerData($valueInIn);
+                                $transportationData->$labelTransportation = $valueInIn; //self::translateSimilsAnswerData($valueInIn);
                             } else {
                                 $transportationData->$labelTransportation = $valueInIn;
                             }
@@ -960,7 +960,7 @@ class AnswerTreatment {
                 foreach ($hotelStaticData->RoomTypeStaticDataList as $keytr => $valuetr) {
                     $roomTypeStaticData = new \Hotel\StaticData\RoomTypeStaticData;
                     if (preg_match('/-#-/', $valuetr)) {
-                        $array1 = explode('-#-', $valuetr);
+                        $array1 = explode("-#-", $valuetr);
                         $roomInfo = new \Hotel\StaticData\RoomInfo();
 
                         foreach ($array1 as $keyIn => $valueIn) {
@@ -970,10 +970,10 @@ class AnswerTreatment {
                                 $arrayRoomTypeCode[] = $valueIn;
                             }
                             //ROOM INFO save and order.
-                            
+
                             if (preg_match('/-{-/', $valueIn)) {
                                 if ($labelRoom == 'roomInfo') {
-                                    $arrayIn = explode('-{-', $valueIn);
+                                    $arrayIn = explode("-{-", $valueIn);
                                     foreach ($arrayIn as $keytri => $valuetri) {
                                         $labelRoomInfo = self::$LabelsRoomInfo[$keytri];
                                         if (isset($valuetri)) {
@@ -997,7 +997,7 @@ class AnswerTreatment {
                                     }
                                 } else {
                                     //$arrayIn = array_map('intval', explode('{', $valueIn));
-                                    $arrayIn = array_map(null, explode('-{-', $valueIn));
+                                    $arrayIn = array_map(null, explode("-{-", $valueIn));
                                     //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $arrayIn;
                                 }
@@ -1031,7 +1031,7 @@ class AnswerTreatment {
 //                                        echo "\n\r###---##\n\r";
 //                                        var_export($labelRoom);
 //                                        echo "\n\r###----##\n\r";
-                                        $roomTypeStaticData->$labelRoom = $valueIn;//self::translateSimilsAnswerData($valueIn);
+                                        $roomTypeStaticData->$labelRoom = $valueIn; //self::translateSimilsAnswerData($valueIn);
                                     } else {
                                         $roomTypeStaticData->$labelRoom = '';
                                     }
