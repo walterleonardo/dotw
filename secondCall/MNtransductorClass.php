@@ -27,7 +27,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS50.php';
+    require 'classFromPartner_Demo_jiraWPS47.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -568,7 +568,7 @@ class ConnectorTCP {
         $debug = false;
 
         //Server Method $serverMethods 'unique', 'random' & 'roundrobin'
-        $serverMethods = 'random';
+        $serverMethods = 'unique';
 
 
         if ($serverMethods == 'unique') {
@@ -755,11 +755,11 @@ class AnswerTreatment {
                 echo "\n\r###\n\r";
             }
             $valuefinal = explode("-[-", $value);
-            $indexFromLastValue = trim($valuefinal[45], "\t\n\r\0\x0B");
+            $indexFromLastValue = trim($valuefinal[45], "\t\n\r\0\x0B"); //Sanitize HOTEL INDEX
 //            echo "#######\n\r";
-//            var_export($indexFromLastValue);
+//            var_export($valuefinal);
 //            echo "#######\n\r";
-            unset($valuefinal[45]);
+            unset($valuefinal[45]);//Remove HOTEL INDEX, to use like ARRAY INDEX
             $hotelStaticData = new \Hotel\StaticData\HotelStaticData();
             for ($x = 0; $x < count($key); $x++) {
 
@@ -802,7 +802,7 @@ class AnswerTreatment {
                             }
                             if ($var == 'hotelPreference') {
                                 $hotelStaticData->$var = NULL;
-                            } elseif ($var == 'description1') {
+                            } elseif ($var == 'description1' || $var == 'tariffNotes') {
 
                                 $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
                                 ;
@@ -1007,13 +1007,12 @@ class AnswerTreatment {
                                     if (isset($valueIn)) {
                                         if ($valueIn == 'Y' or $valueIn == '1') {
                                             $valueIn = true;
-                                        } else if ($valueIn == 'N' or $valueIn == '0' or $valueIn == '2') {
+                                        } else {
                                             $valueIn = false;
                                         }
                                     } else {
                                         $valueIn = NULL;
                                     }
-                                    //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $valueIn;
 
                                     //Convert and save array
@@ -1048,9 +1047,6 @@ class AnswerTreatment {
                                     $roomTypeStaticData->$keyRTSD = NULL;
                                 }
                             }
-
-
-                            //$arrayRoomTypeStatic[$array1[0]] = $roomTypeStaticData;
                             $arrayRoomTypeStatic[$array1[0]] = $roomTypeStaticData;
                         }
                     } else {
@@ -1098,23 +1094,12 @@ class AnswerTreatment {
     }
 
     //Function to translate characters from codes
-    public function translateSimils(&$data) {
-        //$data = 1;
-//        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
-//        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
-        $data = str_replace("CRETURN", "\n\r", $data);
-        //$data = preg_replace($order, $replace, $data);
-        return true;
-    }
-
-    //Function to translate characters from codes
     public function translateSimilsAnswerData($data) {
         //$data = 1;
 //        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
 //        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
         //$data = str_replace($order, $replace, $data);
-        //$data = preg_replace($order, $replace, $data);
-        return str_replace("CRETURN", "\n\r", $data);
+        return str_replace("CRETURN", "\n", $data);
     }
 
     public function returnAnswerStatic() {
