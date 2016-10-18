@@ -27,7 +27,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS66a.php';
+    require 'classFromPartner_Demo_jiraWPS37.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -72,7 +72,7 @@ class run {
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -223,8 +223,6 @@ class Check {
     public function mandatoryTypeReturnHotelStaticData(&$data) {
         $array = get_object_vars($data);
         $mandatory = array('description1' => true, 'description2' => true, 'geoPoints' => true, 'ratingDescription' => true, 'images' => true, 'direct' => true, 'hotelPreference' => true, 'builtYear' => true, 'renovationYear' => true, 'floors' => true, 'noOfRooms' => true, 'luxury' => true, 'address' => true, 'zipCode' => true, 'location' => true, 'locationId' => true, 'location1' => true, 'location2' => true, 'location3' => true, 'stateName' => true, 'stateCode' => true, 'countryName' => true, 'regionName' => true, 'regionCode' => true, 'amenitie' => true, 'leisure' => true, 'business' => true, 'transportation' => true, 'hotelPhone' => true, 'hotelCheckIn' => true, 'hotelCheckOut' => true, 'minAge' => true, 'rating' => true, 'fireSafety' => true, 'chain' => true, 'lastUpdated' => true, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false);
-
-        //$mandatory = array('twin' => false, 'roomAmenities' => false, 'name' => false, 'roomInfo' => false);
         foreach ($mandatory as $key => $value) {
             if ($value) {
                 if (!isset($array[$key])) {
@@ -245,7 +243,6 @@ class Check {
 
     public function mandatoryTypeReturnRoomTypeStaticData(&$data) {
         $array = get_object_vars($data);
-        //$mandatory = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false);
         $mandatory = array('twin' => true, 'roomAmenities' => true, 'name' => true, 'roomInfo' => true);
         foreach ($mandatory as $key => $value) {
             if ($value) {
@@ -305,9 +302,14 @@ class Constructor {
         $this->aReturnRateData = $aReturnRateData; //I DONT KNOW WHAT DO WITH IT
     }
 
+    public $twin = true; //NO MANDATORY BOOL
+    public $roomAmenities = true;
+    public $name = true;
+    public $roomInfo = true;
+    
     Public function insertVar() {
         $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false);
-
+        $aArrayOfReturnHotelStaticDataRoom = array('twin' => false, 'roomAmenities' => false, 'name' => false, 'roomInfo' => false);
         $aStaticInput = get_object_vars($this->aStaticInput);
         $aReturnHotelStaticData = get_object_vars($this->aReturnHotelStaticData);
         if (isset($this->aReturnRoomTypeStaticData)) {
@@ -327,11 +329,13 @@ class Constructor {
         }
         self::$arrayConverted['hotelIds'] = $array_need;
         self::$arrayConverted['LanguageId'] = $aStaticInput['LanguageId'];
-        //Verify that all the value are provided, if not, include FALSE attribute
+        //Verify that all the value are provided, if not, include FALSE attribute, and remove extra attributes
         self::insert_value($aArrayOfReturnHotelStaticData, $aReturnHotelStaticData);
         self::$arrayConverted['ReturnHotelStaticData'] = $aArrayOfReturnHotelStaticData;
-        self::$arrayConverted['ReturnRoomTypeStaticData'] = $aReturnRoomTypeStaticData;
-        unset($aReturnHotelStaticData, $aArrayOfReturnHotelStaticData, $aReturnRoomTypeStaticData, $aStaticInput, $array_need, $key, $value, $values);
+        //Verify that all the value are provided, if not, include FALSE attribute, and remove extra attributes
+        self::insert_value($aArrayOfReturnHotelStaticDataRoom, $aReturnRoomTypeStaticData);
+        self::$arrayConverted['ReturnRoomTypeStaticData'] = $aArrayOfReturnHotelStaticDataRoom;
+        unset($aReturnHotelStaticData, $aArrayOfReturnHotelStaticData, $aReturnRoomTypeStaticData,$aArrayOfReturnHotelStaticDataRoom, $aStaticInput, $array_need, $key, $value, $values);
         return true;
     }
 
@@ -1095,10 +1099,6 @@ class AnswerTreatment {
 
     //Function to translate characters from codes
     public function translateSimilsAnswerData($data) {
-        //$data = 1;
-//        $order = array("CRETURN", "CCOMMA", "CPIPES", "CBRACKETS", "CVIRGULILLA", "CBRACES", "CPAD");
-//        $replace = array("\n\r", ",", "|||", "[", "~", "{", "#");
-        //$data = str_replace($order, $replace, $data);
         return str_replace("CRETURN", "\n", $data);
     }
 
