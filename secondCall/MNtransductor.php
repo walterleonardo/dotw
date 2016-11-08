@@ -15,7 +15,7 @@ ini_set('memory_limit', '-1');
  */
 require 'MNtransductorClass.php';
 
-$info = "normal"; //detail or normal
+$info = "detail"; //detail or normal
 $debug = true;
 
 

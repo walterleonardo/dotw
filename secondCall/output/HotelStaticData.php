@@ -18,7 +18,7 @@ class HotelStaticData
 
     public $description1;
     public $description2;
-    public $geoPoints;
+    public $geoPoint;
     public $ratingDescription;
     public $images;
     public $direct;
@@ -60,5 +60,6 @@ class HotelStaticData
     public $transferMandatory;
     public $tariffNotes;
     public $chainName;
+    public $hotelProperty;
     
 } 

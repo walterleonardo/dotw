@@ -16,5 +16,6 @@ class ImageData
     public $alt;
     public $category;
     public $url;
+    public $roomTypeId;
 
 } 
