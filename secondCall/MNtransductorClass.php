@@ -27,7 +27,7 @@ require 'output/RoomInfo.php';
 if (isset($argv[1])) {
     require $argv[1];
 } else {
-    require 'classFromPartner_Demo_jiraWPS68.php';
+    require 'classFromPartner_Demo_jiraWPS72.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -806,10 +806,10 @@ class AnswerTreatment {
                             }
                             if ($var == 'hotelPreference') {
                                 $hotelStaticData->$var = NULL;
-                            } elseif ($var == 'description1' || $var == 'tariffNotes') {
-
+                                
+                            } elseif ($var == 'description1' || $var == 'tariffNotes'|| $var == 'address') { 
+                                /*CORRECT THE TRANSLATION OF CRETURN*/
                                 $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
-                                ;
                             } else {
                                 /*
                                  * Translate symbolsData to symbols
