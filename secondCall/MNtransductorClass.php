@@ -877,11 +877,8 @@ class AnswerTreatment {
                     $array1 = explode("-#-", $valueIn);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelImage = self::$LabelsImages[$keyInIn];
-                        if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
-//                            echo "\n\r###---##\n\r";
-//                            var_export($keyInIn);
-//                            echo "\n\r###----##\n\r";
-                            $imageData->$labelImage = $valueInIn; //self::translateSimilsAnswerData($valueInIn);
+                        if (self::$LabelsImagesTypes[$keyInIn] == 'string' && $labelImage == 'alt'){
+                                $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
                         } else {
                             $imageData->$labelImage = $valueInIn;
                         }
