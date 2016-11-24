@@ -306,7 +306,7 @@ class Constructor {
     public $roomAmenities = true;
     public $name = true;
     public $roomInfo = true;
-    
+
     Public function insertVar() {
         $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoint' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false);
         $aArrayOfReturnHotelStaticDataRoom = array('twin' => false, 'roomAmenities' => false, 'name' => false, 'roomInfo' => false);
@@ -335,7 +335,7 @@ class Constructor {
         //Verify that all the value are provided, if not, include FALSE attribute, and remove extra attributes
         self::insert_value($aArrayOfReturnHotelStaticDataRoom, $aReturnRoomTypeStaticData);
         self::$arrayConverted['ReturnRoomTypeStaticData'] = $aArrayOfReturnHotelStaticDataRoom;
-        unset($aReturnHotelStaticData, $aArrayOfReturnHotelStaticData, $aReturnRoomTypeStaticData,$aArrayOfReturnHotelStaticDataRoom, $aStaticInput, $array_need, $key, $value, $values);
+        unset($aReturnHotelStaticData, $aArrayOfReturnHotelStaticData, $aReturnRoomTypeStaticData, $aArrayOfReturnHotelStaticDataRoom, $aStaticInput, $array_need, $key, $value, $values);
         return true;
     }
 
@@ -763,7 +763,7 @@ class AnswerTreatment {
 //            echo "#######\n\r";
 //            var_export($valuefinal);
 //            echo "#######\n\r";
-            unset($valuefinal[46]);//Remove HOTEL INDEX, to use like ARRAY INDEX
+            unset($valuefinal[46]); //Remove HOTEL INDEX, to use like ARRAY INDEX
             $hotelStaticData = new \Hotel\StaticData\HotelStaticData();
             for ($x = 0; $x < count($key); $x++) {
 
@@ -806,9 +806,8 @@ class AnswerTreatment {
                             }
                             if ($var == 'hotelPreference') {
                                 $hotelStaticData->$var = NULL;
-                                
-                            } elseif ($var == 'description1' || $var == 'tariffNotes'|| $var == 'address') { 
-                                /*CORRECT THE TRANSLATION OF CRETURN*/
+                            } elseif ($var == 'description1' || $var == 'tariffNotes' || $var == 'address') {
+                                /* CORRECT THE TRANSLATION OF CRETURN */
                                 $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
                             } else {
                                 /*
@@ -861,11 +860,8 @@ class AnswerTreatment {
                         $array1 = explode("-#-", $valueIn);
                         foreach ($array1 as $keyInIn => $valueInIn) {
                             $labelImage = self::$LabelsImages[$keyInIn];
-                            if (self::$LabelsImagesTypes[$keyInIn] == 'string') {
-//                                echo "\n\r###---##\n\r";
-//                                var_export($keyInIn);
-//                                echo "\n\r###----##\n\r";
-                                $imageData->$labelImage = $valueInIn; //self::translateSimilsAnswerData($valueInIn);
+                            if (self::$LabelsImagesTypes[$keyInIn] == 'string' && $labelImage == 'alt') {
+                                $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
                             } else {
                                 $imageData->$labelImage = $valueInIn;
                             }
@@ -877,8 +873,8 @@ class AnswerTreatment {
                     $array1 = explode("-#-", $valueIn);
                     foreach ($array1 as $keyInIn => $valueInIn) {
                         $labelImage = self::$LabelsImages[$keyInIn];
-                        if (self::$LabelsImagesTypes[$keyInIn] == 'string' && $labelImage == 'alt'){
-                                $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
+                        if (self::$LabelsImagesTypes[$keyInIn] == 'string' && $labelImage == 'alt') {
+                            $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
                         } else {
                             $imageData->$labelImage = $valueInIn;
                         }
