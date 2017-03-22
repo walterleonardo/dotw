@@ -36,11 +36,11 @@ include_once $includeConfigFile;
 //require 'RoomTypeFilters.php';
 //require 'RoomOccupancy.php';
 //require 'classFromPartner.php';
-//require 'classFromPartner_Demo.php';
+require 'classFromPartner_Demo.php';
 //require 'classFromPartner_Demo_1.php';
 //require 'classFromPartner_Paris.php';
 //require 'classFromPartner_Dubai.php';
-require 'classFromPartner_wps3.php';
+//require 'classFromPartner_wps3.php';
 //ERROR REPORTING TO FILE only in Test
 
 if ($platform == 'test') {
@@ -729,7 +729,7 @@ class ConnectorTCP {
             }
         }
 //        //Receive an answer
-        while ($buf = socket_read($sock, 2048000, PHP_NORMAL_READ)) {
+        while ($buf = socket_read($sock, 4096000, PHP_NORMAL_READ)) {
             if ($debug) {
                 echo "Answer from server: $buffer";
             }
@@ -798,7 +798,7 @@ class fillArrayValues {
                 if ($array_values) {
                     $folders = explode(",", $array_values);
                     // Possible solution to a new line problem. For the future.
-                    $folders5 = trim($folders[5], "\t\n\r\0\x0B");
+                    $folders5 = \trim($folders[5], "\t\n\r\0\x0B");
                     //$folders5 = $folders[5];
                     $array_need[$folders[0]][$folders[1]][$folders5]['cityCode'] = $folders[2];
 

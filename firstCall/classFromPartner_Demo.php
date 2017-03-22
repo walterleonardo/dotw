@@ -18,13 +18,7 @@ class Input {
     public $country = 84; //integer 971 //SPAIN 84
     public $bookingChannelsWithAutoMapping = array (
             0 => 1011,
-    1 => 1003,
-    2 => 1004,
-    3 => 1529,
-    4 => 1005,
-    5 => 1017,
-    6 => 1022,
-        ); //array(int)
+    1 => 1003,); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
     //ExcludedBookingchannel new object
