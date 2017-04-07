@@ -161,7 +161,7 @@ Class Run
         {
             $checkAnswer = $connector->returnErrorTCP();
             $this->errorCode = $checkAnswer[0];
-            $this->errorMessage = "Error_TCP_request = " . $checkAnswer[1] . " from server " . $checkAnswer[2] . " and port " . $checkAnswer[3];
+            $this->errorMessage = "Error_TCP_request = " . $checkAnswer[1] . " ";
             return false;
         }
         /*
@@ -682,7 +682,7 @@ class MemCacheServerCluster
 
     public static function checkServer(&$array)
     {
-        $connection = @fsockopen($array[0][0], $array[0][1]);
+        $connection = @fsockopen("tcp://" . $array[0][0], $array[0][1], $errno, $errstr, 1);
         if (is_resource($connection))
         {
             @fclose($connection);
@@ -703,61 +703,54 @@ class MemCacheServerCluster
  * NO MEMCACHE SERVER CLUSTER RANDOM
  */
 
-//class NoMemCacheServerCluster
-//{
-//
-//    public static function getServerRand()
-//    {
-//        $array = \ServersCluster::$hostsPort;
-//        $serverPosition = rand(0, sizeof($array) - 1);
-//        while ($array[$serverPosition][2] === 'DISABLED')
-//        {
-//            $serverPosition = rand(0, sizeof($array) - 1);
-//        }
-//        while (!self::checkServerOne($array[$serverPosition]))
-//        {
-//            $serverPosition = rand(0, sizeof($array) - 1);
-//        }
-//        $serverPort = [$array[$serverPosition][0], $array[$serverPosition][1]];
-//        //var_dump($serverPort);
-//        return $serverPort;
-//    }
-//
-//    public static function checkServerOne(&$array)
-//    {
-//        $connection = @fsockopen($array[0], $array[1]);
-//        if (is_resource($connection))
-//        {
-//            @fclose($connection);
-//            return true;
-//        } else
-//        {
-//            return false;
-//        }
-//    }
-//
-//}
-
 class NoMemCacheServerCluster
 {
+
+    public static function getServerUnique()
+    {
+        $array = \ServersCluster::$hostsPort;
+        $allfail = sizeof($array) * 2;
+        $trying = 0;
+        foreach ($array as $value)
+        {
+            if ($value[2] !== 'DISABLED')
+            {
+                if (self::checkServerOne($value))
+                {
+                    $serverPort = [$value[0], $value[1]];
+                    return $serverPort;
+                }
+            }
+            $trying++;
+            if ($trying >= $allfail)
+                return false;
+        }
+        return false;
+    }
 
     public static function getServerRand()
     {
         $array = \ServersCluster::$hostsPort;
-
-        foreach ($array as $k1 => $v1)
-        {
-            if ($v1[2] == 'DISABLED')
-                unset($array[$k1]);
-            else
-                $arrayToCheck = $v1;
-        }
-        if (sizeof($array) >= 1)
+        $serverPosition = rand(0, sizeof($array) - 1);
+        $allfail = sizeof($array) * 2;
+        $trying = 0;
+        while ($array[$serverPosition][2] === 'DISABLED')
         {
             $serverPosition = rand(0, sizeof($array) - 1);
-            return $array[$serverPosition];
-        } else
-            return false;
+            $trying++;
+            if ($trying >= $allfail)
+                return false;
+        }
+        while (!self::checkServerOne($array[$serverPosition]))
+        {
+            $serverPosition = rand(0, sizeof($array) - 1);
+            $trying++;
+            if ($trying >= $allfail)
+                return false;
+        }
+        $serverPort = [$array[$serverPosition][0], $array[$serverPosition][1]];
+        //var_dump($serverPort);
+        return $serverPort;
     }
 
     public static function checkServerOne(&$array)
@@ -803,15 +796,12 @@ class ConnectorTCP
         $this->string = $string;
     }
 
-    public function requestTCP()
+    Public function requestTCP()
     {
-        $timeout = 3;
-        $requests = 1;
-        $error = NULL;
-        $attempts = 0;
+        $timeout = 3000;
+        $debug = false;
         set_time_limit(0); //TIMEOUT into receive
-        ini_set("default_socket_timeout","3"); //TIMEOUT into send
-        $debug = true;
+        ini_set("default_socket_timeout", "3"); //TIMEOUT into send
         //Server Method $serverMethods 'unique', 'random' & 'roundrobin'
         $serverMethods = 'unique';
 
@@ -819,130 +809,91 @@ class ConnectorTCP
         if ($serverMethods == 'unique')
         {
 //ONLY ONE SERVER
-            $serverPort = \ServersCluster::$hostsPort;
-            $server = $serverPort[0][0];
-            $port = $serverPort[0][1];
+            if (!($serverPort = NoMemCacheServerCluster::getServerUnique()))
+            {
+                self::$arrayError = ['666', 'NO SERVERS ALIVE'];
+                return false;
+            } else
+            {
+                $server = $serverPort[0];
+                $port = $serverPort[1];
+            }
+//            $serverPort = \ServersCluster::$hostsPort;
+//            $server = $serverPort[0][0];
+//            $port = $serverPort[0][1];
         } else if ($serverMethods == 'random')
         {
 //RANDOM SERVERS
             if (!($serverPort = NoMemCacheServerCluster::getServerRand()))
             {
-                self::$arrayError = ['666', 'NO SERVERS ALIVE', $server, $port];    
+                self::$arrayError = ['666', 'NO SERVERS ALIVE'];
                 return false;
-            }
-            else
+            } else
             {
+                //$serverPort = NoMemCacheServerCluster::getServerRand();
                 $server = $serverPort[0];
                 $port = $serverPort[1];
             }
-        } else
+        } else if ($serverMethods == 'roundrobin')
         {
 //ROUND ROBIN SERVERS
             $serverPort = MemCacheServerCluster::getServerRoundRobin(MemCacheServerCluster::getServerCluster());
             $server = $serverPort[0][0];
             $port = $serverPort[0][1];
+        } else
+        {
+            $this->errorCode = 001;
+            $this->errorMessage = 'No server method configured \n\r';
+            return false;
         }
+        $seconds = 3;
         $var = $this->string;
         $message = "PSFILTER |$var\r\n";
         $buffer = '';
         //////////////////////////////
         if (!($socket = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP)))
         {
-            $this->errorCode = socket_last_error();
+            $this->errorCode = socket_last_error($socket);
             $this->errorMessage = socket_strerror($this->errorCode);
             self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
             return false;
-        } 
-        //socket_bind($socket,OPERATING_IP); 
-        socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, array('sec' => $timeout, 'usec' => 0));
-        socket_set_option($socket, SOL_SOCKET, SO_SNDTIMEO, array('sec' => $timeout, 'usec' => 0));
+        }
 
         if ($debug)
         {
             echo "Socket created \n";
         }
-
-
         //Connect socket to remote server
+        socket_set_option($socket, SOL_SOCKET, SO_SNDTIMEO, array('sec' => 3, 'usec' => 0));
+        socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, array('sec' => 3, 'usec' => 0));
 
-//        $time = time();
-//        while (!socket_connect($socket, $server, $port))
-//        {
-//            $error = socket_last_error($socket);
-//            if ($error == 115 || $error == 114)
-//            {
-//                if ((time() - $time) >= $timeout)
-//                {
-//                    $this->errorCode = socket_last_error($socket);
-//                    $this->errorMessage = socket_strerror($error);
-//                    self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
-//                    socket_close($socket);
-//                    return false;
-//                }
-//                //sleep(1);
-//                //continue;
-//            }
-//
-//            if ($error != SOCKET_EINPROGRESS && $error != SOCKET_EALREADY)
-//            {
-//                $this->errorCode = socket_last_error($socket);
-//                $this->errorMessage = socket_strerror($error);
-//                socket_close($socket);
-//                self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
-//                return false;
-//            }
-//            usleep(10);
-//            $attempts++;
-//            if ($attempts == $requests)
-//            {
-//                $arrayError = [$this->errorCode, $this->errorMessage, $server, $port];;
-//                return false;
-//                break;
-//            }
-//            return false;
-//            break;
-//        }
-        
-        $connected = true;
-        $timeout = 2;
-        $startTime = time();
-        
-        if ($debug)
+//socket_set_nonblock($socket);
+        $error = NULL;
+        $attempts = 0;
+        while (!($connected = @socket_connect($socket, $server, $port)) && ($attempts < $timeout))
         {
-            echo "\n Trying to connect with ";
-            echo $server;
-            echo "\n";
+            $error = socket_last_error($socket);
+            if ($error != SOCKET_EINPROGRESS && $error != SOCKET_EALREADY)
+            {
+                $this->errorCode = socket_last_error();
+                $this->errorMessage = socket_strerror($error);
+                socket_close($socket);
+                self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
+                return false;
+            }
+            usleep(100);
+            $attempts++;
         }
-        
-//        while (!(@socket_connect($socket, $server, $port)))
-//        {
-//            $error = socket_last_error($socket);
-//            if ($error != SOCKET_EINPROGRESS && $error != SOCKET_EALREADY)
-//            {
-//                $this->errorCode = socket_last_error($socket);
+//        if (!socket_connect($socket, $server, $port)) {
+//            if ($debug) {
+//                $this->errorCode = socket_last_error();
 //                $this->errorMessage = socket_strerror($this->errorCode);
-//                self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
-//                socket_close($socket);
-//                return false;
 //            }
-//            usleep(1000);
-//            $connected = false;
-//            echo "\ntryinggggg\n";
-//            //if ((time() - $startTime ) >= $timeout) return false;
-//        }
-//        
-//        
-//        if (!$connected)
-//        {
-//            $this->errorCode = socket_last_error($socket);
-//            $this->errorMessage = socket_strerror($this->errorCode);
-//            self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
-//            socket_close($socket);
 //            return false;
 //        }
-//
-//        socket_set_block($socket);
-    
+//        if ($debug) {
+//            echo "Connection established \n";
+//        }
         //Send the message to the server
         if (!@socket_send($socket, $message, strlen($message), 0))
         {
@@ -957,35 +908,39 @@ class ConnectorTCP
                 echo "Message send successfully \n";
             }
         }
-//        //Receive an answer
-        while ($buf = socket_read($socket, 20480000, PHP_NORMAL_READ))
+
+//        while ($buf = socket_read($socket, 2048000, PHP_NORMAL_READ)) {
+//            if ($debug) {
+//                echo "Answer from server: $buffer";
+//            }
+//            break;
+//        }
+        //Connect socket to remote server
+        $buf = NULL;
+        while (true)
         {
+            if (false == ($buffer = @socket_read($socket, 20480000, PHP_BINARY_READ)))
+            {
+                break;
+            }
+            $buf .= $buffer;
+            if (strlen($buf) > 2)
+            {
+                $string = substr($buf, -2);
+                if ($string === "\r\n" or $string === "\n\r")
+                {
+                    break;
+                }
+            }
             if ($debug)
             {
-                echo "Answer from server: $buffer";
+                echo "Answer from server: $buf";
             }
-            break;
         }
-//        //Connect socket to remote server
-//        $buf = NULL;
-//        while (true) {
-//            if (false == ($buffer = socket_read($socket, 20480000,PHP_BINARY_READ))){
-//                break;
-//            }
-//            $buf .= $buffer;
-//            if (strlen($buf) > 2) {
-//                if (substr($buf, -1) === "\r") {
-//                    break;
-//                }
-//            }
-//            if ($debug) {
-//                echo "Answer from server: $buf";
-//            }
-//        }
-        //IF need the string "QUIT" to close the socket, enable this and disable the previous one.
+        //IF NEED QUIT TO CLOSE SOCKET ENABLE IT
         /*
           $message = "QUIT\r\n";
-          if( !socket_send ( $socket , $message , strlen($message) , 0))
+          if( !socket_send ( $socketet , $message , strlen($message) , 0))
           {
           $errorcode = socket_last_error();
           $errormsg = socket_strerror($errorcode);
@@ -996,8 +951,8 @@ class ConnectorTCP
           }
          */
         socket_close($socket);
-        unset($message, $server, $port, $debug, $socket);
         self::$answer = $buf;
+        unset($message, $server, $port, $seconds, $debug, $socket, $buffer, $var, $len, $string, $buf);
         return true;
     }
 
