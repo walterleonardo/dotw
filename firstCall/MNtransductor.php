@@ -33,9 +33,10 @@ $start = microtime(true);
 
 while ($requestNumber < $numberOfRequest){
 $run = new \First\Run;
-$answerRequest = $run->managerSupplierRequest(new \Hotel\PreSupplier\Input);
+    /* @var $answerRequest First */
+    $answerRequest = $run->managerSupplierRequest(new \Hotel\PreSupplier\Input);
 
-if ($answerRequest == false) {
+if (!$answerRequest) {
     echo "Error: ";
     print_r($run->getError());
     echo "Error code: ";

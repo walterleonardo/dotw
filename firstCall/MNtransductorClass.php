@@ -17,7 +17,7 @@ include_once $includeConfigFile;
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.
  *  2016
- * 
+ *
  * Enterprise MULTINUCLEO.COM
  * Created by Walter Lopez Pascual
  */
@@ -43,13 +43,15 @@ require 'classFromPartner_Demo.php';
 //require 'classFromPartner_wps3.php';
 //ERROR REPORTING TO FILE only in Test
 
-if ($platform == 'test') {
+if ($platform == 'test')
+{
     error_reporting(E_ALL);
     ini_set("log_errors", 1);
     ini_set("error_log", "logs/errors.log");
 }
 
-Class Run {
+Class Run
+{
     /*
      * Function to management all the classes
      * You need declare previously all the attributes and then run this Function to request to server.
@@ -59,15 +61,18 @@ Class Run {
     private $errorMessage;
     private $errorPrint;
 
-    public function getErrorCode() {
+    public function getErrorCode()
+    {
         return $this->errorCode . "\n";
     }
 
-    public function getError() {
+    public function getError()
+    {
         return $this->errorMessage . "\n";
     }
 
-    public function managerSupplierRequest(\Hotel\PreSupplier\Input $inputObj) {
+    public function managerSupplierRequest(\Hotel\PreSupplier\Input $inputObj)
+    {
         $aInput = $inputObj;
         $aRoomOccupancy = $inputObj->RoomOccupancy;
         $aRoomTypeFilters = $inputObj->RoomTypeFilters;
@@ -81,22 +86,26 @@ Class Run {
          * Check Mandatory and type attributes from all the objets needed.
          */
         //var_export($aInput);
-        if (!$classCheck->mandatoryTypeInput($aInput)) {
+        if (!$classCheck->mandatoryTypeInput($aInput))
+        {
             $this->errorCode = "1";
             $this->errorMessage = "Error_Input_Values";
             return false;
         }
-        if (!$classCheck->mandatoryTypeRoomOccupancy($aRoomOccupancy)) {
+        if (!$classCheck->mandatoryTypeRoomOccupancy($aRoomOccupancy))
+        {
             $this->errorCode = "2";
             $this->errorMessage = "Error_RoomOccupancy_Values";
             return false;
         }
-        if (!$classCheck->mandatoryTypeRoomTypeFilters($aRoomTypeFilters)) {
+        if (!$classCheck->mandatoryTypeRoomTypeFilters($aRoomTypeFilters))
+        {
             $this->errorCode = "3";
             $this->errorMessage = "Error_RoomTypeFilters_Values";
             return false;
         }
-        if (!$classCheck->mandatoryTypeHotelFilters($aHotelFilters)) {
+        if (!$classCheck->mandatoryTypeHotelFilters($aHotelFilters))
+        {
             $this->errorCode = "4";
             $this->errorMessage = "Error_HotelFilters_Values";
             return false;
@@ -104,7 +113,8 @@ Class Run {
         /*
          * Create an Instance of CONSTRUCTOR and give all the objets needed it
          */
-        if ($errorPrint) {
+        if ($errorPrint)
+        {
             echo "\n\r# INPUT OBJECT CREATED #\n\r";
             var_export($aInput);
             echo "\n\r###\n\r";
@@ -130,7 +140,8 @@ Class Run {
         /*
          * Create an Instance of ConnectorTCP and give the String and values for connection
          */
-        if ($errorPrint) {
+        if ($errorPrint)
+        {
             echo "\n\r# STRING LINE CREATED #\n\r";
             echo "PSFILTER |";
             print_r($string);
@@ -140,7 +151,15 @@ Class Run {
         /*
          * Send the String to the DAEMON Server
          */
-        if (!($checkAnswer = $connector->requestTCP())) {
+//        if (!($checkAnswer = $connector->requestTCP())) {
+//            $this->errorCode = $checkAnswer[0];
+//            $this->errorMessage = "Error_TCP_request = " . $checkAnswer[1] . " from server " . $checkAnswer[2] . " and port " . $checkAnswer[3];
+//            return false;
+//        }
+
+        if (!$connector->requestTCP())
+        {
+            $checkAnswer = $connector->returnErrorTCP();
             $this->errorCode = $checkAnswer[0];
             $this->errorMessage = "Error_TCP_request = " . $checkAnswer[1] . " from server " . $checkAnswer[2] . " and port " . $checkAnswer[3];
             return false;
@@ -149,7 +168,8 @@ Class Run {
          * Manage the answer and check Mandatory
          */
         $answerFromTCP = $connector->returnAnswerTCP();
-        if ($errorPrint) {
+        if ($errorPrint)
+        {
             echo "\n\r# Answer from DAEMON #\n\r";
             print_r($answerFromTCP);
             echo "\n\r###\n\r";
@@ -159,14 +179,16 @@ Class Run {
          * Check correct answer form
          */
         $checkAnswer = $classCheck->answer($answerFromTCP);
-        if ($checkAnswer == true) {
+        if ($checkAnswer == true)
+        {
             /*
              * If the mandatory value are correct
              * we fill the array to answer
              */
 
             $mngAnswer = new \First\fillArrayValues();
-            if ($mngAnswer->distributeValues($answerFromTCP) == true) {
+            if ($mngAnswer->distributeValues($answerFromTCP) == true)
+            {
                 return $mngAnswer::$answerStatic;
             }
 //             else {
@@ -174,7 +196,8 @@ Class Run {
 //                $this->errorMessage = 'String Answer OK but NO DISPO';
 //                return false;
 //            }
-        } else {
+        } else
+        {
             $this->errorCode = '0';
             $this->errorMessage = $checkAnswer;
             return false;
@@ -186,7 +209,8 @@ Class Run {
         //return $mngAnswer::$answerStatic;
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         
     }
 
@@ -196,29 +220,38 @@ Class Run {
  * Class to make all the check that we need before and after to send the string to DAEMON
  */
 
-class Check {
+class Check
+{
 
     private $errorMessage;
 
-    public function getError() {
+    public function getError()
+    {
         return $this->errorMessage;
     }
 
-    public function mandatoryTypeInput(&$data) {
+    public function mandatoryTypeInput(&$data)
+    {
         $array = get_object_vars($data);
         unset($array['AdditionalFilters']); //DAEMON dont need it attribute
         $types = array('customerId' => 'integer', 'environment' => 'string', 'requestSource' => 'integer', 'passengerNationalityOrResidenceProvided' => 'boolean', 'hotelIds' => 'array', 'city' => 'integer', 'country' => 'integer', 'bookingChannelsWithAutoMapping' => 'array', 'excludedBookingchannel' => 'array', 'bookingChannelTypes' => 'array', 'RoomOccupancy' => 'array', 'HotelFilters' => 'object', 'RoomTypeFilters' => 'object', 'AdditionalFilters' => 'array');
         $mandatory = array('customerId' => true, 'environment' => true, 'requestSource' => true, 'passengerNationalityOrResidenceProvided' => true, 'hotelIds' => false, 'city' => false, 'country' => false, 'bookingChannelsWithAutoMapping' => false, 'excludedBookingchannel' => false, 'bookingChannelTypes' => false, 'RoomOccupancy' => true, 'HotelFilters' => false, 'RoomTypeFilters' => false, 'AdditionalFilters' => false);
-        foreach ($mandatory as $key => $value) {
-            if ($value) {
-                if (!isset($array[$key])) {
+        foreach ($mandatory as $key => $value)
+        {
+            if ($value)
+            {
+                if (!isset($array[$key]))
+                {
                     return false;
                 }
             }
         }
-        foreach ($array as $key => $value) {
-            if (isset($value)) {
-                if (gettype($value) != $types[$key] and $types[$key] != "null") {
+        foreach ($array as $key => $value)
+        {
+            if (isset($value))
+            {
+                if (gettype($value) != $types[$key] and $types[$key] != "null")
+                {
                     return false;
                 }
             }
@@ -226,23 +259,31 @@ class Check {
         return true;
     }
 
-    public function mandatoryTypeRoomOccupancy(&$data) {
+    public function mandatoryTypeRoomOccupancy(&$data)
+    {
         $array = $data;
         $mandatory = array('adults' => true, 'children' => false, 'twin' => false, 'extraBed' => false);
         $types = array('adults' => 'integer', 'children' => 'array', 'twin' => 'boolean', 'extraBed' => 'boolean');
         //print_r($array);
-        foreach ($array as $object) {
+        foreach ($array as $object)
+        {
             $valueArray = get_object_vars($object);
-            foreach ($mandatory as $key => $value) {
-                if ($value) {
-                    if (!isset($valueArray[$key])) {
+            foreach ($mandatory as $key => $value)
+            {
+                if ($value)
+                {
+                    if (!isset($valueArray[$key]))
+                    {
                         return false;
                     }
                 }
             }
-            foreach ($valueArray as $key => $value) {
-                if (isset($value)) {
-                    if (gettype($value) != $types[$key]) {
+            foreach ($valueArray as $key => $value)
+            {
+                if (isset($value))
+                {
+                    if (gettype($value) != $types[$key])
+                    {
                         return false;
                     }
                 }
@@ -251,21 +292,29 @@ class Check {
         return true;
     }
 
-    public function mandatoryTypeRoomTypeFilters(&$data) {
-        if (isset($data)) {
+    public function mandatoryTypeRoomTypeFilters(&$data)
+    {
+        if (isset($data))
+        {
             $array = get_object_vars($data);
             $mandatory = array('suite' => false, 'roomAmenitie' => false, 'roomId' => false, 'roomName' => false);
             $types = array('suite' => 'integer', 'roomAmenitie' => 'array', 'roomId' => 'array', 'roomName' => 'string');
-            foreach ($mandatory as $key => $value) {
-                if ($value) {
-                    if (!isset($array[$key])) {
+            foreach ($mandatory as $key => $value)
+            {
+                if ($value)
+                {
+                    if (!isset($array[$key]))
+                    {
                         return false;
                     }
                 }
             }
-            foreach ($array as $key => $value) {
-                if (isset($value)) {
-                    if (gettype($value) != $types[$key]) {
+            foreach ($array as $key => $value)
+            {
+                if (isset($value))
+                {
+                    if (gettype($value) != $types[$key])
+                    {
                         return false;
                     }
                 }
@@ -275,8 +324,10 @@ class Check {
         return true;
     }
 
-    public function mandatoryTypeHotelFilters(&$data) {
-        if (isset($data)) {
+    public function mandatoryTypeHotelFilters(&$data)
+    {
+        if (isset($data))
+        {
             $array = get_object_vars($data);
             $mandatory = array('rating' => false, 'luxury' => false,
                 'location' => false, 'locationId' => false, 'amenitie' => false,
@@ -290,16 +341,22 @@ class Check {
                 'chain' => 'array', 'attraction' => 'string', 'hotelName' => 'string',
                 'builtYear' => 'integer', 'renovationYear' => 'integer', 'floors' => 'integer',
                 'noOfRooms' => 'integer', 'fireSafety' => 'integer', 'lastUpdated' => 'string');
-            foreach ($mandatory as $key => $value) {
-                if ($value) {
-                    if (!isset($array[$key])) {
+            foreach ($mandatory as $key => $value)
+            {
+                if ($value)
+                {
+                    if (!isset($array[$key]))
+                    {
                         return false;
                     }
                 }
             }
-            foreach ($array as $key => $value) {
-                if (isset($value)) {
-                    if (gettype($value) != $types[$key]) {
+            foreach ($array as $key => $value)
+            {
+                if (isset($value))
+                {
+                    if (gettype($value) != $types[$key])
+                    {
                         return false;
                     }
                 }
@@ -309,20 +366,26 @@ class Check {
         return true;
     }
 
-    public function answer(&$data) {
-        if (preg_match('/OK/', $data)) {
+    public function answer(&$data)
+    {
+        if (preg_match('/OK/', $data))
+        {
             $arraypre = explode('|||', $data);
             $array = array_splice($arraypre, 1);
-            if (count($array) > 0) {
-                foreach ($array as $value) {
+            if (count($array) > 0)
+            {
+                foreach ($array as $value)
+                {
                     $arrayExploded = explode(",", $value);
-                    if (count($arrayExploded) < 6) {
+                    if (count($arrayExploded) < 6)
+                    {
                         $this->errorMessage = "Less_than_6_values_in_answer -> " . $value;
                         return $this->errorMessage;
                     }
                 }
             }
-        } else {
+        } else
+        {
             $this->errorMessage = "No_OK_String_in_answer -> " . $data;
             return $this->errorMessage;
         }
@@ -335,7 +398,8 @@ class Check {
  * Class to join all the attributes in a multidimensional array and fill the empty values. To make a compatible string for the DAEMON
  */
 
-class Constructor {
+class Constructor
+{
 
     private $aInput;
     private $aRoomOccupancy;
@@ -343,26 +407,31 @@ class Constructor {
     private $aHotelFilters;
     public static $arrayConverted = array('customerId' => '', 'environment' => '', 'requestSource' => '', 'passengerNationalityOrResidenceProvided' => '', 'hotelIds' => '', 'city' => '', 'bookingChannelTypes' => '', 'excludedBookingchannel' => '', 'bookingChannelsWithAutoMapping' => '', 'RoomOccupancy' => '', 'HotelFilters' => '', 'RoomTypeFilters' => '');
 
-    function __construct($aInput, $aRoomOccupancy, $aRoomTypeFilters = null, $aHotelFilters = null) {
+    function __construct($aInput, $aRoomOccupancy, $aRoomTypeFilters = null, $aHotelFilters = null)
+    {
         $this->aInput = $aInput;
         $this->aRoomOccupancy = self::obj2Array($aRoomOccupancy);
         $this->aRoomTypeFilters = $aRoomTypeFilters;
         $this->aHotelFilters = $aHotelFilters;
     }
 
-    public function insertVar() {
+    public function insertVar()
+    {
         $aInputArray = get_object_vars($this->aInput);
 
         /*
          * PROCESSING OF CITY OR COUNTRY INTO THE CITY ATTRIBUTE
          */
-        if (isset($aInputArray['city'])) {
+        if (isset($aInputArray['city']))
+        {
             unset($aInputArray['country']);
-        } else if (isset($aInputArray['country'])) {
+        } else if (isset($aInputArray['country']))
+        {
             $newValue = (string) $aInputArray['country'];
             $aInputArray['city'] = "c" . $newValue;
             unset($aInputArray['country']);
-        } else {
+        } else
+        {
             unset($aInputArray['country']);
         }
         //var_dump($aInputArray);
@@ -370,18 +439,24 @@ class Constructor {
          * OTHER ARRAY INCLUSION
          */
         $aRoomOccupancyArray = $this->aRoomOccupancy;
-        if (isset($this->aRoomTypeFilters)) {
+        if (isset($this->aRoomTypeFilters))
+        {
             $aRoomTypeFiltersArray = get_object_vars($this->aRoomTypeFilters);
-        } else {
+        } else
+        {
             $aRoomTypeFiltersArray = null;
         }
-        if (isset($this->aHotelFilters)) {
+        if (isset($this->aHotelFilters))
+        {
             $aHotelFiltersArray = get_object_vars($this->aHotelFilters);
-        } else {
+        } else
+        {
             $aHotelFiltersArray = null;
         }
-        foreach ($aInputArray as $key => $value) {
-            if (isset($aInputArray[$key])) {
+        foreach ($aInputArray as $key => $value)
+        {
+            if (isset($aInputArray[$key]))
+            {
                 self::$arrayConverted[$key] = $value;
             }
         }
@@ -390,52 +465,73 @@ class Constructor {
         self::$arrayConverted['RoomTypeFilters'] = $aRoomTypeFiltersArray;
     }
 
-    public static function obj2Array(&$obj) {
-        foreach ($obj as $key => $value) {
-            if (is_object($value)) {
+    public static function obj2Array(&$obj)
+    {
+        foreach ($obj as $key => $value)
+        {
+            if (is_object($value))
+            {
                 $arrayin[$key] = get_object_vars($value);
-            } else {
+            } else
+            {
                 $arrayin[$key] = $value;
             }
         }
         return $arrayin;
     }
 
-    public function convertToBool() {
+    public function convertToBool()
+    {
         //REPLACE BOOLEANS WITH y AND N
-        foreach (self::$arrayConverted as $key => $value) {
-            if (is_array($value)) {
-                foreach ($value as $keyin => $valuein) {
-                    if (is_array($valuein)) {
-                        foreach ($valuein as $keyinin => $valueinin) {
+        foreach (self::$arrayConverted as $key => $value)
+        {
+            if (is_array($value))
+            {
+                foreach ($value as $keyin => $valuein)
+                {
+                    if (is_array($valuein))
+                    {
+                        foreach ($valuein as $keyinin => $valueinin)
+                        {
                             $val = $valueinin;
-                            if (gettype($val) == 'boolean') {
-                                if ($val) {
+                            if (gettype($val) == 'boolean')
+                            {
+                                if ($val)
+                                {
                                     $val = 'Y';
-                                } else {
+                                } else
+                                {
                                     $val = 'N';
                                 }
                                 self::$arrayConverted[$key][$keyin][$keyinin] = $val;
                             }
                         }
-                    } else {
+                    } else
+                    {
                         $val = $valuein;
-                        if (gettype($val) == 'boolean') {
-                            if ($val) {
+                        if (gettype($val) == 'boolean')
+                        {
+                            if ($val)
+                            {
                                 $val = 'Y';
-                            } else {
+                            } else
+                            {
                                 $val = 'N';
                             }
                             self::$arrayConverted[$key][$keyin] = $val;
                         }
                     }
                 }
-            } else {
+            } else
+            {
                 $val = $value;
-                if (gettype($val) == 'boolean') {
-                    if ($val) {
+                if (gettype($val) == 'boolean')
+                {
+                    if ($val)
+                    {
                         $val = 'Y';
-                    } else {
+                    } else
+                    {
                         $val = 'N';
                     }
                     self::$arrayConverted[$key] = $val;
@@ -445,18 +541,22 @@ class Constructor {
         return true;
     }
 
-    public function convertToCity() {
+    public function convertToCity()
+    {
         //REPLACE CITY CODE WITH CITY NAME
         var_export(self::$arrayConverted);
         $arrayCityCode = array('7674' => 'Paris', '396' => 'Dubai');
 
-        foreach (self::$arrayConverted as $key => $value) {
+        foreach (self::$arrayConverted as $key => $value)
+        {
 
-            if ($key == 'city') {
+            if ($key == 'city')
+            {
 //                var_dump($key);
 //                echo "->";
                 var_dump($value);
-                if (!is_int($value)) {
+                if (!is_int($value))
+                {
                     $bar = ucfirst(strtolower($value));
 //                    echo "->";
 //                    var_dump($bar);
@@ -472,24 +572,30 @@ class Constructor {
         return true;
     }
 
-    public function returnArray() {
+    public function returnArray()
+    {
         return self::$arrayConverted;
     }
 
     //INCLUDE IN GLUES THE SIGN TO SEPARATE VALUES by EXAMPLE array("|",",","~","#")
-    public static function convertRequestArrayToString(array $glues, array &$array) {
+    public static function convertRequestArrayToString(array $glues, array &$array)
+    {
         $out = "";
         $g = array_shift($glues);
         $c = count($array);
         $i = 0;
-        foreach ($array as $val) {
-            if (is_array($val)) {
+        foreach ($array as $val)
+        {
+            if (is_array($val))
+            {
                 $out .= self::convertRequestArrayToString($glues, $val);
-            } else {
+            } else
+            {
                 $out .= (string) $val;
             }
             $i++;
-            if ($i < $c) {
+            if ($i < $c)
+            {
                 $out .= $g;
             }
         }
@@ -497,11 +603,13 @@ class Constructor {
         return $out;
     }
 
-    Public function returnString() {
+    Public function returnString()
+    {
         return self::$stringConverted;
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         
     }
 
@@ -511,7 +619,8 @@ class Constructor {
  * MEMCACHE SERVER CLUSTER ROND ROBIN
  */
 
-class MemCacheServerCluster {
+class MemCacheServerCluster
+{
 
     static $key = 'multinucleo'; // KEY TO SAVE THE OBJECT IN MEMORY
     static $memcachehost = 'localhost'; // HOST WHERE WE HAVE THE MEMCACHE SERVER
@@ -520,16 +629,19 @@ class MemCacheServerCluster {
     static $fail = 1; //QUANTITY OF FAILS BEFORE TO PUT THE SERVER DISABLED
     private $debug = false;
 
-    public static function getServerCluster() {
+    public static function getServerCluster()
+    {
         $memcache = new \Memcache;
         $memcache->connect(self::$memcachehost, self::$memcacheport);
         $key = self::$key;
         $cache_result = $memcache->get($key);
 
-        if ($cache_result) {
+        if ($cache_result)
+        {
             $server_result = $cache_result;
             //echo "Con memoria ocupada \n";
-        } else {
+        } else
+        {
             $server_result = \ServersCluster::$hostsPort;
             $memcache->set($key, $server_result, MEMCACHE_COMPRESSED, self::$timeoutMemCache);
             //echo "Sin memoria ocupada \n";
@@ -537,57 +649,48 @@ class MemCacheServerCluster {
         return $server_result;
     }
 
-    private static function setServerCluster($array) {
+    private static function setServerCluster($array)
+    {
         $memcache = new \Memcache;
         $memcache->connect(self::$memcachehost, self::$memcacheport);
         $key = self::$key; // Unique Words
         return (true) ? $memcache->set($key, $array, MEMCACHE_COMPRESSED, self::$timeoutMemCache) : false;
     }
 
-    public static function getServerRoundRobin($array) {
-        //var_dump($array);
+    public static function getServerRoundRobin($array)
+    {
         array_push($array, array_shift($array));
         $serverPosition = 0;
-        //var_dump($array[$serverPosition]);
-        if ($array[$serverPosition][2] === 'ENABLED') {
-            if (!self::checkServer($array)) {
+        if ($array[$serverPosition][2] === 'ENABLED')
+        {
+            if (!self::checkServer($array))
+            {
                 $array = self::getServerRoundRobin($array);
             }
         }
 
-        if ($array[$serverPosition][3] <= self::$fail and $array[$serverPosition][2] === 'ENABLED') {
+        if ($array[$serverPosition][3] <= self::$fail and $array[$serverPosition][2] === 'ENABLED')
+        {
             self::setServerCluster($array);
             return $array;
-        } else {
+        } else
+        {
             $array = self::getServerRoundRobin($array);
             return $array;
         }
     }
 
-//    public static function checkServers(&$array) {
-//        foreach ($array as $key => $host) {
-//            $connection = @fsockopen($host[0], $host[1]);
-//            if (is_resource($connection)) {
-//                fclose($connection);
-//                $array[$key][3] = 0;
-//                self::setServerCluster($array);
-//                return true;
-//            } else {
-//                $array[$key][3] ++;
-//                self::setServerCluster($array);
-//                return false;
-//            }
-//        }
-//    }
-
-    public static function checkServer(&$array) {
+    public static function checkServer(&$array)
+    {
         $connection = @fsockopen($array[0][0], $array[0][1]);
-        if (is_resource($connection)) {
+        if (is_resource($connection))
+        {
             @fclose($connection);
             $array[0][3] = 0;
             self::setServerCluster($array);
             return true;
-        } else {
+        } else
+        {
             $array[0][3] ++;
             self::setServerCluster($array);
             return false;
@@ -600,29 +703,73 @@ class MemCacheServerCluster {
  * NO MEMCACHE SERVER CLUSTER RANDOM
  */
 
-class NoMemCacheServerCluster {
+//class NoMemCacheServerCluster
+//{
+//
+//    public static function getServerRand()
+//    {
+//        $array = \ServersCluster::$hostsPort;
+//        $serverPosition = rand(0, sizeof($array) - 1);
+//        while ($array[$serverPosition][2] === 'DISABLED')
+//        {
+//            $serverPosition = rand(0, sizeof($array) - 1);
+//        }
+//        while (!self::checkServerOne($array[$serverPosition]))
+//        {
+//            $serverPosition = rand(0, sizeof($array) - 1);
+//        }
+//        $serverPort = [$array[$serverPosition][0], $array[$serverPosition][1]];
+//        //var_dump($serverPort);
+//        return $serverPort;
+//    }
+//
+//    public static function checkServerOne(&$array)
+//    {
+//        $connection = @fsockopen($array[0], $array[1]);
+//        if (is_resource($connection))
+//        {
+//            @fclose($connection);
+//            return true;
+//        } else
+//        {
+//            return false;
+//        }
+//    }
+//
+//}
 
-    public static function getServerRand() {
+class NoMemCacheServerCluster
+{
+
+    public static function getServerRand()
+    {
         $array = \ServersCluster::$hostsPort;
-        $serverPosition = rand(0, sizeof($array) - 1);
-        while ($array[$serverPosition][2] === 'DISABLED') {
-            $serverPosition = rand(0, sizeof($array) - 1);
+
+        foreach ($array as $k1 => $v1)
+        {
+            if ($v1[2] == 'DISABLED')
+                unset($array[$k1]);
+            else
+                $arrayToCheck = $v1;
         }
-        while (!self::checkServerOne($array[$serverPosition])) {
+        if (sizeof($array) >= 1)
+        {
             $serverPosition = rand(0, sizeof($array) - 1);
-        }
-        $serverPort = [$array[$serverPosition][0], $array[$serverPosition][1]];
-        //var_dump($serverPort);
-        return $serverPort;
+            return $array[$serverPosition];
+        } else
+            return false;
     }
 
-    public static function checkServerOne(&$array) {
-        $connection = @fsockopen($array[0], $array[1]);
-        if (is_resource($connection)) {
+    public static function checkServerOne(&$array)
+    {
+        $connection = @fsockopen("tcp://" . $array[0], $array[1], $errno, $errstr, 1);
+        if (!$connection)
+        {
+            return false;
+        } else
+        {
             @fclose($connection);
             return true;
-        } else {
-            return false;
         }
     }
 
@@ -632,105 +779,189 @@ class NoMemCacheServerCluster {
  * Class to management all the TCP communication request and response
  */
 
-class ConnectorTCP {
+class ConnectorTCP
+{
 
     private $string;
     public static $answer;
     private $errorCode;
     private $errorMessage;
+    public static $arrayError;
 
-    public function getErrorCode() {
+    public function getErrorCode()
+    {
         return $this->errorCode;
     }
 
-    public function getError() {
+    public function getError()
+    {
         return $this->errorMessage;
     }
 
-    function __construct($string) {
+    function __construct($string)
+    {
         $this->string = $string;
     }
 
-    public function requestTCP() {
-        $timeout = 3000;
-        set_time_limit(0);
-        $debug = false;
+    public function requestTCP()
+    {
+        $timeout = 3;
+        $requests = 1;
+        $error = NULL;
+        $attempts = 0;
+        set_time_limit(0); //TIMEOUT into receive
+        ini_set("default_socket_timeout","3"); //TIMEOUT into send
+        $debug = true;
         //Server Method $serverMethods 'unique', 'random' & 'roundrobin'
-        $serverMethods = 'random';
+        $serverMethods = 'unique';
 
 
-        if ($serverMethods == 'unique') {
+        if ($serverMethods == 'unique')
+        {
 //ONLY ONE SERVER
             $serverPort = \ServersCluster::$hostsPort;
             $server = $serverPort[0][0];
             $port = $serverPort[0][1];
-        } else if ($serverMethods == 'random') {
+        } else if ($serverMethods == 'random')
+        {
 //RANDOM SERVERS
-            $serverPort = NoMemCacheServerCluster::getServerRand();
-            $server = $serverPort[0];
-            $port = $serverPort[1];
-        } else {
+            if (!($serverPort = NoMemCacheServerCluster::getServerRand()))
+            {
+                self::$arrayError = ['666', 'NO SERVERS ALIVE', $server, $port];    
+                return false;
+            }
+            else
+            {
+                $server = $serverPort[0];
+                $port = $serverPort[1];
+            }
+        } else
+        {
 //ROUND ROBIN SERVERS
             $serverPort = MemCacheServerCluster::getServerRoundRobin(MemCacheServerCluster::getServerCluster());
             $server = $serverPort[0][0];
             $port = $serverPort[0][1];
         }
-        $seconds = 3;
         $var = $this->string;
         $message = "PSFILTER |$var\r\n";
         $buffer = '';
         //////////////////////////////
-        if (!($sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP))) {
+        if (!($socket = @socket_create(AF_INET, SOCK_STREAM, SOL_TCP)))
+        {
             $this->errorCode = socket_last_error();
             $this->errorMessage = socket_strerror($this->errorCode);
-            $arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
-            return $arrayError;
-        }
-        if ($debug) {
+            self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
+            return false;
+        } 
+        //socket_bind($socket,OPERATING_IP); 
+        socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, array('sec' => $timeout, 'usec' => 0));
+        socket_set_option($socket, SOL_SOCKET, SO_SNDTIMEO, array('sec' => $timeout, 'usec' => 0));
+
+        if ($debug)
+        {
             echo "Socket created \n";
         }
-        //Connect socket to remote server
-        socket_set_option($sock, SOL_SOCKET, SO_SNDTIMEO, array('sec' => 3, 'usec' => 0));
 
-        //socket_set_nonblock($sock);
-        $error = NULL;
-        $attempts = 0;
-        while (!($connected = socket_connect($sock, $server, $port)) && ($attempts < $timeout)) {
-            $error = socket_last_error();
-            if ($error != SOCKET_EINPROGRESS && $error != SOCKET_EALREADY) {
-                $this->errorCode = socket_last_error();
-                $this->errorMessage = socket_strerror($error);
-                socket_close($sock);
-                $arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
-                return $arrayError;
-            }
-            usleep(1000);
-            $attempts++;
-        }
-//        if (!socket_connect($sock, $server, $port)) {
-//            if ($debug) {
-//                $this->errorCode = socket_last_error();
-//                $this->errorMessage = socket_strerror($this->errorCode);
+
+        //Connect socket to remote server
+
+//        $time = time();
+//        while (!socket_connect($socket, $server, $port))
+//        {
+//            $error = socket_last_error($socket);
+//            if ($error == 115 || $error == 114)
+//            {
+//                if ((time() - $time) >= $timeout)
+//                {
+//                    $this->errorCode = socket_last_error($socket);
+//                    $this->errorMessage = socket_strerror($error);
+//                    self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
+//                    socket_close($socket);
+//                    return false;
+//                }
+//                //sleep(1);
+//                //continue;
+//            }
+//
+//            if ($error != SOCKET_EINPROGRESS && $error != SOCKET_EALREADY)
+//            {
+//                $this->errorCode = socket_last_error($socket);
+//                $this->errorMessage = socket_strerror($error);
+//                socket_close($socket);
+//                self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
+//                return false;
+//            }
+//            usleep(10);
+//            $attempts++;
+//            if ($attempts == $requests)
+//            {
+//                $arrayError = [$this->errorCode, $this->errorMessage, $server, $port];;
+//                return false;
+//                break;
 //            }
 //            return false;
+//            break;
 //        }
-//        if ($debug) {
-//            echo "Connection established \n";
+        
+        $connected = true;
+        $timeout = 2;
+        $startTime = time();
+        
+        if ($debug)
+        {
+            echo "\n Trying to connect with ";
+            echo $server;
+            echo "\n";
+        }
+        
+//        while (!(@socket_connect($socket, $server, $port)))
+//        {
+//            $error = socket_last_error($socket);
+//            if ($error != SOCKET_EINPROGRESS && $error != SOCKET_EALREADY)
+//            {
+//                $this->errorCode = socket_last_error($socket);
+//                $this->errorMessage = socket_strerror($this->errorCode);
+//                self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
+//                socket_close($socket);
+//                return false;
+//            }
+//            usleep(1000);
+//            $connected = false;
+//            echo "\ntryinggggg\n";
+//            //if ((time() - $startTime ) >= $timeout) return false;
 //        }
+//        
+//        
+//        if (!$connected)
+//        {
+//            $this->errorCode = socket_last_error($socket);
+//            $this->errorMessage = socket_strerror($this->errorCode);
+//            self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
+//            socket_close($socket);
+//            return false;
+//        }
+//
+//        socket_set_block($socket);
+    
         //Send the message to the server
-        if (!socket_send($sock, $message, strlen($message), 0)) {
+        if (!@socket_send($socket, $message, strlen($message), 0))
+        {
             $this->errorCode = socket_last_error();
             $this->errorMessage = socket_strerror($this->errorCode);
-            $arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
-            return $arrayError;
-        } else {
-            if ($debug) {
+            self::$arrayError = [$this->errorCode, $this->errorMessage, $server, $port];
+            return false;
+        } else
+        {
+            if ($debug)
+            {
                 echo "Message send successfully \n";
             }
         }
 //        //Receive an answer
-        while ($buf = socket_read($sock, 4096000, PHP_NORMAL_READ)) {
-            if ($debug) {
+        while ($buf = socket_read($socket, 20480000, PHP_NORMAL_READ))
+        {
+            if ($debug)
+            {
                 echo "Answer from server: $buffer";
             }
             break;
@@ -738,7 +969,7 @@ class ConnectorTCP {
 //        //Connect socket to remote server
 //        $buf = NULL;
 //        while (true) {
-//            if (false == ($buffer = socket_read($sock, 20480000,PHP_BINARY_READ))){
+//            if (false == ($buffer = socket_read($socket, 20480000,PHP_BINARY_READ))){
 //                break;
 //            }
 //            $buf .= $buffer;
@@ -754,7 +985,7 @@ class ConnectorTCP {
         //IF need the string "QUIT" to close the socket, enable this and disable the previous one.
         /*
           $message = "QUIT\r\n";
-          if( !socket_send ( $sock , $message , strlen($message) , 0))
+          if( !socket_send ( $socket , $message , strlen($message) , 0))
           {
           $errorcode = socket_last_error();
           $errormsg = socket_strerror($errorcode);
@@ -764,17 +995,24 @@ class ConnectorTCP {
           if ($debug) echo "Message QUIT send successfully \n";
           }
          */
-        socket_close($sock);
-        unset($message, $server, $port, $seconds, $debug, $sock);
+        socket_close($socket);
+        unset($message, $server, $port, $debug, $socket);
         self::$answer = $buf;
         return true;
     }
 
-    public function returnAnswerTCP() {
+    public function returnAnswerTCP()
+    {
         return self::$answer;
     }
 
-    public function __destruct() {
+    public function returnErrorTCP()
+    {
+        return self::$arrayError;
+    }
+
+    public function __destruct()
+    {
         
     }
 
@@ -784,39 +1022,53 @@ class ConnectorTCP {
  * Create an Array and modify the type of attributes
  */
 
-class fillArrayValues {
+class fillArrayValues
+{
 
     public static $answerStatic = array();
 
-    public function distributeValues($param) {
+    public function distributeValues($param)
+    {
         $arrayAnswer = explode("|||", $param);
         $array_need = array();
         $arrayAnswerSplice = array_splice($arrayAnswer, 1);
 
-        if (count($arrayAnswerSplice) >= 1) {
-            foreach ($arrayAnswerSplice as $array_values) {
-                if ($array_values) {
+        if (count($arrayAnswerSplice) >= 1)
+        {
+            foreach ($arrayAnswerSplice as $array_values)
+            {
+                if ($array_values)
+                {
                     $folders = explode(",", $array_values);
                     // Possible solution to a new line problem. For the future.
                     $folders5 = \trim($folders[5], "\t\n\r\0\x0B");
                     //$folders5 = $folders[5];
                     $array_need[$folders[0]][$folders[1]][$folders5]['cityCode'] = $folders[2];
 
-                    if ($folders[1] == 1000 || $folders[1] == 1010) {
-                        if (isset($folders[6])) {
-                            if (trim($folders[6]) != '') {
+                    if ($folders[1] == 1000 || $folders[1] == 1010)
+                    {
+                        if (isset($folders[6]))
+                        {
+                            if (trim($folders[6]) != '')
+                            {
                                 $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = trim($folders[6], "\t\n\r\0\x0B");
-                            } else {
+                            } else
+                            {
                                 $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][] = $folders[4];
                             }
-                        } else {
+                        } else
+                        {
                             $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][] = $folders[4];
                         }
-                    } else {
-                        if (isset($folders[6])) {
-                            if (trim($folders[6]) != '') {
+                    } else
+                    {
+                        if (isset($folders[6]))
+                        {
+                            if (trim($folders[6]) != '')
+                            {
                                 $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = trim($folders[6], "\t\n\r\0\x0B");
-                            } else {
+                            } else
+                            {
                                 $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][] = $folders[4];
                             }
                         }
@@ -824,7 +1076,8 @@ class fillArrayValues {
                     $array_need[$folders[0]][$folders[1]][$folders5]['hotelCodeOriginal'] = $folders[3];
                 }
             }
-        } else {
+        } else
+        {
             //self::$answerStatic = false;
             self::$answerStatic = $array_need;
             return true;
@@ -834,7 +1087,8 @@ class fillArrayValues {
         return true;
     }
 
-    public function __destruct() {
+    public function __destruct()
+    {
         
     }
 
