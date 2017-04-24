@@ -450,6 +450,13 @@ class Constructor
         if (isset($this->aHotelFilters))
         {
             $aHotelFiltersArray = get_object_vars($this->aHotelFilters);
+            
+            if (isset($aHotelFiltersArray["lastUpdated"])){
+                //$d = new \DateTime($aHotelFiltersArray["lastUpdated"], new \DateTimeZone('Europe/Rome'));
+                $d = new \DateTime($aHotelFiltersArray["lastUpdated"], new \DateTimeZone('Europe/Rome'));
+               $aHotelFiltersArray["lastUpdated"]=$d->getTimestamp();
+            }
+          
         } else
         {
             $aHotelFiltersArray = null;
