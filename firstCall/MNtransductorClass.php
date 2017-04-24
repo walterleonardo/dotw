@@ -36,11 +36,12 @@ include_once $includeConfigFile;
 //require 'RoomTypeFilters.php';
 //require 'RoomOccupancy.php';
 //require 'classFromPartner.php';
-require 'classFromPartner_Demo.php';
+//require 'classFromPartner_Demo.php';
 //require 'classFromPartner_Demo_1.php';
 //require 'classFromPartner_Paris.php';
 //require 'classFromPartner_Dubai.php';
 //require 'classFromPartner_wps3.php';
+require 'classFromPartner_wps80.php';
 //ERROR REPORTING TO FILE only in Test
 
 if ($platform == 'test')

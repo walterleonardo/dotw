@@ -10,21 +10,22 @@ namespace Hotel\PreSupplier;
 class Input {
 
     public $customerId = 164; //integer 1317257
-    public $environment = 'prod'; //string
+    public $environment = 'dev'; //string
     public $requestSource = 1; //integer
-    public $passengerNationalityOrResidenceProvided = true; //boolean
+    public $passengerNationalityOrResidenceProvided = false; //boolean
     public $hotelIds = array (); //array(int)
     public $city = null; //7674; //integer 7674
-    public $country = 21; //integer 971
+    public $country = 46; //integer 971
     public $bookingChannelsWithAutoMapping = array (
-            0 => 1011,
+    0 => 1011,
     1 => 1003,
     2 => 1004,
     3 => 1529,
     4 => 1005,
     5 => 1017,
     6 => 1022,
-        ); //array(int)
+    7 => 1519,
+  ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
     //ExcludedBookingchannel new object
@@ -58,7 +59,7 @@ class Input {
 }
 
 class RoomOccupancy {
-    public $adults = 2; //integer
+    public $adults = 1; //integer
     public $children = array (); //array(int)
     public $twin = false; //boolean
     public $extraBed = false; //boolean
@@ -89,23 +90,24 @@ class RoomTypeFilters {
 
 class HotelFilters {
 
-//    public $rating = array(); //array(int)
-//    public $luxury = null; //integer
-//    public $location = null; //string
-//    public $locationId = array(); //array(int)
-//    public $amenitie = array(); //array(int)
-//    public $leisure = array(); //array(int)
-//    public $business = array(); //array(int)
-//    public $hotelPreference = array(); //array(int)
-//    public $chain = array(); //array(int)
-//    public $attraction = null; //string
-//    public $hotelName = 'burj'; //string
-//    public $builtYear = null; //integer
-//    public $renovationYear = null; //integer
-//    public $floors = null; //integer
-//    public $noOfRooms = null; //integer
-//    public $fireSafety = null; //integer
-//    public $lastUpdated = null; //string
+    public $rating = array(); //array(int)
+    public $luxury = null; //integer
+    public $location = null; //string
+    public $locationId = array(); //array(int)
+    public $amenitie = array(); //array(int)
+    public $leisure = array(); //array(int)
+    public $business = array(); //array(int)
+    public $hotelPreference = array(); //array(int)
+    public $chain = array(); //array(int)
+    public $attraction = null; //string
+    public $hotelName = null; //string
+    public $builtYear = null; //integer
+    public $renovationYear = null; //integer
+    public $floors = null; //integer
+    public $noOfRooms = null; //integer
+    public $fireSafety = null; //integer
+    //public $lastUpdated = null; //string
+    public $lastUpdated = '2016-01-01 00:00:00'; //string
 
 }
 
