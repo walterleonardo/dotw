@@ -451,9 +451,8 @@ class Constructor
         {
             $aHotelFiltersArray = get_object_vars($this->aHotelFilters);
             
-            if (isset($aHotelFiltersArray["lastUpdated"])){
-                //$d = new \DateTime($aHotelFiltersArray["lastUpdated"], new \DateTimeZone('Europe/Rome'));
-                $d = new \DateTime($aHotelFiltersArray["lastUpdated"], new \DateTimeZone('Europe/Rome'));
+            if (isset($aHotelFiltersArray["lastUpdated"])){                
+                $d = new \DateTime($aHotelFiltersArray["lastUpdated"], new \DateTimeZone('GMT'));
                $aHotelFiltersArray["lastUpdated"]=$d->getTimestamp();
             }
           
