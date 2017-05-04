@@ -41,7 +41,7 @@ include_once $includeConfigFile;
 //require 'classFromPartner_Paris.php';
 //require 'classFromPartner_Dubai.php';
 //require 'classFromPartner_wps3.php';
-require 'classFromPartner_wps80.php';
+require 'classFromPartner_wpsPROD.php';
 //ERROR REPORTING TO FILE only in Test
 
 if ($platform == 'test')
