@@ -17,6 +17,8 @@
  * MNtransductorClass.php, include all the class that make the hard work. 
  */
 require 'MNtransductorClass.php';
+$info = "detail"; //detail or normal
+$debug = true;
 
 error_reporting(E_ALL);
 ini_set('display_errors','On');
@@ -51,7 +53,52 @@ if (!$answerRequest) {
     echo "##\n\r";
     var_export($answerRequest);
     echo "##\n\r";
+    
+    
+    echo "\n\r";
+
+        $roomsNumber = 0;
+        $roomsNumber2 = 0;
+        $imagesNumber = 0;
+        $transportationNumber = 0;
+        if ($debug) {
+            foreach ($answerRequest as $key => $value) {
+                echo "For hotel ID ";
+                var_export($key);
+                echo "\t";
+
+                echo "\tHotels :";
+                var_export(count($answerRequest[$key]));
+                $roomsNumber += count($answerRequest[$key]);
+               
+                foreach ($answerRequest[$key] as $key2 => $value2)
+                {
+                    var_export(count($key2));
+                $roomsNumber2 += count($key2);
+                }
+                echo "\n";
+            }
+
+
+            echo "## ";
+            echo "Hotels received ";
+            var_export(count($answerRequest));
+            echo " ##\n";
+            echo "## ";
+            echo "Hotels ";
+            var_export($roomsNumber);
+            echo " ##\n";
+             echo "Hotels ";
+            var_export($roomsNumber2);
+            echo " ##\n";
+            echo "## ";
+          
+            echo " ##\n\r";
+        }
 }
+
+
+
 $requestNumber++;
 
 }

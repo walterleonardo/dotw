@@ -29,7 +29,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS72.php';
+    require 'classFromPartner_Demo_jiraWPSPROD.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -712,10 +712,10 @@ class ConnectorTCP
 
     Public function requestTCP()
     {
-        $timeout = 3000;
+        $timeout = 60000;
         $debug = false;
         set_time_limit(0); //TIMEOUT into receive
-        ini_set("default_socket_timeout", "3"); //TIMEOUT into send
+        ini_set("default_socket_timeout", "60"); //TIMEOUT into send
         //Server Method $serverMethods 'unique', 'random' & 'roundrobin'
         $serverMethods = 'unique';
 
@@ -778,8 +778,8 @@ class ConnectorTCP
             echo "Socket created \n";
         }
         //Connect socket to remote server
-        socket_set_option($socket, SOL_SOCKET, SO_SNDTIMEO, array('sec' => 3, 'usec' => 0));
-        socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, array('sec' => 3, 'usec' => 0));
+        socket_set_option($socket, SOL_SOCKET, SO_SNDTIMEO, array('sec' => 60, 'usec' => 0));
+        socket_set_option($socket, SOL_SOCKET, SO_RCVTIMEO, array('sec' => 60, 'usec' => 0));
 
 //socket_set_nonblock($socket);
         $error = NULL;

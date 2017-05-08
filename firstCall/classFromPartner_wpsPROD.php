@@ -15,18 +15,16 @@ class Input {
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (); //array(int)
     public $city = null; //7674; //integer 7674
-    public $country = 84; //integer 971
+    public $country = 102; //integer 971
     public $bookingChannelsWithAutoMapping = array (
             0 => 1011,
             1 => 1003,
-            2 => 1529,
-            3 => 1017,
+            2 => 1004,
+            3 => 1529,
             4 => 1005,
-            5 => 1004,
+            5 => 1017,
             6 => 1022,
-            7 => 1027,
-            8 => 1689,
-            9 => 1519
+            7 => 1519
         ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     

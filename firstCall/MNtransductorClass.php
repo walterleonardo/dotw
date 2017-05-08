@@ -1,7 +1,7 @@
 <?php
 
 namespace First;
-
+ini_set('memory_limit', '-1');
 //INCLUDE LIKE $platform value these differents options 'dev|test|prod'
 /*
  * test = localhost
@@ -922,11 +922,11 @@ class ConnectorTCP
 //            }
 //            break;
 //        }
-        //Connect socket to remote server
+        //Connect socket to remote server PHP_BINARY_READ
         $buf = NULL;
         while (true)
         {
-            if (false == ($buffer = @socket_read($socket, 20480000, PHP_BINARY_READ)))
+            if (false == ($buffer = @socket_read($socket, 20480000, PHP_NORMAL_READ)))
             {
                 break;
             }
