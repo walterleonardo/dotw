@@ -13,8 +13,9 @@ $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
 //List of Channel Manager codes 
-$array_of_channel_manager_codes = array (1000,1010);
-
+class ArrayChannelCodes {
+    public static $array_of_channel_manager_codes = array (1000,1010);
+}
 
 /*
  * Class to translate objest attributes in a string to request information from DAEMON Server.

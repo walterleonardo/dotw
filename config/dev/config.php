@@ -14,7 +14,5 @@ class ServersCluster {
     );
 }
 
-class ArrayChannelCodes {
-    public static $array_of_channel_manager_codes = array (1000,1010);
-}
+
 
