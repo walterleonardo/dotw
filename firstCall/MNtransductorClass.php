@@ -1011,7 +1011,7 @@ class fillArrayValues
                     $array_need[$folders[0]][$folders[1]][$folders5]['cityCode'] = $folders[2];
 
                     //if ($folders[1] === 1000 || $folders[1] === 1010)
-                    if (in_array($folders[1], \ArrayChannelCodes::$array_of_channel_manager_codes))
+                    if (in_array($folders[1], ArrayChannelCodes::$array_of_channel_manager_codes))
                     {
                         if (isset($folders[6]))
                         {
