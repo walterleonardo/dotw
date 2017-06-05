@@ -29,7 +29,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPSPROD.php';
+    require 'classFromPartner_Demo_jiraWPSPROD2.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -833,7 +833,7 @@ class ConnectorTCP
         $buf = NULL;
         while (true)
         {
-            if (false == ($buffer = @socket_read($socket, 20480000, PHP_BINARY_READ)))
+            if (false == ($buffer = @socket_read($socket, 41943040, PHP_BINARY_READ)))
             {
                 break;
             }

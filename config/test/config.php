@@ -10,3 +10,7 @@ class ServersCluster {
         array('0.0.0.0', '10003', 'ENABLED', 0),
     );
 }
+
+class ArrayChannelCodes {
+    public static $array_of_channel_manager_codes = array (1000,1010);
+}

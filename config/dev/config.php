@@ -13,3 +13,8 @@ class ServersCluster {
         array('10.211.55.6', '10003', 'DISABLED', 0),
     );
 }
+
+class ArrayChannelCodes {
+    public static $array_of_channel_manager_codes = array (1000,1010);
+}
+

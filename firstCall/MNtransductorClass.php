@@ -12,6 +12,8 @@ $platform = 'dev';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
+//List of Channel Manager codes 
+$array_of_channel_manager_codes = array (1000,1010);
 
 
 /*
@@ -38,10 +40,10 @@ include_once $includeConfigFile;
 //require 'classFromPartner.php';
 //require 'classFromPartner_Demo.php';
 //require 'classFromPartner_Demo_1.php';
-//require 'classFromPartner_Paris.php';
+require 'classFromPartner_Paris.php';
 //require 'classFromPartner_Dubai.php';
 //require 'classFromPartner_wps3.php';
-require 'classFromPartner_wpsPROD.php';
+//require 'classFromPartner_wpsPROD.php';
 //ERROR REPORTING TO FILE only in Test
 
 if ($platform == 'test')
@@ -1007,7 +1009,8 @@ class fillArrayValues
                     //$folders5 = $folders[5];
                     $array_need[$folders[0]][$folders[1]][$folders5]['cityCode'] = $folders[2];
 
-                    if ($folders[1] == 1000 || $folders[1] == 1010)
+                    //if ($folders[1] === 1000 || $folders[1] === 1010)
+                    if (in_array($folders[1], \ArrayChannelCodes::$array_of_channel_manager_codes))
                     {
                         if (isset($folders[6]))
                         {
