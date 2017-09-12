@@ -13,9 +13,9 @@ class Input {
     public $environment = 'dev'; //string
     public $requestSource = 2; //integer
     public $passengerNationalityOrResidenceProvided = false; //boolean
-    public $hotelIds = array (); //array(int) CODE
-    public $city = 9984; //7674; //integer 9984 TYPE
-    public $country = null; //integer 971 RANGE
+    public $hotelIds = array (); //array(int) CODES
+    public $city = 9984; //7674; //integer 9984 TYPES
+    public $country = null; //integer 971 RANGES
     public $bookingChannelsWithAutoMapping = array  (
     0 => 1011,
     1 => 1003,
