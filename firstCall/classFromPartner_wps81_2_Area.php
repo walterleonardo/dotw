@@ -9,13 +9,14 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 437804; //integer 1317257
+    public $customerId = 45004; //integer 1317257
     public $environment = 'dev'; //string
-    public $requestSource = 1; //integer
-    public $passengerNationalityOrResidenceProvided = false; //boolean
-    public $hotelIds = array (); //array(int)
-    public $city = 12634; //7674; //integer 7674
-    public $country = null; //integer 971
+    public $requestSource = 2; //integer
+    public $passengerNationalityOrResidenceProvided = true; //boolean
+    //public $hotelIds = array (); //array(int)
+    //public $city = 10674; //7674; //integer 7674
+    //public $country = null; //integer 971
+    public $Destination = array ();
     public $bookingChannelsWithAutoMapping = array (
     0 => 1011,
     1 => 1003,
@@ -24,15 +25,15 @@ class Input {
     4 => 1005,
     5 => 1017,
     6 => 1022,
-    7 => 1519,
-    8 => 1797,
+    7 => 1797,
+    8 => 1519,
     9 => 1689,
-    10 => 1027
+    10 => 1027,
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
     //ExcludedBookingchannel new object
-    public $excludedBookingchannel = array(); //array(int)
+    public $excludedBookingchannel = array( ); //array(int)
     /**
      * @var array of RoomOccupancy
      */
@@ -58,11 +59,20 @@ class Input {
            $this->RoomOccupancy = array(new RoomOccupancy());
            $this->HotelFilters = new HotelFilters();
            $this->RoomTypeFilters = new RoomTypeFilters();
+           $this->Destination = new Destination();
        }
 }
 
+class Destination {
+    public $type = 3; //integer
+    public $code = array (
+        0 => 364,
+    ); //array(int)
+    public $range = 3; //int
+}
+
 class RoomOccupancy {
-    public $adults = 1; //integer
+    public $adults = 2; //integer
     public $children = array (); //array(int)
     public $twin = false; //boolean
     public $extraBed = false; //boolean

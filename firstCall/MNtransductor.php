@@ -6,7 +6,7 @@
  * Enterprise MULTINUCLEO.COM
  * Created by Walter Lopez Pascual
  * 
- * 
+ * ||
  * Use example;
  * To start the process we only need call this class "RUN" and the 
  * method "managerSupplierRequest" after to fill all the attributes into the objects.

@@ -41,9 +41,9 @@ class ArrayChannelCodes {
 //require 'classFromPartner.php';
 //require 'classFromPartner_Demo.php';
 //require 'classFromPartner_Demo_1.php';
-require 'classFromPartner_Paris.php';
+//require 'classFromPartner_Paris.php';
 //require 'classFromPartner_Dubai.php';
-//require 'classFromPartner_wps3.php';
+require 'classFromPartner_wps81_SOURCE.php';
 //require 'classFromPartner_wpsPROD.php';
 //ERROR REPORTING TO FILE only in Test
 
@@ -114,6 +114,7 @@ Class Run
             $this->errorMessage = "Error_HotelFilters_Values";
             return false;
         }
+        
         /*
          * Create an Instance of CONSTRUCTOR and give all the objets needed it
          */
@@ -238,8 +239,8 @@ class Check
     {
         $array = get_object_vars($data);
         unset($array['AdditionalFilters']); //DAEMON dont need it attribute
-        $types = array('customerId' => 'integer', 'environment' => 'string', 'requestSource' => 'integer', 'passengerNationalityOrResidenceProvided' => 'boolean', 'hotelIds' => 'array', 'city' => 'integer', 'country' => 'integer', 'bookingChannelsWithAutoMapping' => 'array', 'excludedBookingchannel' => 'array', 'bookingChannelTypes' => 'array', 'RoomOccupancy' => 'array', 'HotelFilters' => 'object', 'RoomTypeFilters' => 'object', 'AdditionalFilters' => 'array');
-        $mandatory = array('customerId' => true, 'environment' => true, 'requestSource' => true, 'passengerNationalityOrResidenceProvided' => true, 'hotelIds' => false, 'city' => false, 'country' => false, 'bookingChannelsWithAutoMapping' => false, 'excludedBookingchannel' => false, 'bookingChannelTypes' => false, 'RoomOccupancy' => true, 'HotelFilters' => false, 'RoomTypeFilters' => false, 'AdditionalFilters' => false);
+        $types = array('customerId' => 'integer', 'environment' => 'string', 'requestSource' => 'integer', 'passengerNationalityOrResidenceProvided' => 'boolean', 'hotelIds' => 'array', 'city' => 'integer', 'country' => 'integer','bookingChannelsWithAutoMapping' => 'array', 'excludedBookingchannel' => 'array', 'bookingChannelTypes' => 'array', 'RoomOccupancy' => 'array', 'HotelFilters' => 'object', 'RoomTypeFilters' => 'object', 'AdditionalFilters' => 'array');
+        $mandatory = array('customerId' => true, 'environment' => true, 'requestSource' => true, 'passengerNationalityOrResidenceProvided' => true, 'hotelIds' => false, 'city' => false, 'country' => false,'bookingChannelsWithAutoMapping' => false, 'excludedBookingchannel' => false, 'bookingChannelTypes' => false, 'RoomOccupancy' => true, 'HotelFilters' => false, 'RoomTypeFilters' => false, 'AdditionalFilters' => false);
         foreach ($mandatory as $key => $value)
         {
             if ($value)
@@ -370,6 +371,7 @@ class Check
         return true;
     }
 
+    
     public function answer(&$data)
     {
         if (preg_match('/OK/', $data))
