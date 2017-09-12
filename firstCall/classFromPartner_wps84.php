@@ -13,9 +13,9 @@ class Input {
     public $environment = 'dev'; //string
     public $requestSource = 2; //integer
     public $passengerNationalityOrResidenceProvided = false; //boolean
-    public $hotelIds = array (); //array(int) CODES
-    public $city = 9984; //7674; //integer 9984 TYPES
-    public $country = null; //integer 971 RANGES
+    public $hotelIds = array (); //array(int) CODE 2
+    public $city = 9984; //7674; //integer 9984 TYPE 2
+    public $country = null; //integer 971 RANGE 2
     public $bookingChannelsWithAutoMapping = array  (
     0 => 1011,
     1 => 1003,
@@ -47,12 +47,6 @@ class Input {
      */
     public $RoomTypeFilters = array(); //array(varios)
 
-    /**
-     * @var AtomicFilter or ComplexFilter
-     *
-     * not used anymore
-     *
-     */
     public $AdditionalFilters = null; //array(varios)
        function __construct() {
            $this->RoomOccupancy = array(new RoomOccupancy());
