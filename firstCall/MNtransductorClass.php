@@ -133,10 +133,7 @@ Class Run
          * Translate all the Booleans values to "Y" or "N"
          */
         $contructor->convertToBool();
-        /*
-         * Translate all the City Name to City CODE
-         */
-        //$contructor->convertToCity();
+
         /*
          * Create the string that DAEMON Server need.
          */
@@ -440,6 +437,17 @@ class Constructor
         {
             unset($aInputArray['country']);
         }
+        
+        
+        /*
+         * ADD 1 TO REQUEST SOURCE TO MAKE COMPATIBLE VALUES WITH DB OF DAEMON
+         */
+        
+        if (isset($aInputArray['requestSource']))
+        {
+            $newValue = $aInputArray['requestSource'];
+            $aInputArray['requestSource'] = $newValue +1;
+        } 
         //var_dump($aInputArray);
         /*
          * OTHER ARRAY INCLUSION
@@ -550,37 +558,6 @@ class Constructor
                 }
             }
         }
-        return true;
-    }
-
-    public function convertToCity()
-    {
-        //REPLACE CITY CODE WITH CITY NAME
-        var_export(self::$arrayConverted);
-        $arrayCityCode = array('7674' => 'Paris', '396' => 'Dubai');
-
-        foreach (self::$arrayConverted as $key => $value)
-        {
-
-            if ($key == 'city')
-            {
-//                var_dump($key);
-//                echo "->";
-                var_dump($value);
-                if (!is_int($value))
-                {
-                    $bar = ucfirst(strtolower($value));
-//                    echo "->";
-//                    var_dump($bar);
-                    $answer = array_search($bar, $arrayCityCode);
-//                    echo "El valor correspondiente es ";
-//                    echo $answer;
-//                    echo "\n\r";
-                    self::$arrayConverted[$key] = $answer;
-                }
-            }
-        }
-        var_export(self::$arrayConverted);
         return true;
     }
 
