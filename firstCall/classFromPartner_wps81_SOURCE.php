@@ -9,16 +9,16 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 1317257; //integer 1317257
+    public $customerId = 1317257; //integer 1317257 //country 171  1317250
     public $environment = 'dev'; //string
-    public $requestSource = 2; //integer
+    public $requestSource = 1; //integer
     public $passengerNationalityOrResidenceProvided = false; //boolean
     public $hotelIds = array (); //array(int) CODE
-    public $city = 9984; //7674; //integer 9984 TYPE
-    public $country = null; //integer 971 RANGE
+    public $city = null; //7674; //integer 9984 TYPE
+    public $country = 90; //integer 971 RANGE 90
     public $bookingChannelsWithAutoMapping = array  (
     0 => 1011,
-    1 => 1003,
+    1 => 1000,
     2 => 1004,
     3 => 1529,
     4 => 1005,
