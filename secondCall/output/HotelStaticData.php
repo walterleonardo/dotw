@@ -62,7 +62,7 @@ class HotelStaticData
     public $tariffNotes;
     public $chainName;
     public $hotelProperty;
-    public $fullAddress;
+    //public $fullAddress;
     public $exclusive;
     
 } 
