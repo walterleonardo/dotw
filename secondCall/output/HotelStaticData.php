@@ -18,7 +18,7 @@ class HotelStaticData
 
     public $description1;
     public $description2;
-    public $geoPoints;
+    public $geoPoint;
     public $ratingDescription;
     public $images;
     public $direct;
@@ -55,7 +55,7 @@ class HotelStaticData
     public $minAge;
     public $rating;
     public $fireSafety;
-    public $geoPoint;
+    //public $geoPoint;
     public $chain;
     public $lastUpdated;
     public $transferMandatory;

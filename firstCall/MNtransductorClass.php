@@ -81,7 +81,7 @@ Class Run
         $aRoomOccupancy = $inputObj->RoomOccupancy;
         $aRoomTypeFilters = $inputObj->RoomTypeFilters;
         $aHotelFilters = $inputObj->HotelFilters;
-        $errorPrint = false;
+        $errorPrint = true;
         /*
          * Creation of instance for the Ckeck CLASS.
          */

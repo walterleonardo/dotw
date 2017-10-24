@@ -256,7 +256,7 @@ class Check
     public function mandatoryTypeReturnHotelStaticData(&$data)
     {
         $array = get_object_vars($data);
-        $mandatory = array('description1' => true, 'description2' => true, 'geoPoints' => true, 'ratingDescription' => true, 'images' => true, 'direct' => true, 'hotelPreference' => true, 'builtYear' => true, 'renovationYear' => true, 'floors' => true, 'noOfRooms' => true, 'luxury' => true, 'address' => true, 'zipCode' => true, 'location' => true, 'locationId' => true, 'location1' => true, 'location2' => true, 'location3' => true, 'stateName' => true, 'stateCode' => true, 'countryName' => true, 'regionName' => true, 'regionCode' => true, 'amenitie' => true, 'leisure' => true, 'business' => true, 'transportation' => true, 'hotelPhone' => true, 'hotelCheckIn' => true, 'hotelCheckOut' => true, 'minAge' => true, 'rating' => true, 'fireSafety' => true, 'geoPoint' => true, 'chain' => true, 'lastUpdated' => true, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false, 'exclusive' => false);
+        $mandatory = array('description1' => true, 'description2' => true, 'geoPoint' => true, 'ratingDescription' => true, 'images' => true, 'direct' => true, 'hotelPreference' => true, 'builtYear' => true, 'renovationYear' => true, 'floors' => true, 'noOfRooms' => true, 'luxury' => true, 'address' => true, 'zipCode' => true, 'location' => true, 'locationId' => true, 'location1' => true, 'location2' => true, 'location3' => true, 'stateName' => true, 'stateCode' => true, 'countryName' => true, 'regionName' => true, 'regionCode' => true, 'amenitie' => true, 'leisure' => true, 'business' => true, 'transportation' => true, 'hotelPhone' => true, 'hotelCheckIn' => true, 'hotelCheckOut' => true, 'minAge' => true, 'rating' => true, 'fireSafety' => true, 'chain' => true, 'lastUpdated' => true, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false, 'exclusive' => false);
         foreach ($mandatory as $key => $value)
         {
             if ($value)
@@ -951,7 +951,7 @@ class AnswerTreatment
                 echo "\n\r###\n\r";
             }
             $valuefinal = explode("-[-", $value);
-            $indexFromLastValue = trim($valuefinal[47], "\t\n\r\0\x0B"); //Sanitize HOTEL INDEX
+            $indexFromLastValue = trim($valuefinal[46], "\t\n\r\0\x0B"); //Sanitize HOTEL INDEX
 //            echo "#######\n\r";
 //            var_export($valuefinal);
 //            echo "#######\n\r";

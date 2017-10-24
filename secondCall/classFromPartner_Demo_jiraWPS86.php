@@ -8,6 +8,10 @@ class StaticInput {
     941895 => 
     array (
       0 => 6163655,
+      1 => 18669785,
+      2 => 18669795,
+      3 => 18669805,
+      4 => 18669815,
     ),
     );
     public $LanguageId = 1;
@@ -39,85 +43,88 @@ class ReturnHotelStaticData {
 
     //
     //
-    public $description1 = true; //NO MANDATORY BOOL
-    public $description2 = true;
-    public $geoPoints = true;
-    public $ratingDescription = true;
-    public $images = true;
-    public $direct = true;
+    public $description1 = false; //NO MANDATORY BOOL
+    public $description2 = false;
+    public $geoPoint = false;
+    public $ratingDescription = false;
+    public $images = false;
+    public $direct = false;
     public $hotelPreference = true;
-    public $builtYear = true;
-    public $renovationYear = true;
-    public $floors = true;
-    public $noOfRooms = true;
-    public $luxury = true;
+    public $builtYear = false;
+    public $renovationYear = false;
+    public $floors = false;
+    public $noOfRooms = false;
+    public $luxury = false;
     public $address = true;
-    public $zipCode = true;
+    public $zipCode = false;
     public $location = true;
     public $locationId = true;
     public $location1 = true;
     public $location2 = true;
     public $location3 = true;
-    public $stateName = true;
-    public $stateCode = true;
-    public $countryName = true;
-    public $regionName = true;
-    public $regionCode = true;
-    public $attraction = true;
+    public $stateName = false;
+    public $stateCode = false;
+    public $countryName = false;
+    public $regionName = false;
+    public $regionCode = false;
     public $amenitie = true;
     public $leisure = true;
     public $business = true;
-    public $transportation = true;
-    public $hotelPhone = true;
-    public $hotelCheckIn = true;
-    public $hotelCheckOut = true;
-    public $minAge = true;
+    public $transportation = false;
+    public $hotelPhone = false;
+    public $hotelCheckIn = false;
+    public $hotelCheckOut = false;
+    public $minAge = false;
     public $rating = true;
-    public $fireSafety = true;
-    public $geoPoint = true;
+    public $fireSafety = false;
     public $chain = true;
-    public $lastUpdated = true;
-    public $transferMandatory = true;
-    public $tariffNotes = true;
-    public $chainName = true;
-    public $hotelProperty = true;
-    public $fullAddress = true;
-    public $exclusive = true;
+    public $lastUpdated = false;
+    public $transferMandatory = false;
+    public $tariffNotes = false;
+    public $chainName = false;
+    public $hotelProperty = false;
+    public $fullAddress = false;
+    public $attraction = false;
+    public $exclusive = true; //new in tickets
 
 
 }
 
 class ReturnRoomTypeStaticData {
-
-    public $twin = true; //NO MANDATORY BOOL
     public $roomAmenities = true;
     public $name = true;
+    public $twin = true; //NO MANDATORY BOOL
     public $roomInfo = true;
-
+    public $specials = false; //new
+    public $roomImages = false; //new
 }
 
 class ReturnRateData {
-
+    public $occupancy = true; //new
     public $status = true;
     public $rateType = true;
+    public $paymentMode = true; //new
     public $allowsExtraMeals = true;
     public $allowsSpecialRequests = true;
     public $allowsBeddingPreference = true;
+    public $allowsSpecials = true; //new
     public $passengerNamesRequiredForBooking = true;
     public $allocationDetails = true;
-    public $cancellationRules = true;
     public $minStay = true;
+    public $dateApplyMinStay = true;
+    public $cancellationRules = true;
     public $withinCancellationDeadline = true;
+    public $tariffNotes = true;
     public $isBookable = true;
     public $onRequest = true;
     public $total = true;
     public $dates = true;
-    public $specials = true;
-    public $tariffNotes = true;
+    public $freeStay = true;
+    public $discount = true; //new
     public $dayOnRequest = true;
     public $including = true;
-    public $leftToSellDaily = true;
+    public $dailyLeftToSell = true; //new
     public $dailyMinStay = true;
-    public $freeStay = true;
-
+    public $leftToSell = true; //change
+    public $specials = true;
 }
