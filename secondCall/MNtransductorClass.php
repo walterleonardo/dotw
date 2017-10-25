@@ -951,7 +951,7 @@ class AnswerTreatment
                 echo "\n\r###\n\r";
             }
             $valuefinal = explode("-[-", $value);
-            $indexFromLastValue = trim($valuefinal[46], "\t\n\r\0\x0B"); //Sanitize HOTEL INDEX
+            $indexFromLastValue = trim($valuefinal[47], "\t\n\r\0\x0B"); //Sanitize HOTEL INDEX
 //            echo "#######\n\r";
 //            var_export($valuefinal);
 //            echo "#######\n\r";
