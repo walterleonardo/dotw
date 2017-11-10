@@ -5,7 +5,7 @@ namespace Hotel\StaticData;
 class StaticInput {
 //941895 //139534
     public $hotelIds = array (
-    941895 => 
+    369875 => 
     array (
       //0 => 6163655,
       //1 => 18669785,
@@ -14,7 +14,7 @@ class StaticInput {
       //4 => 18669815,
     ),
     );
-    public $LanguageId = 1;
+    public $LanguageId = 12;
     //MANDATORY ARRAY
     /**
      * @var ReturnHotelStaticData;
@@ -43,8 +43,8 @@ class ReturnHotelStaticData {
 
     //
     //
-    public $description1 = false; //NO MANDATORY BOOL
-    public $description2 = false;
+    public $description1 = true; //NO MANDATORY BOOL
+    public $description2 = true;
     public $geoPoint = false;
     public $ratingDescription = false;
     public $images = false;
@@ -54,7 +54,7 @@ class ReturnHotelStaticData {
     public $renovationYear = false;
     public $floors = false;
     public $noOfRooms = false;
-    public $luxury = false;
+    public $luxury = true;
     public $address = true;
     public $zipCode = false;
     public $location = true;

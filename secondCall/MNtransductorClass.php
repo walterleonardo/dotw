@@ -29,7 +29,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS86.php';
+    require 'classFromPartner_Demo_jiraWPS87.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -79,7 +79,7 @@ class run
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
