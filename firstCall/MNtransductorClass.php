@@ -43,7 +43,7 @@ class ArrayChannelCodes {
 //require 'classFromPartner_Demo_1.php';
 //require 'classFromPartner_Paris.php';
 //require 'classFromPartner_Dubai.php';
-require 'classFromPartner_wps81_3.php';
+require 'classFromPartner_wps81.php';
 //require 'classFromPartner_wpsPROD.php';
 //ERROR REPORTING TO FILE only in Test
 

@@ -29,7 +29,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS87.php';
+    require 'classFromPartner_Demo_jiraWPS86.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 

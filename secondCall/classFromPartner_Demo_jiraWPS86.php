@@ -85,7 +85,7 @@ class ReturnHotelStaticData {
     public $hotelProperty = false;
     public $fullAddress = false;
     public $attraction = false;
-    public $exclusive = true; //new in tickets
+    public $exclusive = false; //new in tickets
 
 
 }
