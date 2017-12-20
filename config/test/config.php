@@ -7,7 +7,7 @@ class ServersCluster {
     //IF only want one server config the first one.
     public static $hostsPort =array(
         //array('10.255.0.202', '10003', 'ENABLED', 0),
-        array('0.0.0.0', '10003', 'ENABLED', 0),
+        array('10.255.5.97', '8003', 'ENABLED', 0),
     );
 }
 
