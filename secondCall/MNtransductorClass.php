@@ -5,7 +5,7 @@ namespace Second;
 ini_set('memory_limit', '-1');
 //var_dump($argv);
 //INCLUDE LIKE $platform value these differents options 'dev|test|prod'
-$platform = 'dev';
+$platform = 'prod';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 

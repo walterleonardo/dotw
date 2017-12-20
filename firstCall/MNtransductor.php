@@ -63,34 +63,47 @@ if (!$answerRequest) {
         $transportationNumber = 0;
         if ($debug) {
             foreach ($answerRequest as $key => $value) {
-                echo "For hotel ID ";
+                echo "For Array ID ";
                 var_export($key);
-                echo "\t";
-
-                echo "\tHotels :";
+                echo "\t\n";
+                echo "have Parties ";
                 var_export(count($answerRequest[$key]));
-                $roomsNumber += count($answerRequest[$key]);
-               
-                foreach ($answerRequest[$key] as $key2 => $value2)
+                echo "\t\n";
+                
+                foreach($answerRequest[$key] as $key2 => $value2)
                 {
-                    var_export(count($key2));
-                $roomsNumber2 += count($key2);
+                  echo "have Hotels ";
+                  var_export(count($answerRequest[$key][$key2])); 
+                  echo "\t\n";
+                  
+                  foreach ($answerRequest[$key][$key2] as $key3 => $value3)
+                  {
+                  echo "For hotel ID ";
+                  var_export($key3);
+                  echo " locate in city code ";
+                  var_export($answerRequest[$key][$key2][$key3]["cityCode"]); 
+                  echo " have ";
+                  var_export(count($answerRequest[$key][$key2][$key3]["roomData"])); 
+                  echo " Rooms \t\n";
+                  }
+                  
+                  
+                  
+                  
+                  
                 }
+                
+                
+                
+                
+                
+                
+         
                 echo "\n";
             }
 
 
             echo "## ";
-            echo "Hotels received ";
-            var_export(count($answerRequest));
-            echo " ##\n";
-            echo "## ";
-            echo "Hotels ";
-            var_export($roomsNumber);
-            echo " ##\n";
-             echo "Hotels ";
-            var_export($roomsNumber2);
-            echo " ##\n";
             echo "## ";
           
             echo " ##\n\r";
