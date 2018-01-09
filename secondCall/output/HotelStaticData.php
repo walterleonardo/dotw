@@ -61,5 +61,7 @@ class HotelStaticData
     public $tariffNotes;
     public $chainName;
     public $hotelProperty;
-    
+    public $fullAddress;
+    public $attraction;
+    public $exclusive; //new in tickets
 } 
