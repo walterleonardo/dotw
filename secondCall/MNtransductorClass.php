@@ -15,15 +15,6 @@ require 'output/RoomTypeStaticData.php';
 require 'output/TransportationData.php';
 require 'output/RoomInfo.php';
 
-////require 'input/StaticInput.php';
-////require 'input/ReturnHotelStaticData.php';
-////require 'input/ReturnRoomTypeStaticData.php';
-////require 'input_demo/StaticInput.php';
-////require 'input_demo/ReturnHotelStaticData.php';
-////require 'input_demo/ReturnRoomTypeStaticData.php';
-//require 'input_demo_from_Client/StaticInput.php';
-//require 'input_demo_from_Client/ReturnHotelStaticData.php';
-//require 'input_demo_from_Client/ReturnRoomTypeStaticData.php';
 if (isset($argv[1]))
 {
     require $argv[1];

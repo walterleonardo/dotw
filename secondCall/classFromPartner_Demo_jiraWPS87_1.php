@@ -5,7 +5,8 @@ namespace Hotel\StaticData;
 class StaticInput {
 //941895 //139534 // 873845
     public $hotelIds = array (
-    14 => 
+    //30304 =>
+     873845 =>
     array (
       //0 => 6163655,
       //1 => 18669785,
@@ -14,7 +15,7 @@ class StaticInput {
       //4 => 18669815,
     ),
     );
-    public $LanguageId = 12;
+    public $LanguageId = 20;
     //MANDATORY ARRAY
     /**
      * @var ReturnHotelStaticData;
