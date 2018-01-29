@@ -29,7 +29,7 @@ ini_set('error_log','/logs/errors.log');
  */
 
 $requestNumber = 0;
-$numberOfRequest = 1;
+$numberOfRequest = 10;
 $err = 0;
 $start = microtime(true);
 
