@@ -9,12 +9,12 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 437804; //integer 1317257 // 437804
+    public $customerId = 1303185; //integer 1317257 // 437804
     public $environment = 'dev'; //string
     public $requestSource = 1; //integer
     public $passengerNationalityOrResidenceProvided = false; //boolean
     public $hotelIds = array (); //array(int)
-    public $city = 12634; //7674; //integer 7674
+    public $city = 364; //7674; //integer 7674
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
  0 => 1011,

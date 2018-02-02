@@ -29,7 +29,7 @@ ini_set('error_log','/logs/errors.log');
  */
 
 $requestNumber = 0;
-$numberOfRequest = 10;
+$numberOfRequest = 1;
 $err = 0;
 $start = microtime(true);
 
@@ -53,10 +53,7 @@ if (!$answerRequest) {
     echo "##\n\r";
     var_export($answerRequest);
     echo "##\n\r";
-    
-    
     echo "\n\r";
-
         $roomsNumber = 0;
         $roomsNumber2 = 0;
         $imagesNumber = 0;
@@ -79,33 +76,18 @@ if (!$answerRequest) {
                   foreach ($answerRequest[$key][$key2] as $key3 => $value3)
                   {
                   echo "For hotel ID ";
-                  var_export($key3);
+                  var_export($answerRequest[$key][$key2][$key3]["hotelCodeOriginal"]);
                   echo " locate in city code ";
                   var_export($answerRequest[$key][$key2][$key3]["cityCode"]); 
                   echo " have ";
                   var_export(count($answerRequest[$key][$key2][$key3]["roomData"])); 
                   echo " Rooms \t\n";
                   }
-                  
-                  
-                  
-                  
-                  
                 }
-                
-                
-                
-                
-                
-                
-         
                 echo "\n";
             }
-
-
             echo "## ";
             echo "## ";
-          
             echo " ##\n\r";
         }
 }
