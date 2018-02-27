@@ -5,7 +5,7 @@ namespace Hotel\StaticData;
 class StaticInput {
 //941895 //139534
     public $hotelIds = array (
-    14 => 
+    30304 => 
     array (
       //0 => 6163655,
       //1 => 18669785,
@@ -14,7 +14,7 @@ class StaticInput {
       //4 => 18669815,
     ),
     );
-    public $LanguageId = 12;
+    public $LanguageId = 20;
     //MANDATORY ARRAY
     /**
      * @var ReturnHotelStaticData;
@@ -44,47 +44,47 @@ class ReturnHotelStaticData {
     //
     //
     public $description1 = true; //NO MANDATORY BOOL
-    public $description2 = true;
+    public $description2 = false;
     public $geoPoint = false;
     public $ratingDescription = false;
     public $images = false;
     public $direct = false;
-    public $hotelPreference = true;
+    public $hotelPreference = false;
     public $builtYear = false;
     public $renovationYear = false;
     public $floors = false;
     public $noOfRooms = false;
-    public $luxury = true;
+    public $luxury = false;
     public $address = true;
     public $zipCode = false;
-    public $location = true;
-    public $locationId = true;
-    public $location1 = true;
-    public $location2 = true;
-    public $location3 = true;
+    public $location = false;
+    public $locationId = false;
+    public $location1 = false;
+    public $location2 = false;
+    public $location3 = false;
     public $stateName = false;
     public $stateCode = false;
     public $countryName = false;
     public $regionName = false;
     public $regionCode = false;
-    public $amenitie = true;
-    public $leisure = true;
-    public $business = true;
+    public $amenitie = false;
+    public $leisure = false;
+    public $business = false;
     public $transportation = false;
     public $hotelPhone = false;
     public $hotelCheckIn = false;
     public $hotelCheckOut = false;
     public $minAge = false;
-    public $rating = true;
+    public $rating = false;
     public $fireSafety = false;
-    public $chain = true;
+    public $chain = false;
     public $lastUpdated = false;
     public $transferMandatory = false;
     public $tariffNotes = false;
     public $chainName = false;
     public $hotelProperty = false;
-    public $fullAddress = false;
-    public $attraction = false;
+    //public $fullAddress = false;//Future develop
+    //public $attraction = false;//Future develop
     public $exclusive = true; //new in tickets
 
 
