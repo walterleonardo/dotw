@@ -9,14 +9,15 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 437804; //integer 1317257 // 437804
+    public $customerId = 1317257;// 1121148;//164; //integer 1317257 // 437804
     public $environment = 'dev'; //string
-    public $requestSource = 1; //integer
+    public $requestSource = 2; //integer
     public $passengerNationalityOrResidenceProvided = false; //boolean
     public $hotelIds = array (); //array(int)
-    public $city = null;//12634; //7674; //integer 7674
-    public $country = 84; //integer 971
+    public $city = 12634;//13474;//12634; //7674; //integer 7674
+    public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
+        0=>1000
 // 0 => 1011,
 //    1 => 1003,
 //    2 => 1004,
@@ -27,7 +28,7 @@ class Input {
 //    7 => 1519,
 //	8 => 1797,
 //	9 => 1689,
-//	10 => 1027
+//	10 => 1027,
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
@@ -62,7 +63,7 @@ class Input {
 }
 
 class RoomOccupancy {
-    public $adults = 1; //integer
+    public $adults = 2; //integer
     public $children = array (); //array(int)
     public $twin = false; //boolean
     public $extraBed = false; //boolean

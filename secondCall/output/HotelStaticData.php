@@ -63,5 +63,5 @@ class HotelStaticData
     public $hotelProperty;
     public $fullAddress;
     public $attraction;
-    public $exclusive; //new in tickets
+    //public $exclusive; //new in tickets
 } 
