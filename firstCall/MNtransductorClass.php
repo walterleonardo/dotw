@@ -8,7 +8,7 @@ ini_set('memory_limit', '-1');
  * dev = virtualServer
  * prod = production IP
  */
-$platform = 'dev';
+$platform = 'preprod';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
