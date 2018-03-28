@@ -43,7 +43,7 @@ class ArrayChannelCodes {
 //require 'classFromPartner_Demo_1.php';
 //require 'classFromPartner_Paris.php';
 //require 'classFromPartner_Dubai.php';
-require 'classFromPartner_wps81.php';
+require 'classFromPartner_wps90.php';
 //require 'classFromPartner_wpsPROD.php';
 //ERROR REPORTING TO FILE only in Test
 
@@ -81,6 +81,7 @@ Class Run
         $aRoomOccupancy = $inputObj->RoomOccupancy;
         $aRoomTypeFilters = $inputObj->RoomTypeFilters;
         $aHotelFilters = $inputObj->HotelFilters;
+        $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
         $errorPrint = true;
         /*
          * Creation of instance for the Ckeck CLASS.
@@ -114,6 +115,12 @@ Class Run
             $this->errorMessage = "Error_HotelFilters_Values";
             return false;
         }
+        if (!$classCheck->mandatoryTypeSearchPeriodCriteria($aSearchPeriodCriteria))
+        {
+            $this->errorCode = "5";
+            $this->errorMessage = "Error_SearchPeriodCriteria_Values";
+            return false;
+        }
         
         /*
          * Create an Instance of CONSTRUCTOR and give all the objets needed it
@@ -124,7 +131,7 @@ Class Run
             var_export($aInput);
             echo "\n\r###\n\r";
         }
-        $contructor = new \First\Constructor($aInput, $aRoomOccupancy, $aRoomTypeFilters, $aHotelFilters);
+        $contructor = new \First\Constructor($aInput, $aRoomOccupancy, $aRoomTypeFilters, $aHotelFilters, $aSearchPeriodCriteria);
         /*
          * Join all the attributes from all the objets in a simple array
          */
@@ -236,8 +243,8 @@ class Check
     {
         $array = get_object_vars($data);
         unset($array['AdditionalFilters']); //DAEMON dont need it attribute
-        $types = array('customerId' => 'integer', 'environment' => 'string', 'requestSource' => 'integer', 'passengerNationalityOrResidenceProvided' => 'boolean', 'hotelIds' => 'array', 'city' => 'integer', 'country' => 'integer','bookingChannelsWithAutoMapping' => 'array', 'excludedBookingchannel' => 'array', 'bookingChannelTypes' => 'array', 'RoomOccupancy' => 'array', 'HotelFilters' => 'object', 'RoomTypeFilters' => 'object', 'AdditionalFilters' => 'array');
-        $mandatory = array('customerId' => true, 'environment' => true, 'requestSource' => true, 'passengerNationalityOrResidenceProvided' => true, 'hotelIds' => false, 'city' => false, 'country' => false,'bookingChannelsWithAutoMapping' => false, 'excludedBookingchannel' => false, 'bookingChannelTypes' => false, 'RoomOccupancy' => true, 'HotelFilters' => false, 'RoomTypeFilters' => false, 'AdditionalFilters' => false);
+        $types = array('customerId' => 'integer', 'environment' => 'string', 'requestSource' => 'integer', 'passengerNationalityOrResidenceProvided' => 'boolean', 'hotelIds' => 'array', 'city' => 'integer', 'country' => 'integer','bookingChannelsWithAutoMapping' => 'array', 'excludedBookingchannel' => 'array', 'bookingChannelTypes' => 'array', 'RoomOccupancy' => 'array', 'HotelFilters' => 'object', 'RoomTypeFilters' => 'object', 'AdditionalFilters' => 'array','SearchPeriodCriteria' => 'object');
+        $mandatory = array('customerId' => true, 'environment' => true, 'requestSource' => true, 'passengerNationalityOrResidenceProvided' => true, 'hotelIds' => false, 'city' => false, 'country' => false,'bookingChannelsWithAutoMapping' => false, 'excludedBookingchannel' => false, 'bookingChannelTypes' => false, 'RoomOccupancy' => true, 'HotelFilters' => false, 'RoomTypeFilters' => false, 'AdditionalFilters' => false, 'SearchPeriodCriteria' => true);
         foreach ($mandatory as $key => $value)
         {
             if ($value)
@@ -369,6 +376,40 @@ class Check
     }
 
     
+    public function mandatoryTypeSearchPeriodCriteria(&$data)
+    {
+        if (isset($data))
+        {
+            $array = get_object_vars($data);
+            $mandatory = array('travelFrom' => true, 'travelTo' => true, 'bookingDateTime' => true);
+            $types = array('travelFrom' => 'string', 'travelTo' => 'string',
+                'bookingDateTime' => 'string');
+            foreach ($mandatory as $key => $value)
+            {
+                if ($value)
+                {
+                    if (!isset($array[$key]))
+                    {
+                        return false;
+                    }
+                }
+            }
+            foreach ($array as $key => $value)
+            {
+                if (isset($value))
+                {
+                    if (gettype($value) != $types[$key])
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+        return true;
+    }
+
+    
     public function answer(&$data)
     {
         if (preg_match('/OK/', $data))
@@ -408,14 +449,16 @@ class Constructor
     private $aRoomOccupancy;
     private $aRoomTypeFilters;
     private $aHotelFilters;
-    public static $arrayConverted = array('customerId' => '', 'environment' => '', 'requestSource' => '', 'passengerNationalityOrResidenceProvided' => '', 'hotelIds' => '', 'city' => '', 'bookingChannelTypes' => '', 'excludedBookingchannel' => '', 'bookingChannelsWithAutoMapping' => '', 'RoomOccupancy' => '', 'HotelFilters' => '', 'RoomTypeFilters' => '');
+    private $aSearchPeriodCriteria;
+    public static $arrayConverted = array('customerId' => '', 'environment' => '', 'requestSource' => '', 'passengerNationalityOrResidenceProvided' => '', 'hotelIds' => '', 'city' => '', 'bookingChannelTypes' => '', 'excludedBookingchannel' => '', 'bookingChannelsWithAutoMapping' => '', 'RoomOccupancy' => '', 'HotelFilters' => '', 'RoomTypeFilters' => '', 'SearchPeriodCriteria' => '');
 
-    function __construct($aInput, $aRoomOccupancy, $aRoomTypeFilters = null, $aHotelFilters = null)
+    function __construct($aInput, $aRoomOccupancy, $aRoomTypeFilters = null, $aHotelFilters = null, $aSearchPeriodCriteria = null)
     {
         $this->aInput = $aInput;
         $this->aRoomOccupancy = self::obj2Array($aRoomOccupancy);
         $this->aRoomTypeFilters = $aRoomTypeFilters;
         $this->aHotelFilters = $aHotelFilters;
+        $this->aSearchPeriodCriteria = $aSearchPeriodCriteria;
     }
 
     public function insertVar()
@@ -473,6 +516,29 @@ class Constructor
         {
             $aHotelFiltersArray = null;
         }
+        
+        if (isset($this->aSearchPeriodCriteria))
+        {
+            $aSearchPeriodCriteriaArray = get_object_vars($this->aSearchPeriodCriteria);
+            //TODO:: modificar campos a dates
+            if (isset($aSearchPeriodCriteriaArray["travelFrom"])){                
+                $d = new \DateTime($aSearchPeriodCriteriaArray["travelFrom"], new \DateTimeZone('GMT'));
+               $aSearchPeriodCriteriaArray["travelFrom"]=$d->getTimestamp();
+            }
+            if (isset($aSearchPeriodCriteriaArray["travelTo"])){                
+                $d = new \DateTime($aSearchPeriodCriteriaArray["travelTo"], new \DateTimeZone('GMT'));
+               $aSearchPeriodCriteriaArray["travelTo"]=$d->getTimestamp();
+            }
+            if (isset($aSearchPeriodCriteriaArray["bookingDateTime"])){                
+                $d = new \DateTime($aSearchPeriodCriteriaArray["bookingDateTime"], new \DateTimeZone('GMT'));
+               $aSearchPeriodCriteriaArray["bookingDateTime"]=$d->getTimestamp();
+            }
+          
+        } else
+        {
+            $aSearchPeriodCriteriaArray = null;
+        }
+        
         foreach ($aInputArray as $key => $value)
         {
             if (isset($aInputArray[$key]))
@@ -481,8 +547,9 @@ class Constructor
             }
         }
         self::$arrayConverted['RoomOccupancy'] = $aRoomOccupancyArray;
-        self::$arrayConverted['HotelFilters'] = $aHotelFiltersArray;
         self::$arrayConverted['RoomTypeFilters'] = $aRoomTypeFiltersArray;
+        self::$arrayConverted['HotelFilters'] = $aHotelFiltersArray;
+        self::$arrayConverted['SearchPeriodCriteria'] = $aSearchPeriodCriteriaArray;
     }
 
     public static function obj2Array(&$obj)
