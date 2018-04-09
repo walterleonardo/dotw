@@ -12,6 +12,7 @@ class Input {
     public $customerId = 1317257; //integer 1317257
     public $environment = 'dev'; //string
     public $requestSource = 1; //integer
+    public $restReason = array(1,2,3); //array integer
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (); //array(int)
     //country 143 and city 85516
@@ -19,17 +20,17 @@ class Input {
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
             0 => 1011,
-1 => 1003,
-2 => 1004,
-3 => 1529,
-4 => 1005,
-5 => 1017,
-6 => 1022,
-7 => 1797,
-8 => 1808,
-9 => 1519,
-10 => 1689,
-11 => 1027,
+            1 => 1003,
+            2 => 1004,
+            3 => 1529,
+            4 => 1005,
+            5 => 1017,
+            6 => 1022,
+            7 => 1797,
+            8 => 1808,
+            9 => 1519,
+            10 => 1689,
+            11 => 1027,
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
