@@ -12,11 +12,11 @@ class Input {
     public $customerId = 1237928; //integer 1317257 --- 1237928 CITY 12624 country 81
     public $environment = 'dev'; //string
     public $requestSource = 1; //integer
-    public $restReason = array(1,2,3); //array integer No mandatory
+    public $restReason = array(1,3); //array integer No mandatory
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (); //array(int)
     //country 143 and city 85516
-    public $city = 12764; //7674; //integer 7674 // 13474
+    public $city = 13474; //7674; //integer 7674 // 13474 //12624
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
             0 => 1011,
