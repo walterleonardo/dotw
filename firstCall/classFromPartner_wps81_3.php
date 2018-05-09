@@ -9,33 +9,30 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 1237928; //integer 1317257 --- 1237928 CITY 12624 country 81
+    public $customerId = 284399; //integer 1317257
     public $environment = 'dev'; //string
-    public $requestSource = 1; //integer
-    public $restReason = array(1,3); //array integer No mandatory
-    public $passengerNationalityOrResidenceProvided = true; //boolean
+    public $requestSource = 2; //integer
+    public $passengerNationalityOrResidenceProvided = false; //boolean
     public $hotelIds = array (); //array(int)
-    //country 143 and city 85516
-    public $city = 12764; //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
+    public $city = 23544; //7674; //integer 7674
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
-//            0 => 1011,
-//            1 => 1003,
-//            2 => 1004,
-//            3 => 1529,
-//            4 => 1005,
-//            5 => 1017,
-//            6 => 1022,
-//            7 => 1797,
-//            8 => 1808,
-//            9 => 1519,
-//            10 => 1689,
-//            11 => 1027,
+    0 => 1011,
+    1 => 1003,
+    2 => 1004,
+    3 => 1529,
+    4 => 1005,
+    5 => 1017,
+    6 => 1022,
+    7 => 1519,
+    8 => 1797,
+    9 => 1689,
+    10 => 1027
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
     //ExcludedBookingchannel new object
-    public $excludedBookingchannel = array(0 => 1549,); //array(int)
+    public $excludedBookingchannel = array(); //array(int)
     /**
      * @var array of RoomOccupancy
      */
@@ -61,17 +58,8 @@ class Input {
            $this->RoomOccupancy = array(new RoomOccupancy());
            $this->HotelFilters = new HotelFilters();
            $this->RoomTypeFilters = new RoomTypeFilters();
-           $this->SearchPeriodCriteria = new SearchPeriodCriteria();
        }
 }
-
-
-class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = '201805051100'; //Mandatory
-    public $travelTo = '201805071200';//Mandatory
-    public $bookingDateTime ='201805051100';//Mandatory
-}
-
 
 class RoomOccupancy {
     public $adults = 2; //integer
