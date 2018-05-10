@@ -12,30 +12,30 @@ class Input {
     public $customerId = 1237928; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'dev'; //string
     public $requestSource = 1; //integer
-    public $restReason = array(1,2,3,4); //array integer No mandatory
+    public $restReason = array(1,2,3,4,5,6); //array integer No mandatory
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (); //array(int)
     //country 143 and city 85516
-    public $city = 364; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
+    public $city = 13474; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
-//            0 => 1011,
-//            1 => 1003,
-//            2 => 1004,
-//            3 => 1529,
-//            4 => 1005,
-//            5 => 1017,
-//            6 => 1022,
-//            7 => 1797,
-//            8 => 1808,
-//            9 => 1519,
-//            10 => 1689,
-//            11 => 1027,
+            0 => 1011,
+            1 => 1003,
+            2 => 1004,
+            3 => 1529,
+            4 => 1005,
+            5 => 1017,
+            6 => 1022,
+            7 => 1797,
+            8 => 1808,
+            9 => 1519,
+            10 => 1689,
+            11 => 1027,
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
     //ExcludedBookingchannel new object
-    public $excludedBookingchannel = array(); //array(int)
+    public $excludedBookingchannel = array(0 => 1549,); //array(int)
     /**
      * @var array of RoomOccupancy
      */
@@ -69,7 +69,7 @@ class Input {
 class  SearchPeriodCriteria{ //Mandatory
     public $travelFrom = '201805051100'; //Mandatory
     public $travelTo = '201805071200';//Mandatory
-    public $bookingDateTime ='201805051100';//Mandatory
+    public $bookingDateTime ='201805071100';//Mandatory
 }
 
 
