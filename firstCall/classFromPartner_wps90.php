@@ -12,7 +12,7 @@ class Input {
     public $customerId = 1124718; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'dev'; //string
     public $requestSource = 1; //integer
-    public $restReason = array(1,2,3,4,6); //array integer No mandatory
+    public $restReason = array(1,2,3,4,5,6); //array integer No mandatory
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (); //array(int)
     //country 143 and city 85516
@@ -69,7 +69,7 @@ class Input {
 class  SearchPeriodCriteria{ //Mandatory
     public $travelFrom = '201805051100'; //Mandatory
     public $travelTo = '201805071200';//Mandatory
-    public $bookingDateTime ='201805071100';//Mandatory
+    public $bookingDateTime ='201805051100';//Mandatory
 }
 
 
