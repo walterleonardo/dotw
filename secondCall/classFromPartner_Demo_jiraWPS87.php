@@ -14,7 +14,7 @@ class StaticInput {
       //4 => 18669815,
     ),
     );
-    public $LanguageId = 19;
+    public $LanguageId = 20;
     //MANDATORY ARRAY
     /**
      * @var ReturnHotelStaticData;
