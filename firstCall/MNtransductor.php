@@ -38,6 +38,8 @@ $run = new \First\Run;
     /* @var $answerRequest First */
     $answerRequest = $run->managerSupplierRequest(new \Hotel\PreSupplier\Input);
 
+$hotels = 0;    
+$chains = 0;
 if (!$answerRequest) {
     echo "Error: ";
     print_r($run->getError());
@@ -68,12 +70,14 @@ if (!$answerRequest) {
                 echo "\t\n";
                 echo "have Parties ";
                 var_export(count($answerRequest[$key]));
+                $chains = $chains + count($answerRequest[$key]);
                 echo "\t\n";
                 
                 foreach($answerRequest[$key] as $key2 => $value2)
                 {
                   echo "have Hotels ";
                   var_export(count($answerRequest[$key][$key2])); 
+                  $hotels = $hotels + count($answerRequest[$key][$key2]);
                   echo "\t\n";
                   
                   foreach ($answerRequest[$key][$key2] as $key3 => $value3)
@@ -118,6 +122,10 @@ $requestNumber++;
 
 $time_elapsed_secs = microtime(true) - $start;
 echo "REQUEST = " . $numberOfRequest;
+echo "\r";
+echo "HOTELS = " . $hotels;
+echo "\r";
+echo "PARTIES = " . $chains;
 echo "\r";
 echo "ERRORS = " . $err;
 echo "\r";
