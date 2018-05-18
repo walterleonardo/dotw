@@ -20,7 +20,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS91.php';
+    require 'classFromPartner_Demo_jiraWPS87.php';
 }
 //require 'classFromPartner_Demo_jiraWPS28.php';
 
@@ -247,7 +247,7 @@ class Check
     public function mandatoryTypeReturnHotelStaticData(&$data)
     {
         $array = get_object_vars($data);
-        $mandatory = array('description1' => true, 'description2' => true, 'geoPoint' => true, 'ratingDescription' => true, 'images' => true, 'direct' => true, 'hotelPreference' => true, 'builtYear' => true, 'renovationYear' => true, 'floors' => true, 'noOfRooms' => true, 'luxury' => true, 'address' => true, 'zipCode' => true, 'location' => true, 'locationId' => true, 'location1' => true, 'location2' => true, 'location3' => true, 'stateName' => true, 'stateCode' => true, 'countryName' => true, 'regionName' => true, 'regionCode' => true, 'amenitie' => true, 'leisure' => true, 'business' => true, 'transportation' => true, 'hotelPhone' => true, 'hotelCheckIn' => true, 'hotelCheckOut' => true, 'minAge' => true, 'rating' => true, 'fireSafety' => true, 'chain' => true, 'lastUpdated' => true, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false);
+        $mandatory = array('description1' => true, 'description2' => true, 'geoPoint' => true, 'ratingDescription' => true, 'images' => true, 'direct' => true, 'hotelPreference' => true, 'builtYear' => true, 'renovationYear' => true, 'floors' => true, 'noOfRooms' => true, 'luxury' => true, 'address' => true, 'zipCode' => true, 'location' => true, 'locationId' => true, 'location1' => true, 'location2' => true, 'location3' => true, 'stateName' => true, 'stateCode' => true, 'countryName' => true, 'regionName' => true, 'regionCode' => true, 'amenitie' => true, 'leisure' => true, 'business' => true, 'transportation' => true, 'hotelPhone' => true, 'hotelCheckIn' => true, 'hotelCheckOut' => true, 'minAge' => true, 'rating' => true, 'fireSafety' => true, 'chain' => true, 'lastUpdated' => true, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false, 'exclusive' => false);
         foreach ($mandatory as $key => $value)
         {
             if ($value)
@@ -355,7 +355,7 @@ class Constructor
 
     Public function insertVar()
     {
-        $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoint' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'chain' => false, 'lastUpdated' => false, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false);
+        $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'geoPoint' => false,'chain' => false, 'lastUpdated' => false, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false, 'fullAddress' => false,'exclusive' => false);
         $aArrayOfReturnHotelStaticDataRoom = array('twin' => false, 'roomAmenities' => false, 'name' => false, 'roomInfo' => false);
         $aStaticInput = get_object_vars($this->aStaticInput);
         $aReturnHotelStaticData = get_object_vars($this->aReturnHotelStaticData);
@@ -887,8 +887,8 @@ class AnswerTreatment
     public static $RoomInfo;
     public static $RoomTypeStaticData;
     public static $TransportationData;
-    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'string', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string', 'integer', 'integer');
-    public static $Labels = array('description1', 'description2', 'geoPoint', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation', 'transferMandatory', 'tariffNotes', 'chainName', 'hotelProperty', 'hotelIdentifier');
+    public static $types = array('string', 'string', 'string', 'string', 'boolean', 'string', 'boolean', 'integer', 'integer', 'integer', 'integer', 'boolean', 'string', 'string', 'string', 'string', 'integer', 'string', 'string', 'string', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'string', 'integer', 'array', 'array', 'array', 'string', 'integer', 'integer', 'integer', 'integer', 'boolean', 'integer', 'string', 'array', 'array', 'array', 'integer', 'string', 'string', 'integer', 'boolean', 'integer');
+    public static $Labels = array('description1', 'description2', 'geoPoint', 'ratingDescription', 'direct', 'hotelPreference', 'preferred', 'builtYear', 'renovationYear', 'floors', 'noOfRooms', 'luxury', 'hotelName', 'address', 'zipCode', 'location', 'locationId', 'location1', 'location2', 'location3', 'cityName', 'cityCode', 'stateName', 'stateCode', 'countryName', 'countryCode', 'regionName', 'regionCode', 'amenitie', 'leisure', 'business', 'hotelPhone', 'hotelCheckIn', 'hotelCheckOut', 'minAge', 'rating', 'fireSafety', 'chain', 'lastUpdated', 'images', 'RoomTypeStaticDataList', 'transportation', 'transferMandatory', 'tariffNotes', 'chainName', 'hotelProperty', 'exclusive', 'hotelIdentifier');
     public static $LabelsImagesTypes = array('string', 'string', 'integer', 'string', 'integer');
     public static $LabelsImages = array('thumb', 'alt', 'category', 'url', 'roomTypeId');
     public static $LabelsTransportationTypes = array('integer', 'string', 'integer', 'integer', 'integer', 'string');
@@ -942,11 +942,11 @@ class AnswerTreatment
                 echo "\n\r###\n\r";
             }
             $valuefinal = explode("-[-", $value);
-            $indexFromLastValue = trim($valuefinal[46], "\t\n\r\0\x0B"); //Sanitize HOTEL INDEX
+            $indexFromLastValue = trim($valuefinal[47], "\t\n\r\0\x0B"); //Sanitize HOTEL INDEX
 //            echo "#######\n\r";
 //            var_export($valuefinal);
 //            echo "#######\n\r";
-            unset($valuefinal[46]); //Remove HOTEL INDEX, to use like ARRAY INDEX
+            unset($valuefinal[47]); //Remove HOTEL INDEX, to use like ARRAY INDEX
             $hotelStaticData = new \Hotel\StaticData\HotelStaticData();
             for ($x = 0; $x < count($key); $x++)
             {
