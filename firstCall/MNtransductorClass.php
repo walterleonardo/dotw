@@ -75,7 +75,7 @@ Class Run
         return $this->errorMessage . "\n";
     }
 
-    public function managerSupplierRequest(\Hotel\PreSupplier\Input $inputObj)
+    public function managerSupplierRequest(\Hotel\PreSupplier\Input &$inputObj)
     {
         $aInput = $inputObj;
         $aRoomOccupancy = $inputObj->RoomOccupancy;
@@ -1038,7 +1038,7 @@ class fillArrayValues
 
     public static $answerStatic = array();
 
-    public function distributeValues($param)
+    public function distributeValues(&$param)
     {
         $arrayAnswer = explode("|||", $param);
         $array_need = array();

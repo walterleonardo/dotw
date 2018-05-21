@@ -12,6 +12,7 @@ class Input {
     public $customerId = 284399; //integer 1317257
     public $environment = 'dev'; //string
     public $requestSource = 2; //integer
+    public $restReason = array(1,2,3,4,5,6); //array integer No mandatory
     public $passengerNationalityOrResidenceProvided = false; //boolean
     public $hotelIds = array (); //array(int)
     public $city = 23544; //7674; //integer 7674
@@ -58,8 +59,17 @@ class Input {
            $this->RoomOccupancy = array(new RoomOccupancy());
            $this->HotelFilters = new HotelFilters();
            $this->RoomTypeFilters = new RoomTypeFilters();
+           $this->SearchPeriodCriteria = new SearchPeriodCriteria();
        }
 }
+
+
+class  SearchPeriodCriteria{ //Mandatory
+    public $travelFrom = '201805051100'; //Mandatory
+    public $travelTo = '201805101200';//Mandatory
+    public $bookingDateTime ='201805061100';//Mandatory
+}
+
 
 class RoomOccupancy {
     public $adults = 2; //integer
