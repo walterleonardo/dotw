@@ -57,6 +57,8 @@ if (!$answerRequest) {
         $roomsNumber = 0;
         $roomsNumber2 = 0;
         $imagesNumber = 0;
+        $parties = 0;
+        $hotels = 0;
         $transportationNumber = 0;
         if ($debug) {
             foreach ($answerRequest as $key => $value) {
@@ -65,12 +67,14 @@ if (!$answerRequest) {
                 echo "\t\n";
                 echo "have Parties ";
                 var_export(count($answerRequest[$key]));
+                $parties = $parties + count($answerRequest[$key]);
                 echo "\t\n";
                 
                 foreach($answerRequest[$key] as $key2 => $value2)
                 {
                   echo "have Hotels ";
                   var_export(count($answerRequest[$key][$key2])); 
+                  $hotels = $hotels + count($answerRequest[$key][$key2]);
                   echo "\t\n";
                   
                   foreach ($answerRequest[$key][$key2] as $key3 => $value3)
@@ -100,6 +104,10 @@ $requestNumber++;
 
 $time_elapsed_secs = microtime(true) - $start;
 echo "REQUEST = " . $numberOfRequest;
+echo "\r";
+echo "PARTIES = " . $parties;
+echo "\r";
+echo "HOTELS = " . $hotels;
 echo "\r";
 echo "ERRORS = " . $err;
 echo "\r";
