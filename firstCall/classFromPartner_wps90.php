@@ -12,7 +12,7 @@ class Input {
     public $customerId = 284399; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'dev'; //string
     public $requestSource = 2; //integer
-    public $restReason = array(); //array integer No mandatory
+    public $restReason = array(1,2,3,4,5,6); //array integer No mandatory
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (); //array(int)
     //country 143 and city 85516
