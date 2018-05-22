@@ -14,7 +14,7 @@ class Input {
     public $requestSource = 2; //integer
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (); //array(int)
-    public $city = 23544; //7674; //integer 7674
+    public $city = 364; //7674; //integer 7674
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
      0 => 1011,
