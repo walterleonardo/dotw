@@ -36,7 +36,8 @@ $start = microtime(true);
 while ($requestNumber < $numberOfRequest){
 $run = new \First\Run;
     /* @var $answerRequest First */
-    $answerRequest = $run->managerSupplierRequest(new \Hotel\PreSupplier\Input);
+$inputPresupplier = new \Hotel\PreSupplier\Input;
+$answerRequest = $run->managerSupplierRequest($inputPresupplier);
 
 $hotels = 0;    
 $chains = 0;
