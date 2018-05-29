@@ -82,7 +82,7 @@ Class Run
         $aRoomTypeFilters = $inputObj->RoomTypeFilters;
         $aHotelFilters = $inputObj->HotelFilters;
         $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
-        $errorPrint = true;
+        $errorPrint = false;
         /*
          * Creation of instance for the Ckeck CLASS.
          */
