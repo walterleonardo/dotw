@@ -382,8 +382,8 @@ class Check
         {
             $array = get_object_vars($data);
             $mandatory = array('travelFrom' => true, 'travelTo' => true, 'bookingDateTime' => true);
-            $types = array('travelFrom' => 'string', 'travelTo' => 'string',
-                'bookingDateTime' => 'string');
+            $types = array('travelFrom' => 'integer', 'travelTo' => 'integer',
+                'bookingDateTime' => 'integer');
             foreach ($mandatory as $key => $value)
             {
                 if ($value)

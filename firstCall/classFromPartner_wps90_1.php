@@ -72,9 +72,9 @@ class Input {
 
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = '1529625600'; //Mandatory
-    public $travelTo = '1529625600';//Mandatory
-    public $bookingDateTime ='1528115822';//Mandatory
+    public $travelFrom = 1529625600; //Mandatory
+    public $travelTo = 1529625600;//Mandatory
+    public $bookingDateTime = 1528115822;//Mandatory
 }
 
 
@@ -101,32 +101,32 @@ class RoomOccupancy2 {
 
 class RoomTypeFilters {
 
-    public $suite = null; //integer
-    public $roomAmenitie = null; //array(int)
-    public $roomId = null; //array(int)
-    public $roomName = null; //string
+//    public $suite = null; //integer
+//    public $roomAmenitie = null; //array(int)
+//    public $roomId = null; //array(int)
+//    public $roomName = null; //string
 
 }
 
 class HotelFilters {
 
-    public $rating = null; //array(int)
-    public $luxury = null; //integer
-    public $location = null; //string
-    public $locationId = null; //array(int)
-    public $amenitie = null; //array(int)
-    public $leisure = null; //array(int)
-    public $business = null; //array(int)
-    public $hotelPreference = null; //array(int)
-    public $chain = null; //array(int)
-    public $attraction = null; //string
-    public $hotelName = null; //string
-    public $builtYear = null; //integer
-    public $renovationYear = null; //integer
-    public $floors = null; //integer
-    public $noOfRooms = null; //integer
-    public $fireSafety = null; //integer
-    public $lastUpdated = null; //string
+//    public $rating = null; //array(int)
+//    public $luxury = null; //integer
+//    public $location = null; //string
+//    public $locationId = null; //array(int)
+//    public $amenitie = null; //array(int)
+//    public $leisure = null; //array(int)
+//    public $business = null; //array(int)
+//    public $hotelPreference = null; //array(int)
+//    public $chain = null; //array(int)
+//    public $attraction = null; //string
+//    public $hotelName = null; //string
+//    public $builtYear = null; //integer
+//    public $renovationYear = null; //integer
+//    public $floors = null; //integer
+//    public $noOfRooms = null; //integer
+//    public $fireSafety = null; //integer
+//    public $lastUpdated = null; //string
 }
 
 
