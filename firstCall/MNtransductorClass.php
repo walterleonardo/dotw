@@ -8,7 +8,7 @@ ini_set('memory_limit', '-1');
  * dev = virtualServer
  * prod = production IP
  */
-$platform = 'dev';
+$platform = 'preprod';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
@@ -43,7 +43,7 @@ class ArrayChannelCodes {
 //require 'classFromPartner_Demo_1.php';
 //require 'classFromPartner_Paris.php';
 //require 'classFromPartner_Dubai.php';
-require 'classFromPartner_wps90.php';
+require 'classFromPartner_wps90_1.php';
 //require 'classFromPartner_wpsPROD.php';
 //ERROR REPORTING TO FILE only in Test
 
@@ -82,7 +82,7 @@ Class Run
         $aRoomTypeFilters = $inputObj->RoomTypeFilters;
         $aHotelFilters = $inputObj->HotelFilters;
         $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
-        $errorPrint = false;
+        $errorPrint = true;
         /*
          * Creation of instance for the Ckeck CLASS.
          */
@@ -521,17 +521,18 @@ class Constructor
         {
             $aSearchPeriodCriteriaArray = get_object_vars($this->aSearchPeriodCriteria);
             //TODO:: modificar campos a dates
+//            if (isset($aSearchPeriodCriteriaArray["travelFrom"])){                
+//                $d = new \DateTime($aSearchPeriodCriteriaArray["travelFrom"], new \DateTimeZone('GMT'));
+//               $aSearchPeriodCriteriaArray["travelFrom"]=$d->getTimestamp();
+//            }
             if (isset($aSearchPeriodCriteriaArray["travelFrom"])){                
-                $d = new \DateTime($aSearchPeriodCriteriaArray["travelFrom"], new \DateTimeZone('GMT'));
-               $aSearchPeriodCriteriaArray["travelFrom"]=$d->getTimestamp();
+               $aSearchPeriodCriteriaArray["travelFrom"]=$aSearchPeriodCriteriaArray["travelFrom"];
             }
             if (isset($aSearchPeriodCriteriaArray["travelTo"])){                
-                $d = new \DateTime($aSearchPeriodCriteriaArray["travelTo"], new \DateTimeZone('GMT'));
-               $aSearchPeriodCriteriaArray["travelTo"]=$d->getTimestamp();
+               $aSearchPeriodCriteriaArray["travelTo"]=$aSearchPeriodCriteriaArray["travelTo"];
             }
             if (isset($aSearchPeriodCriteriaArray["bookingDateTime"])){                
-                $d = new \DateTime($aSearchPeriodCriteriaArray["bookingDateTime"], new \DateTimeZone('GMT'));
-               $aSearchPeriodCriteriaArray["bookingDateTime"]=$d->getTimestamp();
+               $aSearchPeriodCriteriaArray["bookingDateTime"]=$aSearchPeriodCriteriaArray["bookingDateTime"];
             }
           
         } else
