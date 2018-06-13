@@ -8,7 +8,7 @@ ini_set('memory_limit', '-1');
  * dev = virtualServer
  * prod = production IP
  */
-$platform = 'stage';
+$platform = 'prod';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
@@ -43,7 +43,7 @@ class ArrayChannelCodes {
 //require 'classFromPartner_Demo_1.php';
 //require 'classFromPartner_Paris.php';
 //require 'classFromPartner_Dubai.php';
-require 'classFromPartner_wps81_3.php';
+require 'classFromPartner_wps91.php';
 //require 'classFromPartner_wpsPROD.php';
 //ERROR REPORTING TO FILE only in Test
 
