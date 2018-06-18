@@ -9,34 +9,34 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 1237928; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
+    public $customerId = 289608; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'dev'; //string
     public $requestSource = 2; //integer
     public $exceptRestrictions = array(0,1,2,3,4,5,6,61274); //array integer No mandatory
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (); //array(int)
     //country 143 and city 85516
-    public $city = 7674; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
+    public $city = 2014; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
-            0 => 1011,
-            1 => 1003,
-            2 => 1004,
-            3 => 1529,
-            4 => 1005,
-            5 => 1017,
-            6 => 1022,
-            7 => 1797,
-            8 => 1808,
-            9 => 1519,
-            10 => 1689,
-            11 => 1027,
-            12 => 1746,
-            13 => 1821,
-            14 => 1006,
-            15 => 1818,
-            16 => 1819,
-            17 => 1801,
+    0 => 1011,
+    1 => 1003,
+    2 => 1004,
+    3 => 1529,
+    4 => 1005,
+    5 => 1017,
+    6 => 1022,
+    7 => 1797,
+    8 => 1808,
+    9 => 1519,
+    10 => 1689,
+    11 => 1027,
+    12 => 1821,
+    13 => 1006,
+    14 => 1818,
+    15 => 1819,
+    16 => 1801,
+    17 => 1746,
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
@@ -73,9 +73,9 @@ class Input {
 
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1529712000; //Mandatory
-    public $travelTo = 1529712000;//Mandatory
-    public $bookingDateTime = 1528974697;//Mandatory
+    public $travelFrom = 1530230400; //Mandatory
+    public $travelTo = 1530230400;//Mandatory
+    public $bookingDateTime = 1528974697;//1529331799; //1528974697;//Mandatory
 }
 
 
