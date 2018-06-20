@@ -83,7 +83,9 @@ $query = "SELECT distinct(info.RestId)
 						OR
 						cust.Type = 3 AND cust.value = IFNULL($CustCountryValue, cust.value)
 						OR
-						cust.Type = 4 AND cust.value = IFNULL($custRegionValue, cust.value)				
+						cust.Type = 4 AND cust.value = IFNULL($custRegionValue, cust.value)
+                                                OR
+                                                (cust.Type = 5 AND cust.value IN (SELECT OptionId FROM tbl_CustomersList WHERE CustomerCode = @vCustomer))
 					)
 				)
 				OR
@@ -98,6 +100,8 @@ $query = "SELECT distinct(info.RestId)
 						cust.Type = 3 AND cust.value != IFNULL($CustCountryValue, cust.value)
 						OR
 						cust.Type = 4 AND cust.value != IFNULL($custRegionValue, cust.value)
+                                                OR
+                                                (cust.Type = 5 AND cust.value NOT IN (SELECT OptionId FROM tbl_CustomersList WHERE CustomerCode = @vCustomer))
 					)
 				)			
 			);";
