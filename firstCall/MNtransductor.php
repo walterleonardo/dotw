@@ -54,6 +54,7 @@ if (!$answerRequest) {
     var_export($answerRequest);
     echo "##\n\r";
     echo "\n\r";
+    $arrayParty = array();
         $roomsNumber = 0;
         $roomsNumber2 = 0;
         $imagesNumber = 0;
@@ -72,7 +73,11 @@ if (!$answerRequest) {
                 
                 foreach($answerRequest[$key] as $key2 => $value2)
                 {
-                  echo "have Hotels ";
+                   
+                    echo "Party ";
+                    var_export($key2);
+                    $arrayParty[] = $key2;
+                  echo " have Hotels ";
                   var_export(count($answerRequest[$key][$key2])); 
                   $hotels = $hotels + count($answerRequest[$key][$key2]);
                   echo "\t\n";
@@ -112,4 +117,7 @@ echo "\r";
 echo "ERRORS = " . $err;
 echo "\r";
 echo "TIME ELAPSED = " . $time_elapsed_secs;
+echo "\n\r";
+
+echo "Parties = " . var_export($arrayParty);
 echo "\n\r";
