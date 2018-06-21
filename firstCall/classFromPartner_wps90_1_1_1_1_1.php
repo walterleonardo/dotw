@@ -9,14 +9,14 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 1124718; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
+    public $customerId = 1253108; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'prod'; //string
     public $requestSource = 2; //integer
     public $exceptRestrictions = array(0,1,2,3,4,5,6,61274); //array integer No mandatory
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (/*0 => 2233005*/); //array(int)
     //country 143 and city 85516
-    public $city = 63182; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
+    public $city = 364; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
  0 => 1011,
@@ -73,9 +73,9 @@ class Input {
 
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1530230400; //Mandatory
-    public $travelTo = 1530230400;//Mandatory
-    public $bookingDateTime = 1528974697;//1529331799; //1528974697;//Mandatory
+    public $travelFrom = 1534723200; //Mandatory
+    public $travelTo = 1534723200;//Mandatory
+    public $bookingDateTime = 1529583407;//1529331799; //1528974697;//Mandatory
 }
 
 
