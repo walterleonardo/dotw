@@ -41,7 +41,7 @@ class Input {
     public $bookingChannelTypes = array (); //array(int)
     
     //ExcludedBookingchannel new object
-    public $excludedBookingchannel = array(); //array(int)
+    public $excludedBookingchannel = array(0 => 1549); //array(int)
     /**
      * @var array of RoomOccupancy
      */
