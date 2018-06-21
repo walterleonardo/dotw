@@ -10,24 +10,31 @@ namespace Hotel\PreSupplier;
 class Input {
 
     public $customerId = 1253108; //integer 1317257
-    public $environment = 'dev'; //string
+    public $environment = 'prod'; //string
     public $requestSource = 2; //integer
     public $passengerNationalityOrResidenceProvided = true; //boolean
     public $hotelIds = array (); //array(int) CODE 2
     public $city = 364; //7674; //integer 9984 TYPE 2
     public $country = null; //integer 971 RANGE 2
     public $bookingChannelsWithAutoMapping = array  (
-    0 => 1011,
+     0 => 1011,
     1 => 1003,
-    2 => 1004,
-    3 => 1529,
+    2 => 1529,
+    3 => 1017,
     4 => 1005,
-    5 => 1017,
+    5 => 1004,
     6 => 1022,
-    7 => 1519,
-    8 => 1797,
-    9 => 1689,
-    10 => 1027
+    7 => 1027,
+    8 => 1689,
+    9 => 1797,
+    10 => 1519,
+    11 => 1808,
+    12 => 1746,
+    13 => 1821,
+    14 => 1006,
+    15 => 1818,
+    16 => 1819,
+    17 => 1801
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
