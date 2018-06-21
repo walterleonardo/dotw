@@ -38,7 +38,7 @@ $run = new \First\Run;
     /* @var $answerRequest First */
 $inputPresupplier = new \Hotel\PreSupplier\Input;
 $answerRequest = $run->managerSupplierRequest($inputPresupplier);
-
+$arrayParty = array();
 $hotels = 0;    
 $chains = 0;
 if (!$answerRequest) {
