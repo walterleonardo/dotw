@@ -8,7 +8,7 @@ ini_set('memory_limit', '-1');
  * dev = virtualServer
  * prod = production IP
  */
-$platform = 'prod';
+$platform = 'dev';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
@@ -34,18 +34,8 @@ class ArrayChannelCodes {
 /*
  * You need replace this previous require for your objets files
  */
-//require 'Input.php';
-//require 'HotelFilters.php';
-//require 'RoomTypeFilters.php';
-//require 'RoomOccupancy.php';
-//require 'classFromPartner.php';
-//require 'classFromPartner_Demo.php';
-//require 'classFromPartner_Demo_1.php';
-//require 'classFromPartner_Paris.php';
-//require 'classFromPartner_Dubai.php';
-require 'classFromPartner_wps90_5.php';
-//require 'classFromPartner_wpsPROD.php';
-//ERROR REPORTING TO FILE only in Test
+require 'classFromPartner_wps92.php';
+
 
 if ($platform == 'test')
 {
@@ -243,8 +233,8 @@ class Check
     {
         $array = get_object_vars($data);
         unset($array['AdditionalFilters']); //DAEMON dont need it attribute
-        $types = array('customerId' => 'integer', 'environment' => 'string', 'requestSource' => 'integer','exceptRestrictions' => 'array', 'passengerNationalityOrResidenceProvided' => 'boolean', 'hotelIds' => 'array', 'city' => 'integer', 'country' => 'integer','bookingChannelsWithAutoMapping' => 'array', 'excludedBookingchannel' => 'array', 'bookingChannelTypes' => 'array', 'RoomOccupancy' => 'array', 'HotelFilters' => 'object', 'RoomTypeFilters' => 'object', 'AdditionalFilters' => 'array','SearchPeriodCriteria' => 'object');
-        $mandatory = array('customerId' => true, 'environment' => true, 'requestSource' => true,'exceptRestrictions' => true, 'passengerNationalityOrResidenceProvided' => true, 'hotelIds' => false, 'city' => false, 'country' => false,'bookingChannelsWithAutoMapping' => false, 'excludedBookingchannel' => false, 'bookingChannelTypes' => false, 'RoomOccupancy' => true, 'HotelFilters' => false, 'RoomTypeFilters' => false, 'AdditionalFilters' => false, 'SearchPeriodCriteria' => true);
+        $types = array('customerId' => 'integer', 'environment' => 'string', 'requestSource' => 'integer','exceptRestrictions' => 'array', 'passengerNationalityOrResidenceProvided' => 'boolean', 'hotelIds' => 'array', 'city' => 'integer', 'country' => 'integer','bookingChannelsWithAutoMapping' => 'array', 'excludedBookingchannel' => 'array', 'bookingChannelTypes' => 'array','activeForRoomCategories' => 'boolean', 'RoomOccupancy' => 'array', 'HotelFilters' => 'object', 'RoomTypeFilters' => 'object', 'AdditionalFilters' => 'array','SearchPeriodCriteria' => 'object');
+        $mandatory = array('customerId' => true, 'environment' => true, 'requestSource' => true,'exceptRestrictions' => true, 'passengerNationalityOrResidenceProvided' => true, 'hotelIds' => false, 'city' => false, 'country' => false,'bookingChannelsWithAutoMapping' => false, 'excludedBookingchannel' => false, 'bookingChannelTypes' => false,  'activeForRoomCategories' => false, 'RoomOccupancy' => true, 'HotelFilters' => false, 'RoomTypeFilters' => false, 'AdditionalFilters' => false, 'SearchPeriodCriteria' => true);
         foreach ($mandatory as $key => $value)
         {
             if ($value)
