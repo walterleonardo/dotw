@@ -5,15 +5,15 @@ namespace Hotel\StaticData;
 class StaticInput {
 //941895 //139534
     public $hotelIds = array (
-    2264 => 
+    98099 => 
     array (
-//        0 => 14570438,
+        0 => 15011168,
 //        1 => 14570388,
 //        2 => 20938608,
 //        3 => 14568768,
     ),
     );
-    public $LanguageId = 20;
+    public $LanguageId = 1;
     //MANDATORY ARRAY
     /**
      * @var ReturnHotelStaticData;
@@ -39,38 +39,35 @@ class StaticInput {
 }
 
 class ReturnHotelStaticData {
-
-    //
-    //
     public $description1 = true; //NO MANDATORY BOOL
     public $description2 = false;
     public $geoPoint = false;
-    public $ratingDescription = false;
-    public $images = false;
+    public $ratingDescription = true;
+    public $images = true;
     public $direct = false;
     public $hotelPreference = false;
     public $builtYear = false;
     public $renovationYear = false;
     public $floors = false;
     public $noOfRooms = false;
-    public $luxury = false;
-    public $address = true;
+    public $luxury = true;
+    public $address = false;
     public $zipCode = false;
-    public $location = false;
+    public $location = true;
     public $locationId = false;
     public $location1 = false;
     public $location2 = false;
     public $location3 = false;
     public $stateName = false;
     public $stateCode = false;
-    public $countryName = false;
+    public $countryName = true;
     public $regionName = false;
     public $regionCode = false;
     public $amenitie = false;
     public $leisure = false;
     public $business = false;
     public $transportation = false;
-    public $hotelPhone = false;
+    public $hotelPhone = true;
     public $hotelCheckIn = false;
     public $hotelCheckOut = false;
     public $minAge = false;
@@ -81,32 +78,34 @@ class ReturnHotelStaticData {
     public $transferMandatory = false;
     public $tariffNotes = false;
     public $chainName = false;
-    public $hotelProperty = false;
-    //public $fullAddress = false;//Future develop
+    public $hotelProperty = true;
+    public $fullAddress = true;//Future develop
     //public $attraction = false;//Future develop
-    public $exclusive = true; //new in tickets
-
-
+    public $exclusive = true; 
+    //public $areaCode = false;//Future develop
+    //public $areaName = false;//Future develop
+    //public $geoLocations = true;//Future develop
 }
 
 class ReturnRoomTypeStaticData {
     public $roomAmenities = true;
-    public $name = true;
+    public $name = false;
     public $twin = true; //NO MANDATORY BOOL
     public $roomInfo = true;
-    public $specials = true; //new
-    public $roomImages = false; //new
+    public $specials = true;
+    public $roomImages = false;
+    public $roomCategory = true; //new attribute
 }
 
 class ReturnRateData {
-    public $occupancy = true; //new
+    public $occupancy = true;
     public $status = true;
     public $rateType = true;
-    public $paymentMode = true; //new
+    public $paymentMode = true;
     public $allowsExtraMeals = true;
     public $allowsSpecialRequests = true;
     public $allowsBeddingPreference = true;
-    public $allowsSpecials = true; //new
+    public $allowsSpecials = true;
     public $passengerNamesRequiredForBooking = true;
     public $allocationDetails = true;
     public $minStay = true;
@@ -119,11 +118,11 @@ class ReturnRateData {
     public $total = true;
     public $dates = true;
     public $freeStay = true;
-    public $discount = true; //new
+    public $discount = true; 
     public $dayOnRequest = true;
     public $including = true;
-    public $dailyLeftToSell = true; //new
+    public $dailyLeftToSell = true;
     public $dailyMinStay = true;
-    public $leftToSell = true; //change
+    public $leftToSell = true; 
     public $specials = true;
 }

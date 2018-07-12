@@ -46,7 +46,7 @@ class Input {
     /**
      * @var array of activeDorRoomCategories
      */
-    public $activeForRoomCategories = false; //bolean
+    public $activeForRoomCategories = true; //bolean
     /**
      * @var array of RoomOccupancy
      */
@@ -114,8 +114,7 @@ class RoomTypeFilters {
     public $roomId = null; //array(int)
     public $roomName = null; //string
     public $roomCategories = array(); //roomCategories Objects
-    
-    function __construct() {
+        function __construct() {
            $this->roomCategories = array( new RoomCategory(),new RoomCategory1());
        }
 }

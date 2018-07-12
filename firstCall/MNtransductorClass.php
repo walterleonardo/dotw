@@ -451,7 +451,17 @@ class Constructor
         $this->aInput = $aInput;
         $this->aRoomOccupancy = self::obj2Array($aRoomOccupancy);
         $this->aRoomTypeFilters = $aRoomTypeFilters;
-        $this->aroomCategories = self::obj2Array($aroomCategories);
+        //var_export($this->aInput['activeForRoomCategories']);
+        $aInputArray = get_object_vars($this->aInput);
+        
+        if ($aInputArray['activeForRoomCategories'])
+        {
+          $this->aroomCategories = self::obj2Array($aroomCategories);
+
+        } else 
+        {
+            $this->aroomCategories = array(); 
+        }
         $this->aHotelFilters = $aHotelFilters;
         $this->aSearchPeriodCriteria = $aSearchPeriodCriteria;
     }
