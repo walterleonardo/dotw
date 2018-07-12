@@ -70,6 +70,7 @@ Class Run
         $aInput = $inputObj;
         $aRoomOccupancy = $inputObj->RoomOccupancy;
         $aRoomTypeFilters = $inputObj->RoomTypeFilters;
+        $aroomCategories = $inputObj->RoomTypeFilters->roomCategories;
         $aHotelFilters = $inputObj->HotelFilters;
         $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
         $errorPrint = true;
@@ -121,7 +122,7 @@ Class Run
             var_export($aInput);
             echo "\n\r###\n\r";
         }
-        $contructor = new \First\Constructor($aInput, $aRoomOccupancy, $aRoomTypeFilters, $aHotelFilters, $aSearchPeriodCriteria);
+        $contructor = new \First\Constructor($aInput, $aRoomOccupancy, $aroomCategories, $aRoomTypeFilters, $aHotelFilters, $aSearchPeriodCriteria);
         /*
          * Join all the attributes from all the objets in a simple array
          */
@@ -135,6 +136,7 @@ Class Run
          * Create the string that DAEMON Server need.
          */
         $arrayReturned = $contructor->returnArray();
+        //var_export($arrayReturned);
         $string = $contructor->convertRequestArrayToString(array('|', ',', '~', '#'), $arrayReturned);
         /*
          * Create an Instance of ConnectorTCP and give the String and values for connection
@@ -233,8 +235,9 @@ class Check
     {
         $array = get_object_vars($data);
         unset($array['AdditionalFilters']); //DAEMON dont need it attribute
-        $types = array('customerId' => 'integer', 'environment' => 'string', 'requestSource' => 'integer','exceptRestrictions' => 'array', 'passengerNationalityOrResidenceProvided' => 'boolean', 'hotelIds' => 'array', 'city' => 'integer', 'country' => 'integer','bookingChannelsWithAutoMapping' => 'array', 'excludedBookingchannel' => 'array', 'bookingChannelTypes' => 'array','activeForRoomCategories' => 'boolean', 'RoomOccupancy' => 'array', 'HotelFilters' => 'object', 'RoomTypeFilters' => 'object', 'AdditionalFilters' => 'array','SearchPeriodCriteria' => 'object');
-        $mandatory = array('customerId' => true, 'environment' => true, 'requestSource' => true,'exceptRestrictions' => true, 'passengerNationalityOrResidenceProvided' => true, 'hotelIds' => false, 'city' => false, 'country' => false,'bookingChannelsWithAutoMapping' => false, 'excludedBookingchannel' => false, 'bookingChannelTypes' => false,  'activeForRoomCategories' => false, 'RoomOccupancy' => true, 'HotelFilters' => false, 'RoomTypeFilters' => false, 'AdditionalFilters' => false, 'SearchPeriodCriteria' => true);
+        unset($array['roomCategory']); //DAEMON dont need it attribute
+        $types = array('customerId' => 'integer', 'environment' => 'string', 'requestSource' => 'integer','exceptRestrictions' => 'array', 'passengerNationalityOrResidenceProvided' => 'boolean', 'hotelIds' => 'array', 'city' => 'integer', 'country' => 'integer','bookingChannelsWithAutoMapping' => 'array', 'excludedBookingchannel' => 'array', 'bookingChannelTypes' => 'array','activeForRoomCategories' => 'boolean', 'RoomOccupancy' => 'array', 'HotelFilters' => 'object', 'RoomTypeFilters' => 'object', 'AdditionalFilters' => 'array','SearchPeriodCriteria' => 'object','roomCategory' => 'array');
+        $mandatory = array('customerId' => true, 'environment' => true, 'requestSource' => true,'exceptRestrictions' => true, 'passengerNationalityOrResidenceProvided' => true, 'hotelIds' => false, 'city' => false, 'country' => false,'bookingChannelsWithAutoMapping' => false, 'excludedBookingchannel' => false, 'bookingChannelTypes' => false,  'activeForRoomCategories' => false, 'RoomOccupancy' => true, 'HotelFilters' => false, 'RoomTypeFilters' => false, 'AdditionalFilters' => false, 'SearchPeriodCriteria' => true, 'roomCategory' => false);
         foreach ($mandatory as $key => $value)
         {
             if ($value)
@@ -296,8 +299,8 @@ class Check
         if (isset($data))
         {
             $array = get_object_vars($data);
-            $mandatory = array('suite' => false, 'roomAmenitie' => false, 'roomId' => false, 'roomName' => false);
-            $types = array('suite' => 'integer', 'roomAmenitie' => 'array', 'roomId' => 'array', 'roomName' => 'string');
+            $mandatory = array('suite' => false, 'roomAmenitie' => false, 'roomId' => false, 'roomName' => false, 'roomCategories' => false);
+            $types = array('suite' => 'integer', 'roomAmenitie' => 'array', 'roomId' => 'array', 'roomName' => 'string', 'roomCategories' => 'array');
             foreach ($mandatory as $key => $value)
             {
                 if ($value)
@@ -438,15 +441,17 @@ class Constructor
     private $aInput;
     private $aRoomOccupancy;
     private $aRoomTypeFilters;
+    private $aroomCategories;
     private $aHotelFilters;
     private $aSearchPeriodCriteria;
     public static $arrayConverted = array('customerId' => '', 'environment' => '', 'requestSource' => '', 'passengerNationalityOrResidenceProvided' => '', 'hotelIds' => '', 'city' => '', 'bookingChannelTypes' => '', 'excludedBookingchannel' => '', 'bookingChannelsWithAutoMapping' => '', 'RoomOccupancy' => '', 'HotelFilters' => '', 'RoomTypeFilters' => '', 'SearchPeriodCriteria' => '');
 
-    function __construct($aInput, $aRoomOccupancy, $aRoomTypeFilters = null, $aHotelFilters = null, $aSearchPeriodCriteria = null)
+    function __construct($aInput, $aRoomOccupancy, $aroomCategories=null, $aRoomTypeFilters = null, $aHotelFilters = null, $aSearchPeriodCriteria = null)
     {
         $this->aInput = $aInput;
         $this->aRoomOccupancy = self::obj2Array($aRoomOccupancy);
         $this->aRoomTypeFilters = $aRoomTypeFilters;
+        $this->aroomCategories = self::obj2Array($aroomCategories);
         $this->aHotelFilters = $aHotelFilters;
         $this->aSearchPeriodCriteria = $aSearchPeriodCriteria;
     }
@@ -486,9 +491,20 @@ class Constructor
          * OTHER ARRAY INCLUSION
          */
         $aRoomOccupancyArray = $this->aRoomOccupancy;
+        
+        /*
+         * RoomTypeFilter, now have an object, roomCategories
+         */
+        
         if (isset($this->aRoomTypeFilters))
         {
             $aRoomTypeFiltersArray = get_object_vars($this->aRoomTypeFilters);
+        
+            if (isset($aRoomTypeFiltersArray['roomCategories'])){                
+               $aRoomTypeFiltersArray['roomCategories']=$this->aroomCategories;
+            }
+        
+            
         } else
         {
             $aRoomTypeFiltersArray = null;
@@ -510,11 +526,6 @@ class Constructor
         if (isset($this->aSearchPeriodCriteria))
         {
             $aSearchPeriodCriteriaArray = get_object_vars($this->aSearchPeriodCriteria);
-            //TODO:: modificar campos a dates
-//            if (isset($aSearchPeriodCriteriaArray["travelFrom"])){                
-//                $d = new \DateTime($aSearchPeriodCriteriaArray["travelFrom"], new \DateTimeZone('GMT'));
-//               $aSearchPeriodCriteriaArray["travelFrom"]=$d->getTimestamp();
-//            }
             if (isset($aSearchPeriodCriteriaArray["travelFrom"])){                
                $aSearchPeriodCriteriaArray["travelFrom"]=$aSearchPeriodCriteriaArray["travelFrom"];
             }

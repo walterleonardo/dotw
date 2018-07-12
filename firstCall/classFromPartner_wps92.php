@@ -68,11 +68,13 @@ class Input {
      *
      */
     public $AdditionalFilters = null; //array(varios)
-       function __construct() {
+       
+    function __construct() {
            $this->RoomOccupancy = array(new RoomOccupancy());
            $this->HotelFilters = new HotelFilters();
            $this->RoomTypeFilters = new RoomTypeFilters();
            $this->SearchPeriodCriteria = new SearchPeriodCriteria();
+           //$this->roomCategories = array( new RoomCategory());
        }
 }
 
@@ -107,11 +109,33 @@ class RoomOccupancy2 {
 
 class RoomTypeFilters {
 
-//    public $suite = null; //integer
-//    public $roomAmenitie = null; //array(int)
-//    public $roomId = null; //array(int)
-//    public $roomName = null; //string
+    public $suite = null; //integer
+    public $roomAmenitie = null; //array(int)
+    public $roomId = null; //array(int)
+    public $roomName = null; //string
+    public $roomCategories = array(); //roomCategories Objects
+    
+    function __construct() {
+           $this->roomCategories = array( new RoomCategory(),new RoomCategory1());
+       }
+}
 
+class RoomCategory{
+        public $MainCategory = 62215; //integer
+        public $SubCategory = null;//integer
+        public $View = null;//integer
+        public $BeddingType = 62159;//integer
+        public $Attribute1 = null;//integer
+        public $Attribute2 = null;//integer
+}
+
+class RoomCategory1{
+        public $MainCategory = 62214; //integer
+        public $SubCategory = null;//integer
+        public $View = null;//integer
+        public $BeddingType = 62158;//integer
+        public $Attribute1 = null;//integer
+        public $Attribute2 = null;//integer
 }
 
 class HotelFilters {
@@ -139,4 +163,7 @@ class HotelFilters {
 class AdditionalFilters {
     
 }
+
+
+
 
