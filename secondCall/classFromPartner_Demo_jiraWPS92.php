@@ -80,11 +80,11 @@ class ReturnHotelStaticData {
     public $chainName = false;
     public $hotelProperty = true;
     public $fullAddress = true;//Future develop
-    //public $attraction = false;//Future develop
     public $exclusive = true; 
-    //public $areaCode = false;//Future develop
-    //public $areaName = false;//Future develop
-    //public $geoLocations = true;//Future develop
+    public $attraction = false;//Future develop
+    public $areaCode = false;//Future develop
+    public $areaName = false;//Future develop
+    public $geoLocations = true;//Future develop
 }
 
 class ReturnRoomTypeStaticData {
