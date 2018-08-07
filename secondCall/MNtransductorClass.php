@@ -70,7 +70,7 @@ class run
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -106,7 +106,6 @@ class run
             var_export($aStaticInput);
             echo "\n\r###\n\r";
         }
-        //var_export($aStaticInput);
         $contructor = new \Second\Constructor($aStaticInput, $aReturnHotelStaticData, $aReturnRoomTypeStaticData, $aReturnRateData);
         /*
          * Join all the attributes from all the objets in a simple array
@@ -275,7 +274,7 @@ class Check
     public function mandatoryTypeReturnRoomTypeStaticData(&$data)
     {
         $array = get_object_vars($data);
-        var_export($array);
+
         $mandatory = array('roomAmenities' => true, 'name' => true, 'twin' => true,  'roomInfo' => true,  'specials' => true,  'roomImages' => true,  'roomCategory' => true);
         foreach ($mandatory as $key => $value)
         {
@@ -942,19 +941,18 @@ class AnswerTreatment
         foreach ($array as $key => $value)
         {
 
-//            echo "######\r\n";
-//            var_export($value);
-//                echo "\r\n";
+
             if ($errorPrint)
             {
                 echo "\n\r# 2dn STEP DISTRIBUTE VALUES #\n\r";
+                var_export($value);
                 echo "\n\r###\n\r";
             }
             $valuefinal = explode("-[-", $value);
+                
             $indexFromLastValue = trim($valuefinal[47], "\t\n\r\0\x0B"); //Sanitize HOTEL INDEX
-//            echo "#######\n\r";
-//            var_export($valuefinal);
-//            echo "#######\n\r";
+
+            
             unset($valuefinal[47]); //Remove HOTEL INDEX, to use like ARRAY INDEX
             $hotelStaticData = new \Hotel\StaticData\HotelStaticData();
             for ($x = 0; $x < count($key); $x++)
@@ -1024,9 +1022,7 @@ class AnswerTreatment
 
                                 if ($valuefinal[$i] != '')
                                 {
-//                                    echo "\n\r###---##\n\r";
-//                                    var_export($valuefinal[$i]);
-//                                    echo "\n\r###----##\n\r";
+
                                     $hotelStaticData->$var = $valuefinal[$i]; //self::translateSimilsAnswerData($valuefinal[$i]);
                                 } else
                                 {
@@ -1068,9 +1064,7 @@ class AnswerTreatment
             if (isset($hotelStaticData->images) and is_array($hotelStaticData->images))
             {
                 $arrayImage = array();
-//                echo "\n\r###---##\n\r";
-//                var_export($hotelStaticData->images);
-//                echo "\n\r###----##\n\r";
+
                 if (is_array($hotelStaticData->images))
                 {
                     foreach ($hotelStaticData->images as $keyIn => $valueIn)
@@ -1130,10 +1124,8 @@ class AnswerTreatment
                             {
                                 if (self::$LabelsTransportationTypes[$keyInIn] == 'string')
                                 {
-//                                    echo "\n\r###---##\n\r";
-//                                    var_export($keyInIn);
-//                                    echo "\n\r###----##\n\r";
-                                    $transportationData->$labelTransportation = $valueInIn; //self::translateSimilsAnswerData($valueInIn);
+
+                                    $transportationData->$labelTransportation = $valueInIn; 
                                 } else
                                 {
                                     $transportationData->$labelTransportation = $valueInIn;
@@ -1157,9 +1149,7 @@ class AnswerTreatment
                         {
                             if (self::$LabelsTransportationTypes[$keyInIn] == 'string')
                             {
-//                                echo "\n\r###---##\n\r";
-//                                var_export($keyInIn);
-//                                echo "\n\r###----##\n\r";
+
                                 $transportationData->$labelTransportation = $valueInIn; //self::translateSimilsAnswerData($valueInIn);
                             } else
                             {
@@ -1210,9 +1200,7 @@ class AnswerTreatment
                         $roomInfo = new \Hotel\StaticData\RoomInfo();
                         $roomCategory = new \Hotel\StaticData\RoomCategory();
 
-                        
-                        var_export($array1);
-                        
+
                         foreach ($array1 as $keyIn => $valueIn)
                         {
                             //Obtain the label for the room data
@@ -1222,8 +1210,6 @@ class AnswerTreatment
                                 $arrayRoomTypeCode[] = $valueIn;
                             }
                          
-                            var_export($labelRoom);
-                            //ROOM INFO save and order.
 
                             if (preg_match('/-{-/', $valueIn))
                             {
