@@ -39,21 +39,21 @@ class StaticInput {
 }
 
 class ReturnHotelStaticData {
-    public $description1 = true; //NO MANDATORY BOOL
+    public $description1 = false; //NO MANDATORY BOOL
     public $description2 = false;
     public $geoPoint = false;
-    public $ratingDescription = true;
-    public $images = true;
+    public $ratingDescription = false;
+    public $images = false;
     public $direct = false;
     public $hotelPreference = false;
     public $builtYear = false;
     public $renovationYear = false;
     public $floors = false;
     public $noOfRooms = false;
-    public $luxury = true;
+    public $luxury = false;
     public $address = false;
     public $zipCode = false;
-    public $location = true;
+    public $location = false;
     public $locationId = false;
     public $location1 = false;
     public $location2 = false;
@@ -67,7 +67,7 @@ class ReturnHotelStaticData {
     public $leisure = false;
     public $business = false;
     public $transportation = false;
-    public $hotelPhone = true;
+    public $hotelPhone = false;
     public $hotelCheckIn = false;
     public $hotelCheckOut = false;
     public $minAge = false;
@@ -78,22 +78,22 @@ class ReturnHotelStaticData {
     public $transferMandatory = false;
     public $tariffNotes = false;
     public $chainName = false;
-    public $hotelProperty = true;
-    public $fullAddress = true;//Future develop
-    public $exclusive = true; 
+    public $hotelProperty = false;
+    public $fullAddress = false;//Future develop
+    public $exclusive = false; 
     public $attraction = false;//Future develop
     public $areaCode = false;//Future develop
     public $areaName = false;//Future develop
-    public $geoLocations = true;//Future develop
+    public $geoLocations = false;//Future develop
 }
 
 class ReturnRoomTypeStaticData {
     public $roomAmenities = true;
-    public $name = false;
+    public $name = true;
     public $twin = true; //NO MANDATORY BOOL
     public $roomInfo = true;
     public $specials = true;
-    public $roomImages = false;
+    public $roomImages = true;
     public $roomCategory = true; //new attribute
 }
 

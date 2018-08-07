@@ -120,7 +120,7 @@ class RoomTypeFilters {
 }
 
 class RoomCategory{
-        public $MainCategory = 62215; //integer
+        public $MainCategory = 9133;//62215; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
         public $BeddingType = 62159;//integer

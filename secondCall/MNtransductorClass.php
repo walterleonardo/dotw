@@ -14,6 +14,7 @@ require 'output/ImageData.php';
 require 'output/RoomTypeStaticData.php';
 require 'output/TransportationData.php';
 require 'output/RoomInfo.php';
+require 'output/RoomCategory.php';
 
 if (isset($argv[1]))
 {
@@ -901,6 +902,8 @@ class AnswerTreatment
     public static $LabelsTransportation = array('Type', 'Name', 'Dist', 'DistanceUnit', 'DistTime', 'Directions');
     public static $LabelsRoomInfoTypes = array('maxOccupancy' => 'integer', 'maxAdultWithChildren' => 'integer', 'minChildAge' => 'integer', 'maxChildAge' => 'integer', 'maxAdult' => 'integer', 'maxExtraBed' => 'integer', 'maxChildren' => 'integer', 'children' => 'integer');
     public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren', 'children');
+    public static $LabelsRoomCategoryTypes = array('code' => 'string', 'name' => 'string');
+    public static $LabelsRoomCategory = array('code', 'name');
     public static $LabelsRoomTypeStaticDataTypes = array('roomTypeID' => 'integer', 'twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array', 'roomCategory' => 'array');
     public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'roomInfo', 'roomCategory');
 
@@ -1192,16 +1195,24 @@ class AnswerTreatment
 
             if (isset($hotelStaticData->RoomTypeStaticDataList) and is_array($hotelStaticData->RoomTypeStaticDataList))
             {
+             
                 $arrayRoomTypeStatic = array();
                 $arrayRoomTypeCode = array();
                 foreach ($hotelStaticData->RoomTypeStaticDataList as $keytr => $valuetr)
                 {
                     $roomTypeStaticData = new \Hotel\StaticData\RoomTypeStaticData;
+
+            
+            
                     if (preg_match('/-#-/', $valuetr))
                     {
                         $array1 = explode("-#-", $valuetr);
                         $roomInfo = new \Hotel\StaticData\RoomInfo();
+                        $roomCategory = new \Hotel\StaticData\RoomCategory();
 
+                        
+                        var_export($array1);
+                        
                         foreach ($array1 as $keyIn => $valueIn)
                         {
                             //Obtain the label for the room data
@@ -1210,6 +1221,8 @@ class AnswerTreatment
                             {
                                 $arrayRoomTypeCode[] = $valueIn;
                             }
+                         
+                            var_export($labelRoom);
                             //ROOM INFO save and order.
 
                             if (preg_match('/-{-/', $valueIn))
@@ -1245,6 +1258,23 @@ class AnswerTreatment
                                             $roomTypeStaticData->$labelRoom = $roomInfo;
                                         }
                                     }
+                                } elseif ($labelRoom == 'roomCategory')
+                                {
+                                    $arrayIn = explode("-{-", $valueIn);
+                                    foreach ($arrayIn as $keytri => $valuetri)
+                                    {
+                                        $labelRoomCategory = self::$LabelsRoomCategory[$keytri];
+                                        if (isset($valuetri))
+                                        {
+                                            //$labelRoomInfo = self::$LabelsRoomInfo[$keytri];
+                                            $roomCategory->$labelRoomCategory = $valuetri; //(int)
+                                            
+                                            //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                            $roomTypeStaticData->$labelRoom = $roomCategory;
+                                        }
+                                    }
+                                    
+                                    
                                 } else
                                 {
                                     //$arrayIn = array_map('intval', explode('{', $valueIn));
@@ -1252,6 +1282,9 @@ class AnswerTreatment
                                     //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     $roomTypeStaticData->$labelRoom = $arrayIn;
                                 }
+                                
+                                
+                                
                             } else
                             {
                                 //Convert and save booleans
@@ -1289,9 +1322,6 @@ class AnswerTreatment
                                     //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
                                     if (isset($valueIn) && $valueIn != '')
                                     {
-//                                        echo "\n\r###---##\n\r";
-//                                        var_export($labelRoom);
-//                                        echo "\n\r###----##\n\r";
                                         $roomTypeStaticData->$labelRoom = $valueIn; //self::translateSimilsAnswerData($valueIn);
                                     } else
                                     {
