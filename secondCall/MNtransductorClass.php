@@ -21,7 +21,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS92.php';
+    require 'classFromPartner_Demo_jiraWPS92_phase_2.php';
 }
 
 /*
@@ -70,7 +70,7 @@ class run
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -275,7 +275,7 @@ class Check
     {
         $array = get_object_vars($data);
 
-        $mandatory = array('roomAmenities' => true, 'name' => true, 'twin' => true,  'roomInfo' => true,  'specials' => true,  'roomImages' => true,  'roomCategory' => true);
+        $mandatory = array('roomAmenities' => true, 'name' => true,  'supplierRoomName' => true, 'twin' => true,  'roomInfo' => true,  'specials' => true,  'roomImages' => true,  'roomCategory' => true);
         foreach ($mandatory as $key => $value)
         {
             if ($value)
@@ -351,6 +351,7 @@ class Constructor
     
     public $roomAmenities = true;
     public $name = true;
+    public $supplierRoomName = true;
     public $twin = true; //NO MANDATORY BOOL
     public $roomInfo = true;
     public $specials = true;
@@ -362,7 +363,7 @@ class Constructor
     Public function insertVar()
     {
         $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'geoPoint' => false,'chain' => false, 'lastUpdated' => false, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false, 'fullAddress' => false,'exclusive' => false);
-        $aArrayOfReturnHotelStaticDataRoom = array('roomAmenities' => false, 'name' => false,'twin' => false,  'roomInfo' => false,  'specials' => false,  'roomImages' => false,  'roomCategory' => false);
+        $aArrayOfReturnHotelStaticDataRoom = array('roomAmenities' => false, 'name' => false, 'supplierRoomName' => false, 'twin' => false, 'roomInfo' => false,  'specials' => false,  'roomImages' => false,  'roomCategory' => false);
         $aStaticInput = get_object_vars($this->aStaticInput);
         $aReturnHotelStaticData = get_object_vars($this->aReturnHotelStaticData);
         if (isset($this->aReturnRoomTypeStaticData))

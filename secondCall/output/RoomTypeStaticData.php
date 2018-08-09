@@ -14,6 +14,7 @@ class RoomTypeStaticData
     public $twin;
     public $roomAmenities;
     public $name;
+    public $supplierRoomName;
     public $roomInfo;
     public $roomCategory;
 } 

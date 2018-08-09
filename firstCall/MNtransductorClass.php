@@ -14,7 +14,7 @@ include_once $includeConfigFile;
 
 //List of Channel Manager codes 
 class ArrayChannelCodes {
-    public static $array_of_channel_manager_codes = array (1000,1010);
+    public static $array_of_channel_manager_codes = array (1000,1010,1008);
 }
 
 /*
@@ -34,7 +34,7 @@ class ArrayChannelCodes {
 /*
  * You need replace this previous require for your objets files
  */
-require 'classFromPartner_wps92.php';
+require 'classFromPartner_wps92_phase_2.php';
 
 
 if ($platform == 'test')
@@ -73,7 +73,7 @@ Class Run
         $aroomCategories = $inputObj->RoomTypeFilters->roomCategories;
         $aHotelFilters = $inputObj->HotelFilters;
         $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
-        $errorPrint = false;
+        $errorPrint = true;
         /*
          * Creation of instance for the Ckeck CLASS.
          */
@@ -1075,14 +1075,14 @@ class fillArrayValues
                         {
                             if (trim($folders[6]) != '')
                             {
-                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = trim($folders[6], "\t\n\r\0\x0B");
+                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = trim($folders[4], "\t\n\r\0\x0B");
                             } else
                             {
-                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][] = $folders[4];
+                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = $folders[4];
                             }
                         } else
                         {
-                            $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][] = $folders[4];
+                            $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = $folders[4];
                         }
                     } else
                     {
@@ -1090,10 +1090,10 @@ class fillArrayValues
                         {
                             if (trim($folders[6]) != '')
                             {
-                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = trim($folders[6], "\t\n\r\0\x0B");
+                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[6], "\t\n\r\0\x0B")] = trim($folders[4], "\t\n\r\0\x0B");
                             } else
                             {
-                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][] = $folders[4];
+                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = $folders[4];
                             }
                         }
                     }

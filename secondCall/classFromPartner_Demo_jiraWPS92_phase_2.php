@@ -5,12 +5,11 @@ namespace Hotel\StaticData;
 class StaticInput {
 //941895 //139534
     public $hotelIds = array (
-    98099 => 
+    30524 => 
     array (
-        0 => 15011168,
-//        1 => 14570388,
-//        2 => 20938608,
-//        3 => 14568768,
+0 => 320044,
+      1 => 15887518,
+      2 => 15887528,
     ),
     );
     public $LanguageId = 1;
@@ -90,6 +89,7 @@ class ReturnHotelStaticData {
 class ReturnRoomTypeStaticData {
     public $roomAmenities = true;
     public $name = true;
+    public $supplierRoomName = true;
     public $twin = true; //NO MANDATORY BOOL
     public $roomInfo = true;
     public $specials = true;
