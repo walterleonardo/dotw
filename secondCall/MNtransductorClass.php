@@ -904,8 +904,8 @@ class AnswerTreatment
     public static $LabelsRoomInfo = array('maxOccupancy', 'maxAdultWithChildren', 'minChildAge', 'maxChildAge', 'maxAdult', 'maxExtraBed', 'maxChildren', 'children');
     public static $LabelsRoomCategoryTypes = array('code' => 'string', 'name' => 'string');
     public static $LabelsRoomCategory = array('code', 'name');
-    public static $LabelsRoomTypeStaticDataTypes = array('roomTypeID' => 'integer', 'twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'roomInfo' => 'array', 'roomCategory' => 'array');
-    public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'roomInfo', 'roomCategory');
+    public static $LabelsRoomTypeStaticDataTypes = array('roomTypeID' => 'integer', 'twin' => 'boolean', 'roomAmenities' => 'array', 'name' => 'string', 'supplierRoomName' => 'array', 'roomInfo' => 'array', 'roomCategory' => 'array');
+    public static $LabelsRoomTypeStaticData = array('roomTypeID', 'twin', 'roomAmenities', 'name', 'supplierRoomName', 'roomInfo', 'roomCategory');
 
     public function distributeValues($data, $index = NULL)
     {
@@ -1262,6 +1262,24 @@ class AnswerTreatment
                                     }
                                     
                                     
+                                } elseif ($labelRoom == 'supplierRoomName')
+                                {
+                                    $arrayIn = explode("-{-", $valueIn);
+                                    $arrayoutput = array();
+                                    
+                                    foreach ($arrayIn as $keytri => $valuetri)
+                                    {
+                                        $arrayinsider = array();
+                                        $valueinto = explode("~", $valuetri);
+                                        $arrayoutput[$valueinto[0]][$valueinto[1]] = $valueinto[2];
+                                        
+                                    }
+                                    
+                                    $roomTypeStaticData->$labelRoom = $arrayoutput;
+                                    
+                                    
+                                    
+                                    
                                 } else
                                 {
                                     //$arrayIn = array_map('intval', explode('{', $valueIn));
@@ -1298,7 +1316,17 @@ class AnswerTreatment
                                     if (isset($valueIn) and $valueIn != "")
                                     {
                                         //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
+                                        if ($labelRoom == 'supplierRoomName')
+                                        {
+                                            $arrayoutput = array();
+                                            $valueinto = explode("~", $valueIn);
+                                            $arrayoutput[$valueinto[0]][$valueinto[1]] = $valueinto[2];
+
+                                            $roomTypeStaticData->$labelRoom = $arrayoutput;
+                                        } else
+                                        {
                                         $roomTypeStaticData->$labelRoom = array($valueIn);
+                                        }
                                     } else
                                     {
                                         //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
