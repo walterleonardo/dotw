@@ -10,7 +10,7 @@ namespace Hotel\PreSupplier;
 class Input {
 
     public $customerId = 87974; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
-    public $environment = 'dev'; //string
+    public $environment = 'prod'; //string
     public $requestSource = 2; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
@@ -80,9 +80,9 @@ class Input {
 
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1534464000; //Mandatory
-    public $travelTo = 1534464000;//Mandatory
-    public $bookingDateTime = 1531314228;//1529331799; //1528974697;//Mandatory
+    public $travelFrom = 1537228800; //Mandatory
+    public $travelTo = 1537228800;//Mandatory
+    public $bookingDateTime = 1529679778;//1529331799; //1528974697;//Mandatory
 }
 
 
@@ -120,7 +120,7 @@ class RoomTypeFilters {
 }
 
 class RoomCategory{
-        public $MainCategory = 62215;//62215; //integer
+        public $MainCategory = 9133;//62215; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
         public $BeddingType = 62159;//integer
