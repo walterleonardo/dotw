@@ -34,7 +34,7 @@ class ArrayChannelCodes {
 /*
  * You need replace this previous require for your objets files
  */
-require 'classFromPartner_wps92.php';
+require 'classFromPartner_wps92_test3.php';
 
 
 if ($platform == 'test')
@@ -566,6 +566,7 @@ class Constructor
 
     public static function obj2Array(&$obj)
     {
+        $arrayin = array();
         foreach ($obj as $key => $value)
         {
             if (is_object($value))
