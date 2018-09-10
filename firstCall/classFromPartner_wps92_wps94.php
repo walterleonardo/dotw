@@ -14,39 +14,39 @@ class Input {
     public $requestSource = 1; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (0 => 33464); //array(int)
+    public $hotelIds = array (0 => 2215605); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
-     0 => 1011,
-    1 => 1003,
-    2 => 1529,
-    3 => 1017,
-    4 => 1005,
-    5 => 1004,
-    6 => 1022,
-    7 => 1027,
-    8 => 1689,
-    9 => 1797,
-    10 => 1519,
-    11 => 1808,
-    12 => 1746,
-    13 => 1821,
-    14 => 1006,
-    15 => 1818,
-    16 => 1819,
-    17 => 1801,
-    18 => 1669,
-    19 => 1825,
-    20 => 1823
+//     0 => 1011,
+//    1 => 1003,
+//    2 => 1529,
+//    3 => 1017,
+//    4 => 1005,
+//    5 => 1004,
+//    6 => 1022,
+//    7 => 1027,
+//    8 => 1689,
+//    9 => 1797,
+//    10 => 1519,
+//    11 => 1808,
+//    12 => 1746,
+//13 => 1821,
+//    14 => 1006,
+//    15 => 1818,
+//    16 => 1819,
+//    17 => 1801,
+//         18 => 1669,
+//            19 => 1825,
+//            20 => 1823
 
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
     //ExcludedBookingchannel new object
     public $excludedBookingchannel = array(
-//        0 => 500
+//         0 => 500
 //            ,1 => 1001
 //            ,2 => 1002
 //            ,3 => 1003
@@ -334,9 +334,9 @@ class Input {
 
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1536883200; //Mandatory
-    public $travelTo = 1536883200;//Mandatory
-    public $bookingDateTime = 1536235802;//1529331799; //1528974697;//Mandatory
+    public $travelFrom = 1536710400; //Mandatory
+    public $travelTo = 1536710400;//Mandatory
+    public $bookingDateTime = 1536309915;//1529331799; //1528974697;//Mandatory
 }
 
 
@@ -369,7 +369,7 @@ class RoomTypeFilters {
     public $roomName = null; //string
     public $roomCategories = array(); //roomCategories Objects
         function __construct() {
-           $this->roomCategories = array( /*new RoomCategory()*/);
+           $this->roomCategories = array( /*new RoomCategory()/*,new RoomCategory1()*/);
        }
 }
 
@@ -377,26 +377,25 @@ class RoomCategory{
         public $MainCategory = null;//62215; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
-        public $BeddingType = null;//integer
-        public $Attribute1 = 64050;//integer
-        public $Attribute2 = 64087;//integer
-}
-
-class RoomCategory1{
-        public $MainCategory = 63866; //integer
-        public $SubCategory = null;//integer
-        public $View = 63938;//integer
-        public $BeddingType = null;//integer
+        public $BeddingType = 64042;//integer
         public $Attribute1 = null;//integer
         public $Attribute2 = null;//integer
 }
 
+class RoomCategory1{
+        public $MainCategory = 62214; //integer
+        public $SubCategory = null;//integer
+        public $View = null;//integer
+        public $BeddingType = 62158;//integer
+        public $Attribute1 = null;//integer
+        public $Attribute2 = null;//integer
+}
 
 class RoomCategory2{
         public $MainCategory = 62214; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
-        public $BeddingType = null;//integer
+        public $BeddingType = 62158;//integer
         public $Attribute1 = null;//integer
         public $Attribute2 = null;//integer
 }
