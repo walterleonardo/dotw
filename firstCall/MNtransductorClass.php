@@ -34,7 +34,7 @@ class ArrayChannelCodes {
 /*
  * You need replace this previous require for your objets files
  */
-require 'classFromPartner_wps92_test3.php';
+require 'classFromPartner_wps92_test1.php';
 
 
 if ($platform == 'test')
@@ -73,7 +73,7 @@ Class Run
         $aroomCategories = $inputObj->RoomTypeFilters->roomCategories;
         $aHotelFilters = $inputObj->HotelFilters;
         $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
-        $errorPrint = false;
+        $errorPrint = true;
         /*
          * Creation of instance for the Ckeck CLASS.
          */
@@ -110,6 +110,13 @@ Class Run
         {
             $this->errorCode = "5";
             $this->errorMessage = "Error_SearchPeriodCriteria_Values";
+            return false;
+        }
+        
+        if (!$classCheck->mandatoryCategoryType($aroomCategories))
+        {
+            $this->errorCode = "6";
+            $this->errorMessage = "Error_CategoryType_Values";
             return false;
         }
         
@@ -398,6 +405,40 @@ class Check
                 }
             }
             return true;
+        }
+        return true;
+    }
+    
+    
+        public function mandatoryCategoryType(&$data)
+    {
+        $array = $data;
+        $mandatory = array('MainCategory' => false, 'SubCategory' => false, 'View' => false, 'BeddingType' => false, 'Attribute1' => false, 'Attribute2' => false);
+        $types = array('MainCategory' => 'integer', 'SubCategory' => 'integer', 'View' => 'integer', 'BeddingType' => 'integer', 'Attribute1' => 'integer', 'Attribute2' => 'integer');
+        //print_r($array);
+        foreach ($array as $object)
+        {
+            $valueArray = get_object_vars($object);
+            foreach ($mandatory as $key => $value)
+            {
+                if ($value)
+                {
+                    if (!isset($valueArray[$key]))
+                    {
+                        return false;
+                    }
+                }
+            }
+            foreach ($valueArray as $key => $value)
+            {
+                if (isset($value))
+                {
+                    if (gettype($value) != $types[$key])
+                    {
+                        return false;
+                    }
+                }
+            }
         }
         return true;
     }

@@ -14,7 +14,7 @@ class Input {
     public $requestSource = 1; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (0 => 1918599); //array(int)
+    public $hotelIds = array (0 => 33464); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
@@ -83,9 +83,9 @@ class Input {
 
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1534464000; //Mandatory
-    public $travelTo = 1534464000;//Mandatory
-    public $bookingDateTime = 1531314228;//1529331799; //1528974697;//Mandatory
+    public $travelFrom = 1536883200; //Mandatory
+    public $travelTo = 1536883200;//Mandatory
+    public $bookingDateTime = 1536235802;//1529331799; //1528974697;//Mandatory
 }
 
 
@@ -118,7 +118,7 @@ class RoomTypeFilters {
     public $roomName = null; //string
     public $roomCategories = array(); //roomCategories Objects
         function __construct() {
-            $this->roomCategories = array( /*new RoomCategory()*/);
+           $this->roomCategories = array( new RoomCategory());
        }
 }
 
