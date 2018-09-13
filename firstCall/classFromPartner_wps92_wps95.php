@@ -369,17 +369,17 @@ class RoomTypeFilters {
     public $roomName = null; //string
     public $roomCategories = array(); //roomCategories Objects
         function __construct() {
-           $this->roomCategories = array( /*new RoomCategory()*/);
+           $this->roomCategories = array( new RoomCategory());
        }
 }
 
 class RoomCategory{
-        public $MainCategory = null;//62215; //integer
+        public $MainCategory = 63864;//62215; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
         public $BeddingType = null;//integer
-        public $Attribute1 = 64050;//integer
-        public $Attribute2 = 64087;//integer
+        public $Attribute1 = null;//integer
+        public $Attribute2 = 64049;//integer
 }
 
 class RoomCategory1{

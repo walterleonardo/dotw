@@ -21,7 +21,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS92_wps98.php';
+    require 'classFromPartner_Demo_jiraWPS92_wps93.php';
 }
 
 /*
