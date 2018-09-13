@@ -34,7 +34,7 @@ class ArrayChannelCodes {
 /*
  * You need replace this previous require for your objets files
  */
-require 'classFromPartner_wps92_wps98.php';
+require 'classFromPartner_wps92_wps94.php';
 
 
 if ($platform == 'test')
@@ -503,8 +503,11 @@ class Constructor
         {
             $this->aroomCategories = array(); 
         }
+        
+        
         $this->aHotelFilters = $aHotelFilters;
         $this->aSearchPeriodCriteria = $aSearchPeriodCriteria;
+       
     }
 
     public function insertVar()
@@ -546,7 +549,6 @@ class Constructor
         /*
          * RoomTypeFilter, now have an object, roomCategories
          */
-        
         if (isset($this->aRoomTypeFilters))
         {
             $aRoomTypeFiltersArray = get_object_vars($this->aRoomTypeFilters);
