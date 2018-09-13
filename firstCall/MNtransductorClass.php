@@ -113,6 +113,13 @@ Class Run
             return false;
         }
         
+        if (!$classCheck->mandatoryCategoryType($aroomCategories))
+        {
+            $this->errorCode = "6";
+            $this->errorMessage = "Error_RoomCategories_Values";
+            return false;
+        }
+        
         /*
          * Create an Instance of CONSTRUCTOR and give all the objets needed it
          */

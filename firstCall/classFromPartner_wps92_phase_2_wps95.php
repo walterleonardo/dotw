@@ -9,12 +9,12 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 993565; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
+    public $customerId = 1317257; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'dev'; //string
     public $requestSource = 1; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (0 => 1918599); //array(int)
+    public $hotelIds = array (0 => 33464); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
@@ -51,7 +51,7 @@ class Input {
     /**
      * @var array of activeDorRoomCategories
      */
-    public $activeForRoomCategories = false; //bolean
+    public $activeForRoomCategories = true; //bolean
     /**
      * @var array of RoomOccupancy
      */
@@ -125,12 +125,12 @@ class RoomTypeFilters {
 }
 
 class RoomCategory{
-        public $MainCategory = 9133;//62215; //integer
+        public $MainCategory = "GDS";//62215; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
         public $BeddingType = null;//integer
         public $Attribute1 = null;//integer
-        public $Attribute2 = null;//integer
+        public $Attribute2 = 64049;//integer
 }
 
 class RoomCategory1{
