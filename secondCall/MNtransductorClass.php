@@ -21,7 +21,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS92_phase_2.php';
+    require 'classFromPartner_Demo_jiraWPS92_phase_2_wps93.php';
 }
 
 /*
@@ -1385,7 +1385,7 @@ class AnswerTreatment
 
 
 
-            if (Constructor::$arrayConverted['ReturnRoomTypeStaticData']['twin'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomAmenities'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['name'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomInfo'] == 'N')
+            if (Constructor::$arrayConverted['ReturnRoomTypeStaticData']['twin'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomAmenities'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['name'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['supplierRoomName'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomInfo'] == 'N')
             {
                 $hotelStaticData->RoomTypeStaticDataList = array();
             }
