@@ -14,39 +14,40 @@ class Input {
     public $requestSource = 1; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (0 => 33464); //array(int)
+    public $hotelIds = array (0 => 83682); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
-    0 => 1011,
-    1 => 1003,
-    2 => 1004,
-    3 => 1529,
-    4 => 1005,
-    5 => 1017,
-    6 => 1022,
-    7 => 1797,
-    8 => 1808,
-    9 => 1519,
-    10 => 1689,
-    11 => 1027,
-    12 => 1746,
-    13 => 1821,
-    14 => 1006,
-    15 => 1818,
-    16 => 1819,
-    17 => 1801,
-    18 => 1669,
-    19 => 1825,
-    20 => 1823,
+0 => 1011
+            ,1 => 1003
+            ,2 => 1004
+            ,3 => 1529
+            ,4 => 1005
+            ,5 => 1017
+            ,6 => 1022
+            ,7 => 1797
+            ,8 => 1808
+            ,9 => 1519
+            ,10 => 1689
+            ,11 => 1027
+            ,12 => 1746
+            ,13 => 1821
+            ,14 => 1006
+            ,15 => 1818
+            ,16 => 1819
+            ,17 => 1801
+            ,18 => 1669
+            ,19 => 1825
+            ,20 => 1823
+            ,21 => 1025
 
 
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
     //ExcludedBookingchannel new object
-    public $excludedBookingchannel = array(   0 => 1549,
+    public $excludedBookingchannel = array(  
 ); //array(int)
     /**
      * @var array of activeDorRoomCategories
@@ -79,15 +80,14 @@ class Input {
            $this->HotelFilters = new HotelFilters();
            $this->RoomTypeFilters = new RoomTypeFilters();
            $this->SearchPeriodCriteria = new SearchPeriodCriteria();
-           //$this->roomCategories = array( new RoomCategory());
        }
 }
 
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1512864000; //Mandatory
-    public $travelTo = 1512864000;//Mandatory
-    public $bookingDateTime = 1533729506;//1529331799; //1528974697;//Mandatory
+    public $travelFrom = 1537833600; //Mandatory
+    public $travelTo = 1537833600;//Mandatory
+    public $bookingDateTime = 1537173000;//1529331799; //1528974697;//Mandatory
 }
 
 
@@ -120,17 +120,17 @@ class RoomTypeFilters {
     public $roomName = null; //string
     public $roomCategories = array(); //roomCategories Objects
         function __construct() {
-           $this->roomCategories = array( new RoomCategory()/*,new RoomCategory1()*/);
+           $this->roomCategories = array( /*new RoomCategory()/*,new RoomCategory1()*/);
        }
 }
 
 class RoomCategory{
-        public $MainCategory = 63864;//62215; //integer
+        public $MainCategory = 9133;//62215; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
         public $BeddingType = null;//integer
         public $Attribute1 = null;//integer
-        public $Attribute2 = 64049;//integer
+        public $Attribute2 = null;//integer
 }
 
 class RoomCategory1{

@@ -21,7 +21,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS92_phase_2_wps93.php';
+    require 'classFromPartner_Demo_jiraWPS92_phase_2.php';
 }
 
 /*
@@ -1265,7 +1265,7 @@ class AnswerTreatment
                                 } elseif ($labelRoom == 'supplierRoomName')
                                 {
                                     $arrayIn = explode("-{-", $valueIn);
-                                    $arrayoutput = array();
+                                    $arrayoutput = null;
                                     
                                     foreach ($arrayIn as $keytri => $valuetri)
                                     {
@@ -1276,10 +1276,7 @@ class AnswerTreatment
                                     }
                                     
                                     $roomTypeStaticData->$labelRoom = $arrayoutput;
-                                    
-                                    
-                                    
-                                    
+  
                                 } else
                                 {
                                     //$arrayIn = array_map('intval', explode('{', $valueIn));
@@ -1330,7 +1327,7 @@ class AnswerTreatment
                                     } else
                                     {
                                         //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-                                        $roomTypeStaticData->$labelRoom = array();
+                                        $roomTypeStaticData->$labelRoom = null;
                                     }
                                 } elseif (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'string')
                                 {

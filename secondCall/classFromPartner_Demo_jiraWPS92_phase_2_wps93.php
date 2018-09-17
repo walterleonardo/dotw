@@ -7,7 +7,7 @@ class StaticInput {
     public $hotelIds = array (
     33464 => 
     array (
-    0 => 15413978,
+    0 => 61848607,
      
     ),
     );
@@ -87,13 +87,13 @@ class ReturnHotelStaticData {
 
 class ReturnRoomTypeStaticData {
     public $roomAmenities = false;
-    public $name = false;
+    public $name = true;
     public $supplierRoomName = true;
     public $twin = false; //NO MANDATORY BOOL
     public $roomInfo = false;
     public $specials = false;
     public $roomImages = false;
-    public $roomCategory = false; //new attribute
+    public $roomCategory = true; //new attribute
 }
 
 class ReturnRateData {

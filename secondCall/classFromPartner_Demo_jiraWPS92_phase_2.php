@@ -94,7 +94,7 @@ class ReturnRoomTypeStaticData {
     public $roomInfo = false;
     public $specials = false;
     public $roomImages = false;
-    public $roomCategory = false; //new attribute
+    public $roomCategory = true; //new attribute
 }
 
 class ReturnRateData {

@@ -34,7 +34,7 @@ class ArrayChannelCodes {
 /*
  * You need replace this previous require for your objets files
  */
-require 'classFromPartner_wps92_phase_2_wps95.php';
+require 'classFromPartner_wps92_phase_2_1.php';
 
 
 if ($platform == 'test')
@@ -409,6 +409,38 @@ class Check
         return true;
     }
 
+            public function mandatoryCategoryType(&$data)
+    {
+        $array = $data;
+        $mandatory = array('MainCategory' => false, 'SubCategory' => false, 'View' => false, 'BeddingType' => false, 'Attribute1' => false, 'Attribute2' => false);
+        $types = array('MainCategory' => 'integer', 'SubCategory' => 'integer', 'View' => 'integer', 'BeddingType' => 'integer', 'Attribute1' => 'integer', 'Attribute2' => 'integer');
+        //print_r($array);
+        foreach ($array as $object)
+        {
+            $valueArray = get_object_vars($object);
+            foreach ($mandatory as $key => $value)
+            {
+                if ($value)
+                {
+                    if (!isset($valueArray[$key]))
+                    {
+                        return false;
+                    }
+                }
+            }
+            foreach ($valueArray as $key => $value)
+            {
+                if (isset($value))
+                {
+                    if (gettype($value) != $types[$key])
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
     
     public function answer(&$data)
     {
@@ -573,6 +605,8 @@ class Constructor
 
     public static function obj2Array(&$obj)
     {
+        $arrayin = array();
+        
         foreach ($obj as $key => $value)
         {
             if (is_object($value))
