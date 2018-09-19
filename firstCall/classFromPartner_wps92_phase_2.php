@@ -53,7 +53,7 @@ class Input {
     /**
      * @var array of activeDorRoomCategories
      */
-    public $activeForRoomCategories = false; //bolean
+    public $activeForRoomCategories = true; //bolean
     /**
      * @var array of RoomOccupancy
      */
@@ -127,7 +127,7 @@ class RoomTypeFilters {
 }
 
 class RoomCategory{
-        public $MainCategory = 9133;//62215; //integer
+        public $MainCategory = 63857;//62215; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
         public $BeddingType = null;//integer
