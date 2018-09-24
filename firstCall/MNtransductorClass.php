@@ -34,7 +34,7 @@ class ArrayChannelCodes {
 /*
  * You need replace this previous require for your objets files
  */
-require 'classFromPartner_wps92_Phase2.php';
+require 'classFromPartner_wps92_wps101.php';
 
 
 if ($platform == 'test')
