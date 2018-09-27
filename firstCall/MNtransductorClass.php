@@ -492,10 +492,9 @@ class Constructor
         $this->aInput = $aInput;
         $this->aRoomOccupancy = self::obj2Array($aRoomOccupancy);
         $this->aRoomTypeFilters = $aRoomTypeFilters;
-        //var_export($this->aInput['activeForRoomCategories']);
         $aInputArray = get_object_vars($this->aInput);
         
-        if ($aInputArray['activeForRoomCategories'])
+        if ($aInputArray['activeForRoomCategories'] and $aRoomTypeFilters != null)
         {
           $this->aroomCategories = self::obj2Array($aroomCategories);
 
@@ -551,8 +550,9 @@ class Constructor
          */
         if (isset($this->aRoomTypeFilters))
         {
+            var_export($this->aRoomTypeFilters);
             $aRoomTypeFiltersArray = get_object_vars($this->aRoomTypeFilters);
-        
+
             if (isset($aRoomTypeFiltersArray['roomCategories'])){                
                $aRoomTypeFiltersArray['roomCategories']=$this->aroomCategories;
             }

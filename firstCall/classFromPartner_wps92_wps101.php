@@ -14,7 +14,7 @@ class Input {
     public $requestSource = 2; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (30754); //array(int)
+    public $hotelIds = array (30314); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
@@ -50,7 +50,7 @@ class Input {
     /**
      * @var array of activeDorRoomCategories
      */
-    public $activeForRoomCategories = false; //bolean
+    public $activeForRoomCategories = true; //bolean
     /**
      * @var array of RoomOccupancy
      */
@@ -73,11 +73,11 @@ class Input {
      */
     public $AdditionalFilters = null; //array(varios)
        
-    function __construct() {
-           $this->RoomOccupancy = array(new RoomOccupancy());
+    function __construct() {     
            $this->HotelFilters = new HotelFilters();
            $this->RoomTypeFilters = new RoomTypeFilters();
            $this->SearchPeriodCriteria = new SearchPeriodCriteria();
+           $this->RoomOccupancy = array(new RoomOccupancy());
        }
 }
 
@@ -111,7 +111,6 @@ class RoomOccupancy2 {
 }
 
 class RoomTypeFilters {
-
     public $suite = null; //integer
     public $roomAmenitie = null; //array(int)
     public $roomId = null; //array(int)
@@ -123,21 +122,21 @@ class RoomTypeFilters {
 }
 
 class RoomCategory{
-        public $MainCategory = 63857;//62215; //integer
+        public $MainCategory = 63864;//62215; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
-        public $BeddingType = 62159;//integer
+        public $BeddingType = null;//integer
         public $Attribute1 = null;//integer
-        public $Attribute2 = null;//integer
+        public $Attribute2 = 9999;//integer
 }
 
 class RoomCategory1{
-        public $MainCategory = 62214; //integer
+        public $MainCategory = null; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
-        public $BeddingType = 62158;//integer
+        public $BeddingType = 64046;//integer
         public $Attribute1 = null;//integer
-        public $Attribute2 = null;//integer
+        public $Attribute2 = 9999;//integer
 }
 
 class HotelFilters {
