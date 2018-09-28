@@ -52,7 +52,7 @@ class Input {
     /**
      * @var array of activeDorRoomCategories
      */
-    public $activeForRoomCategories = true; //bolean
+    public $activeForRoomCategories = false; //bolean
     /**
      * @var array of RoomOccupancy
      */

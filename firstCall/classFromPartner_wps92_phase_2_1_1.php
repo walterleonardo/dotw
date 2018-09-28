@@ -9,17 +9,17 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 1317492; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
+    public $customerId = 1317257; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'dev'; //string
-    public $requestSource = 2; //integer
+    public $requestSource = 1; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (0 => 30314); //array(int)
+    public $hotelIds = array (0 => 30304); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
-            0 => 1011
+0 => 1011
             ,1 => 1003
             ,2 => 1004
             ,3 => 1529
@@ -43,12 +43,11 @@ class Input {
             ,21 => 1025
 
 
-
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
     
     //ExcludedBookingchannel new object
-    public $excludedBookingchannel = array(
+    public $excludedBookingchannel = array(  
 ); //array(int)
     /**
      * @var array of activeDorRoomCategories
@@ -81,15 +80,14 @@ class Input {
            $this->HotelFilters = new HotelFilters();
            $this->RoomTypeFilters = new RoomTypeFilters();
            $this->SearchPeriodCriteria = new SearchPeriodCriteria();
-           //$this->roomCategories = array( new RoomCategory());
        }
 }
 
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1538006400; //Mandatory
-    public $travelTo = 1538006400;//Mandatory
-    public $bookingDateTime = 1537776389;//1529331799; //1528974697;//Mandatory
+    public $travelFrom = 1537833600; //Mandatory
+    public $travelTo = 1537833600;//Mandatory
+    public $bookingDateTime = 1537175924;//1529331799; //1528974697;//Mandatory
 }
 
 
@@ -127,7 +125,7 @@ class RoomTypeFilters {
 }
 
 class RoomCategory{
-        public $MainCategory = 63857;//62215; //integer
+        public $MainCategory = 9133;//62215; //integer
         public $SubCategory = null;//integer
         public $View = null;//integer
         public $BeddingType = null;//integer
