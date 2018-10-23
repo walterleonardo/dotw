@@ -190,11 +190,11 @@ class StaticInput {
 }
 
 class ReturnHotelStaticData {
-    public $description1 = false; //NO MANDATORY BOOL
-    public $description2 = false;
+    public $description1 = true; //NO MANDATORY BOOL
+    public $description2 = true;
     public $geoPoint = false;
     public $ratingDescription = false;
-    public $images = false;
+    public $images = true;
     public $direct = false;
     public $hotelPreference = false;
     public $builtYear = false;
