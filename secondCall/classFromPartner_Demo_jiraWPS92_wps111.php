@@ -274,12 +274,12 @@ class ReturnHotelStaticData {
 }
 
 class ReturnRoomTypeStaticData {
-    public $roomAmenities = true;
+    public $roomAmenities = false;
     public $name = true;
-    public $twin = true; //NO MANDATORY BOOL
-    public $roomInfo = true;
-    public $specials = true;
-    public $roomImages = true;
+    public $twin = false; //NO MANDATORY BOOL
+    public $roomInfo = false;
+    public $specials = false;
+    public $roomImages = false;
     public $roomCategory = false; //new attribute
 }
 

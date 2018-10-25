@@ -9,12 +9,12 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 1509045; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
+    public $customerId = 1237928; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'prod'; //string
     public $requestSource = 2; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (/*0 => 820415,*/ 1 =>820415); //array(int)
+    public $hotelIds = array (/*0 => 820415,*/ 0 => 820415); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
