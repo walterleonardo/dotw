@@ -9,7 +9,7 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 1317257; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
+    public $customerId = 1237928; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'dev'; //string
     public $requestSource = 1; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
@@ -302,7 +302,7 @@ class Input {
     /**
      * @var array of activeDorRoomCategories
      */
-    public $activeForRoomCategories = true; //bolean
+    public $activeForRoomCategories = false; //bolean
     /**
      * @var array of RoomOccupancy
      */
