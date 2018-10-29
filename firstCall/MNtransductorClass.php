@@ -8,7 +8,7 @@ ini_set('memory_limit', '-1');
  * dev = virtualServer
  * prod = production IP
  */
-$platform = 'preprod';
+$platform = 'dev';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
@@ -70,7 +70,11 @@ Class Run
         $aInput = $inputObj;
         $aRoomOccupancy = $inputObj->RoomOccupancy;
         $aRoomTypeFilters = $inputObj->RoomTypeFilters;
-        $aroomCategories = $inputObj->RoomTypeFilters->roomCategories;
+        if ($aRoomTypeFilters != NULL)
+            $aroomCategories = $inputObj->RoomTypeFilters->roomCategories;
+        else
+            $aroomCategories = array();
+        
         $aHotelFilters = $inputObj->HotelFilters;
         $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
         $errorPrint = true;
@@ -113,7 +117,7 @@ Class Run
             return false;
         }
         
-        if (!$classCheck->mandatoryCategoryType($aroomCategories))
+        if ($aRoomTypeFilters != NULL && !$classCheck->mandatoryCategoryType($aroomCategories))
         {
             $this->errorCode = "6";
             $this->errorMessage = "Error_CategoryType_Values";
@@ -487,7 +491,7 @@ class Constructor
     private $aSearchPeriodCriteria;
     public static $arrayConverted = array('customerId' => '', 'environment' => '', 'requestSource' => '', 'passengerNationalityOrResidenceProvided' => '', 'hotelIds' => '', 'city' => '', 'bookingChannelTypes' => '', 'excludedBookingchannel' => '', 'bookingChannelsWithAutoMapping' => '', 'RoomOccupancy' => '', 'HotelFilters' => '', 'RoomTypeFilters' => '', 'SearchPeriodCriteria' => '');
 
-    function __construct($aInput, $aRoomOccupancy, $aroomCategories=null, $aRoomTypeFilters = null, $aHotelFilters = null, $aSearchPeriodCriteria = null)
+    function __construct($aInput, $aRoomOccupancy, $aroomCategories = null, $aRoomTypeFilters = null, $aHotelFilters = null, $aSearchPeriodCriteria = null)
     {
         $this->aInput = $aInput;
         $this->aRoomOccupancy = self::obj2Array($aRoomOccupancy);
