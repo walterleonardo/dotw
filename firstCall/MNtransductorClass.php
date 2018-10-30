@@ -70,7 +70,11 @@ Class Run
         $aInput = $inputObj;
         $aRoomOccupancy = $inputObj->RoomOccupancy;
         $aRoomTypeFilters = $inputObj->RoomTypeFilters;
-        $aroomCategories = $inputObj->RoomTypeFilters->roomCategories;
+        if ($aRoomTypeFilters != NULL)
+            $aRoomCategories = $inputObj->RoomTypeFilters->roomCategories;
+        else
+            $aRoomCategories = array();
+        
         $aHotelFilters = $inputObj->HotelFilters;
         $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
         $errorPrint = true;
@@ -113,7 +117,7 @@ Class Run
             return false;
         }
         
-        if (!$classCheck->mandatoryCategoryType($aroomCategories))
+        if ($aRoomTypeFilters != NULL && !$classCheck->mandatoryCategoryType($aRoomCategories))
         {
             $this->errorCode = "6";
             $this->errorMessage = "Error_RoomCategories_Values";
@@ -129,7 +133,7 @@ Class Run
             var_export($aInput);
             echo "\n\r###\n\r";
         }
-        $contructor = new \First\Constructor($aInput, $aRoomOccupancy, $aroomCategories, $aRoomTypeFilters, $aHotelFilters, $aSearchPeriodCriteria);
+        $contructor = new \First\Constructor($aInput, $aRoomOccupancy, $aRoomCategories, $aRoomTypeFilters, $aHotelFilters, $aSearchPeriodCriteria);
         /*
          * Join all the attributes from all the objets in a simple array
          */
@@ -480,12 +484,12 @@ class Constructor
     private $aInput;
     private $aRoomOccupancy;
     private $aRoomTypeFilters;
-    private $aroomCategories;
+    private $aRoomCategories;
     private $aHotelFilters;
     private $aSearchPeriodCriteria;
     public static $arrayConverted = array('customerId' => '', 'environment' => '', 'requestSource' => '', 'passengerNationalityOrResidenceProvided' => '', 'hotelIds' => '', 'city' => '', 'bookingChannelTypes' => '', 'excludedBookingchannel' => '', 'bookingChannelsWithAutoMapping' => '', 'RoomOccupancy' => '', 'HotelFilters' => '', 'RoomTypeFilters' => '', 'SearchPeriodCriteria' => '');
 
-    function __construct($aInput, $aRoomOccupancy, $aroomCategories=null, $aRoomTypeFilters = null, $aHotelFilters = null, $aSearchPeriodCriteria = null)
+    function __construct($aInput, $aRoomOccupancy, $aRoomCategories=null, $aRoomTypeFilters = null, $aHotelFilters = null, $aSearchPeriodCriteria = null)
     {
         $this->aInput = $aInput;
         $this->aRoomOccupancy = self::obj2Array($aRoomOccupancy);
@@ -495,11 +499,11 @@ class Constructor
         
         if ($aInputArray['activeForRoomCategories'])
         {
-          $this->aroomCategories = self::obj2Array($aroomCategories);
+          $this->aRoomCategories = self::obj2Array($aRoomCategories);
 
         } else 
         {
-            $this->aroomCategories = array(); 
+            $this->aRoomCategories = array(); 
         }
         $this->aHotelFilters = $aHotelFilters;
         $this->aSearchPeriodCriteria = $aSearchPeriodCriteria;
@@ -550,7 +554,7 @@ class Constructor
             $aRoomTypeFiltersArray = get_object_vars($this->aRoomTypeFilters);
         
             if (isset($aRoomTypeFiltersArray['roomCategories'])){                
-               $aRoomTypeFiltersArray['roomCategories']=$this->aroomCategories;
+               $aRoomTypeFiltersArray['roomCategories']=$this->aRoomCategories;
             }
         
             
