@@ -5,7 +5,7 @@ namespace Second;
 ini_set('memory_limit', '-1');
 //var_dump($argv);
 //INCLUDE LIKE $platform value these differents options 'dev|test|prod'
-$platform = 'stage';
+$platform = 'dev';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
@@ -21,7 +21,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS92_phase_2_ALEX.php';
+    require 'classFromPartner_Demo_jiraWPS92_phase_2_wps112.php';
 }
 
 /*
@@ -70,7 +70,7 @@ class run
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = false; //detail output 
+        $errorPrint = true; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -358,11 +358,15 @@ class Constructor
     public $roomImages = true;
     public $roomCategory = true; //new attribute
     
-    
+    public $attraction = false;//Future develop
+    public $areaCode = false;//Future develop
+    public $areaName = false;//Future develop
+    public $geoLocations = false;//Future develop
+    public $priority = false;//Future develop
     
     Public function insertVar()
     {
-        $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoints' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'geoPoint' => false,'chain' => false, 'lastUpdated' => false, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false, 'fullAddress' => false,'exclusive' => false);
+        $aArrayOfReturnHotelStaticData = array('description1' => false, 'description2' => false, 'geoPoint' => false, 'ratingDescription' => false, 'images' => false, 'direct' => false, 'hotelPreference' => false, 'builtYear' => false, 'renovationYear' => false, 'floors' => false, 'noOfRooms' => false, 'luxury' => false, 'address' => false, 'zipCode' => false, 'location' => false, 'locationId' => false, 'location1' => false, 'location2' => false, 'location3' => false, 'stateName' => false, 'stateCode' => false, 'countryName' => false, 'regionName' => false, 'regionCode' => false, 'amenitie' => false, 'leisure' => false, 'business' => false, 'transportation' => false, 'hotelPhone' => false, 'hotelCheckIn' => false, 'hotelCheckOut' => false, 'minAge' => false, 'rating' => false, 'fireSafety' => false, 'attraction' => false, 'chain' => false, 'lastUpdated' => false, 'transferMandatory' => false, 'tariffNotes' => false, 'chainName' => false, 'hotelProperty' => false, 'fullAddress' => false, 'exclusive' => false, /* 'areaCode' => false,'areaName' => false,'geoLocations' => false,'priority' => false */);
         $aArrayOfReturnHotelStaticDataRoom = array('roomAmenities' => false, 'name' => false, 'supplierRoomName' => false, 'twin' => false, 'roomInfo' => false,  'specials' => false,  'roomImages' => false,  'roomCategory' => false);
         $aStaticInput = get_object_vars($this->aStaticInput);
         $aReturnHotelStaticData = get_object_vars($this->aReturnHotelStaticData);
