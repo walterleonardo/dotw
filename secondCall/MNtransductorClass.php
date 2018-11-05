@@ -21,7 +21,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS92_phase_2.php';
+    require 'classFromPartner_Demo_jiraWPS92_phase_2_ALEX.php';
 }
 
 /*
@@ -70,7 +70,7 @@ class run
         $aReturnHotelStaticData = $inputObj->ReturnHotelStaticData;
         $aReturnRoomTypeStaticData = $inputObj->ReturnRoomTypeStaticData;
         $aReturnRateData = $inputObj->ReturnRateData; // NEW ATTRIBUTE
-        $errorPrint = true; //detail output 
+        $errorPrint = false; //detail output 
 
         $classCheck = new \Second\Check();
         /*
@@ -1309,7 +1309,7 @@ class AnswerTreatment
 
                                     //Convert and save array
                                 } elseif (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'array')
-                                {
+                                {                                  
                                     if (isset($valueIn) and $valueIn != "")
                                     {
                                         //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
@@ -1327,7 +1327,10 @@ class AnswerTreatment
                                     } else
                                     {
                                         //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-                                        $roomTypeStaticData->$labelRoom = null;
+                                        if (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'array')
+                                            $roomTypeStaticData->$labelRoom = array();
+                                        else
+                                            $roomTypeStaticData->$labelRoom = null;
                                     }
                                 } elseif (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'string')
                                 {
@@ -1382,7 +1385,7 @@ class AnswerTreatment
 
 
 
-            if (Constructor::$arrayConverted['ReturnRoomTypeStaticData']['twin'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomAmenities'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['name'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['supplierRoomName'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomInfo'] == 'N')
+            if (Constructor::$arrayConverted['ReturnRoomTypeStaticData']['twin'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomAmenities'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['name'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['supplierRoomName'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomInfo'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomCategory'] == 'N')
             {
                 $hotelStaticData->RoomTypeStaticDataList = array();
             }

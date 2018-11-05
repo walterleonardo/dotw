@@ -9,12 +9,12 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
 
-    public $customerId = 1317257; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
-    public $environment = 'dev'; //string
+    public $customerId = 1516065; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
+    public $environment = 'prod'; //string
     public $requestSource = 1; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (0 => 33464); //array(int)
+    public $hotelIds = array (0 => 285195); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
@@ -43,15 +43,15 @@ class Input {
 
 
   ); //array(int)
-    public $bookingChannelTypes = array (); //array(int)
+    public $bookingChannelTypes = array (8,64,16,32); //array(int)
     
     //ExcludedBookingchannel new object
-    public $excludedBookingchannel = array(   0 => 1549,
+    public $excludedBookingchannel = array(
 ); //array(int)
     /**
      * @var array of activeDorRoomCategories
      */
-    public $activeForRoomCategories = true; //bolean
+    public $activeForRoomCategories = false; //bolean
     /**
      * @var array of RoomOccupancy
      */
@@ -76,8 +76,8 @@ class Input {
        
     function __construct() {
            $this->RoomOccupancy = array(new RoomOccupancy());
-           $this->HotelFilters = new HotelFilters();
-           $this->RoomTypeFilters = new RoomTypeFilters();
+           $this->HotelFilters = NULL; //new HotelFilters();
+           $this->RoomTypeFilters = NULL; //new RoomTypeFilters();
            $this->SearchPeriodCriteria = new SearchPeriodCriteria();
            //$this->roomCategories = array( new RoomCategory());
        }
@@ -85,9 +85,9 @@ class Input {
 
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1512864000; //Mandatory
-    public $travelTo = 1512864000;//Mandatory
-    public $bookingDateTime = 1533729506;//1529331799; //1528974697;//Mandatory
+    public $travelFrom = 1541808000; //Mandatory
+    public $travelTo = 1541808000;//Mandatory
+    public $bookingDateTime = 1540911896;//1529331799; //1528974697;//Mandatory
 }
 
 
