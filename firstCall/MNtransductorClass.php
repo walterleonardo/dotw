@@ -8,7 +8,7 @@ ini_set('memory_limit', '-1');
  * dev = virtualServer
  * prod = production IP
  */
-$platform = 'dev';
+$platform = 'stage';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
@@ -34,7 +34,7 @@ class ArrayChannelCodes {
 /*
  * You need replace this previous require for your objets files
  */
-require 'classFromPartner_wps92_phase_2_wps116.php';
+require 'classFromPartner_wps92_phase_2_wps117.php';
 
 
 if ($platform == 'test')
@@ -77,7 +77,7 @@ Class Run
         
         $aHotelFilters = $inputObj->HotelFilters;
         $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
-        $errorPrint = true;
+        $errorPrint = false;
         /*
          * Creation of instance for the Ckeck CLASS.
          */
@@ -1111,19 +1111,24 @@ class fillArrayValues
                     // Possible solution to a new line problem. For the future.
                     $folders5 = \trim($folders[5], "\t\n\r\0\x0B");
                     //$folders5 = $folders[5];
-                    $array_need[$folders[0]][$folders[1]][$folders5]['cityCode'] = $folders[2];
-
-                    //if ($folders[1] === 1000 || $folders[1] === 1010)
+                    $array_need[$folders[0]][$folders[1]][$folders5]['cityCode'] = $folders[2];                    
+                    
                     if (in_array($folders[1], ArrayChannelCodes::$array_of_channel_manager_codes))
                     {
                         if (isset($folders[6]))
                         {
-                            if (trim($folders[6]) != '')
+                            if (trim($folders[6]) != '' )
                             {
-                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = trim($folders[4], "\t\n\r\0\x0B");
+                                if ($folders[6] == 'automapping')
+                                {
+                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = $folders[6]; 
+                                } else
+                                {
+                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = trim($folders[4], "\t\n\r\0\x0B");
+                                }
                             } else
                             {
-                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = $folders[4];
+                                 $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = $folders[4];
                             }
                         } else
                         {
@@ -1135,10 +1140,17 @@ class fillArrayValues
                         {
                             if (trim($folders[6]) != '')
                             {
+                                 if($folders[6] == 'automapping')
+                                {
+                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = $folders[6]; 
+                                } else
+                                {
                                 $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[6], "\t\n\r\0\x0B")] = trim($folders[4], "\t\n\r\0\x0B");
+                                }
                             } else
                             {
-                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = $folders[4];
+                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = $folders[4]; 
+                                
                             }
                         }
                     }
