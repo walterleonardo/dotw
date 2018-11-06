@@ -77,7 +77,7 @@ Class Run
         
         $aHotelFilters = $inputObj->HotelFilters;
         $aSearchPeriodCriteria = $inputObj->SearchPeriodCriteria;
-        $errorPrint = false;
+        $errorPrint = true;
         /*
          * Creation of instance for the Ckeck CLASS.
          */
@@ -494,10 +494,9 @@ class Constructor
         $this->aInput = $aInput;
         $this->aRoomOccupancy = self::obj2Array($aRoomOccupancy);
         $this->aRoomTypeFilters = $aRoomTypeFilters;
-        //var_export($this->aInput['activeForRoomCategories']);
         $aInputArray = get_object_vars($this->aInput);
         
-        if ($aRoomTypeFilters != null && $aInputArray['activeForRoomCategories'])
+        if ($aInputArray['activeForRoomCategories'] and $aRoomTypeFilters != null)
         {
           $this->aRoomCategories = self::obj2Array($aRoomCategories);
 

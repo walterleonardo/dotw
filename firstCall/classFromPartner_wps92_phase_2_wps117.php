@@ -80,8 +80,8 @@ class Input {
        
     function __construct() {
            $this->RoomOccupancy = array(new RoomOccupancy());
-           $this->HotelFilters = new HotelFilters();
-           $this->RoomTypeFilters = new RoomTypeFilters();
+           $this->HotelFilters = NULL;//new HotelFilters();
+           $this->RoomTypeFilters = NULL;//new RoomTypeFilters();
            $this->SearchPeriodCriteria = new SearchPeriodCriteria();
        }
 }
