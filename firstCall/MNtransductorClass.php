@@ -1120,7 +1120,7 @@ class fillArrayValues
                             {
                                 if (trim($folders[6], "\t\n\r\0\x0B") == 'automapping')
                                 {
-                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = $folders[6]; 
+                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = trim($folders[6], "\t\n\r\0\x0B"); 
                                 } else
                                 {
                                     $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = trim($folders[4], "\t\n\r\0\x0B");
@@ -1141,7 +1141,7 @@ class fillArrayValues
                             {
                                  if(trim($folders[6], "\t\n\r\0\x0B") == 'automapping')
                                 {
-                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = $folders[6]; 
+                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = trim($folders[6], "\t\n\r\0\x0B"); 
                                 } else
                                 {
                                 $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[6], "\t\n\r\0\x0B")] = trim($folders[4], "\t\n\r\0\x0B");
