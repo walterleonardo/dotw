@@ -9,12 +9,12 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
  
-    public $customerId = 1145488; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
-    public $environment = 'stage'; //string
+    public $customerId = 1534906; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
+    public $environment = 'dev'; //string
     public $requestSource = 2; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (/*0 => 820415,*/ 0 => 71934); //array(int)
+    public $hotelIds = array (/*0 => 820415,*/ 0 => 1622028); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
@@ -44,6 +44,7 @@ class Input {
             ,22 => 1823
             ,23 => 1025
             ,24 => 1599
+            ,25 => 1741
  
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
@@ -80,17 +81,17 @@ class Input {
        
     function __construct() {
            $this->RoomOccupancy = array(new RoomOccupancy());
-           $this->HotelFilters = NULL;//new HotelFilters();
-           $this->RoomTypeFilters = NULL;//new RoomTypeFilters();
+           $this->HotelFilters = new HotelFilters();
+           $this->RoomTypeFilters = new RoomTypeFilters();
            $this->SearchPeriodCriteria = new SearchPeriodCriteria();
        }
 }
  
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1542758400; //Mandatory
-    public $travelTo = 1542758400;//Mandatory
-    public $bookingDateTime = 1541156349;//1529331799; //1528974697;//Mandatory
+    public $travelFrom = 1548460800; //Mandatory
+    public $travelTo = 1548460800;//Mandatory
+    public $bookingDateTime = 1542879352;//1529331799; //1528974697;//Mandatory
 }
  
 
