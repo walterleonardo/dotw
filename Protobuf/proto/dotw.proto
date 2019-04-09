@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package dotw.proto;
+
+option php_generic_services = true;
+
+service Server {
+    rpc psfilter (PsfilterRequest) returns (PsfilterReply) {}
+}
+
+message PsfilterRequest {
+    string psfilter = 1;
+    int32 customerId = 2;
+    string environment = 3;
+    int32 requestSource = 4;
+    string exceptRestrictions = 5;
+    bool passengerNationalityOrResidenceProvided = 6;
+    string hotelIds = 7;
+    string city = 8;
+    string country = 9;
+    string bookingChannelsWithAutoMapping = 10;
+    string bookingChannelTypes = 11;
+    string excludedBookingchannel = 12;
+    string activeForRoomCategories = 13;
+    string RoomOccupancy = 14;
+    string HotelFilters = 15;
+    string RoomTypeFilters = 16;
+    string AdditionalFilters = 17;
+    string travelFrom = 18;
+    string travelTo = 19;
+    string bookingDateTime = 20;
+    
+    
+}
+
+message PsfilterReply {
+    string replystring = 1;
+}

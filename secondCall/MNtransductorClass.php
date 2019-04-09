@@ -5,7 +5,7 @@ namespace Second;
 ini_set('memory_limit', '-1');
 //var_dump($argv);
 //INCLUDE LIKE $platform value these differents options 'dev|test|prod'
-$platform = 'stage';
+$platform = 'prod';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
@@ -21,7 +21,7 @@ if (isset($argv[1]))
     require $argv[1];
 } else
 {
-    require 'classFromPartner_Demo_jiraWPS92_phase_2_wps112.php';
+    require 'classFromPartner_Demo_jiraWPS92_phase_2_wps93.php';
 }
 
 /*

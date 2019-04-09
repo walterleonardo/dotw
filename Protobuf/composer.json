@@ -1,0 +1,17 @@
+{
+    "name": "dotw/protobuf-php-services-example",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+    	"psr-4": {
+    		"": "gen",
+            "Dotw\\Proto\\": "src"
+    	}
+    },
+    "scripts": {
+    	"gen-proto": "protoc --php_out=./gen ./proto/dotw.proto"
+    },
+    "require": {
+        "google/protobuf": "^3.7.1"
+    }
+}

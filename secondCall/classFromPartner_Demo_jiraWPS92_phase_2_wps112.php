@@ -78,7 +78,7 @@ class StaticInput {
 }
 
 class ReturnHotelStaticData {
-    public $description1 = true; //NO MANDATORY BOOL
+    public $description1 = false; //NO MANDATORY BOOL
     public $description2 = true;
     public $geoPoint = true;
     public $ratingDescription = true;
@@ -130,7 +130,7 @@ class ReturnHotelStaticData {
 class ReturnRoomTypeStaticData {
     public $roomAmenities = false;
     public $name = true;
-    public $supplierRoomName = false;
+    public $supplierRoomName = true;
     public $twin = true; //NO MANDATORY BOOL
     public $roomInfo = false;
     public $specials = true;
