@@ -13,11 +13,12 @@ class Service implements ServerDotwInterface
         $res = $res && sizeof($request->getHotelIds()) >= 1;
         $res = $res && $request->getSearchPeriodCriteria()->getTravelTo() == 1;
         $res = $res && $request->getRoomOcupancy()[0]->getAdults() == 1;
+        $res = $res && $request->getRequestSource() == 2;
         
                       
         if ($res) {
-            $size = sizeof($request->getRoomOcupancy());
-            $diff = "$size";
+            //$size = sizeof($request->getRoomOcupancy());
+            $diff = "OK";
         } else {
             $diff = "KO";
         }
