@@ -1,36 +1,87 @@
 syntax = "proto3";
+option cc_enable_arenas = true;
+option php_generic_services = true;
 
 package dotw.proto;
 
-option php_generic_services = true;
-
-service Server {
+service ServerDotw {
     rpc psfilter (PsfilterRequest) returns (PsfilterReply) {}
 }
 
 message PsfilterRequest {
+    
+    message RoomCategory {
+        int32 MainCategory = 1;//62215; //integer
+        int32 SubCategory = 2;//integer
+        int32 View = 3;//integer
+        int32 BeddingType = 4;//integer
+        int32 Attribute1 = 5;//integer
+        int32 Attribute2 = 6;//integer
+    }
+
+    message RoomTypeFilters {
+        int32 suite = 1; //integer
+        string roomAmenitie = 2; //array(int)
+        string roomId = 3; //array(int)
+        string roomName = 4; //string
+        repeated RoomCategory roomCategories = 5; //roomCategories Objects
+    }
+
+    message RoomOccupancy {
+        int32 adults = 1;
+        string children = 2;
+        bool twin = 3;
+        bool extraBed = 4;
+    }
+
+    message HotelFilters {
+        string rating = 1; //array(int)
+        int32 luxury = 2; //integer
+        string location = 3; //string
+        string locationId = 4; //array(int)
+        string amenitie = 5; //array(int)
+        string leisure = 6; //array(int)
+        string business = 7; //array(int)
+        string hotelPreference = 8; //array(int)
+        string chain = 9; //array(int)
+        string attraction = 10; //string
+        string hotelName = 11; //string
+        int32 builtYear = 12; //integer
+        int32 renovationYear = 13; //integer
+        int32 floors = 14; //integer
+        int32 noOfRooms = 15; //integer
+        int32 fireSafety = 16; //integer
+        string lastUpdated = 17; //string
+    }
+    
+    message AdditionalFilters {
+        
+    }
+
+    message  SearchPeriodCriteria{ //Mandatory
+        int32 travelFrom = 1;//Mandatory int
+        int32 travelTo = 2;//Mandatory int
+        int32 bookingDateTime = 3;//Mandatory int
+    }
+
     string psfilter = 1;
     int32 customerId = 2;
     string environment = 3;
     int32 requestSource = 4;
-    string exceptRestrictions = 5;
+    repeated int32 exceptRestrictions = 5;
     bool passengerNationalityOrResidenceProvided = 6;
-    string hotelIds = 7;
-    string city = 8;
-    string country = 9;
-    string bookingChannelsWithAutoMapping = 10;
-    string bookingChannelTypes = 11;
-    string excludedBookingchannel = 12;
-    string activeForRoomCategories = 13;
-    string RoomOccupancy = 14;
-    string HotelFilters = 15;
-    string RoomTypeFilters = 16;
-    string AdditionalFilters = 17;
-    string travelFrom = 18;
-    string travelTo = 19;
-    string bookingDateTime = 20;
-    
-    
+    repeated int32 hotelIds = 7;
+    int32 city = 8;
+    int32 country = 9;
+    repeated int32 bookingChannelsWithAutoMapping = 10;
+    repeated int32 bookingChannelTypes = 11;
+    repeated int32 excludedBookingchannel = 12;
+    bool activeForRoomCategories = 13;
+    repeated RoomOccupancy roomOcupancy = 14;
+    HotelFilters hotelFilters = 15;
+    RoomTypeFilters roomTypeFilters = 16;
+    AdditionalFilters additionalFilters = 17;
+    SearchPeriodCriteria searchPeriodCriteria = 18;
 }
 
 message PsfilterReply {

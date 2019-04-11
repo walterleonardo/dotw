@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Dotw\Proto;
 
-class Service implements ServerInterface
+class Service implements ServerDotwInterface
 {
     
     public function psfilter(\Dotw\Proto\PsfilterRequest $request): PsfilterReply
     {
         $diff = "KO";
-        
-        if ($request->getPsfilter() == "PSFILTER" && $request->getCustomerId() == 4 && $request->getPassengerNationalityOrResidenceProvided()){
+        $array = $request->getHotelIds();
+        $sizeof = sizeof($array);
+               
+        if ($request->getPsfilter() == "PSFILTER" && $sizeof >= 1) {
             $diff = "OK";
         } else {
             $diff = "KO";

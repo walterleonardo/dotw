@@ -9,9 +9,9 @@ use Google\Protobuf\Internal\RepeatedField;
 use Google\Protobuf\Internal\GPBUtil;
 
 /**
- * Generated from protobuf message <code>dotw.proto.PsfilterRequest</code>
+ * Generated from protobuf message <code>dotw.proto.Input</code>
  */
-class PsfilterRequest extends \Google\Protobuf\Internal\Message
+class Input extends \Google\Protobuf\Internal\Message
 {
     /**
      * Generated from protobuf field <code>string psfilter = 1;</code>
@@ -30,59 +30,59 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
      */
     private $requestSource = 0;
     /**
-     * Generated from protobuf field <code>repeated int32 exceptRestrictions = 5;</code>
+     * Generated from protobuf field <code>string exceptRestrictions = 5;</code>
      */
-    private $exceptRestrictions;
+    private $exceptRestrictions = '';
     /**
      * Generated from protobuf field <code>bool passengerNationalityOrResidenceProvided = 6;</code>
      */
     private $passengerNationalityOrResidenceProvided = false;
     /**
-     * Generated from protobuf field <code>repeated int32 hotelIds = 7;</code>
+     * Generated from protobuf field <code>string hotelIds = 7;</code>
      */
-    private $hotelIds;
+    private $hotelIds = '';
     /**
-     * Generated from protobuf field <code>int32 city = 8;</code>
+     * Generated from protobuf field <code>string city = 8;</code>
      */
-    private $city = 0;
+    private $city = '';
     /**
-     * Generated from protobuf field <code>int32 country = 9;</code>
+     * Generated from protobuf field <code>string country = 9;</code>
      */
-    private $country = 0;
+    private $country = '';
     /**
-     * Generated from protobuf field <code>repeated int32 bookingChannelsWithAutoMapping = 10;</code>
+     * Generated from protobuf field <code>string bookingChannelsWithAutoMapping = 10;</code>
      */
-    private $bookingChannelsWithAutoMapping;
+    private $bookingChannelsWithAutoMapping = '';
     /**
-     * Generated from protobuf field <code>repeated int32 bookingChannelTypes = 11;</code>
+     * Generated from protobuf field <code>string bookingChannelTypes = 11;</code>
      */
-    private $bookingChannelTypes;
+    private $bookingChannelTypes = '';
     /**
-     * Generated from protobuf field <code>repeated int32 excludedBookingchannel = 12;</code>
+     * Generated from protobuf field <code>string excludedBookingchannel = 12;</code>
      */
-    private $excludedBookingchannel;
+    private $excludedBookingchannel = '';
     /**
      * Generated from protobuf field <code>bool activeForRoomCategories = 13;</code>
      */
     private $activeForRoomCategories = false;
     /**
-     * Generated from protobuf field <code>repeated .dotw.proto.PsfilterRequest.RoomOccupancy roomOcupancy = 14;</code>
+     * Generated from protobuf field <code>repeated .dotw.proto.Input.RoomOccupancy roomOcupancy = 14;</code>
      */
     private $roomOcupancy;
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.HotelFilters hotelFilters = 15;</code>
+     * Generated from protobuf field <code>.dotw.proto.Input.HotelFilters hotelFilters = 15;</code>
      */
     private $hotelFilters = null;
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.RoomTypeFilters roomTypeFilters = 16;</code>
+     * Generated from protobuf field <code>.dotw.proto.Input.RoomTypeFilters roomTypeFilters = 16;</code>
      */
     private $roomTypeFilters = null;
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.AdditionalFilters additionalFilters = 17;</code>
+     * Generated from protobuf field <code>.dotw.proto.Input.AdditionalFilters additionalFilters = 17;</code>
      */
     private $additionalFilters = null;
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.SearchPeriodCriteria searchPeriodCriteria = 18;</code>
+     * Generated from protobuf field <code>.dotw.proto.Input.SearchPeriodCriteria searchPeriodCriteria = 18;</code>
      */
     private $searchPeriodCriteria = null;
 
@@ -96,20 +96,20 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
      *     @type int $customerId
      *     @type string $environment
      *     @type int $requestSource
-     *     @type int[]|\Google\Protobuf\Internal\RepeatedField $exceptRestrictions
+     *     @type string $exceptRestrictions
      *     @type bool $passengerNationalityOrResidenceProvided
-     *     @type int[]|\Google\Protobuf\Internal\RepeatedField $hotelIds
-     *     @type int $city
-     *     @type int $country
-     *     @type int[]|\Google\Protobuf\Internal\RepeatedField $bookingChannelsWithAutoMapping
-     *     @type int[]|\Google\Protobuf\Internal\RepeatedField $bookingChannelTypes
-     *     @type int[]|\Google\Protobuf\Internal\RepeatedField $excludedBookingchannel
+     *     @type string $hotelIds
+     *     @type string $city
+     *     @type string $country
+     *     @type string $bookingChannelsWithAutoMapping
+     *     @type string $bookingChannelTypes
+     *     @type string $excludedBookingchannel
      *     @type bool $activeForRoomCategories
-     *     @type \Dotw\Proto\PsfilterRequest\RoomOccupancy[]|\Google\Protobuf\Internal\RepeatedField $roomOcupancy
-     *     @type \Dotw\Proto\PsfilterRequest\HotelFilters $hotelFilters
-     *     @type \Dotw\Proto\PsfilterRequest\RoomTypeFilters $roomTypeFilters
-     *     @type \Dotw\Proto\PsfilterRequest\AdditionalFilters $additionalFilters
-     *     @type \Dotw\Proto\PsfilterRequest\SearchPeriodCriteria $searchPeriodCriteria
+     *     @type \Dotw\Proto\Input\RoomOccupancy[]|\Google\Protobuf\Internal\RepeatedField $roomOcupancy
+     *     @type \Dotw\Proto\Input\HotelFilters $hotelFilters
+     *     @type \Dotw\Proto\Input\RoomTypeFilters $roomTypeFilters
+     *     @type \Dotw\Proto\Input\AdditionalFilters $additionalFilters
+     *     @type \Dotw\Proto\Input\SearchPeriodCriteria $searchPeriodCriteria
      * }
      */
     public function __construct($data = NULL) {
@@ -206,8 +206,8 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 exceptRestrictions = 5;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>string exceptRestrictions = 5;</code>
+     * @return string
      */
     public function getExceptRestrictions()
     {
@@ -215,14 +215,14 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 exceptRestrictions = 5;</code>
-     * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>string exceptRestrictions = 5;</code>
+     * @param string $var
      * @return $this
      */
     public function setExceptRestrictions($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT32);
-        $this->exceptRestrictions = $arr;
+        GPBUtil::checkString($var, True);
+        $this->exceptRestrictions = $var;
 
         return $this;
     }
@@ -250,8 +250,8 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 hotelIds = 7;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>string hotelIds = 7;</code>
+     * @return string
      */
     public function getHotelIds()
     {
@@ -259,21 +259,21 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 hotelIds = 7;</code>
-     * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>string hotelIds = 7;</code>
+     * @param string $var
      * @return $this
      */
     public function setHotelIds($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT32);
-        $this->hotelIds = $arr;
+        GPBUtil::checkString($var, True);
+        $this->hotelIds = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>int32 city = 8;</code>
-     * @return int
+     * Generated from protobuf field <code>string city = 8;</code>
+     * @return string
      */
     public function getCity()
     {
@@ -281,21 +281,21 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int32 city = 8;</code>
-     * @param int $var
+     * Generated from protobuf field <code>string city = 8;</code>
+     * @param string $var
      * @return $this
      */
     public function setCity($var)
     {
-        GPBUtil::checkInt32($var);
+        GPBUtil::checkString($var, True);
         $this->city = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>int32 country = 9;</code>
-     * @return int
+     * Generated from protobuf field <code>string country = 9;</code>
+     * @return string
      */
     public function getCountry()
     {
@@ -303,21 +303,21 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>int32 country = 9;</code>
-     * @param int $var
+     * Generated from protobuf field <code>string country = 9;</code>
+     * @param string $var
      * @return $this
      */
     public function setCountry($var)
     {
-        GPBUtil::checkInt32($var);
+        GPBUtil::checkString($var, True);
         $this->country = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 bookingChannelsWithAutoMapping = 10;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>string bookingChannelsWithAutoMapping = 10;</code>
+     * @return string
      */
     public function getBookingChannelsWithAutoMapping()
     {
@@ -325,21 +325,21 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 bookingChannelsWithAutoMapping = 10;</code>
-     * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>string bookingChannelsWithAutoMapping = 10;</code>
+     * @param string $var
      * @return $this
      */
     public function setBookingChannelsWithAutoMapping($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT32);
-        $this->bookingChannelsWithAutoMapping = $arr;
+        GPBUtil::checkString($var, True);
+        $this->bookingChannelsWithAutoMapping = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 bookingChannelTypes = 11;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>string bookingChannelTypes = 11;</code>
+     * @return string
      */
     public function getBookingChannelTypes()
     {
@@ -347,21 +347,21 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 bookingChannelTypes = 11;</code>
-     * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>string bookingChannelTypes = 11;</code>
+     * @param string $var
      * @return $this
      */
     public function setBookingChannelTypes($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT32);
-        $this->bookingChannelTypes = $arr;
+        GPBUtil::checkString($var, True);
+        $this->bookingChannelTypes = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 excludedBookingchannel = 12;</code>
-     * @return \Google\Protobuf\Internal\RepeatedField
+     * Generated from protobuf field <code>string excludedBookingchannel = 12;</code>
+     * @return string
      */
     public function getExcludedBookingchannel()
     {
@@ -369,14 +369,14 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated int32 excludedBookingchannel = 12;</code>
-     * @param int[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>string excludedBookingchannel = 12;</code>
+     * @param string $var
      * @return $this
      */
     public function setExcludedBookingchannel($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::INT32);
-        $this->excludedBookingchannel = $arr;
+        GPBUtil::checkString($var, True);
+        $this->excludedBookingchannel = $var;
 
         return $this;
     }
@@ -404,7 +404,7 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .dotw.proto.PsfilterRequest.RoomOccupancy roomOcupancy = 14;</code>
+     * Generated from protobuf field <code>repeated .dotw.proto.Input.RoomOccupancy roomOcupancy = 14;</code>
      * @return \Google\Protobuf\Internal\RepeatedField
      */
     public function getRoomOcupancy()
@@ -413,21 +413,21 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>repeated .dotw.proto.PsfilterRequest.RoomOccupancy roomOcupancy = 14;</code>
-     * @param \Dotw\Proto\PsfilterRequest\RoomOccupancy[]|\Google\Protobuf\Internal\RepeatedField $var
+     * Generated from protobuf field <code>repeated .dotw.proto.Input.RoomOccupancy roomOcupancy = 14;</code>
+     * @param \Dotw\Proto\Input\RoomOccupancy[]|\Google\Protobuf\Internal\RepeatedField $var
      * @return $this
      */
     public function setRoomOcupancy($var)
     {
-        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Dotw\Proto\PsfilterRequest\RoomOccupancy::class);
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Dotw\Proto\Input\RoomOccupancy::class);
         $this->roomOcupancy = $arr;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.HotelFilters hotelFilters = 15;</code>
-     * @return \Dotw\Proto\PsfilterRequest\HotelFilters
+     * Generated from protobuf field <code>.dotw.proto.Input.HotelFilters hotelFilters = 15;</code>
+     * @return \Dotw\Proto\Input\HotelFilters
      */
     public function getHotelFilters()
     {
@@ -435,21 +435,21 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.HotelFilters hotelFilters = 15;</code>
-     * @param \Dotw\Proto\PsfilterRequest\HotelFilters $var
+     * Generated from protobuf field <code>.dotw.proto.Input.HotelFilters hotelFilters = 15;</code>
+     * @param \Dotw\Proto\Input\HotelFilters $var
      * @return $this
      */
     public function setHotelFilters($var)
     {
-        GPBUtil::checkMessage($var, \Dotw\Proto\PsfilterRequest_HotelFilters::class);
+        GPBUtil::checkMessage($var, \Dotw\Proto\Input_HotelFilters::class);
         $this->hotelFilters = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.RoomTypeFilters roomTypeFilters = 16;</code>
-     * @return \Dotw\Proto\PsfilterRequest\RoomTypeFilters
+     * Generated from protobuf field <code>.dotw.proto.Input.RoomTypeFilters roomTypeFilters = 16;</code>
+     * @return \Dotw\Proto\Input\RoomTypeFilters
      */
     public function getRoomTypeFilters()
     {
@@ -457,21 +457,21 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.RoomTypeFilters roomTypeFilters = 16;</code>
-     * @param \Dotw\Proto\PsfilterRequest\RoomTypeFilters $var
+     * Generated from protobuf field <code>.dotw.proto.Input.RoomTypeFilters roomTypeFilters = 16;</code>
+     * @param \Dotw\Proto\Input\RoomTypeFilters $var
      * @return $this
      */
     public function setRoomTypeFilters($var)
     {
-        GPBUtil::checkMessage($var, \Dotw\Proto\PsfilterRequest_RoomTypeFilters::class);
+        GPBUtil::checkMessage($var, \Dotw\Proto\Input_RoomTypeFilters::class);
         $this->roomTypeFilters = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.AdditionalFilters additionalFilters = 17;</code>
-     * @return \Dotw\Proto\PsfilterRequest\AdditionalFilters
+     * Generated from protobuf field <code>.dotw.proto.Input.AdditionalFilters additionalFilters = 17;</code>
+     * @return \Dotw\Proto\Input\AdditionalFilters
      */
     public function getAdditionalFilters()
     {
@@ -479,21 +479,21 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.AdditionalFilters additionalFilters = 17;</code>
-     * @param \Dotw\Proto\PsfilterRequest\AdditionalFilters $var
+     * Generated from protobuf field <code>.dotw.proto.Input.AdditionalFilters additionalFilters = 17;</code>
+     * @param \Dotw\Proto\Input\AdditionalFilters $var
      * @return $this
      */
     public function setAdditionalFilters($var)
     {
-        GPBUtil::checkMessage($var, \Dotw\Proto\PsfilterRequest_AdditionalFilters::class);
+        GPBUtil::checkMessage($var, \Dotw\Proto\Input_AdditionalFilters::class);
         $this->additionalFilters = $var;
 
         return $this;
     }
 
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.SearchPeriodCriteria searchPeriodCriteria = 18;</code>
-     * @return \Dotw\Proto\PsfilterRequest\SearchPeriodCriteria
+     * Generated from protobuf field <code>.dotw.proto.Input.SearchPeriodCriteria searchPeriodCriteria = 18;</code>
+     * @return \Dotw\Proto\Input\SearchPeriodCriteria
      */
     public function getSearchPeriodCriteria()
     {
@@ -501,13 +501,13 @@ class PsfilterRequest extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.dotw.proto.PsfilterRequest.SearchPeriodCriteria searchPeriodCriteria = 18;</code>
-     * @param \Dotw\Proto\PsfilterRequest\SearchPeriodCriteria $var
+     * Generated from protobuf field <code>.dotw.proto.Input.SearchPeriodCriteria searchPeriodCriteria = 18;</code>
+     * @param \Dotw\Proto\Input\SearchPeriodCriteria $var
      * @return $this
      */
     public function setSearchPeriodCriteria($var)
     {
-        GPBUtil::checkMessage($var, \Dotw\Proto\PsfilterRequest_SearchPeriodCriteria::class);
+        GPBUtil::checkMessage($var, \Dotw\Proto\Input_SearchPeriodCriteria::class);
         $this->searchPeriodCriteria = $var;
 
         return $this;

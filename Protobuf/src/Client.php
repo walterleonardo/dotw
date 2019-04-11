@@ -6,7 +6,7 @@ namespace Dotw\Proto;
 
 use Google\Protobuf\Internal\Message;
 
-class Client implements ServerInterface
+class Client implements ServerDotwInterface
 {
     
     public function psfilter(PsfilterRequest $request): PsfilterReply
