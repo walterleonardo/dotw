@@ -21,6 +21,7 @@ class Client implements ServerDotwInterface
     {
     	$body = $message->serializeToString();
 
+       
     	$ch = curl_init("http://localhost:8000/{$method}");
 
     	curl_setopt_array($ch, [
@@ -33,6 +34,9 @@ class Client implements ServerDotwInterface
 
     	curl_close($ch);
 
+        if (!$response){
+            return "";
+        }
     	return $response;
     }
 }
