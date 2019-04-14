@@ -36,9 +36,16 @@ function managerSupplierRequest(Input &$inputObj)
         $psfilter->setSearchPeriodCriteria(new SearchPeriodCriteria());
         $psfilter->getSearchPeriodCriteria()->setTravelTo(1);
 
+        //Call to server and get answer
         $reply = $client->psfilter($psfilter);
 
-        echo 'PSFILTER = ' . $reply->getReplyString() . PHP_EOL;
+        if ($reply->getReplyString() == "") 
+        {
+            echo "No Server Live";
+        } else {
+            echo 'PSFILTER = ' . $reply->getReplyString() . PHP_EOL;
+        }
+       
     }
 
 $inputPresupplier = new \Dotw\FirstCall\Input;
