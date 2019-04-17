@@ -29,7 +29,7 @@ function managerSupplierRequest(Input &$inputObj)
         $psfilter = new PsfilterRequest();
         $psfilter->setPsfilter("PSFILTER")
                 ->setRequestSource($inputObj->requestSource)
-                ->setHotelIds(array(1,2,3));
+                ->setHotelIds(array(1,2,3,4,5));
 
         $psfilter->setRoomOcupancy(array(new RoomOccupancy()));
         $psfilter->getRoomOcupancy()[0]->setAdults(1);
