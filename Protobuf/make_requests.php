@@ -27,7 +27,8 @@ function managerSupplierRequest(Input &$inputObj)
        //Distribute values 
         $client = new Client();
         $psfilter = new PsfilterRequest();
-        $psfilter->setPsfilter("PSFILTER")
+        $psfilter->setPsfilter("PSFPROTO")
+                ->setCustomerId($inputObj->customerId)
                 ->setRequestSource($inputObj->requestSource)
                 ->setHotelIds(array(1,2,3,4,5));
 

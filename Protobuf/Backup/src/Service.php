@@ -9,7 +9,7 @@ class Service implements ServerDotwInterface
     
     public function psfilter(\Dotw\Proto\PsfilterRequest $request): PsfilterReply
     {
-        $res = $request->getPsfilter() == "PSFPROTO";
+        $res = $request->getPsfilter() == "PSFILTER";
         $res = $res && sizeof($request->getHotelIds()) >= 1;
         $res = $res && $request->getSearchPeriodCriteria()->getTravelTo() == 1;
         $res = $res && $request->getRoomOcupancy()[0]->getAdults() == 1;
