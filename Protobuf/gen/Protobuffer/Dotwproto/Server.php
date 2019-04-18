@@ -136,12 +136,12 @@ class Server
                              echo "RECIBIDO dentro array 0: ";
                             echo $arrayReceived[0];
                             
-                            if (preg_match('/PSFILTERPROTO/', $arrayReceived[0])) {
+                            if (preg_match('/PSFPROTO/', $arrayReceived[0])) {
                                 if (!isset($arrayReceived[1])) {
                                     $output = "ERR \"Error Description\"\r\n";
                                 } else {
                                     
-                                    $request = new PsfilterRequest();
+                                    $request = new PSFRequest();
                                     error_log("Mensaje? ");
                                     error_log($str);
                                    $request->mergeFromString($str);

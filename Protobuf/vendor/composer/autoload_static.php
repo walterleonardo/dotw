@@ -7,18 +7,22 @@ namespace Composer\Autoload;
 class ComposerStaticInit0ec591dcf104a9b07b6778d8dec2f728
 {
     public static $prefixLengthsPsr4 = array (
+        'p' => 
+        array (
+            'protobuffer\\dotwproto\\' => 22,
+        ),
         'G' => 
         array (
             'Google\\Protobuf\\' => 16,
             'GPBMetadata\\Google\\Protobuf\\' => 28,
         ),
-        'D' => 
-        array (
-            'Dotw\\Proto\\' => 11,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'protobuffer\\dotwproto\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
+        ),
         'Google\\Protobuf\\' => 
         array (
             0 => __DIR__ . '/..' . '/google/protobuf/src/Google/Protobuf',
@@ -26,10 +30,6 @@ class ComposerStaticInit0ec591dcf104a9b07b6778d8dec2f728
         'GPBMetadata\\Google\\Protobuf\\' => 
         array (
             0 => __DIR__ . '/..' . '/google/protobuf/src/GPBMetadata/Google/Protobuf',
-        ),
-        'Dotw\\Proto\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 

@@ -3,4 +3,4 @@
 require '../vendor/autoload.php';
 
 
-(new Dotw\Proto\Server())->runTCP();
+(new Protobuffer\Dotwproto\Server())->runTCP();

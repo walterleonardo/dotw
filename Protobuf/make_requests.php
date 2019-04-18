@@ -1,9 +1,8 @@
 <?php
 
-use Dotw\Proto\Client;
-use Dotw\Proto\PsfilterRequest;
-use Dotw\Proto\PsfilterRequest\RoomOccupancy;
-use Dotw\Proto\PsfilterRequest\SearchPeriodCriteria;
+use Protobuffer\Dotwproto\Client;
+use Protobuffer\Dotwproto\PSFRequest;
+use Protobuffer\Dotwproto\PSFReply;
 
 
 require __DIR__ . '/vendor/autoload.php';
@@ -26,15 +25,15 @@ function managerSupplierRequest(Input &$inputObj)
         
        //Distribute values 
         $client = new Client();
-        $psfilter = new PsfilterRequest();
+        $psfilter = new PSFRequest();
         $psfilter->setPsfilter("PSFPROTO")
                 ->setCustomerId($inputObj->customerId)
                 ->setRequestSource($inputObj->requestSource)
                 ->setHotelIds(array(1,2,3,4,5));
 
-        $psfilter->setRoomOcupancy(array(new RoomOccupancy()));
-        $psfilter->getRoomOcupancy()[0]->setAdults(1);
-        $psfilter->setSearchPeriodCriteria(new SearchPeriodCriteria());
+        $psfilter->setRoomOccupancy(array(new PSFRequest\RoomOccupancy()));
+        $psfilter->getRoomOccupancy()[0]->setAdults(1);
+        $psfilter->setSearchPeriodCriteria(new PSFRequest\SearchPeriodCriteria());
         $psfilter->getSearchPeriodCriteria()->setTravelTo(1);
 
         //Call to server and get answer

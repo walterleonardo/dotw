@@ -48,8 +48,8 @@ class Client implements ServerDotwInterface
         set_time_limit(0); //TIMEOUT into receive
         ini_set("default_socket_timeout", "3"); //TIMEOUT into send
         //Server Method $serverMethods 'unique', 'random' & 'roundrobin'
-        //$server = "127.0.0.1";
-        $server = "10.211.55.3";
+        $server = "127.0.0.1";
+        //$server = "10.211.55.3";
         $port = 10003;
         $seconds = 3;
         $var = $this->string;

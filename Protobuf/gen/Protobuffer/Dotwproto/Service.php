@@ -12,7 +12,7 @@ class Service implements ServerDotwInterface
         $res = $request->getPsfilter() == "PSFPROTO";
         $res = $res && sizeof($request->getHotelIds()) >= 1;
         $res = $res && $request->getSearchPeriodCriteria()->getTravelTo() == 1;
-        $res = $res && $request->getRoomOcupancy()[0]->getAdults() == 1;
+        $res = $res && $request->getRoomOccupancy()[0]->getAdults() == 1;
         $res = $res && $request->getRequestSource() == 2;
         
                       
@@ -23,7 +23,7 @@ class Service implements ServerDotwInterface
             $diff = "KO";
         }
         
-    return (new PsfilterReply())->setReplyString($diff);
+    return (new PSFReply())->setReplyString($diff);
     }
 }
 
