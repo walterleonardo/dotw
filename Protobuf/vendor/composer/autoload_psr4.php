@@ -6,8 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'protobuffer\\dotwproto\\' => array($baseDir . '/src'),
+    'protobuffer\\dotwproto\\' => array($baseDir . '/srcProto'),
     'Google\\Protobuf\\' => array($vendorDir . '/google/protobuf/src/Google/Protobuf'),
     'GPBMetadata\\Google\\Protobuf\\' => array($vendorDir . '/google/protobuf/src/GPBMetadata/Google/Protobuf'),
-    '' => array($baseDir . '/gen'),
+    '' => array($baseDir . '/genProto'),
 );

@@ -21,7 +21,7 @@ class ComposerStaticInit0ec591dcf104a9b07b6778d8dec2f728
     public static $prefixDirsPsr4 = array (
         'protobuffer\\dotwproto\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/srcProto',
         ),
         'Google\\Protobuf\\' => 
         array (
@@ -34,7 +34,7 @@ class ComposerStaticInit0ec591dcf104a9b07b6778d8dec2f728
     );
 
     public static $fallbackDirsPsr4 = array (
-        0 => __DIR__ . '/../..' . '/gen',
+        0 => __DIR__ . '/../..' . '/genProto',
     );
 
     public static function getInitializer(ClassLoader $loader)

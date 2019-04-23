@@ -4,12 +4,12 @@
     "license": "MIT",
     "autoload": {
     	"psr-4": {
-    		"": "gen",
-            "protobuffer\\dotwproto\\": "src"
+    		"": "genProto",
+            "protobuffer\\dotwproto\\": "srcProto"
     	}
     },
     "scripts": {
-    	"gen-proto": "protoc --php_out=./gen ./proto/Dotw_protoBuf_Psfilter.proto"
+    	"gen-proto": "protoc --php_out=./genProto ./proto/Dotw_ProtoBuf.proto"
     },
     "require": {
         "google/protobuf": "^3.5.1"

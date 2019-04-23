@@ -6,7 +6,7 @@ use Protobuffer\Dotwproto\PSFReply;
 
 
 require __DIR__ . '/vendor/autoload.php';
-require "gen/Dotw/FirstCall/classFromPartner_wps92_phase_2_wps129.php";
+require "genProto/Dotw/FirstCall/classFromPartner_wps92_phase_2_wps129.php";
 use Dotw\FirstCall\Input;
 
 
