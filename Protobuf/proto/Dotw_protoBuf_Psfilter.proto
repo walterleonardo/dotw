@@ -1,4 +1,3 @@
-
 syntax = "proto3";
 //option cc_enable_arenas = true;
 //option php_generic_services = true;
