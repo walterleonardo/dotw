@@ -19,6 +19,16 @@ class Client implements ServerDotwInterface
     	return $reply;
     }
     
+    public function hotelDataRequest(HDRequest $request): HDReply
+    {
+    	$reply = new HDReply();
+        
+    	//$reply->mergeFromString($this->makeRequest($request, 'hotelDataRequest'));
+        $reply->mergeFromString($this->requestTCP($request, 'hotelDataRequest'));
+
+    	return $reply;
+    }
+    
     private function makeRequest(Message $message, string $method): string
     {
     	$body = $message->serializeToString();
@@ -43,18 +53,18 @@ class Client implements ServerDotwInterface
 
     Private function requestTCP(Message $messagePROTO, string $method): string
     {
-        $debug = TRUE;
+        $debug = FALSE;
         $timeout = 3000;
         set_time_limit(0); //TIMEOUT into receive
         ini_set("default_socket_timeout", "3"); //TIMEOUT into send
         //Server Method $serverMethods 'unique', 'random' & 'roundrobin'
-        //$server = "127.0.0.1";
-        $server = "10.211.55.3";
+        $server = "127.0.0.1";
+        //$server = "10.211.55.3";
         $port = 10003;
         //$seconds = 3;
         //$var = $this->string;
         error_log("Mensaje a enviar: ");
-        var_dump($messagePROTO);
+        //if (debug) var_dump($messagePROTO);
         $message = $messagePROTO->serializeToString();
         
         //error_log($message . "\r");
