@@ -154,10 +154,13 @@ function managerHotelRequest(StaticInput &$inputObj)
                  ->setReturnRoomTypeStaticData(new HDRequest\ReturnRoomTypeStaticData());
         ;
         $reply = $client->hotelDataRequest($hotelDataRequest);
-
+        
+        
+        //echo var_dump($reply);
+        
         if ($reply->getReplyString() == "") 
         {
-            echo "No Server Live";
+            echo " No Server Live";
         } else {
             echo 'HOTELDATAREQUEST = ' . $reply->getReplyString() . PHP_EOL;
         }
