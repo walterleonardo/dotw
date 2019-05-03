@@ -31,7 +31,7 @@ message PSFRequest {
 		bool extraBed = 4;
 	}
 
-    repeated RoomOccupancy roomOcupancy = 14;
+    repeated RoomOccupancy roomOccupancy = 14;
 
 	 message HotelFilters {
         repeated int32 rating = 1; //array(int)

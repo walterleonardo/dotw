@@ -9,7 +9,7 @@ use Protobuffer\Dotwproto\HDRReply;
 
 require __DIR__ . '/vendor/autoload.php';
 require "genProto/DotwCalls/FirstCall/classFromPartner_wps92_phase_2_wps129.php";
-require "genProto/DotwCalls/SecondCall/classFromPartner_Demo_jiraWPS92_phase_2_wps112.php";
+require "genProto/DotwCalls/SecondCall/classFromPartner_Demo_jiraWPS92_phase_2_wps93.php";
 use DotwCalls\FirstCall\Input;
 use DotwCalls\SecondCall\StaticInput;
 
@@ -150,6 +150,6 @@ function managerHotelRequest(StaticInput &$inputObj)
 
 //CALL SECOND CALL
     
-    
+//    
 $inputHotelData= new \DotwCalls\SecondCall\StaticInput();
 $answerRequest = managerHotelRequest($inputHotelData);

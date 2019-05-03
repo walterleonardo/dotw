@@ -53,13 +53,13 @@ class Client implements ServerDotwInterface
 
     Private function requestTCP(Message $messagePROTO, string $method): string
     {
-        $debug = FALSE;
+        $debug = TRUE;
         $timeout = 3000;
         set_time_limit(0); //TIMEOUT into receive
         ini_set("default_socket_timeout", "3"); //TIMEOUT into send
         //Server Method $serverMethods 'unique', 'random' & 'roundrobin'
-        $server = "127.0.0.1";
-        //$server = "10.211.55.3";
+        //$server = "127.0.0.1";
+        $server = "10.211.55.3";
         $port = 10003;
         //$seconds = 3;
         //$var = $this->string;
@@ -67,7 +67,7 @@ class Client implements ServerDotwInterface
         //if (debug) var_dump($messagePROTO);
         $message = $messagePROTO->serializeToString();
         
-        //error_log($message . "\r");
+        error_log($message . "\r");
         $message = $message . "\r\n";
         $buffer = '';
         //////////////////////////////

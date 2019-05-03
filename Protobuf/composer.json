@@ -9,7 +9,8 @@
     	}
     },
     "scripts": {
-    	"gen-proto": "protoc --php_out=./genProto ./genProto/Dotw_ProtoBuf.proto"
+    	"gen-proto": "protoc --php_out=./genProto ./genProto/Dotw_ProtoBuf.proto",
+        "gen-proto-cpp": "protoc --cpp_out=./genProto ./genProto/Dotw_ProtoBuf.proto"
     },
     "require": {
         "google/protobuf": "^3.5.1"
