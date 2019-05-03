@@ -126,7 +126,7 @@ class ReturnHotelStaticData {
 }
 
 class ReturnRoomTypeStaticData {
-    public $roomAmenities = false;
+    public $roomAmenities = true;
     public $name = true;
     public $supplierRoomName = true;
     public $twin = true; //NO MANDATORY BOOL

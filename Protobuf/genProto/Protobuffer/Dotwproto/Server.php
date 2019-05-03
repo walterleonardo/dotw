@@ -128,34 +128,34 @@ class Server
                             //$start = microtime(true);
                             $str = str_replace ("\r\n", "", $input);
                             $n = trim($input); //Remove Spaces
-                            echo "RECIBIDO dentro: ";
-                            echo $n;
-                            echo "\r\n";
+//                            echo "RECIBIDO dentro: ";
+//                            echo $n;
+//                            echo "\r\n";
                             $arrayReceived = explode(" ", $n);
-                            echo "RECIBIDO dentro array 0: ";
-                            echo $arrayReceived[0];
-                            echo "\r\n";
-                            echo "RECIBIDO dentro array 1: ";
-                            echo $arrayReceived[1];
-                            echo "\r\n";
+//                            echo "RECIBIDO dentro array 0: ";
+//                            echo $arrayReceived[0];
+//                            echo "\r\n";
+//                            echo "RECIBIDO dentro array 1: ";
+//                            echo $arrayReceived[1];
+//                            echo "\r\n";
                             if (preg_match('/PSFPROTO/', $arrayReceived[0])) {
                                 if (!isset($arrayReceived[1])) {
                                     $output = "ERR \"PSR Error Description\"\r\n";
                                 } else {
                                     
                                     $request = new PSFRequest();
-                                    error_log("Mensaje? ");
-                                    error_log("PSFPROTO");
+//                                    error_log("Mensaje? ");
+//                                    error_log("PSFPROTO");
                                     //error_log($str);
                                    $request->mergeFromString($str);
-                                    error_log("Merge protobuf? ");
+//                                    error_log("Merge protobuf? ");
                                     //error_log($str);
                                     $reply = (new Service())->psfilter($request);
                                    
                                     $output = $reply->serializeToString();
                                     $output = "$output\r\n";
-                                    error_log("Salida? ");
-                                    error_log($output);
+//                                    error_log("Salida? ");
+//                                    error_log($output);
                                     
                                     //$output = "OK |||0,1005,16564,44,44,1000|||0,1007,16564,64,54,CAL132100,1001|||1,1007,16564,44,2414345,CAL341000,3|||1,1007,16564,44,2413875,CAL341000,3|||1,1007,16564,64,2415005,CAL132100,3|||0,1000,17144,1519588,14275908,1519588,|||0,1000,17144,1519588,14275888,1519588,|||0,1000,17144,1519588,14275978,1519588,\r";
                                 }
@@ -163,24 +163,23 @@ class Server
                                 if (!isset($arrayReceived[1])) {
                                     $output = "ERR \"HDR Error Description\"\r\n";
                                 } else {
-                                    error_log("Mensaje? ");
-                                    error_log("HDRPROTO");
+//                                    error_log("Mensaje? ");
+//                                    error_log("HDRPROTO");
 
 //                                    $output = "OK |description1,description2,geopoints,ratingDescription,direct,2~2~2~2,Preferred,BuiltYear,renovationYear,floors,noOfRooms,luxury,hotelname,address,zipCode,location,locationID,location1,location2,location3,cityName,cityCode,stateName,stateCode,countryName,countryCode,regionName,regionCode,2~2~2~2,2~2~2~2,2~2~2~2,hotelPhone,hotelCheckIn,hotelCheckOut,minAge,rating,fireSafety,chain,lastUpdated,thumb#alt#category#url~thumb#alt#category#url~thumb#alt#category#url,twin#2{2{2#name#2{2{2{2{2{2{2~twin#2{2{2#name#2{2{2{2{2{2{2~twin#2{2{2#name#2{2{2{2{2{2{2,name~dist~distanceUnit~distTime~directions|description1,description2,geopoints,ratingDescription,direct,2~2~2~2,Preferred,BuiltYear,renovationYear,floors,noOfRooms,luxury,hotelname,address,zipCode,location,locationID,location1,location2,location3,cityName,cityCode,stateName,stateCode,countryName,countryCode,regionName,regionCode,2~2~2~2,2~2~2~2,2~2~2~2,hotelPhone,hotelCheckIn,hotelCheckOut,minAge,rating,fireSafety,chain,lastUpdated,thumb#alt#category#url~thumb#alt#category#url~thumb#alt#category#url,twin#2{2{2#name#2{2{2{2{2{2{2~twin#2{2{2#name#2{2{2{2{2{2{2~twin#2{2{2#name#2{2{2{2{2{2{2,name~dist~distanceUnit~distTime~directions\r\n";
                                     
                                      $request = new HDRequest();
-                                    error_log("Mensaje? ");
-                                    error_log("HDRPROTO");
+//                                    error_log("Mensaje? ");
+//                                    error_log("HDRPROTO");
                                     //error_log($str);
                                    $request->mergeFromString($str);
-                                    error_log("Merge protobuf? ");
-                                    //error_log($str);
+                                   
                                     $reply = (new Service())->hotelDataRequest($request);
                                    
                                     $output = $reply->serializeToString();
                                     $output = "$output\r\n";
-                                    error_log("Salida? ");
-                                    error_log($output);
+//                                    error_log("Salida? ");
+//                                    error_log($output);
                                     
                                 }
                             } else {

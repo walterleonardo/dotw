@@ -29,7 +29,6 @@ class Service implements ServerDotwInterface
         
                       
         if ($res) {
-            //$size = sizeof($request->getRoomOcupancy());
             $diff = "OK";
         } else {
             $diff = "KO";
@@ -45,24 +44,24 @@ class Service implements ServerDotwInterface
         if(!$res) error_log("Fallo init");
         
         $res = $res && $request->getLanguageId() == 1;
-                if(!$res) error_log("Fallo init");
-//
-//        $res = $res && $request->getCustomerId() == 551665;
-//                if(!$res) error_log("Fallo Customer");
-//
-//        $res = $res && $request->getSearchPeriodCriteria()->getTravelTo() == 1553644800;
-//                if(!$res) error_log("Fallo travelto");
-//
-//        $res = $res && $request->getRoomOccupancy()[0]->getAdults() == 2;
-//                if(!$res) error_log("Fallo getAdults");
-//
-//        $res = $res && $request->getRequestSource() == 2;
-//                if(!$res) error_log("Fallo Source");
+                if(!$res) error_log("Fallo languageId");
 
+        $res = $res && $request->getReturnRoomTypeStaticData()->getRoomAmenities();
+        if(!$res) error_log("roomamenities false");
+
+        
+        $res = $res && $request->getHotelIds()[0]->getHotelId() == 2434;
+        if(!$res) error_log("Hotelid error ");
+        
+         $res = $res && $request->getHotelIds()[0]->getRoomTypeCodes()->count() >= 1;
+        if(!$res) error_log("Roomtype code less 1 error ");
+        
+        
+       // var_dump ($request->getHotelIds()->getRoomTypeCodes());
+        
         
                       
         if ($res) {
-            //$size = sizeof($request->getRoomOcupancy());
             $diff = "OK";
         } else {
             $diff = "KO";

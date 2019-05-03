@@ -96,62 +96,38 @@ function managerHotelRequest(StaticInput &$inputObj)
        //Distribute values 
         $client = new Client();
         
-        $hotelId = array(
-            2434 => 
-                array (
-                    0 => 133414
-                    ,1 => 133424
-                    ,2 => 133434
-                    ,3 => 133444
-                    ,4 => 133454
-                    ,5 => 133464
-                    ,6 => 133474
-                    ,7 => 133484
-                    ,8 => 133494
-                    ,9 => 133504
-                    ,10 => 137316
-                    ,11 => 16145218
-                    ,12 => 16145228
-                    ,13 => 16145238
-                    ,14 => 16145248
-                    ,15 => 16145258
-                    ,16 => 16145268
-                    ,17 => 16145278
-                    ,18 => 16145288
-                    ,19 => 16145298
-                    ,20 => 16145308
-                    ,21 => 16145318
-                    ,22 => 16145328
-                    ,23 => 35211535
-                    ,24 => 56017195
-                    ,25 => 56017205
-                    ,26 => 56017215
-                    ,27 => 64514355
-                    ,28 => 64514365
-                    ,29 => 64514375
-                    ,30 => 64514385
-                    ,31 => 64514395
-                    ,32 => 64514405
-                    ,33 => 64514415
-                    ,34 => 64514425
-                    ,35 => 64514435
-                    ,36 => 64514445
-                    ,37 => 64514455
-                    ,38 => 64514465
-                    ,39 => 64514475
-                    ,40 => 76528115
-                    ,41 => 76531395
-     
-                    )
-        );
         
         $hotelDataRequest = new HDRequest();
+        
+        $pHotelIdIndex = new HDRequest\HotelIds();
+        foreach ($inputObj->hotelIds as $key => $value)
+        {
+             $hotelDataRequest->setHotelIds(array(
+            (new HDRequest\HotelIds())->setHotelId($key)->setRoomTypeCodes($value)
+         //,(new HDRequest\HotelIds())->setHotelId($key)->setRoomTypeCodes($value)
+        ));
+        }
+       
+        
+        
+        $hotelDataRequest->setReturnHotelStaticData(new HDRequest\ReturnHotelStaticData());
+        $hotelDataRequest->getReturnHotelStaticData()->setDescription1($inputObj->ReturnHotelStaticData->description1);
+      
+        
+        
+        $pReturnRateData = new HDRequest\ReturnRateData();
+        $pReturnRateData->setOccupancy($inputObj->ReturnRateData->occupancy);
+        
+        $pReturnRoomTypeStaticData = new HDRequest\ReturnRoomTypeStaticData();
+        $pReturnRoomTypeStaticData->setRoomAmenities($inputObj->ReturnRoomTypeStaticData->roomAmenities);
+        
+        
         $hotelDataRequest->setHotelDataRequest("HDRPROTO ")
-                ->setHotelIds(array(new HDRequest\HotelIds()))
-                 ->setLanguageId($inputObj->LanguageId)
-                ->setReturnHotelStaticData(new HDRequest\ReturnHotelStaticData())
-                 ->setReturnRateData(new HDRequest\ReturnRateData())
-                 ->setReturnRoomTypeStaticData(new HDRequest\ReturnRoomTypeStaticData());
+                //->setHotelIds($pHotelIdIndex)
+                ->setLanguageId($inputObj->LanguageId)
+                ->setReturnHotelStaticData($pReturnHotelStaticData)
+                ->setReturnRateData($pReturnRateData)
+                ->setReturnRoomTypeStaticData($pReturnRoomTypeStaticData);
         ;
         $reply = $client->hotelDataRequest($hotelDataRequest);
         
