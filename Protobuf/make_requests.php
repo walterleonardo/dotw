@@ -52,12 +52,12 @@ function managerSupplierRequest(Input &$inputObj)
         
         
         $psfilter->setRoomOccupancy(array(
-            (new PSFRequest\RoomOccupancy())->setAdults(2)->setChildren(array())->setTwin(false)->setExtraBed(false)
+            (new Protobuffer\Dotwproto\PSFRequest_RoomOccupancy())->setAdults(2)->setChildren(array())->setTwin(false)->setExtraBed(false)
          //,(new PSFRequest\RoomOccupancy())->setAdults(3)->setChildren(array(1,2,3))->setTwin(false)->setExtraBed(false)
         ));
         
         
-        $psfilter->setSearchPeriodCriteria(new PSFRequest\SearchPeriodCriteria());
+        $psfilter->setSearchPeriodCriteria(new Protobuffer\Dotwproto\PSFRequest_SearchPeriodCriteria());
         $psfilter->getSearchPeriodCriteria()->setTravelFrom(1552640400);
         $psfilter->getSearchPeriodCriteria()->setTravelTo(1553644800);
         $psfilter->getSearchPeriodCriteria()->setBookingDateTime(1552694400);
@@ -78,6 +78,44 @@ function managerSupplierRequest(Input &$inputObj)
         
         //Call to server and get answer
         $reply = $client->psfilter($psfilter);
+        
+        //var_dump($reply);
+        
+                
+        $valueRI = new Protobuffer\Dotwproto\PSFReply_RoomIndex();
+        $valueBC = new Protobuffer\Dotwproto\PSFReply_BookingChannelCode();
+        $valueHC = new Protobuffer\Dotwproto\PSFReply_HotelCode();   
+        $valueRD = new Protobuffer\Dotwproto\PSFReply_RoomData();
+        
+        foreach ($reply->getResults() as $valueRI)
+        {            
+            echo $valueRI->getKey();
+             echo "\n\r";
+            
+           foreach ($valueRI->getRoomIndexArray() as $valueBC)
+            {
+               echo $valueBC->getKey();
+                echo "\n\r";
+               
+                foreach ($valueBC->getHotelCodeArray() as $valueHC)
+              {
+                echo "CITYCODE";
+                echo $valueHC->getCityCode();
+                 echo "\n\r";
+                echo $valueHC->getHotelCodeOriginal();
+                 echo "\n\r";
+                
+                 foreach ($valueHC->getRoomData() as $valueRD)
+              {
+                     $valueRD->getKey();
+                     echo "ROOMTYPECODE";
+                     echo $valueRD->getRoomTypeCode();
+                      echo "\n\r";
+                 }
+                
+             }
+           }
+        }
 
         if ($reply->getReplyString() == "") 
         {
@@ -96,29 +134,23 @@ function managerHotelRequest(StaticInput &$inputObj)
        //Distribute values 
         $client = new Client();
         
-        
         $hotelDataRequest = new HDRequest();
-        
-        $pHotelIdIndex = new HDRequest\HotelIds();
+        $pHotelIdIndex = new \Protobuffer\Dotwproto\HDRequest_HotelIds();
         foreach ($inputObj->hotelIds as $key => $value)
         {
              $hotelDataRequest->setHotelIds(array(
-            (new HDRequest\HotelIds())->setHotelId($key)->setRoomTypeCodes($value)
+            $pHotelIdIndex->setHotelId($key)->setRoomTypeCodes($value)
          //,(new HDRequest\HotelIds())->setHotelId($key)->setRoomTypeCodes($value)
         ));
         }
-       
-        
-        
-        $hotelDataRequest->setReturnHotelStaticData(new HDRequest\ReturnHotelStaticData());
+
+        $hotelDataRequest->setReturnHotelStaticData(new \Protobuffer\Dotwproto\HDRequest_ReturnHotelStaticData());
         $hotelDataRequest->getReturnHotelStaticData()->setDescription1($inputObj->ReturnHotelStaticData->description1);
-      
-        
-        
-        $pReturnRateData = new HDRequest\ReturnRateData();
+
+        $pReturnRateData = new \Protobuffer\Dotwproto\HDRequest_ReturnRateData();
         $pReturnRateData->setOccupancy($inputObj->ReturnRateData->occupancy);
         
-        $pReturnRoomTypeStaticData = new HDRequest\ReturnRoomTypeStaticData();
+        $pReturnRoomTypeStaticData = new \Protobuffer\Dotwproto\HDRequest_ReturnRoomTypeStaticData();
         $pReturnRoomTypeStaticData->setRoomAmenities($inputObj->ReturnRoomTypeStaticData->roomAmenities);
         
         
@@ -128,11 +160,24 @@ function managerHotelRequest(StaticInput &$inputObj)
                 ->setReturnHotelStaticData($pReturnHotelStaticData)
                 ->setReturnRateData($pReturnRateData)
                 ->setReturnRoomTypeStaticData($pReturnRoomTypeStaticData);
-        ;
         $reply = $client->hotelDataRequest($hotelDataRequest);
         
         
         //echo var_dump($reply);
+        
+        
+        //$value = new \Protobuffer\Dotwproto\HDReply_HotelStaticData();
+        
+
+//        foreach ($reply->getHotelStaticDataList() as $value)
+//        {
+//            echo "GET KEY ";
+//            echo  $value->getKey();
+//            echo "\n\r";
+//            echo "GET Description ";
+//            echo  $value->getDescription1();
+//            echo "\n\r#####";
+//        }
         
         if ($reply->getReplyString() == "") 
         {
@@ -145,11 +190,11 @@ function managerHotelRequest(StaticInput &$inputObj)
 
     
 //CALL FIRST CALL 
-//$inputPresupplier = new DotwCalls\FirstCall\Input();
-//$answerRequest = managerSupplierRequest($inputPresupplier);
+$inputPresupplier = new DotwCalls\FirstCall\Input();
+$answerRequest = managerSupplierRequest($inputPresupplier);
 
 //CALL SECOND CALL
     
 //    
-$inputHotelData= new \DotwCalls\SecondCall\StaticInput();
-$answerRequest = managerHotelRequest($inputHotelData);
+//$inputHotelData= new \DotwCalls\SecondCall\StaticInput();
+//$answerRequest = managerHotelRequest($inputHotelData);

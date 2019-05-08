@@ -106,6 +106,16 @@ class HDRequestDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<HDRequest>
       _instance;
 } _HDRequest_default_instance_;
+class HDReply_HotelStaticData_RoomTypeStaticData_RoomNameDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<HDReply_HotelStaticData_RoomTypeStaticData_RoomName>
+      _instance;
+} _HDReply_HotelStaticData_RoomTypeStaticData_RoomName_default_instance_;
+class HDReply_HotelStaticData_RoomTypeStaticData_RoomNamesDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<HDReply_HotelStaticData_RoomTypeStaticData_RoomNames>
+      _instance;
+} _HDReply_HotelStaticData_RoomTypeStaticData_RoomNames_default_instance_;
 class HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomNameDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName>
@@ -520,6 +530,49 @@ void InitDefaultsHDRequest() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsHDRequestImpl);
 }
 
+void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNameImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::protobuffer::dotwproto::_HDReply_HotelStaticData_RoomTypeStaticData_RoomName_default_instance_;
+    new (ptr) ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName::InitAsDefaultInstance();
+}
+
+void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomName() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNameImpl);
+}
+
+void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNamesImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+  {
+    void* ptr = &::protobuffer::dotwproto::_HDReply_HotelStaticData_RoomTypeStaticData_RoomNames_default_instance_;
+    new (ptr) ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::InitAsDefaultInstance();
+}
+
+void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNames() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNamesImpl);
+}
+
 void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomNameImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -528,6 +581,7 @@ void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomNameImpl
 #else
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
   {
     void* ptr = &::protobuffer::dotwproto::_HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName_default_instance_;
     new (ptr) ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName();
@@ -695,7 +749,7 @@ void InitDefaultsHDReply() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsHDReplyImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[25];
+::google::protobuf::Metadata file_level_metadata[27];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -791,12 +845,14 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_RoomData, key_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_RoomData, roomtypecode_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_HotelCode, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_HotelCode, key_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_HotelCode, hotelcodeoriginal_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_HotelCode, citycode_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_HotelCode, roomdata_),
@@ -805,13 +861,15 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_BookingChannelCode, hotelcode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_BookingChannelCode, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_BookingChannelCode, hotelcodearray_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_RoomIndex, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_RoomIndex, roomindex_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_RoomIndex, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply_RoomIndex, roomindexarray_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::PSFReply, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -938,11 +996,25 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDRequest, returnratedata_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDRequest, languageid_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName, roomcode_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName, roomname_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames, key_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames, roomname_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName, roomname_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName, roomnames_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -968,6 +1040,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData, key_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData, twin_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData, roomamenities_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData, name_),
@@ -1000,6 +1073,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData, key_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData, roomtypestaticdatalist_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData, description1_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply_HotelStaticData, description2_),
@@ -1054,6 +1128,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply, key_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply, hotelstaticdatalist_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply, error_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::protobuffer::dotwproto::HDReply, errorcode_),
@@ -1069,23 +1144,25 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 57, -1, sizeof(::protobuffer::dotwproto::PSFRequest_SearchPeriodCriteria)},
   { 65, -1, sizeof(::protobuffer::dotwproto::PSFRequest)},
   { 88, -1, sizeof(::protobuffer::dotwproto::PSFReply_RoomData)},
-  { 94, -1, sizeof(::protobuffer::dotwproto::PSFReply_HotelCode)},
-  { 102, -1, sizeof(::protobuffer::dotwproto::PSFReply_BookingChannelCode)},
-  { 108, -1, sizeof(::protobuffer::dotwproto::PSFReply_RoomIndex)},
-  { 114, -1, sizeof(::protobuffer::dotwproto::PSFReply)},
-  { 124, -1, sizeof(::protobuffer::dotwproto::HDRequest_HotelIds)},
-  { 131, -1, sizeof(::protobuffer::dotwproto::HDRequest_ReturnHotelStaticData)},
-  { 183, -1, sizeof(::protobuffer::dotwproto::HDRequest_ReturnRoomTypeStaticData)},
-  { 196, -1, sizeof(::protobuffer::dotwproto::HDRequest_ReturnRateData)},
-  { 228, -1, sizeof(::protobuffer::dotwproto::HDRequest)},
-  { 239, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName)},
-  { 245, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo)},
-  { 258, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory)},
-  { 265, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData)},
-  { 276, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_ImagesData)},
-  { 286, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_TransportationData)},
-  { 297, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData)},
-  { 351, -1, sizeof(::protobuffer::dotwproto::HDReply)},
+  { 95, -1, sizeof(::protobuffer::dotwproto::PSFReply_HotelCode)},
+  { 104, -1, sizeof(::protobuffer::dotwproto::PSFReply_BookingChannelCode)},
+  { 111, -1, sizeof(::protobuffer::dotwproto::PSFReply_RoomIndex)},
+  { 118, -1, sizeof(::protobuffer::dotwproto::PSFReply)},
+  { 128, -1, sizeof(::protobuffer::dotwproto::HDRequest_HotelIds)},
+  { 135, -1, sizeof(::protobuffer::dotwproto::HDRequest_ReturnHotelStaticData)},
+  { 187, -1, sizeof(::protobuffer::dotwproto::HDRequest_ReturnRoomTypeStaticData)},
+  { 200, -1, sizeof(::protobuffer::dotwproto::HDRequest_ReturnRateData)},
+  { 232, -1, sizeof(::protobuffer::dotwproto::HDRequest)},
+  { 243, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName)},
+  { 250, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames)},
+  { 257, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName)},
+  { 263, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo)},
+  { 276, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory)},
+  { 283, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData)},
+  { 295, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_ImagesData)},
+  { 305, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData_TransportationData)},
+  { 316, -1, sizeof(::protobuffer::dotwproto::HDReply_HotelStaticData)},
+  { 371, -1, sizeof(::protobuffer::dotwproto::HDReply)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -1106,6 +1183,8 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::protobuffer::dotwproto::_HDRequest_ReturnRoomTypeStaticData_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::protobuffer::dotwproto::_HDRequest_ReturnRateData_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::protobuffer::dotwproto::_HDRequest_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::protobuffer::dotwproto::_HDReply_HotelStaticData_RoomTypeStaticData_RoomName_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::protobuffer::dotwproto::_HDReply_HotelStaticData_RoomTypeStaticData_RoomNames_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::protobuffer::dotwproto::_HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::protobuffer::dotwproto::_HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::protobuffer::dotwproto::_HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory_default_instance_),
@@ -1132,7 +1211,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 25);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 27);
 }
 
 void AddDescriptorsImpl() {
@@ -1178,138 +1257,146 @@ void AddDescriptorsImpl() {
       "ype\030\004 \001(\005\022\022\n\nAttribute1\030\005 \001(\005\022\022\n\nAttribu"
       "te2\030\006 \001(\005\032\023\n\021AdditionalFilters\032U\n\024Search"
       "PeriodCriteria\022\022\n\ntravelFrom\030\001 \001(\005\022\020\n\010tr"
-      "avelTo\030\002 \001(\005\022\027\n\017bookingDateTime\030\003 \001(\005\"\325\003"
+      "avelTo\030\002 \001(\005\022\027\n\017bookingDateTime\030\003 \001(\005\"\224\004"
       "\n\010PSFReply\022:\n\007Results\030\001 \003(\0132).protobuffe"
       "r.dotwproto.PSFReply.RoomIndex\022\r\n\005error\030"
       "\002 \001(\t\022\021\n\terrorCode\030\003 \001(\t\022\023\n\013replystring\030"
-      "\004 \001(\t\022\026\n\016replystringInt\030\005 \001(\005\032 \n\010RoomDat"
-      "a\022\024\n\014roomTypeCode\030\001 \001(\005\032t\n\tHotelCode\022\031\n\021"
-      "hotelCodeOriginal\030\001 \001(\005\022\020\n\010cityCode\030\002 \001("
-      "\t\022:\n\010roomData\030\003 \003(\0132(.protobuffer.dotwpr"
-      "oto.PSFReply.RoomData\032R\n\022BookingChannelC"
-      "ode\022<\n\thotelCode\030\001 \003(\0132).protobuffer.dot"
-      "wproto.PSFReply.HotelCode\032R\n\tRoomIndex\022E"
-      "\n\troomIndex\030\001 \003(\01322.protobuffer.dotwprot"
-      "o.PSFReply.BookingChannelCode\"\217\021\n\tHDRequ"
-      "est\022\030\n\020hotelDataRequest\030\001 \001(\t\022;\n\010hotelId"
-      "s\030\002 \003(\0132).protobuffer.dotwproto.HDReques"
-      "t.HotelIds\022U\n\025returnHotelStaticData\030\003 \001("
-      "\01326.protobuffer.dotwproto.HDRequest.Retu"
-      "rnHotelStaticData\022[\n\030returnRoomTypeStati"
-      "cData\030\004 \001(\01329.protobuffer.dotwproto.HDRe"
-      "quest.ReturnRoomTypeStaticData\022G\n\016return"
-      "RateData\030\005 \001(\0132/.protobuffer.dotwproto.H"
-      "DRequest.ReturnRateData\022\022\n\nlanguageId\030\006 "
-      "\001(\005\0322\n\010HotelIds\022\017\n\007hotelId\030\001 \001(\005\022\025\n\rroom"
-      "TypeCodes\030\002 \003(\005\032\263\007\n\025ReturnHotelStaticDat"
-      "a\022\024\n\014description1\030\001 \001(\010\022\024\n\014description2\030"
-      "\002 \001(\010\022\020\n\010geoPoint\030\003 \001(\010\022\031\n\021ratingDescrip"
-      "tion\030\004 \001(\010\022\016\n\006images\030\005 \001(\010\022\016\n\006direct\030\006 \001"
-      "(\010\022\027\n\017hotelPreference\030\007 \001(\010\022\021\n\tbuiltYear"
-      "\030\010 \001(\010\022\026\n\016renovationYear\030\t \001(\010\022\016\n\006floors"
-      "\030\n \001(\010\022\021\n\tnoOfRooms\030\013 \001(\010\022\016\n\006luxury\030\014 \001("
-      "\010\022\017\n\007address\030\r \001(\010\022\017\n\007zipCode\030\016 \001(\010\022\020\n\010l"
-      "ocation\030\017 \001(\010\022\022\n\nlocationId\030\020 \001(\010\022\021\n\tloc"
-      "ation1\030\021 \001(\010\022\021\n\tlocation2\030\022 \001(\010\022\021\n\tlocat"
-      "ion3\030\023 \001(\010\022\021\n\tstateName\030\024 \001(\010\022\021\n\tstateCo"
-      "de\030\025 \001(\010\022\023\n\013countryName\030\026 \001(\010\022\022\n\nregionN"
-      "ame\030\027 \001(\010\022\022\n\nregionCode\030\030 \001(\010\022\020\n\010ameniti"
-      "e\030\031 \001(\010\022\017\n\007leisure\030\032 \001(\010\022\020\n\010business\030\033 \001"
-      "(\010\022\026\n\016transportation\030\034 \001(\010\022\022\n\nhotelPhone"
-      "\030\035 \001(\010\022\024\n\014hotelCheckIn\030\036 \001(\010\022\025\n\rhotelChe"
-      "ckOut\030\037 \001(\010\022\016\n\006minAge\030  \001(\010\022\016\n\006rating\030! "
-      "\001(\010\022\022\n\nfireSafety\030\" \001(\010\022\r\n\005chain\030# \001(\010\022\023"
-      "\n\013lastUpdated\030$ \001(\010\022\031\n\021transferMandatory"
-      "\030% \001(\010\022\023\n\013tariffNotes\030& \001(\010\022\021\n\tchainName"
-      "\030\' \001(\010\022\025\n\rhotelProperty\030( \001(\010\022\023\n\013fullAdd"
-      "ress\030) \001(\010\022\021\n\texclusive\030* \001(\010\022\022\n\nattract"
-      "ion\030+ \001(\010\022\020\n\010areaCode\030, \001(\010\022\020\n\010areaName\030"
-      "- \001(\010\022\024\n\014geoLocations\030. \001(\010\022\020\n\010priority\030"
-      "/ \001(\010\032\265\001\n\030ReturnRoomTypeStaticData\022\025\n\rro"
-      "omAmenities\030\001 \001(\010\022\014\n\004name\030\002 \001(\010\022\030\n\020suppl"
-      "ierRoomName\030\003 \001(\010\022\014\n\004twin\030\004 \001(\010\022\020\n\010roomI"
-      "nfo\030\005 \001(\010\022\020\n\010specials\030\006 \001(\010\022\022\n\nroomImage"
-      "s\030\007 \001(\010\022\024\n\014roomCategory\030\010 \001(\010\032\367\004\n\016Return"
-      "RateData\022\021\n\toccupancy\030\001 \001(\010\022\016\n\006status\030\002 "
-      "\001(\010\022\020\n\010rateType\030\003 \001(\010\022\023\n\013paymentMode\030\004 \001"
-      "(\010\022\030\n\020allowsExtraMeals\030\005 \001(\010\022\035\n\025allowsSp"
-      "ecialRequests\030\006 \001(\010\022\037\n\027allowsBeddingPref"
-      "erence\030\007 \001(\010\022\026\n\016allowsSpecials\030\010 \001(\010\022(\n "
-      "passengerNamesRequiredForBooking\030\t \001(\010\022\031"
-      "\n\021allocationDetails\030\n \001(\010\022\017\n\007minStay\030\013 \001"
-      "(\010\022\030\n\020dateApplyMinStay\030\014 \001(\010\022\031\n\021cancella"
-      "tionRules\030\r \001(\010\022\"\n\032withinCancellationDea"
-      "dline\030\016 \001(\010\022\023\n\013tariffNotes\030\017 \001(\010\022\022\n\nisBo"
-      "okable\030\020 \001(\010\022\021\n\tonRequest\030\021 \001(\010\022\r\n\005total"
-      "\030\022 \001(\010\022\r\n\005dates\030\023 \001(\010\022\020\n\010freeStay\030\024 \001(\010\022"
-      "\020\n\010discount\030\025 \001(\010\022\024\n\014dayOnRequest\030\026 \001(\010\022"
-      "\021\n\tincluding\030\027 \001(\010\022\027\n\017dailyLeftToSell\030\030 "
-      "\001(\010\022\024\n\014dailyMinStay\030\031 \001(\010\022\022\n\nleftToSell\030"
-      "\032 \001(\010\022\020\n\010specials\030\033 \001(\010\"\251\021\n\007HDReply\022K\n\023h"
-      "otelStaticDataList\030\001 \003(\0132..protobuffer.d"
-      "otwproto.HDReply.HotelStaticData\022\r\n\005erro"
-      "r\030\002 \001(\t\022\021\n\terrorCode\030\003 \001(\t\022\023\n\013replystrin"
-      "g\030\004 \001(\t\022\026\n\016replystringInt\030\005 \001(\005\032\201\020\n\017Hote"
-      "lStaticData\022a\n\026roomTypeStaticDataList\030\001 "
-      "\003(\0132A.protobuffer.dotwproto.HDReply.Hote"
-      "lStaticData.RoomTypeStaticData\022\024\n\014descri"
-      "ption1\030\002 \001(\t\022\024\n\014description2\030\003 \001(\t\022\020\n\010ge"
-      "oPoint\030\004 \003(\t\022\031\n\021ratingDescription\030\005 \001(\t\022"
-      "I\n\006images\030\006 \003(\01329.protobuffer.dotwproto."
-      "HDReply.HotelStaticData.ImagesData\022\016\n\006di"
-      "rect\030\007 \001(\010\022\027\n\017hotelPreference\030\010 \003(\005\022\021\n\tp"
-      "referred\030\t \001(\010\022\021\n\tbuiltYear\030\n \001(\005\022\026\n\016ren"
-      "ovationYear\030\013 \001(\005\022\016\n\006floors\030\014 \001(\005\022\021\n\tnoO"
-      "fRooms\030\r \001(\005\022\016\n\006luxury\030\016 \001(\010\022\021\n\thotelNam"
-      "e\030\017 \001(\t\022\017\n\007address\030\020 \001(\t\022\017\n\007zipCode\030\021 \001("
-      "\t\022\020\n\010location\030\022 \001(\t\022\022\n\nlocationId\030\023 \001(\005\022"
-      "\021\n\tlocation1\030\024 \001(\t\022\021\n\tlocation2\030\025 \001(\t\022\021\n"
-      "\tlocation3\030\026 \001(\t\022\020\n\010cityName\030\027 \001(\t\022\020\n\010ci"
-      "tyCode\030\030 \001(\005\022\021\n\tstateName\030\031 \001(\t\022\021\n\tstate"
-      "Code\030\032 \001(\005\022\023\n\013countryName\030\033 \001(\t\022\023\n\013count"
-      "ryCode\030\034 \001(\005\022\022\n\nregionName\030\035 \001(\t\022\022\n\nregi"
-      "onCode\030\036 \001(\005\022\020\n\010amenitie\030\037 \003(\t\022\017\n\007leisur"
-      "e\030  \003(\t\022\020\n\010business\030! \003(\t\022Y\n\016transportat"
-      "ion\030\" \003(\0132A.protobuffer.dotwproto.HDRepl"
-      "y.HotelStaticData.TransportationData\022\022\n\n"
-      "hotelPhone\030# \001(\t\022\024\n\014hotelCheckIn\030$ \001(\005\022\025"
-      "\n\rhotelCheckOut\030% \001(\005\022\016\n\006minAge\030& \001(\005\022\016\n"
-      "\006rating\030\' \001(\005\022\022\n\nfireSafety\030( \001(\010\022\r\n\005cha"
-      "in\030) \001(\005\022\023\n\013lastUpdated\030* \001(\t\022\031\n\021transfe"
-      "rMandatory\030+ \001(\005\022\023\n\013tariffNotes\030, \001(\t\022\021\n"
-      "\tchainName\030- \001(\t\022\025\n\rhotelProperty\030. \001(\005\022"
-      "\023\n\013fullAddress\030/ \001(\t\022\022\n\nattraction\0300 \001(\t"
-      "\022\021\n\texclusive\0301 \001(\010\032\204\005\n\022RoomTypeStaticDa"
-      "ta\022\014\n\004twin\030\001 \001(\010\022\025\n\rroomAmenities\030\002 \003(\t\022"
-      "\014\n\004name\030\003 \001(\t\022l\n\020supplierRoomName\030\004 \003(\0132"
-      "R.protobuffer.dotwproto.HDReply.HotelSta"
-      "ticData.RoomTypeStaticData.SupplierRoomN"
-      "ame\022\\\n\010roomInfo\030\005 \003(\0132J.protobuffer.dotw"
+      "\004 \001(\t\022\026\n\016replystringInt\030\005 \001(\005\032-\n\010RoomDat"
+      "a\022\013\n\003key\030\001 \001(\t\022\024\n\014roomTypeCode\030\002 \001(\005\032\201\001\n"
+      "\tHotelCode\022\013\n\003key\030\001 \001(\005\022\031\n\021hotelCodeOrig"
+      "inal\030\002 \001(\t\022\020\n\010cityCode\030\003 \001(\t\022:\n\010roomData"
+      "\030\004 \003(\0132(.protobuffer.dotwproto.PSFReply."
+      "RoomData\032d\n\022BookingChannelCode\022\013\n\003key\030\001 "
+      "\001(\005\022A\n\016hotelCodeArray\030\002 \003(\0132).protobuffe"
+      "r.dotwproto.PSFReply.HotelCode\032d\n\tRoomIn"
+      "dex\022\013\n\003key\030\001 \001(\005\022J\n\016roomIndexArray\030\002 \003(\013"
+      "22.protobuffer.dotwproto.PSFReply.Bookin"
+      "gChannelCode\"\217\021\n\tHDRequest\022\030\n\020hotelDataR"
+      "equest\030\001 \001(\t\022;\n\010hotelIds\030\002 \003(\0132).protobu"
+      "ffer.dotwproto.HDRequest.HotelIds\022U\n\025ret"
+      "urnHotelStaticData\030\003 \001(\01326.protobuffer.d"
+      "otwproto.HDRequest.ReturnHotelStaticData"
+      "\022[\n\030returnRoomTypeStaticData\030\004 \001(\01329.pro"
+      "tobuffer.dotwproto.HDRequest.ReturnRoomT"
+      "ypeStaticData\022G\n\016returnRateData\030\005 \001(\0132/."
+      "protobuffer.dotwproto.HDRequest.ReturnRa"
+      "teData\022\022\n\nlanguageId\030\006 \001(\005\0322\n\010HotelIds\022\017"
+      "\n\007hotelId\030\001 \001(\005\022\025\n\rroomTypeCodes\030\002 \003(\005\032\263"
+      "\007\n\025ReturnHotelStaticData\022\024\n\014description1"
+      "\030\001 \001(\010\022\024\n\014description2\030\002 \001(\010\022\020\n\010geoPoint"
+      "\030\003 \001(\010\022\031\n\021ratingDescription\030\004 \001(\010\022\016\n\006ima"
+      "ges\030\005 \001(\010\022\016\n\006direct\030\006 \001(\010\022\027\n\017hotelPrefer"
+      "ence\030\007 \001(\010\022\021\n\tbuiltYear\030\010 \001(\010\022\026\n\016renovat"
+      "ionYear\030\t \001(\010\022\016\n\006floors\030\n \001(\010\022\021\n\tnoOfRoo"
+      "ms\030\013 \001(\010\022\016\n\006luxury\030\014 \001(\010\022\017\n\007address\030\r \001("
+      "\010\022\017\n\007zipCode\030\016 \001(\010\022\020\n\010location\030\017 \001(\010\022\022\n\n"
+      "locationId\030\020 \001(\010\022\021\n\tlocation1\030\021 \001(\010\022\021\n\tl"
+      "ocation2\030\022 \001(\010\022\021\n\tlocation3\030\023 \001(\010\022\021\n\tsta"
+      "teName\030\024 \001(\010\022\021\n\tstateCode\030\025 \001(\010\022\023\n\013count"
+      "ryName\030\026 \001(\010\022\022\n\nregionName\030\027 \001(\010\022\022\n\nregi"
+      "onCode\030\030 \001(\010\022\020\n\010amenitie\030\031 \001(\010\022\017\n\007leisur"
+      "e\030\032 \001(\010\022\020\n\010business\030\033 \001(\010\022\026\n\016transportat"
+      "ion\030\034 \001(\010\022\022\n\nhotelPhone\030\035 \001(\010\022\024\n\014hotelCh"
+      "eckIn\030\036 \001(\010\022\025\n\rhotelCheckOut\030\037 \001(\010\022\016\n\006mi"
+      "nAge\030  \001(\010\022\016\n\006rating\030! \001(\010\022\022\n\nfireSafety"
+      "\030\" \001(\010\022\r\n\005chain\030# \001(\010\022\023\n\013lastUpdated\030$ \001"
+      "(\010\022\031\n\021transferMandatory\030% \001(\010\022\023\n\013tariffN"
+      "otes\030& \001(\010\022\021\n\tchainName\030\' \001(\010\022\025\n\rhotelPr"
+      "operty\030( \001(\010\022\023\n\013fullAddress\030) \001(\010\022\021\n\texc"
+      "lusive\030* \001(\010\022\022\n\nattraction\030+ \001(\010\022\020\n\010area"
+      "Code\030, \001(\010\022\020\n\010areaName\030- \001(\010\022\024\n\014geoLocat"
+      "ions\030. \001(\010\022\020\n\010priority\030/ \001(\010\032\265\001\n\030ReturnR"
+      "oomTypeStaticData\022\025\n\rroomAmenities\030\001 \001(\010"
+      "\022\014\n\004name\030\002 \001(\010\022\030\n\020supplierRoomName\030\003 \001(\010"
+      "\022\014\n\004twin\030\004 \001(\010\022\020\n\010roomInfo\030\005 \001(\010\022\020\n\010spec"
+      "ials\030\006 \001(\010\022\022\n\nroomImages\030\007 \001(\010\022\024\n\014roomCa"
+      "tegory\030\010 \001(\010\032\367\004\n\016ReturnRateData\022\021\n\toccup"
+      "ancy\030\001 \001(\010\022\016\n\006status\030\002 \001(\010\022\020\n\010rateType\030\003"
+      " \001(\010\022\023\n\013paymentMode\030\004 \001(\010\022\030\n\020allowsExtra"
+      "Meals\030\005 \001(\010\022\035\n\025allowsSpecialRequests\030\006 \001"
+      "(\010\022\037\n\027allowsBeddingPreference\030\007 \001(\010\022\026\n\016a"
+      "llowsSpecials\030\010 \001(\010\022(\n passengerNamesReq"
+      "uiredForBooking\030\t \001(\010\022\031\n\021allocationDetai"
+      "ls\030\n \001(\010\022\017\n\007minStay\030\013 \001(\010\022\030\n\020dateApplyMi"
+      "nStay\030\014 \001(\010\022\031\n\021cancellationRules\030\r \001(\010\022\""
+      "\n\032withinCancellationDeadline\030\016 \001(\010\022\023\n\013ta"
+      "riffNotes\030\017 \001(\010\022\022\n\nisBookable\030\020 \001(\010\022\021\n\to"
+      "nRequest\030\021 \001(\010\022\r\n\005total\030\022 \001(\010\022\r\n\005dates\030\023"
+      " \001(\010\022\020\n\010freeStay\030\024 \001(\010\022\020\n\010discount\030\025 \001(\010"
+      "\022\024\n\014dayOnRequest\030\026 \001(\010\022\021\n\tincluding\030\027 \001("
+      "\010\022\027\n\017dailyLeftToSell\030\030 \001(\010\022\024\n\014dailyMinSt"
+      "ay\030\031 \001(\010\022\022\n\nleftToSell\030\032 \001(\010\022\020\n\010specials"
+      "\030\033 \001(\010\"\306\023\n\007HDReply\022\013\n\003key\030\001 \001(\005\022K\n\023hotel"
+      "StaticDataList\030\002 \003(\0132..protobuffer.dotwp"
+      "roto.HDReply.HotelStaticData\022\r\n\005error\030\003 "
+      "\001(\t\022\021\n\terrorCode\030\004 \001(\t\022\023\n\013replystring\030\005 "
+      "\001(\t\022\026\n\016replystringInt\030\006 \001(\005\032\221\022\n\017HotelSta"
+      "ticData\022\013\n\003key\030\001 \001(\005\022a\n\026roomTypeStaticDa"
+      "taList\030\002 \003(\0132A.protobuffer.dotwproto.HDR"
+      "eply.HotelStaticData.RoomTypeStaticData\022"
+      "\024\n\014description1\030\003 \001(\t\022\024\n\014description2\030\004 "
+      "\001(\t\022\020\n\010geoPoint\030\005 \003(\t\022\031\n\021ratingDescripti"
+      "on\030\006 \001(\t\022I\n\006images\030\007 \003(\01329.protobuffer.d"
+      "otwproto.HDReply.HotelStaticData.ImagesD"
+      "ata\022\016\n\006direct\030\010 \001(\010\022\027\n\017hotelPreference\030\t"
+      " \003(\005\022\021\n\tpreferred\030\n \001(\010\022\021\n\tbuiltYear\030\013 \001"
+      "(\005\022\026\n\016renovationYear\030\014 \001(\005\022\016\n\006floors\030\r \001"
+      "(\005\022\021\n\tnoOfRooms\030\016 \001(\005\022\016\n\006luxury\030\017 \001(\010\022\021\n"
+      "\thotelName\030\020 \001(\t\022\017\n\007address\030\021 \001(\t\022\017\n\007zip"
+      "Code\030\022 \001(\t\022\020\n\010location\030\023 \001(\t\022\022\n\nlocation"
+      "Id\030\024 \001(\005\022\021\n\tlocation1\030\025 \001(\t\022\021\n\tlocation2"
+      "\030\026 \001(\t\022\021\n\tlocation3\030\027 \001(\t\022\020\n\010cityName\030\030 "
+      "\001(\t\022\020\n\010cityCode\030\031 \001(\005\022\021\n\tstateName\030\032 \001(\t"
+      "\022\021\n\tstateCode\030\033 \001(\005\022\023\n\013countryName\030\034 \001(\t"
+      "\022\023\n\013countryCode\030\035 \001(\005\022\022\n\nregionName\030\036 \001("
+      "\t\022\022\n\nregionCode\030\037 \001(\005\022\020\n\010amenitie\030  \003(\t\022"
+      "\017\n\007leisure\030! \003(\t\022\020\n\010business\030\" \003(\t\022Y\n\016tr"
+      "ansportation\030# \003(\0132A.protobuffer.dotwpro"
+      "to.HDReply.HotelStaticData.Transportatio"
+      "nData\022\022\n\nhotelPhone\030$ \001(\t\022\024\n\014hotelCheckI"
+      "n\030% \001(\005\022\025\n\rhotelCheckOut\030& \001(\005\022\016\n\006minAge"
+      "\030\' \001(\005\022\016\n\006rating\030( \001(\005\022\022\n\nfireSafety\030) \001"
+      "(\010\022\r\n\005chain\030* \001(\005\022\023\n\013lastUpdated\030+ \001(\t\022\031"
+      "\n\021transferMandatory\030, \001(\005\022\023\n\013tariffNotes"
+      "\030- \001(\t\022\021\n\tchainName\030. \001(\t\022\025\n\rhotelProper"
+      "ty\030/ \001(\005\022\023\n\013fullAddress\0300 \001(\t\022\022\n\nattract"
+      "ion\0301 \001(\t\022\021\n\texclusive\0302 \001(\010\032\207\007\n\022RoomTyp"
+      "eStaticData\022\013\n\003key\030\001 \001(\005\022\014\n\004twin\030\002 \001(\010\022\025"
+      "\n\rroomAmenities\030\003 \003(\t\022\014\n\004name\030\004 \001(\t\022l\n\020s"
+      "upplierRoomName\030\005 \003(\0132R.protobuffer.dotw"
       "proto.HDReply.HotelStaticData.RoomTypeSt"
-      "aticData.RoomInfo\022d\n\014roomCategory\030\006 \001(\0132"
-      "N.protobuffer.dotwproto.HDReply.HotelSta"
-      "ticData.RoomTypeStaticData.RoomCategory\032"
-      "$\n\020SupplierRoomName\022\020\n\010roomName\030\001 \003(\005\032\266\001"
-      "\n\010RoomInfo\022\024\n\014maxOccupancy\030\001 \001(\005\022\034\n\024maxA"
-      "dultWithChildren\030\002 \001(\005\022\023\n\013minChildAge\030\003 "
-      "\001(\005\022\023\n\013maxChildAge\030\004 \001(\005\022\020\n\010maxAdult\030\005 \001"
-      "(\005\022\023\n\013maxExtraBed\030\006 \001(\010\022\023\n\013maxChildren\030\007"
-      " \001(\005\022\020\n\010children\030\010 \001(\005\032*\n\014RoomCategory\022\014"
-      "\n\004code\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\032[\n\nImagesData"
-      "\022\r\n\005thumb\030\001 \001(\t\022\013\n\003alt\030\002 \001(\t\022\020\n\010category"
-      "\030\003 \001(\t\022\013\n\003url\030\004 \001(\t\022\022\n\nroomTypeId\030\005 \001(\005\032"
-      "z\n\022TransportationData\022\014\n\004type\030\001 \001(\t\022\014\n\004n"
-      "ame\030\002 \001(\t\022\014\n\004dist\030\003 \001(\t\022\024\n\014distanceUnit\030"
-      "\004 \001(\t\022\020\n\010distTime\030\005 \001(\t\022\022\n\ndirections\030\006 "
-      "\001(\t2\275\001\n\nServerDotw\022W\n\017psfilterRequest\022!."
-      "protobuffer.dotwproto.PSFRequest\032\037.proto"
-      "buffer.dotwproto.PSFReply\"\000\022V\n\020hotelData"
-      "Request\022 .protobuffer.dotwproto.HDReques"
-      "t\032\036.protobuffer.dotwproto.HDReply\"\000b\006pro"
-      "to3"
+      "aticData.SupplierRoomName\022\\\n\010roomInfo\030\006 "
+      "\003(\0132J.protobuffer.dotwproto.HDReply.Hote"
+      "lStaticData.RoomTypeStaticData.RoomInfo\022"
+      "d\n\014roomCategory\030\007 \001(\0132N.protobuffer.dotw"
+      "proto.HDReply.HotelStaticData.RoomTypeSt"
+      "aticData.RoomCategory\032.\n\010RoomName\022\020\n\010roo"
+      "mCode\030\001 \001(\t\022\020\n\010roomName\030\002 \001(\t\032v\n\tRoomNam"
+      "es\022\013\n\003key\030\001 \001(\005\022\\\n\010roomName\030\002 \003(\0132J.prot"
+      "obuffer.dotwproto.HDReply.HotelStaticDat"
+      "a.RoomTypeStaticData.RoomName\032r\n\020Supplie"
+      "rRoomName\022^\n\troomNames\030\001 \003(\0132K.protobuff"
+      "er.dotwproto.HDReply.HotelStaticData.Roo"
+      "mTypeStaticData.RoomNames\032\266\001\n\010RoomInfo\022\024"
+      "\n\014maxOccupancy\030\001 \001(\005\022\034\n\024maxAdultWithChil"
+      "dren\030\002 \001(\005\022\023\n\013minChildAge\030\003 \001(\005\022\023\n\013maxCh"
+      "ildAge\030\004 \001(\005\022\020\n\010maxAdult\030\005 \001(\005\022\023\n\013maxExt"
+      "raBed\030\006 \001(\010\022\023\n\013maxChildren\030\007 \001(\005\022\020\n\010chil"
+      "dren\030\010 \001(\005\032*\n\014RoomCategory\022\014\n\004code\030\001 \001(\t"
+      "\022\014\n\004name\030\002 \001(\t\032[\n\nImagesData\022\r\n\005thumb\030\001 "
+      "\001(\t\022\013\n\003alt\030\002 \001(\t\022\020\n\010category\030\003 \001(\t\022\013\n\003ur"
+      "l\030\004 \001(\t\022\022\n\nroomTypeId\030\005 \001(\005\032z\n\022Transport"
+      "ationData\022\014\n\004type\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\014\n"
+      "\004dist\030\003 \001(\t\022\024\n\014distanceUnit\030\004 \001(\t\022\020\n\010dis"
+      "tTime\030\005 \001(\t\022\022\n\ndirections\030\006 \001(\t2\275\001\n\nServ"
+      "erDotw\022W\n\017psfilterRequest\022!.protobuffer."
+      "dotwproto.PSFRequest\032\037.protobuffer.dotwp"
+      "roto.PSFReply\"\000\022V\n\020hotelDataRequest\022 .pr"
+      "otobuffer.dotwproto.HDRequest\032\036.protobuf"
+      "fer.dotwproto.HDReply\"\000b\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 6723);
+      descriptor, 7071);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "genProto/Dotw_ProtoBuf.proto", &protobuf_RegisterTypes);
 }
@@ -5321,6 +5408,7 @@ void PSFRequest::InternalSwap(PSFRequest* other) {
 void PSFReply_RoomData::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PSFReply_RoomData::kKeyFieldNumber;
 const int PSFReply_RoomData::kRoomTypeCodeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -5337,11 +5425,16 @@ PSFReply_RoomData::PSFReply_RoomData(const PSFReply_RoomData& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.key().size() > 0) {
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
   roomtypecode_ = from.roomtypecode_;
   // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.PSFReply.RoomData)
 }
 
 void PSFReply_RoomData::SharedCtor() {
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   roomtypecode_ = 0;
   _cached_size_ = 0;
 }
@@ -5352,6 +5445,7 @@ PSFReply_RoomData::~PSFReply_RoomData() {
 }
 
 void PSFReply_RoomData::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void PSFReply_RoomData::SetCachedSize(int size) const {
@@ -5383,6 +5477,7 @@ void PSFReply_RoomData::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   roomtypecode_ = 0;
   _internal_metadata_.Clear();
 }
@@ -5397,10 +5492,26 @@ bool PSFReply_RoomData::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 roomTypeCode = 1;
+      // string key = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), static_cast<int>(this->key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "protobuffer.dotwproto.PSFReply.RoomData.key"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 roomTypeCode = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -5437,9 +5548,19 @@ void PSFReply_RoomData::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 roomTypeCode = 1;
+  // string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), static_cast<int>(this->key().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.PSFReply.RoomData.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->key(), output);
+  }
+
+  // int32 roomTypeCode = 2;
   if (this->roomtypecode() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->roomtypecode(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->roomtypecode(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5456,9 +5577,20 @@ void PSFReply_RoomData::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 roomTypeCode = 1;
+  // string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), static_cast<int>(this->key().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.PSFReply.RoomData.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->key(), target);
+  }
+
+  // int32 roomTypeCode = 2;
   if (this->roomtypecode() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->roomtypecode(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->roomtypecode(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5478,7 +5610,14 @@ size_t PSFReply_RoomData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // int32 roomTypeCode = 1;
+  // string key = 1;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  // int32 roomTypeCode = 2;
   if (this->roomtypecode() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -5514,6 +5653,10 @@ void PSFReply_RoomData::MergeFrom(const PSFReply_RoomData& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
   if (from.roomtypecode() != 0) {
     set_roomtypecode(from.roomtypecode());
   }
@@ -5543,6 +5686,7 @@ void PSFReply_RoomData::Swap(PSFReply_RoomData* other) {
 }
 void PSFReply_RoomData::InternalSwap(PSFReply_RoomData* other) {
   using std::swap;
+  key_.Swap(&other->key_);
   swap(roomtypecode_, other->roomtypecode_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -5559,6 +5703,7 @@ void PSFReply_RoomData::InternalSwap(PSFReply_RoomData* other) {
 void PSFReply_HotelCode::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int PSFReply_HotelCode::kKeyFieldNumber;
 const int PSFReply_HotelCode::kHotelCodeOriginalFieldNumber;
 const int PSFReply_HotelCode::kCityCodeFieldNumber;
 const int PSFReply_HotelCode::kRoomDataFieldNumber;
@@ -5578,17 +5723,22 @@ PSFReply_HotelCode::PSFReply_HotelCode(const PSFReply_HotelCode& from)
       roomdata_(from.roomdata_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  hotelcodeoriginal_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.hotelcodeoriginal().size() > 0) {
+    hotelcodeoriginal_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hotelcodeoriginal_);
+  }
   citycode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.citycode().size() > 0) {
     citycode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.citycode_);
   }
-  hotelcodeoriginal_ = from.hotelcodeoriginal_;
+  key_ = from.key_;
   // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.PSFReply.HotelCode)
 }
 
 void PSFReply_HotelCode::SharedCtor() {
+  hotelcodeoriginal_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   citycode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  hotelcodeoriginal_ = 0;
+  key_ = 0;
   _cached_size_ = 0;
 }
 
@@ -5598,6 +5748,7 @@ PSFReply_HotelCode::~PSFReply_HotelCode() {
 }
 
 void PSFReply_HotelCode::SharedDtor() {
+  hotelcodeoriginal_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   citycode_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
@@ -5631,8 +5782,9 @@ void PSFReply_HotelCode::Clear() {
   (void) cached_has_bits;
 
   roomdata_.Clear();
+  hotelcodeoriginal_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   citycode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  hotelcodeoriginal_ = 0;
+  key_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -5646,24 +5798,40 @@ bool PSFReply_HotelCode::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 hotelCodeOriginal = 1;
+      // int32 key = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &hotelcodeoriginal_)));
+                 input, &key_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // string cityCode = 2;
+      // string hotelCodeOriginal = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_hotelcodeoriginal()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->hotelcodeoriginal().data(), static_cast<int>(this->hotelcodeoriginal().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string cityCode = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_citycode()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -5676,10 +5844,10 @@ bool PSFReply_HotelCode::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 3;
-      case 3: {
+      // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_roomdata()));
         } else {
           goto handle_unusual;
@@ -5713,26 +5881,36 @@ void PSFReply_HotelCode::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 hotelCodeOriginal = 1;
-  if (this->hotelcodeoriginal() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->hotelcodeoriginal(), output);
+  // int32 key = 1;
+  if (this->key() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->key(), output);
   }
 
-  // string cityCode = 2;
+  // string hotelCodeOriginal = 2;
+  if (this->hotelcodeoriginal().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->hotelcodeoriginal().data(), static_cast<int>(this->hotelcodeoriginal().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->hotelcodeoriginal(), output);
+  }
+
+  // string cityCode = 3;
   if (this->citycode().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->citycode().data(), static_cast<int>(this->citycode().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.PSFReply.HotelCode.cityCode");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->citycode(), output);
+      3, this->citycode(), output);
   }
 
-  // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 3;
+  // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->roomdata_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->roomdata(static_cast<int>(i)), output);
+      4, this->roomdata(static_cast<int>(i)), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5749,12 +5927,23 @@ void PSFReply_HotelCode::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 hotelCodeOriginal = 1;
-  if (this->hotelcodeoriginal() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->hotelcodeoriginal(), target);
+  // int32 key = 1;
+  if (this->key() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->key(), target);
   }
 
-  // string cityCode = 2;
+  // string hotelCodeOriginal = 2;
+  if (this->hotelcodeoriginal().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->hotelcodeoriginal().data(), static_cast<int>(this->hotelcodeoriginal().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->hotelcodeoriginal(), target);
+  }
+
+  // string cityCode = 3;
   if (this->citycode().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->citycode().data(), static_cast<int>(this->citycode().length()),
@@ -5762,15 +5951,15 @@ void PSFReply_HotelCode::SerializeWithCachedSizes(
       "protobuffer.dotwproto.PSFReply.HotelCode.cityCode");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->citycode(), target);
+        3, this->citycode(), target);
   }
 
-  // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 3;
+  // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 4;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->roomdata_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        3, this->roomdata(static_cast<int>(i)), deterministic, target);
+        4, this->roomdata(static_cast<int>(i)), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -5790,7 +5979,7 @@ size_t PSFReply_HotelCode::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 3;
+  // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 4;
   {
     unsigned int count = static_cast<unsigned int>(this->roomdata_size());
     total_size += 1UL * count;
@@ -5801,18 +5990,25 @@ size_t PSFReply_HotelCode::ByteSizeLong() const {
     }
   }
 
-  // string cityCode = 2;
+  // string hotelCodeOriginal = 2;
+  if (this->hotelcodeoriginal().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->hotelcodeoriginal());
+  }
+
+  // string cityCode = 3;
   if (this->citycode().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->citycode());
   }
 
-  // int32 hotelCodeOriginal = 1;
-  if (this->hotelcodeoriginal() != 0) {
+  // int32 key = 1;
+  if (this->key() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->hotelcodeoriginal());
+        this->key());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -5845,12 +6041,16 @@ void PSFReply_HotelCode::MergeFrom(const PSFReply_HotelCode& from) {
   (void) cached_has_bits;
 
   roomdata_.MergeFrom(from.roomdata_);
+  if (from.hotelcodeoriginal().size() > 0) {
+
+    hotelcodeoriginal_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hotelcodeoriginal_);
+  }
   if (from.citycode().size() > 0) {
 
     citycode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.citycode_);
   }
-  if (from.hotelcodeoriginal() != 0) {
-    set_hotelcodeoriginal(from.hotelcodeoriginal());
+  if (from.key() != 0) {
+    set_key(from.key());
   }
 }
 
@@ -5879,8 +6079,9 @@ void PSFReply_HotelCode::Swap(PSFReply_HotelCode* other) {
 void PSFReply_HotelCode::InternalSwap(PSFReply_HotelCode* other) {
   using std::swap;
   roomdata_.InternalSwap(&other->roomdata_);
+  hotelcodeoriginal_.Swap(&other->hotelcodeoriginal_);
   citycode_.Swap(&other->citycode_);
-  swap(hotelcodeoriginal_, other->hotelcodeoriginal_);
+  swap(key_, other->key_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -5896,7 +6097,8 @@ void PSFReply_HotelCode::InternalSwap(PSFReply_HotelCode* other) {
 void PSFReply_BookingChannelCode::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int PSFReply_BookingChannelCode::kHotelCodeFieldNumber;
+const int PSFReply_BookingChannelCode::kKeyFieldNumber;
+const int PSFReply_BookingChannelCode::kHotelCodeArrayFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PSFReply_BookingChannelCode::PSFReply_BookingChannelCode()
@@ -5910,13 +6112,15 @@ PSFReply_BookingChannelCode::PSFReply_BookingChannelCode()
 PSFReply_BookingChannelCode::PSFReply_BookingChannelCode(const PSFReply_BookingChannelCode& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      hotelcode_(from.hotelcode_),
+      hotelcodearray_(from.hotelcodearray_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  key_ = from.key_;
   // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.PSFReply.BookingChannelCode)
 }
 
 void PSFReply_BookingChannelCode::SharedCtor() {
+  key_ = 0;
   _cached_size_ = 0;
 }
 
@@ -5957,7 +6161,8 @@ void PSFReply_BookingChannelCode::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  hotelcode_.Clear();
+  hotelcodearray_.Clear();
+  key_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -5971,11 +6176,25 @@ bool PSFReply_BookingChannelCode::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCode = 1;
+      // int32 key = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_hotelcode()));
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &key_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCodeArray = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_hotelcodearray()));
         } else {
           goto handle_unusual;
         }
@@ -6008,11 +6227,16 @@ void PSFReply_BookingChannelCode::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCode = 1;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->key(), output);
+  }
+
+  // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCodeArray = 2;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->hotelcode_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->hotelcodearray_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->hotelcode(static_cast<int>(i)), output);
+      2, this->hotelcodearray(static_cast<int>(i)), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -6029,12 +6253,17 @@ void PSFReply_BookingChannelCode::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCode = 1;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->key(), target);
+  }
+
+  // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCodeArray = 2;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->hotelcode_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->hotelcodearray_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, this->hotelcode(static_cast<int>(i)), deterministic, target);
+        2, this->hotelcodearray(static_cast<int>(i)), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -6054,15 +6283,22 @@ size_t PSFReply_BookingChannelCode::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCode = 1;
+  // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCodeArray = 2;
   {
-    unsigned int count = static_cast<unsigned int>(this->hotelcode_size());
+    unsigned int count = static_cast<unsigned int>(this->hotelcodearray_size());
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->hotelcode(static_cast<int>(i)));
+          this->hotelcodearray(static_cast<int>(i)));
     }
+  }
+
+  // int32 key = 1;
+  if (this->key() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->key());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -6094,7 +6330,10 @@ void PSFReply_BookingChannelCode::MergeFrom(const PSFReply_BookingChannelCode& f
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  hotelcode_.MergeFrom(from.hotelcode_);
+  hotelcodearray_.MergeFrom(from.hotelcodearray_);
+  if (from.key() != 0) {
+    set_key(from.key());
+  }
 }
 
 void PSFReply_BookingChannelCode::CopyFrom(const ::google::protobuf::Message& from) {
@@ -6121,7 +6360,8 @@ void PSFReply_BookingChannelCode::Swap(PSFReply_BookingChannelCode* other) {
 }
 void PSFReply_BookingChannelCode::InternalSwap(PSFReply_BookingChannelCode* other) {
   using std::swap;
-  hotelcode_.InternalSwap(&other->hotelcode_);
+  hotelcodearray_.InternalSwap(&other->hotelcodearray_);
+  swap(key_, other->key_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -6137,7 +6377,8 @@ void PSFReply_BookingChannelCode::InternalSwap(PSFReply_BookingChannelCode* othe
 void PSFReply_RoomIndex::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int PSFReply_RoomIndex::kRoomIndexFieldNumber;
+const int PSFReply_RoomIndex::kKeyFieldNumber;
+const int PSFReply_RoomIndex::kRoomIndexArrayFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 PSFReply_RoomIndex::PSFReply_RoomIndex()
@@ -6151,13 +6392,15 @@ PSFReply_RoomIndex::PSFReply_RoomIndex()
 PSFReply_RoomIndex::PSFReply_RoomIndex(const PSFReply_RoomIndex& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      roomindex_(from.roomindex_),
+      roomindexarray_(from.roomindexarray_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  key_ = from.key_;
   // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.PSFReply.RoomIndex)
 }
 
 void PSFReply_RoomIndex::SharedCtor() {
+  key_ = 0;
   _cached_size_ = 0;
 }
 
@@ -6198,7 +6441,8 @@ void PSFReply_RoomIndex::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  roomindex_.Clear();
+  roomindexarray_.Clear();
+  key_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -6212,11 +6456,25 @@ bool PSFReply_RoomIndex::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndex = 1;
+      // int32 key = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_roomindex()));
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &key_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndexArray = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_roomindexarray()));
         } else {
           goto handle_unusual;
         }
@@ -6249,11 +6507,16 @@ void PSFReply_RoomIndex::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndex = 1;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->key(), output);
+  }
+
+  // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndexArray = 2;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->roomindex_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->roomindexarray_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roomindex(static_cast<int>(i)), output);
+      2, this->roomindexarray(static_cast<int>(i)), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -6270,12 +6533,17 @@ void PSFReply_RoomIndex::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndex = 1;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->key(), target);
+  }
+
+  // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndexArray = 2;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->roomindex_size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->roomindexarray_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, this->roomindex(static_cast<int>(i)), deterministic, target);
+        2, this->roomindexarray(static_cast<int>(i)), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -6295,15 +6563,22 @@ size_t PSFReply_RoomIndex::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndex = 1;
+  // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndexArray = 2;
   {
-    unsigned int count = static_cast<unsigned int>(this->roomindex_size());
+    unsigned int count = static_cast<unsigned int>(this->roomindexarray_size());
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->roomindex(static_cast<int>(i)));
+          this->roomindexarray(static_cast<int>(i)));
     }
+  }
+
+  // int32 key = 1;
+  if (this->key() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->key());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -6335,7 +6610,10 @@ void PSFReply_RoomIndex::MergeFrom(const PSFReply_RoomIndex& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  roomindex_.MergeFrom(from.roomindex_);
+  roomindexarray_.MergeFrom(from.roomindexarray_);
+  if (from.key() != 0) {
+    set_key(from.key());
+  }
 }
 
 void PSFReply_RoomIndex::CopyFrom(const ::google::protobuf::Message& from) {
@@ -6362,7 +6640,8 @@ void PSFReply_RoomIndex::Swap(PSFReply_RoomIndex* other) {
 }
 void PSFReply_RoomIndex::InternalSwap(PSFReply_RoomIndex* other) {
   using std::swap;
-  roomindex_.InternalSwap(&other->roomindex_);
+  roomindexarray_.InternalSwap(&other->roomindexarray_);
+  swap(key_, other->key_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -11026,10 +11305,603 @@ void HDRequest::InternalSwap(HDRequest* other) {
 
 // ===================================================================
 
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int HDReply_HotelStaticData_RoomTypeStaticData_RoomName::kRoomCodeFieldNumber;
+const int HDReply_HotelStaticData_RoomTypeStaticData_RoomName::kRoomNameFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+HDReply_HotelStaticData_RoomTypeStaticData_RoomName::HDReply_HotelStaticData_RoomTypeStaticData_RoomName()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+}
+HDReply_HotelStaticData_RoomTypeStaticData_RoomName::HDReply_HotelStaticData_RoomTypeStaticData_RoomName(const HDReply_HotelStaticData_RoomTypeStaticData_RoomName& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  roomcode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.roomcode().size() > 0) {
+    roomcode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.roomcode_);
+  }
+  roomname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.roomname().size() > 0) {
+    roomname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.roomname_);
+  }
+  // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::SharedCtor() {
+  roomcode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  roomname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+HDReply_HotelStaticData_RoomTypeStaticData_RoomName::~HDReply_HotelStaticData_RoomTypeStaticData_RoomName() {
+  // @@protoc_insertion_point(destructor:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  SharedDtor();
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::SharedDtor() {
+  roomcode_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  roomname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* HDReply_HotelStaticData_RoomTypeStaticData_RoomName::descriptor() {
+  ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const HDReply_HotelStaticData_RoomTypeStaticData_RoomName& HDReply_HotelStaticData_RoomTypeStaticData_RoomName::default_instance() {
+  ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+  return *internal_default_instance();
+}
+
+HDReply_HotelStaticData_RoomTypeStaticData_RoomName* HDReply_HotelStaticData_RoomTypeStaticData_RoomName::New(::google::protobuf::Arena* arena) const {
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomName* n = new HDReply_HotelStaticData_RoomTypeStaticData_RoomName;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::Clear() {
+// @@protoc_insertion_point(message_clear_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  roomcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  roomname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _internal_metadata_.Clear();
+}
+
+bool HDReply_HotelStaticData_RoomTypeStaticData_RoomName::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string roomCode = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_roomcode()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->roomcode().data(), static_cast<int>(this->roomcode().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string roomName = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_roomname()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->roomname().data(), static_cast<int>(this->roomname().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  return false;
+#undef DO_
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string roomCode = 1;
+  if (this->roomcode().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->roomcode().data(), static_cast<int>(this->roomcode().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->roomcode(), output);
+  }
+
+  // string roomName = 2;
+  if (this->roomname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->roomname().data(), static_cast<int>(this->roomname().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->roomname(), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+}
+
+::google::protobuf::uint8* HDReply_HotelStaticData_RoomTypeStaticData_RoomName::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string roomCode = 1;
+  if (this->roomcode().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->roomcode().data(), static_cast<int>(this->roomcode().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->roomcode(), target);
+  }
+
+  // string roomName = 2;
+  if (this->roomname().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->roomname().data(), static_cast<int>(this->roomname().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->roomname(), target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  return target;
+}
+
+size_t HDReply_HotelStaticData_RoomTypeStaticData_RoomName::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // string roomCode = 1;
+  if (this->roomcode().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->roomcode());
+  }
+
+  // string roomName = 2;
+  if (this->roomname().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->roomname());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  GOOGLE_DCHECK_NE(&from, this);
+  const HDReply_HotelStaticData_RoomTypeStaticData_RoomName* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const HDReply_HotelStaticData_RoomTypeStaticData_RoomName>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+    MergeFrom(*source);
+  }
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::MergeFrom(const HDReply_HotelStaticData_RoomTypeStaticData_RoomName& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.roomcode().size() > 0) {
+
+    roomcode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.roomcode_);
+  }
+  if (from.roomname().size() > 0) {
+
+    roomname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.roomname_);
+  }
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::CopyFrom(const HDReply_HotelStaticData_RoomTypeStaticData_RoomName& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool HDReply_HotelStaticData_RoomTypeStaticData_RoomName::IsInitialized() const {
+  return true;
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::Swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomName* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::InternalSwap(HDReply_HotelStaticData_RoomTypeStaticData_RoomName* other) {
+  using std::swap;
+  roomcode_.Swap(&other->roomcode_);
+  roomname_.Swap(&other->roomname_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata HDReply_HotelStaticData_RoomTypeStaticData_RoomName::GetMetadata() const {
+  protobuf_genProto_2fDotw_5fProtoBuf_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::kKeyFieldNumber;
+const int HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::kRoomNameFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+}
+HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames(const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      roomname_(from.roomname_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  key_ = from.key_;
+  // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::SharedCtor() {
+  key_ = 0;
+  _cached_size_ = 0;
+}
+
+HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::~HDReply_HotelStaticData_RoomTypeStaticData_RoomNames() {
+  // @@protoc_insertion_point(destructor:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  SharedDtor();
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::SharedDtor() {
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::descriptor() {
+  ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::default_instance() {
+  ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
+  return *internal_default_instance();
+}
+
+HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::New(::google::protobuf::Arena* arena) const {
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* n = new HDReply_HotelStaticData_RoomTypeStaticData_RoomNames;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::Clear() {
+// @@protoc_insertion_point(message_clear_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  roomname_.Clear();
+  key_ = 0;
+  _internal_metadata_.Clear();
+}
+
+bool HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 key = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &key_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName roomName = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_roomname()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  return false;
+#undef DO_
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 key = 1;
+  if (this->key() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->key(), output);
+  }
+
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName roomName = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->roomname_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->roomname(static_cast<int>(i)), output);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), output);
+  }
+  // @@protoc_insertion_point(serialize_end:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+}
+
+::google::protobuf::uint8* HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 key = 1;
+  if (this->key() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->key(), target);
+  }
+
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName roomName = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->roomname_size()); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        2, this->roomname(static_cast<int>(i)), deterministic, target);
+  }
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  return target;
+}
+
+size_t HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  size_t total_size = 0;
+
+  if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
+  }
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName roomName = 2;
+  {
+    unsigned int count = static_cast<unsigned int>(this->roomname_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->roomname(static_cast<int>(i)));
+    }
+  }
+
+  // int32 key = 1;
+  if (this->key() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->key());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  GOOGLE_DCHECK_NE(&from, this);
+  const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+    MergeFrom(*source);
+  }
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::MergeFrom(const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  roomname_.MergeFrom(from.roomname_);
+  if (from.key() != 0) {
+    set_key(from.key());
+  }
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::CopyFrom(const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::IsInitialized() const {
+  return true;
+}
+
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::Swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::InternalSwap(HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* other) {
+  using std::swap;
+  roomname_.InternalSwap(&other->roomname_);
+  swap(key_, other->key_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::GetMetadata() const {
+  protobuf_genProto_2fDotw_5fProtoBuf_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
 void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::kRoomNameFieldNumber;
+const int HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::kRoomNamesFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName()
@@ -11043,7 +11915,7 @@ HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::HDReply_HotelStatic
 HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName(const HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      roomname_(from.roomname_),
+      roomnames_(from.roomnames_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName)
@@ -11090,7 +11962,7 @@ void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  roomname_.Clear();
+  roomnames_.Clear();
   _internal_metadata_.Clear();
 }
 
@@ -11104,19 +11976,11 @@ bool HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::MergePartialFr
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated int32 roomName = 1;
+      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames roomNames = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_roomname())));
-        } else if (
-            static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 10u, input, this->mutable_roomname())));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_roomnames()));
         } else {
           goto handle_unusual;
         }
@@ -11149,15 +12013,11 @@ void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::SerializeWithC
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated int32 roomName = 1;
-  if (this->roomname_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(1, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
-    output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
-        _roomname_cached_byte_size_));
-  }
-  for (int i = 0, n = this->roomname_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32NoTag(
-      this->roomname(i), output);
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames roomNames = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->roomnames_size()); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->roomnames(static_cast<int>(i)), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -11174,17 +12034,12 @@ void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::SerializeWithC
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated int32 roomName = 1;
-  if (this->roomname_size() > 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      1,
-      ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
-      target);
-    target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
-        static_cast< ::google::protobuf::int32>(
-            _roomname_cached_byte_size_), target);
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames roomNames = 1;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->roomnames_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32NoTagToArray(this->roomname_, target);
+      InternalWriteMessageToArray(
+        1, this->roomnames(static_cast<int>(i)), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -11204,20 +12059,15 @@ size_t HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::ByteSizeLong
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated int32 roomName = 1;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames roomNames = 1;
   {
-    size_t data_size = ::google::protobuf::internal::WireFormatLite::
-      Int32Size(this->roomname_);
-    if (data_size > 0) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-            static_cast< ::google::protobuf::int32>(data_size));
+    unsigned int count = static_cast<unsigned int>(this->roomnames_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->roomnames(static_cast<int>(i)));
     }
-    int cached_size = ::google::protobuf::internal::ToCachedSize(data_size);
-    GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-    _roomname_cached_byte_size_ = cached_size;
-    GOOGLE_SAFE_CONCURRENT_WRITES_END();
-    total_size += data_size;
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -11249,7 +12099,7 @@ void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::MergeFrom(cons
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  roomname_.MergeFrom(from.roomname_);
+  roomnames_.MergeFrom(from.roomnames_);
 }
 
 void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::CopyFrom(const ::google::protobuf::Message& from) {
@@ -11276,7 +12126,7 @@ void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::Swap(HDReply_H
 }
 void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::InternalSwap(HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName* other) {
   using std::swap;
-  roomname_.InternalSwap(&other->roomname_);
+  roomnames_.InternalSwap(&other->roomnames_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }
@@ -12101,6 +12951,7 @@ void HDReply_HotelStaticData_RoomTypeStaticData::InitAsDefaultInstance() {
       ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int HDReply_HotelStaticData_RoomTypeStaticData::kKeyFieldNumber;
 const int HDReply_HotelStaticData_RoomTypeStaticData::kTwinFieldNumber;
 const int HDReply_HotelStaticData_RoomTypeStaticData::kRoomAmenitiesFieldNumber;
 const int HDReply_HotelStaticData_RoomTypeStaticData::kNameFieldNumber;
@@ -12134,7 +12985,9 @@ HDReply_HotelStaticData_RoomTypeStaticData::HDReply_HotelStaticData_RoomTypeStat
   } else {
     roomcategory_ = NULL;
   }
-  twin_ = from.twin_;
+  ::memcpy(&key_, &from.key_,
+    static_cast<size_t>(reinterpret_cast<char*>(&twin_) -
+    reinterpret_cast<char*>(&key_)) + sizeof(twin_));
   // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData)
 }
 
@@ -12193,7 +13046,9 @@ void HDReply_HotelStaticData_RoomTypeStaticData::Clear() {
     delete roomcategory_;
   }
   roomcategory_ = NULL;
-  twin_ = false;
+  ::memset(&key_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&twin_) -
+      reinterpret_cast<char*>(&key_)) + sizeof(twin_));
   _internal_metadata_.Clear();
 }
 
@@ -12207,10 +13062,24 @@ bool HDReply_HotelStaticData_RoomTypeStaticData::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // bool twin = 1;
+      // int32 key = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &key_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // bool twin = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -12221,10 +13090,10 @@ bool HDReply_HotelStaticData_RoomTypeStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated string roomAmenities = 2;
-      case 2: {
+      // repeated string roomAmenities = 3;
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_roomamenities()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -12238,10 +13107,10 @@ bool HDReply_HotelStaticData_RoomTypeStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string name = 3;
-      case 3: {
+      // string name = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_name()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -12254,10 +13123,10 @@ bool HDReply_HotelStaticData_RoomTypeStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 4;
-      case 4: {
+      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 5;
+      case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_supplierroomname()));
         } else {
           goto handle_unusual;
@@ -12265,10 +13134,10 @@ bool HDReply_HotelStaticData_RoomTypeStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 5;
-      case 5: {
+      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 6;
+      case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_roominfo()));
         } else {
           goto handle_unusual;
@@ -12276,10 +13145,10 @@ bool HDReply_HotelStaticData_RoomTypeStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 6;
-      case 6: {
+      // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
+      case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
                input, mutable_roomcategory()));
         } else {
@@ -12314,49 +13183,54 @@ void HDReply_HotelStaticData_RoomTypeStaticData::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bool twin = 1;
-  if (this->twin() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->twin(), output);
+  // int32 key = 1;
+  if (this->key() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->key(), output);
   }
 
-  // repeated string roomAmenities = 2;
+  // bool twin = 2;
+  if (this->twin() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(2, this->twin(), output);
+  }
+
+  // repeated string roomAmenities = 3;
   for (int i = 0, n = this->roomamenities_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->roomamenities(i).data(), static_cast<int>(this->roomamenities(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.roomAmenities");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->roomamenities(i), output);
+      3, this->roomamenities(i), output);
   }
 
-  // string name = 3;
+  // string name = 4;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->name(), output);
+      4, this->name(), output);
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 4;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->supplierroomname_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->supplierroomname(static_cast<int>(i)), output);
+      5, this->supplierroomname(static_cast<int>(i)), output);
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 5;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 6;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->roominfo_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->roominfo(static_cast<int>(i)), output);
+      6, this->roominfo(static_cast<int>(i)), output);
   }
 
-  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 6;
+  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
   if (this->has_roomcategory()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, *this->roomcategory_, output);
+      7, *this->roomcategory_, output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -12373,22 +13247,27 @@ void HDReply_HotelStaticData_RoomTypeStaticData::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // bool twin = 1;
-  if (this->twin() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->twin(), target);
+  // int32 key = 1;
+  if (this->key() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->key(), target);
   }
 
-  // repeated string roomAmenities = 2;
+  // bool twin = 2;
+  if (this->twin() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(2, this->twin(), target);
+  }
+
+  // repeated string roomAmenities = 3;
   for (int i = 0, n = this->roomamenities_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->roomamenities(i).data(), static_cast<int>(this->roomamenities(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.roomAmenities");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(2, this->roomamenities(i), target);
+      WriteStringToArray(3, this->roomamenities(i), target);
   }
 
-  // string name = 3;
+  // string name = 4;
   if (this->name().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), static_cast<int>(this->name().length()),
@@ -12396,30 +13275,30 @@ void HDReply_HotelStaticData_RoomTypeStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->name(), target);
+        4, this->name(), target);
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 4;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 5;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->supplierroomname_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        4, this->supplierroomname(static_cast<int>(i)), deterministic, target);
+        5, this->supplierroomname(static_cast<int>(i)), deterministic, target);
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 5;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 6;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->roominfo_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        5, this->roominfo(static_cast<int>(i)), deterministic, target);
+        6, this->roominfo(static_cast<int>(i)), deterministic, target);
   }
 
-  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 6;
+  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
   if (this->has_roomcategory()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        6, *this->roomcategory_, deterministic, target);
+        7, *this->roomcategory_, deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -12439,7 +13318,7 @@ size_t HDReply_HotelStaticData_RoomTypeStaticData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated string roomAmenities = 2;
+  // repeated string roomAmenities = 3;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->roomamenities_size());
   for (int i = 0, n = this->roomamenities_size(); i < n; i++) {
@@ -12447,7 +13326,7 @@ size_t HDReply_HotelStaticData_RoomTypeStaticData::ByteSizeLong() const {
       this->roomamenities(i));
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 4;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 5;
   {
     unsigned int count = static_cast<unsigned int>(this->supplierroomname_size());
     total_size += 1UL * count;
@@ -12458,7 +13337,7 @@ size_t HDReply_HotelStaticData_RoomTypeStaticData::ByteSizeLong() const {
     }
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 5;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 6;
   {
     unsigned int count = static_cast<unsigned int>(this->roominfo_size());
     total_size += 1UL * count;
@@ -12469,21 +13348,28 @@ size_t HDReply_HotelStaticData_RoomTypeStaticData::ByteSizeLong() const {
     }
   }
 
-  // string name = 3;
+  // string name = 4;
   if (this->name().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
   }
 
-  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 6;
+  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
   if (this->has_roomcategory()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSize(
         *this->roomcategory_);
   }
 
-  // bool twin = 1;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->key());
+  }
+
+  // bool twin = 2;
   if (this->twin() != 0) {
     total_size += 1 + 1;
   }
@@ -12527,6 +13413,9 @@ void HDReply_HotelStaticData_RoomTypeStaticData::MergeFrom(const HDReply_HotelSt
   if (from.has_roomcategory()) {
     mutable_roomcategory()->::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory::MergeFrom(from.roomcategory());
   }
+  if (from.key() != 0) {
+    set_key(from.key());
+  }
   if (from.twin() != 0) {
     set_twin(from.twin());
   }
@@ -12561,6 +13450,7 @@ void HDReply_HotelStaticData_RoomTypeStaticData::InternalSwap(HDReply_HotelStati
   roominfo_.InternalSwap(&other->roominfo_);
   name_.Swap(&other->name_);
   swap(roomcategory_, other->roomcategory_);
+  swap(key_, other->key_);
   swap(twin_, other->twin_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -13584,6 +14474,7 @@ void HDReply_HotelStaticData_TransportationData::InternalSwap(HDReply_HotelStati
 void HDReply_HotelStaticData::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int HDReply_HotelStaticData::kKeyFieldNumber;
 const int HDReply_HotelStaticData::kRoomTypeStaticDataListFieldNumber;
 const int HDReply_HotelStaticData::kDescription1FieldNumber;
 const int HDReply_HotelStaticData::kDescription2FieldNumber;
@@ -13736,9 +14627,9 @@ HDReply_HotelStaticData::HDReply_HotelStaticData(const HDReply_HotelStaticData& 
   if (from.attraction().size() > 0) {
     attraction_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.attraction_);
   }
-  ::memcpy(&builtyear_, &from.builtyear_,
+  ::memcpy(&key_, &from.key_,
     static_cast<size_t>(reinterpret_cast<char*>(&exclusive_) -
-    reinterpret_cast<char*>(&builtyear_)) + sizeof(exclusive_));
+    reinterpret_cast<char*>(&key_)) + sizeof(exclusive_));
   // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.HDReply.HotelStaticData)
 }
 
@@ -13763,9 +14654,9 @@ void HDReply_HotelStaticData::SharedCtor() {
   chainname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   fulladdress_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   attraction_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&builtyear_, 0, static_cast<size_t>(
+  ::memset(&key_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&exclusive_) -
-      reinterpret_cast<char*>(&builtyear_)) + sizeof(exclusive_));
+      reinterpret_cast<char*>(&key_)) + sizeof(exclusive_));
   _cached_size_ = 0;
 }
 
@@ -13854,9 +14745,9 @@ void HDReply_HotelStaticData::Clear() {
   chainname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   fulladdress_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   attraction_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&builtyear_, 0, static_cast<size_t>(
+  ::memset(&key_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&exclusive_) -
-      reinterpret_cast<char*>(&builtyear_)) + sizeof(exclusive_));
+      reinterpret_cast<char*>(&key_)) + sizeof(exclusive_));
   _internal_metadata_.Clear();
 }
 
@@ -13870,10 +14761,24 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 1;
+      // int32 key = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &key_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_roomtypestaticdatalist()));
         } else {
           goto handle_unusual;
@@ -13881,10 +14786,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string description1 = 2;
-      case 2: {
+      // string description1 = 3;
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_description1()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -13897,10 +14802,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string description2 = 3;
-      case 3: {
+      // string description2 = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_description2()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -13913,10 +14818,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated string geoPoint = 4;
-      case 4: {
+      // repeated string geoPoint = 5;
+      case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_geopoint()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -13930,10 +14835,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string ratingDescription = 5;
-      case 5: {
+      // string ratingDescription = 6;
+      case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_ratingdescription()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -13946,10 +14851,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 6;
-      case 6: {
+      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 7;
+      case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_images()));
         } else {
           goto handle_unusual;
@@ -13957,10 +14862,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // bool direct = 7;
-      case 7: {
+      // bool direct = 8;
+      case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -13971,29 +14876,29 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated int32 hotelPreference = 8;
-      case 8: {
+      // repeated int32 hotelPreference = 9;
+      case 9: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(66u /* 66 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(74u /* 74 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, this->mutable_hotelpreference())));
         } else if (
             static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 66u, input, this->mutable_hotelpreference())));
+                 1, 74u, input, this->mutable_hotelpreference())));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // bool preferred = 9;
-      case 9: {
+      // bool preferred = 10;
+      case 10: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -14004,10 +14909,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 builtYear = 10;
-      case 10: {
+      // int32 builtYear = 11;
+      case 11: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14018,10 +14923,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 renovationYear = 11;
-      case 11: {
+      // int32 renovationYear = 12;
+      case 12: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14032,10 +14937,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 floors = 12;
-      case 12: {
+      // int32 floors = 13;
+      case 13: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(96u /* 96 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14046,10 +14951,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 noOfRooms = 13;
-      case 13: {
+      // int32 noOfRooms = 14;
+      case 14: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(104u /* 104 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(112u /* 112 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14060,10 +14965,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // bool luxury = 14;
-      case 14: {
+      // bool luxury = 15;
+      case 15: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(112u /* 112 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(120u /* 120 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -14074,10 +14979,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string hotelName = 15;
-      case 15: {
+      // string hotelName = 16;
+      case 16: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(122u /* 122 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(130u /* 130 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_hotelname()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14090,10 +14995,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string address = 16;
-      case 16: {
+      // string address = 17;
+      case 17: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(130u /* 130 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(138u /* 138 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_address()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14106,10 +15011,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string zipCode = 17;
-      case 17: {
+      // string zipCode = 18;
+      case 18: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(138u /* 138 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(146u /* 146 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_zipcode()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14122,10 +15027,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string location = 18;
-      case 18: {
+      // string location = 19;
+      case 19: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(146u /* 146 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(154u /* 154 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_location()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14138,10 +15043,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 locationId = 19;
-      case 19: {
+      // int32 locationId = 20;
+      case 20: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(152u /* 152 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(160u /* 160 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14152,10 +15057,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string location1 = 20;
-      case 20: {
+      // string location1 = 21;
+      case 21: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(162u /* 162 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(170u /* 170 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_location1()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14168,10 +15073,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string location2 = 21;
-      case 21: {
+      // string location2 = 22;
+      case 22: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(170u /* 170 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(178u /* 178 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_location2()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14184,10 +15089,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string location3 = 22;
-      case 22: {
+      // string location3 = 23;
+      case 23: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(178u /* 178 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(186u /* 186 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_location3()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14200,10 +15105,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string cityName = 23;
-      case 23: {
+      // string cityName = 24;
+      case 24: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(186u /* 186 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(194u /* 194 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_cityname()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14216,10 +15121,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 cityCode = 24;
-      case 24: {
+      // int32 cityCode = 25;
+      case 25: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(192u /* 192 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(200u /* 200 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14230,10 +15135,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string stateName = 25;
-      case 25: {
+      // string stateName = 26;
+      case 26: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(202u /* 202 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(210u /* 210 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_statename()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14246,10 +15151,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 stateCode = 26;
-      case 26: {
+      // int32 stateCode = 27;
+      case 27: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(208u /* 208 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(216u /* 216 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14260,10 +15165,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string countryName = 27;
-      case 27: {
+      // string countryName = 28;
+      case 28: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(218u /* 218 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(226u /* 226 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_countryname()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14276,10 +15181,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 countryCode = 28;
-      case 28: {
+      // int32 countryCode = 29;
+      case 29: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(224u /* 224 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(232u /* 232 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14290,10 +15195,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string regionName = 29;
-      case 29: {
+      // string regionName = 30;
+      case 30: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(234u /* 234 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(242u /* 242 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_regionname()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14306,10 +15211,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 regionCode = 30;
-      case 30: {
+      // int32 regionCode = 31;
+      case 31: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(240u /* 240 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(248u /* 248 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14320,10 +15225,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated string amenitie = 31;
-      case 31: {
+      // repeated string amenitie = 32;
+      case 32: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(250u /* 250 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(2u /* 258 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_amenitie()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14337,10 +15242,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated string leisure = 32;
-      case 32: {
+      // repeated string leisure = 33;
+      case 33: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(2u /* 258 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(10u /* 266 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_leisure()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14354,10 +15259,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated string business = 33;
-      case 33: {
+      // repeated string business = 34;
+      case 34: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 266 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(18u /* 274 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->add_business()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14371,10 +15276,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 34;
-      case 34: {
+      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 35;
+      case 35: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 274 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 282 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_transportation()));
         } else {
           goto handle_unusual;
@@ -14382,10 +15287,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string hotelPhone = 35;
-      case 35: {
+      // string hotelPhone = 36;
+      case 36: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 282 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 290 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_hotelphone()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14398,10 +15303,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 hotelCheckIn = 36;
-      case 36: {
+      // int32 hotelCheckIn = 37;
+      case 37: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 288 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(40u /* 296 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14412,10 +15317,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 hotelCheckOut = 37;
-      case 37: {
+      // int32 hotelCheckOut = 38;
+      case 38: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 296 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(48u /* 304 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14426,10 +15331,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 minAge = 38;
-      case 38: {
+      // int32 minAge = 39;
+      case 39: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 304 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(56u /* 312 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14440,10 +15345,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 rating = 39;
-      case 39: {
+      // int32 rating = 40;
+      case 40: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(56u /* 312 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(64u /* 320 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14454,10 +15359,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // bool fireSafety = 40;
-      case 40: {
+      // bool fireSafety = 41;
+      case 41: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u /* 320 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(72u /* 328 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -14468,10 +15373,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 chain = 41;
-      case 41: {
+      // int32 chain = 42;
+      case 42: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(72u /* 328 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(80u /* 336 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14482,10 +15387,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string lastUpdated = 42;
-      case 42: {
+      // string lastUpdated = 43;
+      case 43: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(82u /* 338 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(90u /* 346 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_lastupdated()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14498,10 +15403,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 transferMandatory = 43;
-      case 43: {
+      // int32 transferMandatory = 44;
+      case 44: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 344 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(96u /* 352 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14512,10 +15417,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string tariffNotes = 44;
-      case 44: {
+      // string tariffNotes = 45;
+      case 45: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(98u /* 354 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(106u /* 362 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_tariffnotes()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14528,10 +15433,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string chainName = 45;
-      case 45: {
+      // string chainName = 46;
+      case 46: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(106u /* 362 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(114u /* 370 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_chainname()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14544,10 +15449,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 hotelProperty = 46;
-      case 46: {
+      // int32 hotelProperty = 47;
+      case 47: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(112u /* 368 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(120u /* 376 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -14558,10 +15463,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string fullAddress = 47;
-      case 47: {
+      // string fullAddress = 48;
+      case 48: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(122u /* 378 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(130u /* 386 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_fulladdress()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14574,10 +15479,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // string attraction = 48;
-      case 48: {
+      // string attraction = 49;
+      case 49: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(130u /* 386 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(138u /* 394 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_attraction()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -14590,10 +15495,10 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // bool exclusive = 49;
-      case 49: {
+      // bool exclusive = 50;
+      case 50: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(136u /* 392 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(144u /* 400 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
@@ -14630,68 +15535,73 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 1;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->key(), output);
+  }
+
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->roomtypestaticdatalist_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->roomtypestaticdatalist(static_cast<int>(i)), output);
+      2, this->roomtypestaticdatalist(static_cast<int>(i)), output);
   }
 
-  // string description1 = 2;
+  // string description1 = 3;
   if (this->description1().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->description1().data(), static_cast<int>(this->description1().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.description1");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->description1(), output);
+      3, this->description1(), output);
   }
 
-  // string description2 = 3;
+  // string description2 = 4;
   if (this->description2().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->description2().data(), static_cast<int>(this->description2().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.description2");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->description2(), output);
+      4, this->description2(), output);
   }
 
-  // repeated string geoPoint = 4;
+  // repeated string geoPoint = 5;
   for (int i = 0, n = this->geopoint_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->geopoint(i).data(), static_cast<int>(this->geopoint(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->geopoint(i), output);
+      5, this->geopoint(i), output);
   }
 
-  // string ratingDescription = 5;
+  // string ratingDescription = 6;
   if (this->ratingdescription().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->ratingdescription().data(), static_cast<int>(this->ratingdescription().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.ratingDescription");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      5, this->ratingdescription(), output);
+      6, this->ratingdescription(), output);
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 6;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 7;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->images_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, this->images(static_cast<int>(i)), output);
+      7, this->images(static_cast<int>(i)), output);
   }
 
-  // bool direct = 7;
+  // bool direct = 8;
   if (this->direct() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(7, this->direct(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(8, this->direct(), output);
   }
 
-  // repeated int32 hotelPreference = 8;
+  // repeated int32 hotelPreference = 9;
   if (this->hotelpreference_size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteTag(8, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
+    ::google::protobuf::internal::WireFormatLite::WriteTag(9, ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED, output);
     output->WriteVarint32(static_cast< ::google::protobuf::uint32>(
         _hotelpreference_cached_byte_size_));
   }
@@ -14700,311 +15610,311 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       this->hotelpreference(i), output);
   }
 
-  // bool preferred = 9;
+  // bool preferred = 10;
   if (this->preferred() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->preferred(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(10, this->preferred(), output);
   }
 
-  // int32 builtYear = 10;
+  // int32 builtYear = 11;
   if (this->builtyear() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->builtyear(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->builtyear(), output);
   }
 
-  // int32 renovationYear = 11;
+  // int32 renovationYear = 12;
   if (this->renovationyear() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->renovationyear(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->renovationyear(), output);
   }
 
-  // int32 floors = 12;
+  // int32 floors = 13;
   if (this->floors() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->floors(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->floors(), output);
   }
 
-  // int32 noOfRooms = 13;
+  // int32 noOfRooms = 14;
   if (this->noofrooms() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->noofrooms(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->noofrooms(), output);
   }
 
-  // bool luxury = 14;
+  // bool luxury = 15;
   if (this->luxury() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(14, this->luxury(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(15, this->luxury(), output);
   }
 
-  // string hotelName = 15;
+  // string hotelName = 16;
   if (this->hotelname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hotelname().data(), static_cast<int>(this->hotelname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.hotelName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      15, this->hotelname(), output);
+      16, this->hotelname(), output);
   }
 
-  // string address = 16;
+  // string address = 17;
   if (this->address().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->address().data(), static_cast<int>(this->address().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.address");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      16, this->address(), output);
+      17, this->address(), output);
   }
 
-  // string zipCode = 17;
+  // string zipCode = 18;
   if (this->zipcode().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->zipcode().data(), static_cast<int>(this->zipcode().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.zipCode");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      17, this->zipcode(), output);
+      18, this->zipcode(), output);
   }
 
-  // string location = 18;
+  // string location = 19;
   if (this->location().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->location().data(), static_cast<int>(this->location().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.location");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      18, this->location(), output);
+      19, this->location(), output);
   }
 
-  // int32 locationId = 19;
+  // int32 locationId = 20;
   if (this->locationid() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->locationid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->locationid(), output);
   }
 
-  // string location1 = 20;
+  // string location1 = 21;
   if (this->location1().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->location1().data(), static_cast<int>(this->location1().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.location1");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      20, this->location1(), output);
+      21, this->location1(), output);
   }
 
-  // string location2 = 21;
+  // string location2 = 22;
   if (this->location2().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->location2().data(), static_cast<int>(this->location2().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.location2");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      21, this->location2(), output);
+      22, this->location2(), output);
   }
 
-  // string location3 = 22;
+  // string location3 = 23;
   if (this->location3().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->location3().data(), static_cast<int>(this->location3().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.location3");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      22, this->location3(), output);
+      23, this->location3(), output);
   }
 
-  // string cityName = 23;
+  // string cityName = 24;
   if (this->cityname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->cityname().data(), static_cast<int>(this->cityname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.cityName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      23, this->cityname(), output);
+      24, this->cityname(), output);
   }
 
-  // int32 cityCode = 24;
+  // int32 cityCode = 25;
   if (this->citycode() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->citycode(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->citycode(), output);
   }
 
-  // string stateName = 25;
+  // string stateName = 26;
   if (this->statename().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->statename().data(), static_cast<int>(this->statename().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.stateName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      25, this->statename(), output);
+      26, this->statename(), output);
   }
 
-  // int32 stateCode = 26;
+  // int32 stateCode = 27;
   if (this->statecode() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->statecode(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(27, this->statecode(), output);
   }
 
-  // string countryName = 27;
+  // string countryName = 28;
   if (this->countryname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->countryname().data(), static_cast<int>(this->countryname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.countryName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      27, this->countryname(), output);
+      28, this->countryname(), output);
   }
 
-  // int32 countryCode = 28;
+  // int32 countryCode = 29;
   if (this->countrycode() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(28, this->countrycode(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(29, this->countrycode(), output);
   }
 
-  // string regionName = 29;
+  // string regionName = 30;
   if (this->regionname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->regionname().data(), static_cast<int>(this->regionname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.regionName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      29, this->regionname(), output);
+      30, this->regionname(), output);
   }
 
-  // int32 regionCode = 30;
+  // int32 regionCode = 31;
   if (this->regioncode() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(30, this->regioncode(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(31, this->regioncode(), output);
   }
 
-  // repeated string amenitie = 31;
+  // repeated string amenitie = 32;
   for (int i = 0, n = this->amenitie_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->amenitie(i).data(), static_cast<int>(this->amenitie(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.amenitie");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      31, this->amenitie(i), output);
+      32, this->amenitie(i), output);
   }
 
-  // repeated string leisure = 32;
+  // repeated string leisure = 33;
   for (int i = 0, n = this->leisure_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->leisure(i).data(), static_cast<int>(this->leisure(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.leisure");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      32, this->leisure(i), output);
+      33, this->leisure(i), output);
   }
 
-  // repeated string business = 33;
+  // repeated string business = 34;
   for (int i = 0, n = this->business_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->business(i).data(), static_cast<int>(this->business(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.business");
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      33, this->business(i), output);
+      34, this->business(i), output);
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 34;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 35;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->transportation_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      34, this->transportation(static_cast<int>(i)), output);
+      35, this->transportation(static_cast<int>(i)), output);
   }
 
-  // string hotelPhone = 35;
+  // string hotelPhone = 36;
   if (this->hotelphone().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hotelphone().data(), static_cast<int>(this->hotelphone().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.hotelPhone");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      35, this->hotelphone(), output);
+      36, this->hotelphone(), output);
   }
 
-  // int32 hotelCheckIn = 36;
+  // int32 hotelCheckIn = 37;
   if (this->hotelcheckin() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(36, this->hotelcheckin(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(37, this->hotelcheckin(), output);
   }
 
-  // int32 hotelCheckOut = 37;
+  // int32 hotelCheckOut = 38;
   if (this->hotelcheckout() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(37, this->hotelcheckout(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(38, this->hotelcheckout(), output);
   }
 
-  // int32 minAge = 38;
+  // int32 minAge = 39;
   if (this->minage() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(38, this->minage(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(39, this->minage(), output);
   }
 
-  // int32 rating = 39;
+  // int32 rating = 40;
   if (this->rating() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(39, this->rating(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(40, this->rating(), output);
   }
 
-  // bool fireSafety = 40;
+  // bool fireSafety = 41;
   if (this->firesafety() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(40, this->firesafety(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(41, this->firesafety(), output);
   }
 
-  // int32 chain = 41;
+  // int32 chain = 42;
   if (this->chain() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(41, this->chain(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(42, this->chain(), output);
   }
 
-  // string lastUpdated = 42;
+  // string lastUpdated = 43;
   if (this->lastupdated().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->lastupdated().data(), static_cast<int>(this->lastupdated().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.lastUpdated");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      42, this->lastupdated(), output);
+      43, this->lastupdated(), output);
   }
 
-  // int32 transferMandatory = 43;
+  // int32 transferMandatory = 44;
   if (this->transfermandatory() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(43, this->transfermandatory(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(44, this->transfermandatory(), output);
   }
 
-  // string tariffNotes = 44;
+  // string tariffNotes = 45;
   if (this->tariffnotes().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->tariffnotes().data(), static_cast<int>(this->tariffnotes().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.tariffNotes");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      44, this->tariffnotes(), output);
+      45, this->tariffnotes(), output);
   }
 
-  // string chainName = 45;
+  // string chainName = 46;
   if (this->chainname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->chainname().data(), static_cast<int>(this->chainname().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.chainName");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      45, this->chainname(), output);
+      46, this->chainname(), output);
   }
 
-  // int32 hotelProperty = 46;
+  // int32 hotelProperty = 47;
   if (this->hotelproperty() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(46, this->hotelproperty(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(47, this->hotelproperty(), output);
   }
 
-  // string fullAddress = 47;
+  // string fullAddress = 48;
   if (this->fulladdress().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->fulladdress().data(), static_cast<int>(this->fulladdress().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.fullAddress");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      47, this->fulladdress(), output);
+      48, this->fulladdress(), output);
   }
 
-  // string attraction = 48;
+  // string attraction = 49;
   if (this->attraction().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->attraction().data(), static_cast<int>(this->attraction().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.attraction");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      48, this->attraction(), output);
+      49, this->attraction(), output);
   }
 
-  // bool exclusive = 49;
+  // bool exclusive = 50;
   if (this->exclusive() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(49, this->exclusive(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(50, this->exclusive(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -15021,15 +15931,20 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 1;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->key(), target);
+  }
+
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->roomtypestaticdatalist_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, this->roomtypestaticdatalist(static_cast<int>(i)), deterministic, target);
+        2, this->roomtypestaticdatalist(static_cast<int>(i)), deterministic, target);
   }
 
-  // string description1 = 2;
+  // string description1 = 3;
   if (this->description1().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->description1().data(), static_cast<int>(this->description1().length()),
@@ -15037,10 +15952,10 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.description1");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->description1(), target);
+        3, this->description1(), target);
   }
 
-  // string description2 = 3;
+  // string description2 = 4;
   if (this->description2().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->description2().data(), static_cast<int>(this->description2().length()),
@@ -15048,20 +15963,20 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.description2");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->description2(), target);
+        4, this->description2(), target);
   }
 
-  // repeated string geoPoint = 4;
+  // repeated string geoPoint = 5;
   for (int i = 0, n = this->geopoint_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->geopoint(i).data(), static_cast<int>(this->geopoint(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(4, this->geopoint(i), target);
+      WriteStringToArray(5, this->geopoint(i), target);
   }
 
-  // string ratingDescription = 5;
+  // string ratingDescription = 6;
   if (this->ratingdescription().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->ratingdescription().data(), static_cast<int>(this->ratingdescription().length()),
@@ -15069,26 +15984,26 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.ratingDescription");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->ratingdescription(), target);
+        6, this->ratingdescription(), target);
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 6;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 7;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->images_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        6, this->images(static_cast<int>(i)), deterministic, target);
+        7, this->images(static_cast<int>(i)), deterministic, target);
   }
 
-  // bool direct = 7;
+  // bool direct = 8;
   if (this->direct() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(7, this->direct(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(8, this->direct(), target);
   }
 
-  // repeated int32 hotelPreference = 8;
+  // repeated int32 hotelPreference = 9;
   if (this->hotelpreference_size() > 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteTagToArray(
-      8,
+      9,
       ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED,
       target);
     target = ::google::protobuf::io::CodedOutputStream::WriteVarint32ToArray(
@@ -15098,37 +16013,37 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       WriteInt32NoTagToArray(this->hotelpreference_, target);
   }
 
-  // bool preferred = 9;
+  // bool preferred = 10;
   if (this->preferred() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->preferred(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(10, this->preferred(), target);
   }
 
-  // int32 builtYear = 10;
+  // int32 builtYear = 11;
   if (this->builtyear() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->builtyear(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->builtyear(), target);
   }
 
-  // int32 renovationYear = 11;
+  // int32 renovationYear = 12;
   if (this->renovationyear() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->renovationyear(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->renovationyear(), target);
   }
 
-  // int32 floors = 12;
+  // int32 floors = 13;
   if (this->floors() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->floors(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->floors(), target);
   }
 
-  // int32 noOfRooms = 13;
+  // int32 noOfRooms = 14;
   if (this->noofrooms() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->noofrooms(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->noofrooms(), target);
   }
 
-  // bool luxury = 14;
+  // bool luxury = 15;
   if (this->luxury() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(14, this->luxury(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(15, this->luxury(), target);
   }
 
-  // string hotelName = 15;
+  // string hotelName = 16;
   if (this->hotelname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hotelname().data(), static_cast<int>(this->hotelname().length()),
@@ -15136,10 +16051,10 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.hotelName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        15, this->hotelname(), target);
+        16, this->hotelname(), target);
   }
 
-  // string address = 16;
+  // string address = 17;
   if (this->address().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->address().data(), static_cast<int>(this->address().length()),
@@ -15147,10 +16062,10 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.address");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        16, this->address(), target);
+        17, this->address(), target);
   }
 
-  // string zipCode = 17;
+  // string zipCode = 18;
   if (this->zipcode().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->zipcode().data(), static_cast<int>(this->zipcode().length()),
@@ -15158,10 +16073,10 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.zipCode");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        17, this->zipcode(), target);
+        18, this->zipcode(), target);
   }
 
-  // string location = 18;
+  // string location = 19;
   if (this->location().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->location().data(), static_cast<int>(this->location().length()),
@@ -15169,15 +16084,15 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.location");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        18, this->location(), target);
+        19, this->location(), target);
   }
 
-  // int32 locationId = 19;
+  // int32 locationId = 20;
   if (this->locationid() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->locationid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->locationid(), target);
   }
 
-  // string location1 = 20;
+  // string location1 = 21;
   if (this->location1().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->location1().data(), static_cast<int>(this->location1().length()),
@@ -15185,10 +16100,10 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.location1");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        20, this->location1(), target);
+        21, this->location1(), target);
   }
 
-  // string location2 = 21;
+  // string location2 = 22;
   if (this->location2().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->location2().data(), static_cast<int>(this->location2().length()),
@@ -15196,10 +16111,10 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.location2");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        21, this->location2(), target);
+        22, this->location2(), target);
   }
 
-  // string location3 = 22;
+  // string location3 = 23;
   if (this->location3().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->location3().data(), static_cast<int>(this->location3().length()),
@@ -15207,10 +16122,10 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.location3");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        22, this->location3(), target);
+        23, this->location3(), target);
   }
 
-  // string cityName = 23;
+  // string cityName = 24;
   if (this->cityname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->cityname().data(), static_cast<int>(this->cityname().length()),
@@ -15218,15 +16133,15 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.cityName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        23, this->cityname(), target);
+        24, this->cityname(), target);
   }
 
-  // int32 cityCode = 24;
+  // int32 cityCode = 25;
   if (this->citycode() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->citycode(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->citycode(), target);
   }
 
-  // string stateName = 25;
+  // string stateName = 26;
   if (this->statename().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->statename().data(), static_cast<int>(this->statename().length()),
@@ -15234,15 +16149,15 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.stateName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        25, this->statename(), target);
+        26, this->statename(), target);
   }
 
-  // int32 stateCode = 26;
+  // int32 stateCode = 27;
   if (this->statecode() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->statecode(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(27, this->statecode(), target);
   }
 
-  // string countryName = 27;
+  // string countryName = 28;
   if (this->countryname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->countryname().data(), static_cast<int>(this->countryname().length()),
@@ -15250,15 +16165,15 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.countryName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        27, this->countryname(), target);
+        28, this->countryname(), target);
   }
 
-  // int32 countryCode = 28;
+  // int32 countryCode = 29;
   if (this->countrycode() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(28, this->countrycode(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(29, this->countrycode(), target);
   }
 
-  // string regionName = 29;
+  // string regionName = 30;
   if (this->regionname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->regionname().data(), static_cast<int>(this->regionname().length()),
@@ -15266,53 +16181,53 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.regionName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        29, this->regionname(), target);
+        30, this->regionname(), target);
   }
 
-  // int32 regionCode = 30;
+  // int32 regionCode = 31;
   if (this->regioncode() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(30, this->regioncode(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(31, this->regioncode(), target);
   }
 
-  // repeated string amenitie = 31;
+  // repeated string amenitie = 32;
   for (int i = 0, n = this->amenitie_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->amenitie(i).data(), static_cast<int>(this->amenitie(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.amenitie");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(31, this->amenitie(i), target);
+      WriteStringToArray(32, this->amenitie(i), target);
   }
 
-  // repeated string leisure = 32;
+  // repeated string leisure = 33;
   for (int i = 0, n = this->leisure_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->leisure(i).data(), static_cast<int>(this->leisure(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.leisure");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(32, this->leisure(i), target);
+      WriteStringToArray(33, this->leisure(i), target);
   }
 
-  // repeated string business = 33;
+  // repeated string business = 34;
   for (int i = 0, n = this->business_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->business(i).data(), static_cast<int>(this->business(i).length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.business");
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(33, this->business(i), target);
+      WriteStringToArray(34, this->business(i), target);
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 34;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 35;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->transportation_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        34, this->transportation(static_cast<int>(i)), deterministic, target);
+        35, this->transportation(static_cast<int>(i)), deterministic, target);
   }
 
-  // string hotelPhone = 35;
+  // string hotelPhone = 36;
   if (this->hotelphone().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hotelphone().data(), static_cast<int>(this->hotelphone().length()),
@@ -15320,40 +16235,40 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.hotelPhone");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        35, this->hotelphone(), target);
+        36, this->hotelphone(), target);
   }
 
-  // int32 hotelCheckIn = 36;
+  // int32 hotelCheckIn = 37;
   if (this->hotelcheckin() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(36, this->hotelcheckin(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(37, this->hotelcheckin(), target);
   }
 
-  // int32 hotelCheckOut = 37;
+  // int32 hotelCheckOut = 38;
   if (this->hotelcheckout() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(37, this->hotelcheckout(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(38, this->hotelcheckout(), target);
   }
 
-  // int32 minAge = 38;
+  // int32 minAge = 39;
   if (this->minage() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(38, this->minage(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(39, this->minage(), target);
   }
 
-  // int32 rating = 39;
+  // int32 rating = 40;
   if (this->rating() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(39, this->rating(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(40, this->rating(), target);
   }
 
-  // bool fireSafety = 40;
+  // bool fireSafety = 41;
   if (this->firesafety() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(40, this->firesafety(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(41, this->firesafety(), target);
   }
 
-  // int32 chain = 41;
+  // int32 chain = 42;
   if (this->chain() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(41, this->chain(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(42, this->chain(), target);
   }
 
-  // string lastUpdated = 42;
+  // string lastUpdated = 43;
   if (this->lastupdated().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->lastupdated().data(), static_cast<int>(this->lastupdated().length()),
@@ -15361,15 +16276,15 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.lastUpdated");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        42, this->lastupdated(), target);
+        43, this->lastupdated(), target);
   }
 
-  // int32 transferMandatory = 43;
+  // int32 transferMandatory = 44;
   if (this->transfermandatory() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(43, this->transfermandatory(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(44, this->transfermandatory(), target);
   }
 
-  // string tariffNotes = 44;
+  // string tariffNotes = 45;
   if (this->tariffnotes().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->tariffnotes().data(), static_cast<int>(this->tariffnotes().length()),
@@ -15377,10 +16292,10 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.tariffNotes");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        44, this->tariffnotes(), target);
+        45, this->tariffnotes(), target);
   }
 
-  // string chainName = 45;
+  // string chainName = 46;
   if (this->chainname().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->chainname().data(), static_cast<int>(this->chainname().length()),
@@ -15388,15 +16303,15 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.chainName");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        45, this->chainname(), target);
+        46, this->chainname(), target);
   }
 
-  // int32 hotelProperty = 46;
+  // int32 hotelProperty = 47;
   if (this->hotelproperty() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(46, this->hotelproperty(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(47, this->hotelproperty(), target);
   }
 
-  // string fullAddress = 47;
+  // string fullAddress = 48;
   if (this->fulladdress().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->fulladdress().data(), static_cast<int>(this->fulladdress().length()),
@@ -15404,10 +16319,10 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.fullAddress");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        47, this->fulladdress(), target);
+        48, this->fulladdress(), target);
   }
 
-  // string attraction = 48;
+  // string attraction = 49;
   if (this->attraction().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->attraction().data(), static_cast<int>(this->attraction().length()),
@@ -15415,12 +16330,12 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.HotelStaticData.attraction");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        48, this->attraction(), target);
+        49, this->attraction(), target);
   }
 
-  // bool exclusive = 49;
+  // bool exclusive = 50;
   if (this->exclusive() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(49, this->exclusive(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(50, this->exclusive(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -15440,7 +16355,7 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 1;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 2;
   {
     unsigned int count = static_cast<unsigned int>(this->roomtypestaticdatalist_size());
     total_size += 1UL * count;
@@ -15451,7 +16366,7 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
     }
   }
 
-  // repeated string geoPoint = 4;
+  // repeated string geoPoint = 5;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->geopoint_size());
   for (int i = 0, n = this->geopoint_size(); i < n; i++) {
@@ -15459,7 +16374,7 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
       this->geopoint(i));
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 6;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 7;
   {
     unsigned int count = static_cast<unsigned int>(this->images_size());
     total_size += 1UL * count;
@@ -15470,7 +16385,7 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
     }
   }
 
-  // repeated int32 hotelPreference = 8;
+  // repeated int32 hotelPreference = 9;
   {
     size_t data_size = ::google::protobuf::internal::WireFormatLite::
       Int32Size(this->hotelpreference_);
@@ -15486,7 +16401,7 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // repeated string amenitie = 31;
+  // repeated string amenitie = 32;
   total_size += 2 *
       ::google::protobuf::internal::FromIntSize(this->amenitie_size());
   for (int i = 0, n = this->amenitie_size(); i < n; i++) {
@@ -15494,7 +16409,7 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
       this->amenitie(i));
   }
 
-  // repeated string leisure = 32;
+  // repeated string leisure = 33;
   total_size += 2 *
       ::google::protobuf::internal::FromIntSize(this->leisure_size());
   for (int i = 0, n = this->leisure_size(); i < n; i++) {
@@ -15502,7 +16417,7 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
       this->leisure(i));
   }
 
-  // repeated string business = 33;
+  // repeated string business = 34;
   total_size += 2 *
       ::google::protobuf::internal::FromIntSize(this->business_size());
   for (int i = 0, n = this->business_size(); i < n; i++) {
@@ -15510,7 +16425,7 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
       this->business(i));
   }
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 34;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 35;
   {
     unsigned int count = static_cast<unsigned int>(this->transportation_size());
     total_size += 2UL * count;
@@ -15521,279 +16436,286 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
     }
   }
 
-  // string description1 = 2;
+  // string description1 = 3;
   if (this->description1().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->description1());
   }
 
-  // string description2 = 3;
+  // string description2 = 4;
   if (this->description2().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->description2());
   }
 
-  // string ratingDescription = 5;
+  // string ratingDescription = 6;
   if (this->ratingdescription().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->ratingdescription());
   }
 
-  // string hotelName = 15;
+  // string hotelName = 16;
   if (this->hotelname().size() > 0) {
-    total_size += 1 +
+    total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->hotelname());
   }
 
-  // string address = 16;
+  // string address = 17;
   if (this->address().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->address());
   }
 
-  // string zipCode = 17;
+  // string zipCode = 18;
   if (this->zipcode().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->zipcode());
   }
 
-  // string location = 18;
+  // string location = 19;
   if (this->location().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->location());
   }
 
-  // string location1 = 20;
+  // string location1 = 21;
   if (this->location1().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->location1());
   }
 
-  // string location2 = 21;
+  // string location2 = 22;
   if (this->location2().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->location2());
   }
 
-  // string location3 = 22;
+  // string location3 = 23;
   if (this->location3().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->location3());
   }
 
-  // string cityName = 23;
+  // string cityName = 24;
   if (this->cityname().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->cityname());
   }
 
-  // string stateName = 25;
+  // string stateName = 26;
   if (this->statename().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->statename());
   }
 
-  // string countryName = 27;
+  // string countryName = 28;
   if (this->countryname().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->countryname());
   }
 
-  // string regionName = 29;
+  // string regionName = 30;
   if (this->regionname().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->regionname());
   }
 
-  // string hotelPhone = 35;
+  // string hotelPhone = 36;
   if (this->hotelphone().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->hotelphone());
   }
 
-  // string lastUpdated = 42;
+  // string lastUpdated = 43;
   if (this->lastupdated().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->lastupdated());
   }
 
-  // string tariffNotes = 44;
+  // string tariffNotes = 45;
   if (this->tariffnotes().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->tariffnotes());
   }
 
-  // string chainName = 45;
+  // string chainName = 46;
   if (this->chainname().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->chainname());
   }
 
-  // string fullAddress = 47;
+  // string fullAddress = 48;
   if (this->fulladdress().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->fulladdress());
   }
 
-  // string attraction = 48;
+  // string attraction = 49;
   if (this->attraction().size() > 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->attraction());
   }
 
-  // int32 builtYear = 10;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->key());
+  }
+
+  // int32 builtYear = 11;
   if (this->builtyear() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->builtyear());
   }
 
-  // int32 renovationYear = 11;
+  // int32 renovationYear = 12;
   if (this->renovationyear() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->renovationyear());
   }
 
-  // int32 floors = 12;
+  // int32 floors = 13;
   if (this->floors() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->floors());
   }
 
-  // int32 noOfRooms = 13;
+  // int32 noOfRooms = 14;
   if (this->noofrooms() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->noofrooms());
   }
 
-  // bool direct = 7;
+  // bool direct = 8;
   if (this->direct() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool preferred = 9;
+  // bool preferred = 10;
   if (this->preferred() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool luxury = 14;
+  // bool luxury = 15;
   if (this->luxury() != 0) {
     total_size += 1 + 1;
   }
 
-  // bool fireSafety = 40;
+  // bool fireSafety = 41;
   if (this->firesafety() != 0) {
     total_size += 2 + 1;
   }
 
-  // int32 locationId = 19;
+  // int32 locationId = 20;
   if (this->locationid() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->locationid());
   }
 
-  // int32 cityCode = 24;
+  // int32 cityCode = 25;
   if (this->citycode() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->citycode());
   }
 
-  // int32 stateCode = 26;
+  // int32 stateCode = 27;
   if (this->statecode() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->statecode());
   }
 
-  // int32 countryCode = 28;
+  // int32 countryCode = 29;
   if (this->countrycode() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->countrycode());
   }
 
-  // int32 regionCode = 30;
+  // int32 regionCode = 31;
   if (this->regioncode() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->regioncode());
   }
 
-  // int32 hotelCheckIn = 36;
+  // int32 hotelCheckIn = 37;
   if (this->hotelcheckin() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->hotelcheckin());
   }
 
-  // int32 hotelCheckOut = 37;
+  // int32 hotelCheckOut = 38;
   if (this->hotelcheckout() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->hotelcheckout());
   }
 
-  // int32 minAge = 38;
+  // int32 minAge = 39;
   if (this->minage() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->minage());
   }
 
-  // int32 rating = 39;
+  // int32 rating = 40;
   if (this->rating() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->rating());
   }
 
-  // int32 chain = 41;
+  // int32 chain = 42;
   if (this->chain() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->chain());
   }
 
-  // int32 transferMandatory = 43;
+  // int32 transferMandatory = 44;
   if (this->transfermandatory() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->transfermandatory());
   }
 
-  // int32 hotelProperty = 46;
+  // int32 hotelProperty = 47;
   if (this->hotelproperty() != 0) {
     total_size += 2 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->hotelproperty());
   }
 
-  // bool exclusive = 49;
+  // bool exclusive = 50;
   if (this->exclusive() != 0) {
     total_size += 2 + 1;
   }
@@ -15915,6 +16837,9 @@ void HDReply_HotelStaticData::MergeFrom(const HDReply_HotelStaticData& from) {
 
     attraction_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.attraction_);
   }
+  if (from.key() != 0) {
+    set_key(from.key());
+  }
   if (from.builtyear() != 0) {
     set_builtyear(from.builtyear());
   }
@@ -16032,6 +16957,7 @@ void HDReply_HotelStaticData::InternalSwap(HDReply_HotelStaticData* other) {
   chainname_.Swap(&other->chainname_);
   fulladdress_.Swap(&other->fulladdress_);
   attraction_.Swap(&other->attraction_);
+  swap(key_, other->key_);
   swap(builtyear_, other->builtyear_);
   swap(renovationyear_, other->renovationyear_);
   swap(floors_, other->floors_);
@@ -16068,6 +16994,7 @@ void HDReply_HotelStaticData::InternalSwap(HDReply_HotelStaticData* other) {
 void HDReply::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int HDReply::kKeyFieldNumber;
 const int HDReply::kHotelStaticDataListFieldNumber;
 const int HDReply::kErrorFieldNumber;
 const int HDReply::kErrorCodeFieldNumber;
@@ -16101,7 +17028,9 @@ HDReply::HDReply(const HDReply& from)
   if (from.replystring().size() > 0) {
     replystring_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.replystring_);
   }
-  replystringint_ = from.replystringint_;
+  ::memcpy(&key_, &from.key_,
+    static_cast<size_t>(reinterpret_cast<char*>(&replystringint_) -
+    reinterpret_cast<char*>(&key_)) + sizeof(replystringint_));
   // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.HDReply)
 }
 
@@ -16109,7 +17038,9 @@ void HDReply::SharedCtor() {
   error_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   errorcode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   replystring_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  replystringint_ = 0;
+  ::memset(&key_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&replystringint_) -
+      reinterpret_cast<char*>(&key_)) + sizeof(replystringint_));
   _cached_size_ = 0;
 }
 
@@ -16157,7 +17088,9 @@ void HDReply::Clear() {
   error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   errorcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   replystring_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  replystringint_ = 0;
+  ::memset(&key_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&replystringint_) -
+      reinterpret_cast<char*>(&key_)) + sizeof(replystringint_));
   _internal_metadata_.Clear();
 }
 
@@ -16171,10 +17104,24 @@ bool HDReply::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 1;
+      // int32 key = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &key_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_hotelstaticdatalist()));
         } else {
           goto handle_unusual;
@@ -16182,10 +17129,10 @@ bool HDReply::MergePartialFromCodedStream(
         break;
       }
 
-      // string error = 2;
-      case 2: {
+      // string error = 3;
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_error()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -16198,10 +17145,10 @@ bool HDReply::MergePartialFromCodedStream(
         break;
       }
 
-      // string errorCode = 3;
-      case 3: {
+      // string errorCode = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u /* 26 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_errorcode()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -16214,10 +17161,10 @@ bool HDReply::MergePartialFromCodedStream(
         break;
       }
 
-      // string replystring = 4;
-      case 4: {
+      // string replystring = 5;
+      case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_replystring()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -16230,10 +17177,10 @@ bool HDReply::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 replystringInt = 5;
-      case 5: {
+      // int32 replystringInt = 6;
+      case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -16270,46 +17217,51 @@ void HDReply::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 1;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->key(), output);
+  }
+
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->hotelstaticdatalist_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->hotelstaticdatalist(static_cast<int>(i)), output);
+      2, this->hotelstaticdatalist(static_cast<int>(i)), output);
   }
 
-  // string error = 2;
+  // string error = 3;
   if (this->error().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->error().data(), static_cast<int>(this->error().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.error");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->error(), output);
+      3, this->error(), output);
   }
 
-  // string errorCode = 3;
+  // string errorCode = 4;
   if (this->errorcode().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->errorcode().data(), static_cast<int>(this->errorcode().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.errorCode");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->errorcode(), output);
+      4, this->errorcode(), output);
   }
 
-  // string replystring = 4;
+  // string replystring = 5;
   if (this->replystring().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->replystring().data(), static_cast<int>(this->replystring().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.replystring");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      4, this->replystring(), output);
+      5, this->replystring(), output);
   }
 
-  // int32 replystringInt = 5;
+  // int32 replystringInt = 6;
   if (this->replystringint() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->replystringint(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->replystringint(), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -16326,15 +17278,20 @@ void HDReply::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 1;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->key(), target);
+  }
+
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->hotelstaticdatalist_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, this->hotelstaticdatalist(static_cast<int>(i)), deterministic, target);
+        2, this->hotelstaticdatalist(static_cast<int>(i)), deterministic, target);
   }
 
-  // string error = 2;
+  // string error = 3;
   if (this->error().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->error().data(), static_cast<int>(this->error().length()),
@@ -16342,10 +17299,10 @@ void HDReply::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.error");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->error(), target);
+        3, this->error(), target);
   }
 
-  // string errorCode = 3;
+  // string errorCode = 4;
   if (this->errorcode().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->errorcode().data(), static_cast<int>(this->errorcode().length()),
@@ -16353,10 +17310,10 @@ void HDReply::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.errorCode");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->errorcode(), target);
+        4, this->errorcode(), target);
   }
 
-  // string replystring = 4;
+  // string replystring = 5;
   if (this->replystring().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->replystring().data(), static_cast<int>(this->replystring().length()),
@@ -16364,12 +17321,12 @@ void HDReply::SerializeWithCachedSizes(
       "protobuffer.dotwproto.HDReply.replystring");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->replystring(), target);
+        5, this->replystring(), target);
   }
 
-  // int32 replystringInt = 5;
+  // int32 replystringInt = 6;
   if (this->replystringint() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->replystringint(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->replystringint(), target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -16389,7 +17346,7 @@ size_t HDReply::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         (::google::protobuf::internal::GetProto3PreserveUnknownsDefault()   ? _internal_metadata_.unknown_fields()   : _internal_metadata_.default_instance()));
   }
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 1;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 2;
   {
     unsigned int count = static_cast<unsigned int>(this->hotelstaticdatalist_size());
     total_size += 1UL * count;
@@ -16400,28 +17357,35 @@ size_t HDReply::ByteSizeLong() const {
     }
   }
 
-  // string error = 2;
+  // string error = 3;
   if (this->error().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->error());
   }
 
-  // string errorCode = 3;
+  // string errorCode = 4;
   if (this->errorcode().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->errorcode());
   }
 
-  // string replystring = 4;
+  // string replystring = 5;
   if (this->replystring().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->replystring());
   }
 
-  // int32 replystringInt = 5;
+  // int32 key = 1;
+  if (this->key() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->key());
+  }
+
+  // int32 replystringInt = 6;
   if (this->replystringint() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -16470,6 +17434,9 @@ void HDReply::MergeFrom(const HDReply& from) {
 
     replystring_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.replystring_);
   }
+  if (from.key() != 0) {
+    set_key(from.key());
+  }
   if (from.replystringint() != 0) {
     set_replystringint(from.replystringint());
   }
@@ -16503,6 +17470,7 @@ void HDReply::InternalSwap(HDReply* other) {
   error_.Swap(&other->error_);
   errorcode_.Swap(&other->errorcode_);
   replystring_.Swap(&other->replystring_);
+  swap(key_, other->key_);
   swap(replystringint_, other->replystringint_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);

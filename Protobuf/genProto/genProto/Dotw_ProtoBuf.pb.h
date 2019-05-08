@@ -36,7 +36,7 @@ namespace protobuf_genProto_2fDotw_5fProtoBuf_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[25];
+  static const ::google::protobuf::internal::ParseTable schema[27];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -76,6 +76,10 @@ void InitDefaultsHDRequest_ReturnRateDataImpl();
 void InitDefaultsHDRequest_ReturnRateData();
 void InitDefaultsHDRequestImpl();
 void InitDefaultsHDRequest();
+void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNameImpl();
+void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNamesImpl();
+void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
 void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomNameImpl();
 void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName();
 void InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomInfoImpl();
@@ -110,6 +114,8 @@ inline void InitDefaults() {
   InitDefaultsHDRequest_ReturnRoomTypeStaticData();
   InitDefaultsHDRequest_ReturnRateData();
   InitDefaultsHDRequest();
+  InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+  InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
   InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName();
   InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomInfo();
   InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomCategory();
@@ -140,6 +146,12 @@ extern HDReply_HotelStaticData_RoomTypeStaticData_RoomCategoryDefaultTypeInterna
 class HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo;
 class HDReply_HotelStaticData_RoomTypeStaticData_RoomInfoDefaultTypeInternal;
 extern HDReply_HotelStaticData_RoomTypeStaticData_RoomInfoDefaultTypeInternal _HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo_default_instance_;
+class HDReply_HotelStaticData_RoomTypeStaticData_RoomName;
+class HDReply_HotelStaticData_RoomTypeStaticData_RoomNameDefaultTypeInternal;
+extern HDReply_HotelStaticData_RoomTypeStaticData_RoomNameDefaultTypeInternal _HDReply_HotelStaticData_RoomTypeStaticData_RoomName_default_instance_;
+class HDReply_HotelStaticData_RoomTypeStaticData_RoomNames;
+class HDReply_HotelStaticData_RoomTypeStaticData_RoomNamesDefaultTypeInternal;
+extern HDReply_HotelStaticData_RoomTypeStaticData_RoomNamesDefaultTypeInternal _HDReply_HotelStaticData_RoomTypeStaticData_RoomNames_default_instance_;
 class HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName;
 class HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomNameDefaultTypeInternal;
 extern HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomNameDefaultTypeInternal _HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName_default_instance_;
@@ -1502,9 +1514,23 @@ class PSFReply_RoomData : public ::google::protobuf::Message /* @@protoc_inserti
 
   // accessors -------------------------------------------------------
 
-  // int32 roomTypeCode = 1;
+  // string key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  #if LANG_CXX11
+  void set_key(::std::string&& value);
+  #endif
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // int32 roomTypeCode = 2;
   void clear_roomtypecode();
-  static const int kRoomTypeCodeFieldNumber = 1;
+  static const int kRoomTypeCodeFieldNumber = 2;
   ::google::protobuf::int32 roomtypecode() const;
   void set_roomtypecode(::google::protobuf::int32 value);
 
@@ -1512,6 +1538,7 @@ class PSFReply_RoomData : public ::google::protobuf::Message /* @@protoc_inserti
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
   ::google::protobuf::int32 roomtypecode_;
   mutable int _cached_size_;
   friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
@@ -1601,10 +1628,10 @@ class PSFReply_HotelCode : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 3;
+  // repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 4;
   int roomdata_size() const;
   void clear_roomdata();
-  static const int kRoomDataFieldNumber = 3;
+  static const int kRoomDataFieldNumber = 4;
   const ::protobuffer::dotwproto::PSFReply_RoomData& roomdata(int index) const;
   ::protobuffer::dotwproto::PSFReply_RoomData* mutable_roomdata(int index);
   ::protobuffer::dotwproto::PSFReply_RoomData* add_roomdata();
@@ -1613,9 +1640,23 @@ class PSFReply_HotelCode : public ::google::protobuf::Message /* @@protoc_insert
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_RoomData >&
       roomdata() const;
 
-  // string cityCode = 2;
+  // string hotelCodeOriginal = 2;
+  void clear_hotelcodeoriginal();
+  static const int kHotelCodeOriginalFieldNumber = 2;
+  const ::std::string& hotelcodeoriginal() const;
+  void set_hotelcodeoriginal(const ::std::string& value);
+  #if LANG_CXX11
+  void set_hotelcodeoriginal(::std::string&& value);
+  #endif
+  void set_hotelcodeoriginal(const char* value);
+  void set_hotelcodeoriginal(const char* value, size_t size);
+  ::std::string* mutable_hotelcodeoriginal();
+  ::std::string* release_hotelcodeoriginal();
+  void set_allocated_hotelcodeoriginal(::std::string* hotelcodeoriginal);
+
+  // string cityCode = 3;
   void clear_citycode();
-  static const int kCityCodeFieldNumber = 2;
+  static const int kCityCodeFieldNumber = 3;
   const ::std::string& citycode() const;
   void set_citycode(const ::std::string& value);
   #if LANG_CXX11
@@ -1627,19 +1668,20 @@ class PSFReply_HotelCode : public ::google::protobuf::Message /* @@protoc_insert
   ::std::string* release_citycode();
   void set_allocated_citycode(::std::string* citycode);
 
-  // int32 hotelCodeOriginal = 1;
-  void clear_hotelcodeoriginal();
-  static const int kHotelCodeOriginalFieldNumber = 1;
-  ::google::protobuf::int32 hotelcodeoriginal() const;
-  void set_hotelcodeoriginal(::google::protobuf::int32 value);
+  // int32 key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  ::google::protobuf::int32 key() const;
+  void set_key(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:protobuffer.dotwproto.PSFReply.HotelCode)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_RoomData > roomdata_;
+  ::google::protobuf::internal::ArenaStringPtr hotelcodeoriginal_;
   ::google::protobuf::internal::ArenaStringPtr citycode_;
-  ::google::protobuf::int32 hotelcodeoriginal_;
+  ::google::protobuf::int32 key_;
   mutable int _cached_size_;
   friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
   friend void ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsPSFReply_HotelCodeImpl();
@@ -1728,23 +1770,30 @@ class PSFReply_BookingChannelCode : public ::google::protobuf::Message /* @@prot
 
   // accessors -------------------------------------------------------
 
-  // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCode = 1;
-  int hotelcode_size() const;
-  void clear_hotelcode();
-  static const int kHotelCodeFieldNumber = 1;
-  const ::protobuffer::dotwproto::PSFReply_HotelCode& hotelcode(int index) const;
-  ::protobuffer::dotwproto::PSFReply_HotelCode* mutable_hotelcode(int index);
-  ::protobuffer::dotwproto::PSFReply_HotelCode* add_hotelcode();
+  // repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCodeArray = 2;
+  int hotelcodearray_size() const;
+  void clear_hotelcodearray();
+  static const int kHotelCodeArrayFieldNumber = 2;
+  const ::protobuffer::dotwproto::PSFReply_HotelCode& hotelcodearray(int index) const;
+  ::protobuffer::dotwproto::PSFReply_HotelCode* mutable_hotelcodearray(int index);
+  ::protobuffer::dotwproto::PSFReply_HotelCode* add_hotelcodearray();
   ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_HotelCode >*
-      mutable_hotelcode();
+      mutable_hotelcodearray();
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_HotelCode >&
-      hotelcode() const;
+      hotelcodearray() const;
+
+  // int32 key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  ::google::protobuf::int32 key() const;
+  void set_key(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:protobuffer.dotwproto.PSFReply.BookingChannelCode)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_HotelCode > hotelcode_;
+  ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_HotelCode > hotelcodearray_;
+  ::google::protobuf::int32 key_;
   mutable int _cached_size_;
   friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
   friend void ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsPSFReply_BookingChannelCodeImpl();
@@ -1833,23 +1882,30 @@ class PSFReply_RoomIndex : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndex = 1;
-  int roomindex_size() const;
-  void clear_roomindex();
-  static const int kRoomIndexFieldNumber = 1;
-  const ::protobuffer::dotwproto::PSFReply_BookingChannelCode& roomindex(int index) const;
-  ::protobuffer::dotwproto::PSFReply_BookingChannelCode* mutable_roomindex(int index);
-  ::protobuffer::dotwproto::PSFReply_BookingChannelCode* add_roomindex();
+  // repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndexArray = 2;
+  int roomindexarray_size() const;
+  void clear_roomindexarray();
+  static const int kRoomIndexArrayFieldNumber = 2;
+  const ::protobuffer::dotwproto::PSFReply_BookingChannelCode& roomindexarray(int index) const;
+  ::protobuffer::dotwproto::PSFReply_BookingChannelCode* mutable_roomindexarray(int index);
+  ::protobuffer::dotwproto::PSFReply_BookingChannelCode* add_roomindexarray();
   ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_BookingChannelCode >*
-      mutable_roomindex();
+      mutable_roomindexarray();
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_BookingChannelCode >&
-      roomindex() const;
+      roomindexarray() const;
+
+  // int32 key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  ::google::protobuf::int32 key() const;
+  void set_key(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:protobuffer.dotwproto.PSFReply.RoomIndex)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_BookingChannelCode > roomindex_;
+  ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_BookingChannelCode > roomindexarray_;
+  ::google::protobuf::int32 key_;
   mutable int _cached_size_;
   friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
   friend void ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsPSFReply_RoomIndexImpl();
@@ -3143,6 +3199,240 @@ class HDRequest : public ::google::protobuf::Message /* @@protoc_insertion_point
 };
 // -------------------------------------------------------------------
 
+class HDReply_HotelStaticData_RoomTypeStaticData_RoomName : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName) */ {
+ public:
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+  virtual ~HDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomName(const HDReply_HotelStaticData_RoomTypeStaticData_RoomName& from);
+
+  inline HDReply_HotelStaticData_RoomTypeStaticData_RoomName& operator=(const HDReply_HotelStaticData_RoomTypeStaticData_RoomName& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomName(HDReply_HotelStaticData_RoomTypeStaticData_RoomName&& from) noexcept
+    : HDReply_HotelStaticData_RoomTypeStaticData_RoomName() {
+    *this = ::std::move(from);
+  }
+
+  inline HDReply_HotelStaticData_RoomTypeStaticData_RoomName& operator=(HDReply_HotelStaticData_RoomTypeStaticData_RoomName&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const HDReply_HotelStaticData_RoomTypeStaticData_RoomName& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const HDReply_HotelStaticData_RoomTypeStaticData_RoomName* internal_default_instance() {
+    return reinterpret_cast<const HDReply_HotelStaticData_RoomTypeStaticData_RoomName*>(
+               &_HDReply_HotelStaticData_RoomTypeStaticData_RoomName_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    17;
+
+  void Swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomName* other);
+  friend void swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomName& a, HDReply_HotelStaticData_RoomTypeStaticData_RoomName& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline HDReply_HotelStaticData_RoomTypeStaticData_RoomName* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomName* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const HDReply_HotelStaticData_RoomTypeStaticData_RoomName& from);
+  void MergeFrom(const HDReply_HotelStaticData_RoomTypeStaticData_RoomName& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(HDReply_HotelStaticData_RoomTypeStaticData_RoomName* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string roomCode = 1;
+  void clear_roomcode();
+  static const int kRoomCodeFieldNumber = 1;
+  const ::std::string& roomcode() const;
+  void set_roomcode(const ::std::string& value);
+  #if LANG_CXX11
+  void set_roomcode(::std::string&& value);
+  #endif
+  void set_roomcode(const char* value);
+  void set_roomcode(const char* value, size_t size);
+  ::std::string* mutable_roomcode();
+  ::std::string* release_roomcode();
+  void set_allocated_roomcode(::std::string* roomcode);
+
+  // string roomName = 2;
+  void clear_roomname();
+  static const int kRoomNameFieldNumber = 2;
+  const ::std::string& roomname() const;
+  void set_roomname(const ::std::string& value);
+  #if LANG_CXX11
+  void set_roomname(::std::string&& value);
+  #endif
+  void set_roomname(const char* value);
+  void set_roomname(const char* value, size_t size);
+  ::std::string* mutable_roomname();
+  ::std::string* release_roomname();
+  void set_allocated_roomname(::std::string* roomname);
+
+  // @@protoc_insertion_point(class_scope:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr roomcode_;
+  ::google::protobuf::internal::ArenaStringPtr roomname_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
+  friend void ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNameImpl();
+};
+// -------------------------------------------------------------------
+
+class HDReply_HotelStaticData_RoomTypeStaticData_RoomNames : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames) */ {
+ public:
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
+  virtual ~HDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
+
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomNames(const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& from);
+
+  inline HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& operator=(const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomNames(HDReply_HotelStaticData_RoomTypeStaticData_RoomNames&& from) noexcept
+    : HDReply_HotelStaticData_RoomTypeStaticData_RoomNames() {
+    *this = ::std::move(from);
+  }
+
+  inline HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& operator=(HDReply_HotelStaticData_RoomTypeStaticData_RoomNames&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* internal_default_instance() {
+    return reinterpret_cast<const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames*>(
+               &_HDReply_HotelStaticData_RoomTypeStaticData_RoomNames_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    18;
+
+  void Swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* other);
+  friend void swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& a, HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& from);
+  void MergeFrom(const HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName roomName = 2;
+  int roomname_size() const;
+  void clear_roomname();
+  static const int kRoomNameFieldNumber = 2;
+  const ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName& roomname(int index) const;
+  ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName* mutable_roomname(int index);
+  ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName* add_roomname();
+  ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName >*
+      mutable_roomname();
+  const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName >&
+      roomname() const;
+
+  // int32 key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  ::google::protobuf::int32 key() const;
+  void set_key(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName > roomname_;
+  ::google::protobuf::int32 key_;
+  mutable int _cached_size_;
+  friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
+  friend void ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_RoomNamesImpl();
+};
+// -------------------------------------------------------------------
+
 class HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName) */ {
  public:
   HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName();
@@ -3178,7 +3468,7 @@ class HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName : public ::goo
                &_HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    17;
+    19;
 
   void Swap(HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName* other);
   friend void swap(HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName& a, HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName& b) {
@@ -3225,24 +3515,23 @@ class HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName : public ::goo
 
   // accessors -------------------------------------------------------
 
-  // repeated int32 roomName = 1;
-  int roomname_size() const;
-  void clear_roomname();
-  static const int kRoomNameFieldNumber = 1;
-  ::google::protobuf::int32 roomname(int index) const;
-  void set_roomname(int index, ::google::protobuf::int32 value);
-  void add_roomname(::google::protobuf::int32 value);
-  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      roomname() const;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_roomname();
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames roomNames = 1;
+  int roomnames_size() const;
+  void clear_roomnames();
+  static const int kRoomNamesFieldNumber = 1;
+  const ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& roomnames(int index) const;
+  ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* mutable_roomnames(int index);
+  ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* add_roomnames();
+  ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames >*
+      mutable_roomnames();
+  const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames >&
+      roomnames() const;
 
   // @@protoc_insertion_point(class_scope:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > roomname_;
-  mutable int _roomname_cached_byte_size_;
+  ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames > roomnames_;
   mutable int _cached_size_;
   friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
   friend void ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsHDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomNameImpl();
@@ -3284,7 +3573,7 @@ class HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo : public ::google::pro
                &_HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    18;
+    20;
 
   void Swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo* other);
   friend void swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo& a, HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo& b) {
@@ -3432,7 +3721,7 @@ class HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory : public ::google:
                &_HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    19;
+    21;
 
   void Swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory* other);
   friend void swap(HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory& a, HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory& b) {
@@ -3554,7 +3843,7 @@ class HDReply_HotelStaticData_RoomTypeStaticData : public ::google::protobuf::Me
                &_HDReply_HotelStaticData_RoomTypeStaticData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    22;
 
   void Swap(HDReply_HotelStaticData_RoomTypeStaticData* other);
   friend void swap(HDReply_HotelStaticData_RoomTypeStaticData& a, HDReply_HotelStaticData_RoomTypeStaticData& b) {
@@ -3599,16 +3888,18 @@ class HDReply_HotelStaticData_RoomTypeStaticData : public ::google::protobuf::Me
 
   // nested types ----------------------------------------------------
 
+  typedef HDReply_HotelStaticData_RoomTypeStaticData_RoomName RoomName;
+  typedef HDReply_HotelStaticData_RoomTypeStaticData_RoomNames RoomNames;
   typedef HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName SupplierRoomName;
   typedef HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo RoomInfo;
   typedef HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory RoomCategory;
 
   // accessors -------------------------------------------------------
 
-  // repeated string roomAmenities = 2;
+  // repeated string roomAmenities = 3;
   int roomamenities_size() const;
   void clear_roomamenities();
-  static const int kRoomAmenitiesFieldNumber = 2;
+  static const int kRoomAmenitiesFieldNumber = 3;
   const ::std::string& roomamenities(int index) const;
   ::std::string* mutable_roomamenities(int index);
   void set_roomamenities(int index, const ::std::string& value);
@@ -3627,10 +3918,10 @@ class HDReply_HotelStaticData_RoomTypeStaticData : public ::google::protobuf::Me
   const ::google::protobuf::RepeatedPtrField< ::std::string>& roomamenities() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_roomamenities();
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 4;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 5;
   int supplierroomname_size() const;
   void clear_supplierroomname();
-  static const int kSupplierRoomNameFieldNumber = 4;
+  static const int kSupplierRoomNameFieldNumber = 5;
   const ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName& supplierroomname(int index) const;
   ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName* mutable_supplierroomname(int index);
   ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName* add_supplierroomname();
@@ -3639,10 +3930,10 @@ class HDReply_HotelStaticData_RoomTypeStaticData : public ::google::protobuf::Me
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName >&
       supplierroomname() const;
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 5;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 6;
   int roominfo_size() const;
   void clear_roominfo();
-  static const int kRoomInfoFieldNumber = 5;
+  static const int kRoomInfoFieldNumber = 6;
   const ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo& roominfo(int index) const;
   ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo* mutable_roominfo(int index);
   ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo* add_roominfo();
@@ -3651,9 +3942,9 @@ class HDReply_HotelStaticData_RoomTypeStaticData : public ::google::protobuf::Me
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo >&
       roominfo() const;
 
-  // string name = 3;
+  // string name = 4;
   void clear_name();
-  static const int kNameFieldNumber = 3;
+  static const int kNameFieldNumber = 4;
   const ::std::string& name() const;
   void set_name(const ::std::string& value);
   #if LANG_CXX11
@@ -3665,18 +3956,24 @@ class HDReply_HotelStaticData_RoomTypeStaticData : public ::google::protobuf::Me
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
-  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 6;
+  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
   bool has_roomcategory() const;
   void clear_roomcategory();
-  static const int kRoomCategoryFieldNumber = 6;
+  static const int kRoomCategoryFieldNumber = 7;
   const ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory& roomcategory() const;
   ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory* release_roomcategory();
   ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory* mutable_roomcategory();
   void set_allocated_roomcategory(::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory* roomcategory);
 
-  // bool twin = 1;
+  // int32 key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  ::google::protobuf::int32 key() const;
+  void set_key(::google::protobuf::int32 value);
+
+  // bool twin = 2;
   void clear_twin();
-  static const int kTwinFieldNumber = 1;
+  static const int kTwinFieldNumber = 2;
   bool twin() const;
   void set_twin(bool value);
 
@@ -3689,6 +3986,7 @@ class HDReply_HotelStaticData_RoomTypeStaticData : public ::google::protobuf::Me
   ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo > roominfo_;
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory* roomcategory_;
+  ::google::protobuf::int32 key_;
   bool twin_;
   mutable int _cached_size_;
   friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
@@ -3731,7 +4029,7 @@ class HDReply_HotelStaticData_ImagesData : public ::google::protobuf::Message /*
                &_HDReply_HotelStaticData_ImagesData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    21;
+    23;
 
   void Swap(HDReply_HotelStaticData_ImagesData* other);
   friend void swap(HDReply_HotelStaticData_ImagesData& a, HDReply_HotelStaticData_ImagesData& b) {
@@ -3890,7 +4188,7 @@ class HDReply_HotelStaticData_TransportationData : public ::google::protobuf::Me
                &_HDReply_HotelStaticData_TransportationData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    22;
+    24;
 
   void Swap(HDReply_HotelStaticData_TransportationData* other);
   friend void swap(HDReply_HotelStaticData_TransportationData& a, HDReply_HotelStaticData_TransportationData& b) {
@@ -4072,7 +4370,7 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
                &_HDReply_HotelStaticData_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    23;
+    25;
 
   void Swap(HDReply_HotelStaticData* other);
   friend void swap(HDReply_HotelStaticData& a, HDReply_HotelStaticData& b) {
@@ -4123,10 +4421,10 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
 
   // accessors -------------------------------------------------------
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 1;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 2;
   int roomtypestaticdatalist_size() const;
   void clear_roomtypestaticdatalist();
-  static const int kRoomTypeStaticDataListFieldNumber = 1;
+  static const int kRoomTypeStaticDataListFieldNumber = 2;
   const ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData& roomtypestaticdatalist(int index) const;
   ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData* mutable_roomtypestaticdatalist(int index);
   ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData* add_roomtypestaticdatalist();
@@ -4135,10 +4433,10 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData >&
       roomtypestaticdatalist() const;
 
-  // repeated string geoPoint = 4;
+  // repeated string geoPoint = 5;
   int geopoint_size() const;
   void clear_geopoint();
-  static const int kGeoPointFieldNumber = 4;
+  static const int kGeoPointFieldNumber = 5;
   const ::std::string& geopoint(int index) const;
   ::std::string* mutable_geopoint(int index);
   void set_geopoint(int index, const ::std::string& value);
@@ -4157,10 +4455,10 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   const ::google::protobuf::RepeatedPtrField< ::std::string>& geopoint() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_geopoint();
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 6;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 7;
   int images_size() const;
   void clear_images();
-  static const int kImagesFieldNumber = 6;
+  static const int kImagesFieldNumber = 7;
   const ::protobuffer::dotwproto::HDReply_HotelStaticData_ImagesData& images(int index) const;
   ::protobuffer::dotwproto::HDReply_HotelStaticData_ImagesData* mutable_images(int index);
   ::protobuffer::dotwproto::HDReply_HotelStaticData_ImagesData* add_images();
@@ -4169,10 +4467,10 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_ImagesData >&
       images() const;
 
-  // repeated int32 hotelPreference = 8;
+  // repeated int32 hotelPreference = 9;
   int hotelpreference_size() const;
   void clear_hotelpreference();
-  static const int kHotelPreferenceFieldNumber = 8;
+  static const int kHotelPreferenceFieldNumber = 9;
   ::google::protobuf::int32 hotelpreference(int index) const;
   void set_hotelpreference(int index, ::google::protobuf::int32 value);
   void add_hotelpreference(::google::protobuf::int32 value);
@@ -4181,10 +4479,10 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_hotelpreference();
 
-  // repeated string amenitie = 31;
+  // repeated string amenitie = 32;
   int amenitie_size() const;
   void clear_amenitie();
-  static const int kAmenitieFieldNumber = 31;
+  static const int kAmenitieFieldNumber = 32;
   const ::std::string& amenitie(int index) const;
   ::std::string* mutable_amenitie(int index);
   void set_amenitie(int index, const ::std::string& value);
@@ -4203,10 +4501,10 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   const ::google::protobuf::RepeatedPtrField< ::std::string>& amenitie() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_amenitie();
 
-  // repeated string leisure = 32;
+  // repeated string leisure = 33;
   int leisure_size() const;
   void clear_leisure();
-  static const int kLeisureFieldNumber = 32;
+  static const int kLeisureFieldNumber = 33;
   const ::std::string& leisure(int index) const;
   ::std::string* mutable_leisure(int index);
   void set_leisure(int index, const ::std::string& value);
@@ -4225,10 +4523,10 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   const ::google::protobuf::RepeatedPtrField< ::std::string>& leisure() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_leisure();
 
-  // repeated string business = 33;
+  // repeated string business = 34;
   int business_size() const;
   void clear_business();
-  static const int kBusinessFieldNumber = 33;
+  static const int kBusinessFieldNumber = 34;
   const ::std::string& business(int index) const;
   ::std::string* mutable_business(int index);
   void set_business(int index, const ::std::string& value);
@@ -4247,10 +4545,10 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   const ::google::protobuf::RepeatedPtrField< ::std::string>& business() const;
   ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_business();
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 34;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 35;
   int transportation_size() const;
   void clear_transportation();
-  static const int kTransportationFieldNumber = 34;
+  static const int kTransportationFieldNumber = 35;
   const ::protobuffer::dotwproto::HDReply_HotelStaticData_TransportationData& transportation(int index) const;
   ::protobuffer::dotwproto::HDReply_HotelStaticData_TransportationData* mutable_transportation(int index);
   ::protobuffer::dotwproto::HDReply_HotelStaticData_TransportationData* add_transportation();
@@ -4259,9 +4557,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_TransportationData >&
       transportation() const;
 
-  // string description1 = 2;
+  // string description1 = 3;
   void clear_description1();
-  static const int kDescription1FieldNumber = 2;
+  static const int kDescription1FieldNumber = 3;
   const ::std::string& description1() const;
   void set_description1(const ::std::string& value);
   #if LANG_CXX11
@@ -4273,9 +4571,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_description1();
   void set_allocated_description1(::std::string* description1);
 
-  // string description2 = 3;
+  // string description2 = 4;
   void clear_description2();
-  static const int kDescription2FieldNumber = 3;
+  static const int kDescription2FieldNumber = 4;
   const ::std::string& description2() const;
   void set_description2(const ::std::string& value);
   #if LANG_CXX11
@@ -4287,9 +4585,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_description2();
   void set_allocated_description2(::std::string* description2);
 
-  // string ratingDescription = 5;
+  // string ratingDescription = 6;
   void clear_ratingdescription();
-  static const int kRatingDescriptionFieldNumber = 5;
+  static const int kRatingDescriptionFieldNumber = 6;
   const ::std::string& ratingdescription() const;
   void set_ratingdescription(const ::std::string& value);
   #if LANG_CXX11
@@ -4301,9 +4599,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_ratingdescription();
   void set_allocated_ratingdescription(::std::string* ratingdescription);
 
-  // string hotelName = 15;
+  // string hotelName = 16;
   void clear_hotelname();
-  static const int kHotelNameFieldNumber = 15;
+  static const int kHotelNameFieldNumber = 16;
   const ::std::string& hotelname() const;
   void set_hotelname(const ::std::string& value);
   #if LANG_CXX11
@@ -4315,9 +4613,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_hotelname();
   void set_allocated_hotelname(::std::string* hotelname);
 
-  // string address = 16;
+  // string address = 17;
   void clear_address();
-  static const int kAddressFieldNumber = 16;
+  static const int kAddressFieldNumber = 17;
   const ::std::string& address() const;
   void set_address(const ::std::string& value);
   #if LANG_CXX11
@@ -4329,9 +4627,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_address();
   void set_allocated_address(::std::string* address);
 
-  // string zipCode = 17;
+  // string zipCode = 18;
   void clear_zipcode();
-  static const int kZipCodeFieldNumber = 17;
+  static const int kZipCodeFieldNumber = 18;
   const ::std::string& zipcode() const;
   void set_zipcode(const ::std::string& value);
   #if LANG_CXX11
@@ -4343,9 +4641,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_zipcode();
   void set_allocated_zipcode(::std::string* zipcode);
 
-  // string location = 18;
+  // string location = 19;
   void clear_location();
-  static const int kLocationFieldNumber = 18;
+  static const int kLocationFieldNumber = 19;
   const ::std::string& location() const;
   void set_location(const ::std::string& value);
   #if LANG_CXX11
@@ -4357,9 +4655,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_location();
   void set_allocated_location(::std::string* location);
 
-  // string location1 = 20;
+  // string location1 = 21;
   void clear_location1();
-  static const int kLocation1FieldNumber = 20;
+  static const int kLocation1FieldNumber = 21;
   const ::std::string& location1() const;
   void set_location1(const ::std::string& value);
   #if LANG_CXX11
@@ -4371,9 +4669,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_location1();
   void set_allocated_location1(::std::string* location1);
 
-  // string location2 = 21;
+  // string location2 = 22;
   void clear_location2();
-  static const int kLocation2FieldNumber = 21;
+  static const int kLocation2FieldNumber = 22;
   const ::std::string& location2() const;
   void set_location2(const ::std::string& value);
   #if LANG_CXX11
@@ -4385,9 +4683,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_location2();
   void set_allocated_location2(::std::string* location2);
 
-  // string location3 = 22;
+  // string location3 = 23;
   void clear_location3();
-  static const int kLocation3FieldNumber = 22;
+  static const int kLocation3FieldNumber = 23;
   const ::std::string& location3() const;
   void set_location3(const ::std::string& value);
   #if LANG_CXX11
@@ -4399,9 +4697,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_location3();
   void set_allocated_location3(::std::string* location3);
 
-  // string cityName = 23;
+  // string cityName = 24;
   void clear_cityname();
-  static const int kCityNameFieldNumber = 23;
+  static const int kCityNameFieldNumber = 24;
   const ::std::string& cityname() const;
   void set_cityname(const ::std::string& value);
   #if LANG_CXX11
@@ -4413,9 +4711,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_cityname();
   void set_allocated_cityname(::std::string* cityname);
 
-  // string stateName = 25;
+  // string stateName = 26;
   void clear_statename();
-  static const int kStateNameFieldNumber = 25;
+  static const int kStateNameFieldNumber = 26;
   const ::std::string& statename() const;
   void set_statename(const ::std::string& value);
   #if LANG_CXX11
@@ -4427,9 +4725,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_statename();
   void set_allocated_statename(::std::string* statename);
 
-  // string countryName = 27;
+  // string countryName = 28;
   void clear_countryname();
-  static const int kCountryNameFieldNumber = 27;
+  static const int kCountryNameFieldNumber = 28;
   const ::std::string& countryname() const;
   void set_countryname(const ::std::string& value);
   #if LANG_CXX11
@@ -4441,9 +4739,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_countryname();
   void set_allocated_countryname(::std::string* countryname);
 
-  // string regionName = 29;
+  // string regionName = 30;
   void clear_regionname();
-  static const int kRegionNameFieldNumber = 29;
+  static const int kRegionNameFieldNumber = 30;
   const ::std::string& regionname() const;
   void set_regionname(const ::std::string& value);
   #if LANG_CXX11
@@ -4455,9 +4753,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_regionname();
   void set_allocated_regionname(::std::string* regionname);
 
-  // string hotelPhone = 35;
+  // string hotelPhone = 36;
   void clear_hotelphone();
-  static const int kHotelPhoneFieldNumber = 35;
+  static const int kHotelPhoneFieldNumber = 36;
   const ::std::string& hotelphone() const;
   void set_hotelphone(const ::std::string& value);
   #if LANG_CXX11
@@ -4469,9 +4767,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_hotelphone();
   void set_allocated_hotelphone(::std::string* hotelphone);
 
-  // string lastUpdated = 42;
+  // string lastUpdated = 43;
   void clear_lastupdated();
-  static const int kLastUpdatedFieldNumber = 42;
+  static const int kLastUpdatedFieldNumber = 43;
   const ::std::string& lastupdated() const;
   void set_lastupdated(const ::std::string& value);
   #if LANG_CXX11
@@ -4483,9 +4781,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_lastupdated();
   void set_allocated_lastupdated(::std::string* lastupdated);
 
-  // string tariffNotes = 44;
+  // string tariffNotes = 45;
   void clear_tariffnotes();
-  static const int kTariffNotesFieldNumber = 44;
+  static const int kTariffNotesFieldNumber = 45;
   const ::std::string& tariffnotes() const;
   void set_tariffnotes(const ::std::string& value);
   #if LANG_CXX11
@@ -4497,9 +4795,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_tariffnotes();
   void set_allocated_tariffnotes(::std::string* tariffnotes);
 
-  // string chainName = 45;
+  // string chainName = 46;
   void clear_chainname();
-  static const int kChainNameFieldNumber = 45;
+  static const int kChainNameFieldNumber = 46;
   const ::std::string& chainname() const;
   void set_chainname(const ::std::string& value);
   #if LANG_CXX11
@@ -4511,9 +4809,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_chainname();
   void set_allocated_chainname(::std::string* chainname);
 
-  // string fullAddress = 47;
+  // string fullAddress = 48;
   void clear_fulladdress();
-  static const int kFullAddressFieldNumber = 47;
+  static const int kFullAddressFieldNumber = 48;
   const ::std::string& fulladdress() const;
   void set_fulladdress(const ::std::string& value);
   #if LANG_CXX11
@@ -4525,9 +4823,9 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_fulladdress();
   void set_allocated_fulladdress(::std::string* fulladdress);
 
-  // string attraction = 48;
+  // string attraction = 49;
   void clear_attraction();
-  static const int kAttractionFieldNumber = 48;
+  static const int kAttractionFieldNumber = 49;
   const ::std::string& attraction() const;
   void set_attraction(const ::std::string& value);
   #if LANG_CXX11
@@ -4539,129 +4837,135 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* release_attraction();
   void set_allocated_attraction(::std::string* attraction);
 
-  // int32 builtYear = 10;
+  // int32 key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  ::google::protobuf::int32 key() const;
+  void set_key(::google::protobuf::int32 value);
+
+  // int32 builtYear = 11;
   void clear_builtyear();
-  static const int kBuiltYearFieldNumber = 10;
+  static const int kBuiltYearFieldNumber = 11;
   ::google::protobuf::int32 builtyear() const;
   void set_builtyear(::google::protobuf::int32 value);
 
-  // int32 renovationYear = 11;
+  // int32 renovationYear = 12;
   void clear_renovationyear();
-  static const int kRenovationYearFieldNumber = 11;
+  static const int kRenovationYearFieldNumber = 12;
   ::google::protobuf::int32 renovationyear() const;
   void set_renovationyear(::google::protobuf::int32 value);
 
-  // int32 floors = 12;
+  // int32 floors = 13;
   void clear_floors();
-  static const int kFloorsFieldNumber = 12;
+  static const int kFloorsFieldNumber = 13;
   ::google::protobuf::int32 floors() const;
   void set_floors(::google::protobuf::int32 value);
 
-  // int32 noOfRooms = 13;
+  // int32 noOfRooms = 14;
   void clear_noofrooms();
-  static const int kNoOfRoomsFieldNumber = 13;
+  static const int kNoOfRoomsFieldNumber = 14;
   ::google::protobuf::int32 noofrooms() const;
   void set_noofrooms(::google::protobuf::int32 value);
 
-  // bool direct = 7;
+  // bool direct = 8;
   void clear_direct();
-  static const int kDirectFieldNumber = 7;
+  static const int kDirectFieldNumber = 8;
   bool direct() const;
   void set_direct(bool value);
 
-  // bool preferred = 9;
+  // bool preferred = 10;
   void clear_preferred();
-  static const int kPreferredFieldNumber = 9;
+  static const int kPreferredFieldNumber = 10;
   bool preferred() const;
   void set_preferred(bool value);
 
-  // bool luxury = 14;
+  // bool luxury = 15;
   void clear_luxury();
-  static const int kLuxuryFieldNumber = 14;
+  static const int kLuxuryFieldNumber = 15;
   bool luxury() const;
   void set_luxury(bool value);
 
-  // bool fireSafety = 40;
+  // bool fireSafety = 41;
   void clear_firesafety();
-  static const int kFireSafetyFieldNumber = 40;
+  static const int kFireSafetyFieldNumber = 41;
   bool firesafety() const;
   void set_firesafety(bool value);
 
-  // int32 locationId = 19;
+  // int32 locationId = 20;
   void clear_locationid();
-  static const int kLocationIdFieldNumber = 19;
+  static const int kLocationIdFieldNumber = 20;
   ::google::protobuf::int32 locationid() const;
   void set_locationid(::google::protobuf::int32 value);
 
-  // int32 cityCode = 24;
+  // int32 cityCode = 25;
   void clear_citycode();
-  static const int kCityCodeFieldNumber = 24;
+  static const int kCityCodeFieldNumber = 25;
   ::google::protobuf::int32 citycode() const;
   void set_citycode(::google::protobuf::int32 value);
 
-  // int32 stateCode = 26;
+  // int32 stateCode = 27;
   void clear_statecode();
-  static const int kStateCodeFieldNumber = 26;
+  static const int kStateCodeFieldNumber = 27;
   ::google::protobuf::int32 statecode() const;
   void set_statecode(::google::protobuf::int32 value);
 
-  // int32 countryCode = 28;
+  // int32 countryCode = 29;
   void clear_countrycode();
-  static const int kCountryCodeFieldNumber = 28;
+  static const int kCountryCodeFieldNumber = 29;
   ::google::protobuf::int32 countrycode() const;
   void set_countrycode(::google::protobuf::int32 value);
 
-  // int32 regionCode = 30;
+  // int32 regionCode = 31;
   void clear_regioncode();
-  static const int kRegionCodeFieldNumber = 30;
+  static const int kRegionCodeFieldNumber = 31;
   ::google::protobuf::int32 regioncode() const;
   void set_regioncode(::google::protobuf::int32 value);
 
-  // int32 hotelCheckIn = 36;
+  // int32 hotelCheckIn = 37;
   void clear_hotelcheckin();
-  static const int kHotelCheckInFieldNumber = 36;
+  static const int kHotelCheckInFieldNumber = 37;
   ::google::protobuf::int32 hotelcheckin() const;
   void set_hotelcheckin(::google::protobuf::int32 value);
 
-  // int32 hotelCheckOut = 37;
+  // int32 hotelCheckOut = 38;
   void clear_hotelcheckout();
-  static const int kHotelCheckOutFieldNumber = 37;
+  static const int kHotelCheckOutFieldNumber = 38;
   ::google::protobuf::int32 hotelcheckout() const;
   void set_hotelcheckout(::google::protobuf::int32 value);
 
-  // int32 minAge = 38;
+  // int32 minAge = 39;
   void clear_minage();
-  static const int kMinAgeFieldNumber = 38;
+  static const int kMinAgeFieldNumber = 39;
   ::google::protobuf::int32 minage() const;
   void set_minage(::google::protobuf::int32 value);
 
-  // int32 rating = 39;
+  // int32 rating = 40;
   void clear_rating();
-  static const int kRatingFieldNumber = 39;
+  static const int kRatingFieldNumber = 40;
   ::google::protobuf::int32 rating() const;
   void set_rating(::google::protobuf::int32 value);
 
-  // int32 chain = 41;
+  // int32 chain = 42;
   void clear_chain();
-  static const int kChainFieldNumber = 41;
+  static const int kChainFieldNumber = 42;
   ::google::protobuf::int32 chain() const;
   void set_chain(::google::protobuf::int32 value);
 
-  // int32 transferMandatory = 43;
+  // int32 transferMandatory = 44;
   void clear_transfermandatory();
-  static const int kTransferMandatoryFieldNumber = 43;
+  static const int kTransferMandatoryFieldNumber = 44;
   ::google::protobuf::int32 transfermandatory() const;
   void set_transfermandatory(::google::protobuf::int32 value);
 
-  // int32 hotelProperty = 46;
+  // int32 hotelProperty = 47;
   void clear_hotelproperty();
-  static const int kHotelPropertyFieldNumber = 46;
+  static const int kHotelPropertyFieldNumber = 47;
   ::google::protobuf::int32 hotelproperty() const;
   void set_hotelproperty(::google::protobuf::int32 value);
 
-  // bool exclusive = 49;
+  // bool exclusive = 50;
   void clear_exclusive();
-  static const int kExclusiveFieldNumber = 49;
+  static const int kExclusiveFieldNumber = 50;
   bool exclusive() const;
   void set_exclusive(bool value);
 
@@ -4698,6 +5002,7 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::internal::ArenaStringPtr chainname_;
   ::google::protobuf::internal::ArenaStringPtr fulladdress_;
   ::google::protobuf::internal::ArenaStringPtr attraction_;
+  ::google::protobuf::int32 key_;
   ::google::protobuf::int32 builtyear_;
   ::google::protobuf::int32 renovationyear_;
   ::google::protobuf::int32 floors_;
@@ -4760,7 +5065,7 @@ class HDReply : public ::google::protobuf::Message /* @@protoc_insertion_point(c
                &_HDReply_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    24;
+    26;
 
   void Swap(HDReply* other);
   friend void swap(HDReply& a, HDReply& b) {
@@ -4809,10 +5114,10 @@ class HDReply : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 1;
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 2;
   int hotelstaticdatalist_size() const;
   void clear_hotelstaticdatalist();
-  static const int kHotelStaticDataListFieldNumber = 1;
+  static const int kHotelStaticDataListFieldNumber = 2;
   const ::protobuffer::dotwproto::HDReply_HotelStaticData& hotelstaticdatalist(int index) const;
   ::protobuffer::dotwproto::HDReply_HotelStaticData* mutable_hotelstaticdatalist(int index);
   ::protobuffer::dotwproto::HDReply_HotelStaticData* add_hotelstaticdatalist();
@@ -4821,9 +5126,9 @@ class HDReply : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData >&
       hotelstaticdatalist() const;
 
-  // string error = 2;
+  // string error = 3;
   void clear_error();
-  static const int kErrorFieldNumber = 2;
+  static const int kErrorFieldNumber = 3;
   const ::std::string& error() const;
   void set_error(const ::std::string& value);
   #if LANG_CXX11
@@ -4835,9 +5140,9 @@ class HDReply : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::std::string* release_error();
   void set_allocated_error(::std::string* error);
 
-  // string errorCode = 3;
+  // string errorCode = 4;
   void clear_errorcode();
-  static const int kErrorCodeFieldNumber = 3;
+  static const int kErrorCodeFieldNumber = 4;
   const ::std::string& errorcode() const;
   void set_errorcode(const ::std::string& value);
   #if LANG_CXX11
@@ -4849,9 +5154,9 @@ class HDReply : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::std::string* release_errorcode();
   void set_allocated_errorcode(::std::string* errorcode);
 
-  // string replystring = 4;
+  // string replystring = 5;
   void clear_replystring();
-  static const int kReplystringFieldNumber = 4;
+  static const int kReplystringFieldNumber = 5;
   const ::std::string& replystring() const;
   void set_replystring(const ::std::string& value);
   #if LANG_CXX11
@@ -4863,9 +5168,15 @@ class HDReply : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::std::string* release_replystring();
   void set_allocated_replystring(::std::string* replystring);
 
-  // int32 replystringInt = 5;
+  // int32 key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  ::google::protobuf::int32 key() const;
+  void set_key(::google::protobuf::int32 value);
+
+  // int32 replystringInt = 6;
   void clear_replystringint();
-  static const int kReplystringIntFieldNumber = 5;
+  static const int kReplystringIntFieldNumber = 6;
   ::google::protobuf::int32 replystringint() const;
   void set_replystringint(::google::protobuf::int32 value);
 
@@ -4877,6 +5188,7 @@ class HDReply : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::google::protobuf::internal::ArenaStringPtr error_;
   ::google::protobuf::internal::ArenaStringPtr errorcode_;
   ::google::protobuf::internal::ArenaStringPtr replystring_;
+  ::google::protobuf::int32 key_;
   ::google::protobuf::int32 replystringint_;
   mutable int _cached_size_;
   friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
@@ -6391,7 +6703,60 @@ inline void PSFRequest::set_allocated_searchperiodcriteria(::protobuffer::dotwpr
 
 // PSFReply_RoomData
 
-// int32 roomTypeCode = 1;
+// string key = 1;
+inline void PSFReply_RoomData::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PSFReply_RoomData::key() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.RoomData.key)
+  return key_.GetNoArena();
+}
+inline void PSFReply_RoomData::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.PSFReply.RoomData.key)
+}
+#if LANG_CXX11
+inline void PSFReply_RoomData::set_key(::std::string&& value) {
+  
+  key_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protobuffer.dotwproto.PSFReply.RoomData.key)
+}
+#endif
+inline void PSFReply_RoomData::set_key(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protobuffer.dotwproto.PSFReply.RoomData.key)
+}
+inline void PSFReply_RoomData::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protobuffer.dotwproto.PSFReply.RoomData.key)
+}
+inline ::std::string* PSFReply_RoomData::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.PSFReply.RoomData.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PSFReply_RoomData::release_key() {
+  // @@protoc_insertion_point(field_release:protobuffer.dotwproto.PSFReply.RoomData.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PSFReply_RoomData::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.PSFReply.RoomData.key)
+}
+
+// int32 roomTypeCode = 2;
 inline void PSFReply_RoomData::clear_roomtypecode() {
   roomtypecode_ = 0;
 }
@@ -6409,21 +6774,74 @@ inline void PSFReply_RoomData::set_roomtypecode(::google::protobuf::int32 value)
 
 // PSFReply_HotelCode
 
-// int32 hotelCodeOriginal = 1;
-inline void PSFReply_HotelCode::clear_hotelcodeoriginal() {
-  hotelcodeoriginal_ = 0;
+// int32 key = 1;
+inline void PSFReply_HotelCode::clear_key() {
+  key_ = 0;
 }
-inline ::google::protobuf::int32 PSFReply_HotelCode::hotelcodeoriginal() const {
-  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
-  return hotelcodeoriginal_;
+inline ::google::protobuf::int32 PSFReply_HotelCode::key() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.HotelCode.key)
+  return key_;
 }
-inline void PSFReply_HotelCode::set_hotelcodeoriginal(::google::protobuf::int32 value) {
+inline void PSFReply_HotelCode::set_key(::google::protobuf::int32 value) {
   
-  hotelcodeoriginal_ = value;
-  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
+  key_ = value;
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.PSFReply.HotelCode.key)
 }
 
-// string cityCode = 2;
+// string hotelCodeOriginal = 2;
+inline void PSFReply_HotelCode::clear_hotelcodeoriginal() {
+  hotelcodeoriginal_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& PSFReply_HotelCode::hotelcodeoriginal() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
+  return hotelcodeoriginal_.GetNoArena();
+}
+inline void PSFReply_HotelCode::set_hotelcodeoriginal(const ::std::string& value) {
+  
+  hotelcodeoriginal_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
+}
+#if LANG_CXX11
+inline void PSFReply_HotelCode::set_hotelcodeoriginal(::std::string&& value) {
+  
+  hotelcodeoriginal_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
+}
+#endif
+inline void PSFReply_HotelCode::set_hotelcodeoriginal(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  hotelcodeoriginal_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
+}
+inline void PSFReply_HotelCode::set_hotelcodeoriginal(const char* value, size_t size) {
+  
+  hotelcodeoriginal_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
+}
+inline ::std::string* PSFReply_HotelCode::mutable_hotelcodeoriginal() {
+  
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
+  return hotelcodeoriginal_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PSFReply_HotelCode::release_hotelcodeoriginal() {
+  // @@protoc_insertion_point(field_release:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
+  
+  return hotelcodeoriginal_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PSFReply_HotelCode::set_allocated_hotelcodeoriginal(::std::string* hotelcodeoriginal) {
+  if (hotelcodeoriginal != NULL) {
+    
+  } else {
+    
+  }
+  hotelcodeoriginal_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hotelcodeoriginal);
+  // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.PSFReply.HotelCode.hotelCodeOriginal)
+}
+
+// string cityCode = 3;
 inline void PSFReply_HotelCode::clear_citycode() {
   citycode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -6476,7 +6894,7 @@ inline void PSFReply_HotelCode::set_allocated_citycode(::std::string* citycode) 
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.PSFReply.HotelCode.cityCode)
 }
 
-// repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 3;
+// repeated .protobuffer.dotwproto.PSFReply.RoomData roomData = 4;
 inline int PSFReply_HotelCode::roomdata_size() const {
   return roomdata_.size();
 }
@@ -6510,68 +6928,96 @@ PSFReply_HotelCode::roomdata() const {
 
 // PSFReply_BookingChannelCode
 
-// repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCode = 1;
-inline int PSFReply_BookingChannelCode::hotelcode_size() const {
-  return hotelcode_.size();
+// int32 key = 1;
+inline void PSFReply_BookingChannelCode::clear_key() {
+  key_ = 0;
 }
-inline void PSFReply_BookingChannelCode::clear_hotelcode() {
-  hotelcode_.Clear();
+inline ::google::protobuf::int32 PSFReply_BookingChannelCode::key() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.BookingChannelCode.key)
+  return key_;
 }
-inline const ::protobuffer::dotwproto::PSFReply_HotelCode& PSFReply_BookingChannelCode::hotelcode(int index) const {
-  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCode)
-  return hotelcode_.Get(index);
+inline void PSFReply_BookingChannelCode::set_key(::google::protobuf::int32 value) {
+  
+  key_ = value;
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.PSFReply.BookingChannelCode.key)
 }
-inline ::protobuffer::dotwproto::PSFReply_HotelCode* PSFReply_BookingChannelCode::mutable_hotelcode(int index) {
-  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCode)
-  return hotelcode_.Mutable(index);
+
+// repeated .protobuffer.dotwproto.PSFReply.HotelCode hotelCodeArray = 2;
+inline int PSFReply_BookingChannelCode::hotelcodearray_size() const {
+  return hotelcodearray_.size();
 }
-inline ::protobuffer::dotwproto::PSFReply_HotelCode* PSFReply_BookingChannelCode::add_hotelcode() {
-  // @@protoc_insertion_point(field_add:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCode)
-  return hotelcode_.Add();
+inline void PSFReply_BookingChannelCode::clear_hotelcodearray() {
+  hotelcodearray_.Clear();
+}
+inline const ::protobuffer::dotwproto::PSFReply_HotelCode& PSFReply_BookingChannelCode::hotelcodearray(int index) const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCodeArray)
+  return hotelcodearray_.Get(index);
+}
+inline ::protobuffer::dotwproto::PSFReply_HotelCode* PSFReply_BookingChannelCode::mutable_hotelcodearray(int index) {
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCodeArray)
+  return hotelcodearray_.Mutable(index);
+}
+inline ::protobuffer::dotwproto::PSFReply_HotelCode* PSFReply_BookingChannelCode::add_hotelcodearray() {
+  // @@protoc_insertion_point(field_add:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCodeArray)
+  return hotelcodearray_.Add();
 }
 inline ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_HotelCode >*
-PSFReply_BookingChannelCode::mutable_hotelcode() {
-  // @@protoc_insertion_point(field_mutable_list:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCode)
-  return &hotelcode_;
+PSFReply_BookingChannelCode::mutable_hotelcodearray() {
+  // @@protoc_insertion_point(field_mutable_list:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCodeArray)
+  return &hotelcodearray_;
 }
 inline const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_HotelCode >&
-PSFReply_BookingChannelCode::hotelcode() const {
-  // @@protoc_insertion_point(field_list:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCode)
-  return hotelcode_;
+PSFReply_BookingChannelCode::hotelcodearray() const {
+  // @@protoc_insertion_point(field_list:protobuffer.dotwproto.PSFReply.BookingChannelCode.hotelCodeArray)
+  return hotelcodearray_;
 }
 
 // -------------------------------------------------------------------
 
 // PSFReply_RoomIndex
 
-// repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndex = 1;
-inline int PSFReply_RoomIndex::roomindex_size() const {
-  return roomindex_.size();
+// int32 key = 1;
+inline void PSFReply_RoomIndex::clear_key() {
+  key_ = 0;
 }
-inline void PSFReply_RoomIndex::clear_roomindex() {
-  roomindex_.Clear();
+inline ::google::protobuf::int32 PSFReply_RoomIndex::key() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.RoomIndex.key)
+  return key_;
 }
-inline const ::protobuffer::dotwproto::PSFReply_BookingChannelCode& PSFReply_RoomIndex::roomindex(int index) const {
-  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndex)
-  return roomindex_.Get(index);
+inline void PSFReply_RoomIndex::set_key(::google::protobuf::int32 value) {
+  
+  key_ = value;
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.PSFReply.RoomIndex.key)
 }
-inline ::protobuffer::dotwproto::PSFReply_BookingChannelCode* PSFReply_RoomIndex::mutable_roomindex(int index) {
-  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndex)
-  return roomindex_.Mutable(index);
+
+// repeated .protobuffer.dotwproto.PSFReply.BookingChannelCode roomIndexArray = 2;
+inline int PSFReply_RoomIndex::roomindexarray_size() const {
+  return roomindexarray_.size();
 }
-inline ::protobuffer::dotwproto::PSFReply_BookingChannelCode* PSFReply_RoomIndex::add_roomindex() {
-  // @@protoc_insertion_point(field_add:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndex)
-  return roomindex_.Add();
+inline void PSFReply_RoomIndex::clear_roomindexarray() {
+  roomindexarray_.Clear();
+}
+inline const ::protobuffer::dotwproto::PSFReply_BookingChannelCode& PSFReply_RoomIndex::roomindexarray(int index) const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndexArray)
+  return roomindexarray_.Get(index);
+}
+inline ::protobuffer::dotwproto::PSFReply_BookingChannelCode* PSFReply_RoomIndex::mutable_roomindexarray(int index) {
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndexArray)
+  return roomindexarray_.Mutable(index);
+}
+inline ::protobuffer::dotwproto::PSFReply_BookingChannelCode* PSFReply_RoomIndex::add_roomindexarray() {
+  // @@protoc_insertion_point(field_add:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndexArray)
+  return roomindexarray_.Add();
 }
 inline ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_BookingChannelCode >*
-PSFReply_RoomIndex::mutable_roomindex() {
-  // @@protoc_insertion_point(field_mutable_list:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndex)
-  return &roomindex_;
+PSFReply_RoomIndex::mutable_roomindexarray() {
+  // @@protoc_insertion_point(field_mutable_list:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndexArray)
+  return &roomindexarray_;
 }
 inline const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_BookingChannelCode >&
-PSFReply_RoomIndex::roomindex() const {
-  // @@protoc_insertion_point(field_list:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndex)
-  return roomindex_;
+PSFReply_RoomIndex::roomindexarray() const {
+  // @@protoc_insertion_point(field_list:protobuffer.dotwproto.PSFReply.RoomIndex.roomIndexArray)
+  return roomindexarray_;
 }
 
 // -------------------------------------------------------------------
@@ -8242,36 +8688,194 @@ inline void HDRequest::set_languageid(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
-// HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName
+// HDReply_HotelStaticData_RoomTypeStaticData_RoomName
 
-// repeated int32 roomName = 1;
-inline int HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::roomname_size() const {
+// string roomCode = 1;
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::clear_roomcode() {
+  roomcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& HDReply_HotelStaticData_RoomTypeStaticData_RoomName::roomcode() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode)
+  return roomcode_.GetNoArena();
+}
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_roomcode(const ::std::string& value) {
+  
+  roomcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode)
+}
+#if LANG_CXX11
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_roomcode(::std::string&& value) {
+  
+  roomcode_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode)
+}
+#endif
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_roomcode(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  roomcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode)
+}
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_roomcode(const char* value, size_t size) {
+  
+  roomcode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode)
+}
+inline ::std::string* HDReply_HotelStaticData_RoomTypeStaticData_RoomName::mutable_roomcode() {
+  
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode)
+  return roomcode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* HDReply_HotelStaticData_RoomTypeStaticData_RoomName::release_roomcode() {
+  // @@protoc_insertion_point(field_release:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode)
+  
+  return roomcode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_allocated_roomcode(::std::string* roomcode) {
+  if (roomcode != NULL) {
+    
+  } else {
+    
+  }
+  roomcode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), roomcode);
+  // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomCode)
+}
+
+// string roomName = 2;
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::clear_roomname() {
+  roomname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& HDReply_HotelStaticData_RoomTypeStaticData_RoomName::roomname() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName)
+  return roomname_.GetNoArena();
+}
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_roomname(const ::std::string& value) {
+  
+  roomname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName)
+}
+#if LANG_CXX11
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_roomname(::std::string&& value) {
+  
+  roomname_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName)
+}
+#endif
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_roomname(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  roomname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName)
+}
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_roomname(const char* value, size_t size) {
+  
+  roomname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName)
+}
+inline ::std::string* HDReply_HotelStaticData_RoomTypeStaticData_RoomName::mutable_roomname() {
+  
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName)
+  return roomname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* HDReply_HotelStaticData_RoomTypeStaticData_RoomName::release_roomname() {
+  // @@protoc_insertion_point(field_release:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName)
+  
+  return roomname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomName::set_allocated_roomname(::std::string* roomname) {
+  if (roomname != NULL) {
+    
+  } else {
+    
+  }
+  roomname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), roomname);
+  // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName.roomName)
+}
+
+// -------------------------------------------------------------------
+
+// HDReply_HotelStaticData_RoomTypeStaticData_RoomNames
+
+// int32 key = 1;
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::clear_key() {
+  key_ = 0;
+}
+inline ::google::protobuf::int32 HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::key() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames.key)
+  return key_;
+}
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::set_key(::google::protobuf::int32 value) {
+  
+  key_ = value;
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames.key)
+}
+
+// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomName roomName = 2;
+inline int HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::roomname_size() const {
   return roomname_.size();
 }
-inline void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::clear_roomname() {
+inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::clear_roomname() {
   roomname_.Clear();
 }
-inline ::google::protobuf::int32 HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::roomname(int index) const {
-  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomName)
+inline const ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName& HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::roomname(int index) const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames.roomName)
   return roomname_.Get(index);
 }
-inline void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::set_roomname(int index, ::google::protobuf::int32 value) {
-  roomname_.Set(index, value);
-  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomName)
+inline ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName* HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::mutable_roomname(int index) {
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames.roomName)
+  return roomname_.Mutable(index);
 }
-inline void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::add_roomname(::google::protobuf::int32 value) {
-  roomname_.Add(value);
-  // @@protoc_insertion_point(field_add:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomName)
+inline ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName* HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::add_roomname() {
+  // @@protoc_insertion_point(field_add:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames.roomName)
+  return roomname_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::roomname() const {
-  // @@protoc_insertion_point(field_list:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomName)
+inline ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName >*
+HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::mutable_roomname() {
+  // @@protoc_insertion_point(field_mutable_list:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames.roomName)
+  return &roomname_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomName >&
+HDReply_HotelStaticData_RoomTypeStaticData_RoomNames::roomname() const {
+  // @@protoc_insertion_point(field_list:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames.roomName)
   return roomname_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::mutable_roomname() {
-  // @@protoc_insertion_point(field_mutable_list:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomName)
-  return &roomname_;
+
+// -------------------------------------------------------------------
+
+// HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName
+
+// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomNames roomNames = 1;
+inline int HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::roomnames_size() const {
+  return roomnames_.size();
+}
+inline void HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::clear_roomnames() {
+  roomnames_.Clear();
+}
+inline const ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames& HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::roomnames(int index) const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomNames)
+  return roomnames_.Get(index);
+}
+inline ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::mutable_roomnames(int index) {
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomNames)
+  return roomnames_.Mutable(index);
+}
+inline ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames* HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::add_roomnames() {
+  // @@protoc_insertion_point(field_add:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomNames)
+  return roomnames_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames >*
+HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::mutable_roomnames() {
+  // @@protoc_insertion_point(field_mutable_list:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomNames)
+  return &roomnames_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomNames >&
+HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName::roomnames() const {
+  // @@protoc_insertion_point(field_list:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName.roomNames)
+  return roomnames_;
 }
 
 // -------------------------------------------------------------------
@@ -8504,7 +9108,21 @@ inline void HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory::set_allocat
 
 // HDReply_HotelStaticData_RoomTypeStaticData
 
-// bool twin = 1;
+// int32 key = 1;
+inline void HDReply_HotelStaticData_RoomTypeStaticData::clear_key() {
+  key_ = 0;
+}
+inline ::google::protobuf::int32 HDReply_HotelStaticData_RoomTypeStaticData::key() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.key)
+  return key_;
+}
+inline void HDReply_HotelStaticData_RoomTypeStaticData::set_key(::google::protobuf::int32 value) {
+  
+  key_ = value;
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.key)
+}
+
+// bool twin = 2;
 inline void HDReply_HotelStaticData_RoomTypeStaticData::clear_twin() {
   twin_ = false;
 }
@@ -8518,7 +9136,7 @@ inline void HDReply_HotelStaticData_RoomTypeStaticData::set_twin(bool value) {
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.twin)
 }
 
-// repeated string roomAmenities = 2;
+// repeated string roomAmenities = 3;
 inline int HDReply_HotelStaticData_RoomTypeStaticData::roomamenities_size() const {
   return roomamenities_.size();
 }
@@ -8587,7 +9205,7 @@ HDReply_HotelStaticData_RoomTypeStaticData::mutable_roomamenities() {
   return &roomamenities_;
 }
 
-// string name = 3;
+// string name = 4;
 inline void HDReply_HotelStaticData_RoomTypeStaticData::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -8640,7 +9258,7 @@ inline void HDReply_HotelStaticData_RoomTypeStaticData::set_allocated_name(::std
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.name)
 }
 
-// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 4;
+// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.SupplierRoomName supplierRoomName = 5;
 inline int HDReply_HotelStaticData_RoomTypeStaticData::supplierroomname_size() const {
   return supplierroomname_.size();
 }
@@ -8670,7 +9288,7 @@ HDReply_HotelStaticData_RoomTypeStaticData::supplierroomname() const {
   return supplierroomname_;
 }
 
-// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 5;
+// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomInfo roomInfo = 6;
 inline int HDReply_HotelStaticData_RoomTypeStaticData::roominfo_size() const {
   return roominfo_.size();
 }
@@ -8700,7 +9318,7 @@ HDReply_HotelStaticData_RoomTypeStaticData::roominfo() const {
   return roominfo_;
 }
 
-// .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 6;
+// .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
 inline bool HDReply_HotelStaticData_RoomTypeStaticData::has_roomcategory() const {
   return this != internal_default_instance() && roomcategory_ != NULL;
 }
@@ -9306,7 +9924,21 @@ inline void HDReply_HotelStaticData_TransportationData::set_allocated_directions
 
 // HDReply_HotelStaticData
 
-// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 1;
+// int32 key = 1;
+inline void HDReply_HotelStaticData::clear_key() {
+  key_ = 0;
+}
+inline ::google::protobuf::int32 HDReply_HotelStaticData::key() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.HotelStaticData.key)
+  return key_;
+}
+inline void HDReply_HotelStaticData::set_key(::google::protobuf::int32 value) {
+  
+  key_ = value;
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.key)
+}
+
+// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData roomTypeStaticDataList = 2;
 inline int HDReply_HotelStaticData::roomtypestaticdatalist_size() const {
   return roomtypestaticdatalist_.size();
 }
@@ -9336,7 +9968,7 @@ HDReply_HotelStaticData::roomtypestaticdatalist() const {
   return roomtypestaticdatalist_;
 }
 
-// string description1 = 2;
+// string description1 = 3;
 inline void HDReply_HotelStaticData::clear_description1() {
   description1_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9389,7 +10021,7 @@ inline void HDReply_HotelStaticData::set_allocated_description1(::std::string* d
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.description1)
 }
 
-// string description2 = 3;
+// string description2 = 4;
 inline void HDReply_HotelStaticData::clear_description2() {
   description2_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9442,7 +10074,7 @@ inline void HDReply_HotelStaticData::set_allocated_description2(::std::string* d
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.description2)
 }
 
-// repeated string geoPoint = 4;
+// repeated string geoPoint = 5;
 inline int HDReply_HotelStaticData::geopoint_size() const {
   return geopoint_.size();
 }
@@ -9511,7 +10143,7 @@ HDReply_HotelStaticData::mutable_geopoint() {
   return &geopoint_;
 }
 
-// string ratingDescription = 5;
+// string ratingDescription = 6;
 inline void HDReply_HotelStaticData::clear_ratingdescription() {
   ratingdescription_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9564,7 +10196,7 @@ inline void HDReply_HotelStaticData::set_allocated_ratingdescription(::std::stri
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.ratingDescription)
 }
 
-// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 6;
+// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 7;
 inline int HDReply_HotelStaticData::images_size() const {
   return images_.size();
 }
@@ -9594,7 +10226,7 @@ HDReply_HotelStaticData::images() const {
   return images_;
 }
 
-// bool direct = 7;
+// bool direct = 8;
 inline void HDReply_HotelStaticData::clear_direct() {
   direct_ = false;
 }
@@ -9608,7 +10240,7 @@ inline void HDReply_HotelStaticData::set_direct(bool value) {
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.direct)
 }
 
-// repeated int32 hotelPreference = 8;
+// repeated int32 hotelPreference = 9;
 inline int HDReply_HotelStaticData::hotelpreference_size() const {
   return hotelpreference_.size();
 }
@@ -9638,7 +10270,7 @@ HDReply_HotelStaticData::mutable_hotelpreference() {
   return &hotelpreference_;
 }
 
-// bool preferred = 9;
+// bool preferred = 10;
 inline void HDReply_HotelStaticData::clear_preferred() {
   preferred_ = false;
 }
@@ -9652,7 +10284,7 @@ inline void HDReply_HotelStaticData::set_preferred(bool value) {
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.preferred)
 }
 
-// int32 builtYear = 10;
+// int32 builtYear = 11;
 inline void HDReply_HotelStaticData::clear_builtyear() {
   builtyear_ = 0;
 }
@@ -9666,7 +10298,7 @@ inline void HDReply_HotelStaticData::set_builtyear(::google::protobuf::int32 val
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.builtYear)
 }
 
-// int32 renovationYear = 11;
+// int32 renovationYear = 12;
 inline void HDReply_HotelStaticData::clear_renovationyear() {
   renovationyear_ = 0;
 }
@@ -9680,7 +10312,7 @@ inline void HDReply_HotelStaticData::set_renovationyear(::google::protobuf::int3
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.renovationYear)
 }
 
-// int32 floors = 12;
+// int32 floors = 13;
 inline void HDReply_HotelStaticData::clear_floors() {
   floors_ = 0;
 }
@@ -9694,7 +10326,7 @@ inline void HDReply_HotelStaticData::set_floors(::google::protobuf::int32 value)
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.floors)
 }
 
-// int32 noOfRooms = 13;
+// int32 noOfRooms = 14;
 inline void HDReply_HotelStaticData::clear_noofrooms() {
   noofrooms_ = 0;
 }
@@ -9708,7 +10340,7 @@ inline void HDReply_HotelStaticData::set_noofrooms(::google::protobuf::int32 val
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.noOfRooms)
 }
 
-// bool luxury = 14;
+// bool luxury = 15;
 inline void HDReply_HotelStaticData::clear_luxury() {
   luxury_ = false;
 }
@@ -9722,7 +10354,7 @@ inline void HDReply_HotelStaticData::set_luxury(bool value) {
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.luxury)
 }
 
-// string hotelName = 15;
+// string hotelName = 16;
 inline void HDReply_HotelStaticData::clear_hotelname() {
   hotelname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9775,7 +10407,7 @@ inline void HDReply_HotelStaticData::set_allocated_hotelname(::std::string* hote
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.hotelName)
 }
 
-// string address = 16;
+// string address = 17;
 inline void HDReply_HotelStaticData::clear_address() {
   address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9828,7 +10460,7 @@ inline void HDReply_HotelStaticData::set_allocated_address(::std::string* addres
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.address)
 }
 
-// string zipCode = 17;
+// string zipCode = 18;
 inline void HDReply_HotelStaticData::clear_zipcode() {
   zipcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9881,7 +10513,7 @@ inline void HDReply_HotelStaticData::set_allocated_zipcode(::std::string* zipcod
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.zipCode)
 }
 
-// string location = 18;
+// string location = 19;
 inline void HDReply_HotelStaticData::clear_location() {
   location_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -9934,7 +10566,7 @@ inline void HDReply_HotelStaticData::set_allocated_location(::std::string* locat
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.location)
 }
 
-// int32 locationId = 19;
+// int32 locationId = 20;
 inline void HDReply_HotelStaticData::clear_locationid() {
   locationid_ = 0;
 }
@@ -9948,7 +10580,7 @@ inline void HDReply_HotelStaticData::set_locationid(::google::protobuf::int32 va
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.locationId)
 }
 
-// string location1 = 20;
+// string location1 = 21;
 inline void HDReply_HotelStaticData::clear_location1() {
   location1_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10001,7 +10633,7 @@ inline void HDReply_HotelStaticData::set_allocated_location1(::std::string* loca
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.location1)
 }
 
-// string location2 = 21;
+// string location2 = 22;
 inline void HDReply_HotelStaticData::clear_location2() {
   location2_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10054,7 +10686,7 @@ inline void HDReply_HotelStaticData::set_allocated_location2(::std::string* loca
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.location2)
 }
 
-// string location3 = 22;
+// string location3 = 23;
 inline void HDReply_HotelStaticData::clear_location3() {
   location3_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10107,7 +10739,7 @@ inline void HDReply_HotelStaticData::set_allocated_location3(::std::string* loca
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.location3)
 }
 
-// string cityName = 23;
+// string cityName = 24;
 inline void HDReply_HotelStaticData::clear_cityname() {
   cityname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10160,7 +10792,7 @@ inline void HDReply_HotelStaticData::set_allocated_cityname(::std::string* cityn
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.cityName)
 }
 
-// int32 cityCode = 24;
+// int32 cityCode = 25;
 inline void HDReply_HotelStaticData::clear_citycode() {
   citycode_ = 0;
 }
@@ -10174,7 +10806,7 @@ inline void HDReply_HotelStaticData::set_citycode(::google::protobuf::int32 valu
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.cityCode)
 }
 
-// string stateName = 25;
+// string stateName = 26;
 inline void HDReply_HotelStaticData::clear_statename() {
   statename_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10227,7 +10859,7 @@ inline void HDReply_HotelStaticData::set_allocated_statename(::std::string* stat
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.stateName)
 }
 
-// int32 stateCode = 26;
+// int32 stateCode = 27;
 inline void HDReply_HotelStaticData::clear_statecode() {
   statecode_ = 0;
 }
@@ -10241,7 +10873,7 @@ inline void HDReply_HotelStaticData::set_statecode(::google::protobuf::int32 val
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.stateCode)
 }
 
-// string countryName = 27;
+// string countryName = 28;
 inline void HDReply_HotelStaticData::clear_countryname() {
   countryname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10294,7 +10926,7 @@ inline void HDReply_HotelStaticData::set_allocated_countryname(::std::string* co
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.countryName)
 }
 
-// int32 countryCode = 28;
+// int32 countryCode = 29;
 inline void HDReply_HotelStaticData::clear_countrycode() {
   countrycode_ = 0;
 }
@@ -10308,7 +10940,7 @@ inline void HDReply_HotelStaticData::set_countrycode(::google::protobuf::int32 v
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.countryCode)
 }
 
-// string regionName = 29;
+// string regionName = 30;
 inline void HDReply_HotelStaticData::clear_regionname() {
   regionname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10361,7 +10993,7 @@ inline void HDReply_HotelStaticData::set_allocated_regionname(::std::string* reg
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.regionName)
 }
 
-// int32 regionCode = 30;
+// int32 regionCode = 31;
 inline void HDReply_HotelStaticData::clear_regioncode() {
   regioncode_ = 0;
 }
@@ -10375,7 +11007,7 @@ inline void HDReply_HotelStaticData::set_regioncode(::google::protobuf::int32 va
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.regionCode)
 }
 
-// repeated string amenitie = 31;
+// repeated string amenitie = 32;
 inline int HDReply_HotelStaticData::amenitie_size() const {
   return amenitie_.size();
 }
@@ -10444,7 +11076,7 @@ HDReply_HotelStaticData::mutable_amenitie() {
   return &amenitie_;
 }
 
-// repeated string leisure = 32;
+// repeated string leisure = 33;
 inline int HDReply_HotelStaticData::leisure_size() const {
   return leisure_.size();
 }
@@ -10513,7 +11145,7 @@ HDReply_HotelStaticData::mutable_leisure() {
   return &leisure_;
 }
 
-// repeated string business = 33;
+// repeated string business = 34;
 inline int HDReply_HotelStaticData::business_size() const {
   return business_.size();
 }
@@ -10582,7 +11214,7 @@ HDReply_HotelStaticData::mutable_business() {
   return &business_;
 }
 
-// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 34;
+// repeated .protobuffer.dotwproto.HDReply.HotelStaticData.TransportationData transportation = 35;
 inline int HDReply_HotelStaticData::transportation_size() const {
   return transportation_.size();
 }
@@ -10612,7 +11244,7 @@ HDReply_HotelStaticData::transportation() const {
   return transportation_;
 }
 
-// string hotelPhone = 35;
+// string hotelPhone = 36;
 inline void HDReply_HotelStaticData::clear_hotelphone() {
   hotelphone_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10665,7 +11297,7 @@ inline void HDReply_HotelStaticData::set_allocated_hotelphone(::std::string* hot
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.hotelPhone)
 }
 
-// int32 hotelCheckIn = 36;
+// int32 hotelCheckIn = 37;
 inline void HDReply_HotelStaticData::clear_hotelcheckin() {
   hotelcheckin_ = 0;
 }
@@ -10679,7 +11311,7 @@ inline void HDReply_HotelStaticData::set_hotelcheckin(::google::protobuf::int32 
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.hotelCheckIn)
 }
 
-// int32 hotelCheckOut = 37;
+// int32 hotelCheckOut = 38;
 inline void HDReply_HotelStaticData::clear_hotelcheckout() {
   hotelcheckout_ = 0;
 }
@@ -10693,7 +11325,7 @@ inline void HDReply_HotelStaticData::set_hotelcheckout(::google::protobuf::int32
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.hotelCheckOut)
 }
 
-// int32 minAge = 38;
+// int32 minAge = 39;
 inline void HDReply_HotelStaticData::clear_minage() {
   minage_ = 0;
 }
@@ -10707,7 +11339,7 @@ inline void HDReply_HotelStaticData::set_minage(::google::protobuf::int32 value)
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.minAge)
 }
 
-// int32 rating = 39;
+// int32 rating = 40;
 inline void HDReply_HotelStaticData::clear_rating() {
   rating_ = 0;
 }
@@ -10721,7 +11353,7 @@ inline void HDReply_HotelStaticData::set_rating(::google::protobuf::int32 value)
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.rating)
 }
 
-// bool fireSafety = 40;
+// bool fireSafety = 41;
 inline void HDReply_HotelStaticData::clear_firesafety() {
   firesafety_ = false;
 }
@@ -10735,7 +11367,7 @@ inline void HDReply_HotelStaticData::set_firesafety(bool value) {
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.fireSafety)
 }
 
-// int32 chain = 41;
+// int32 chain = 42;
 inline void HDReply_HotelStaticData::clear_chain() {
   chain_ = 0;
 }
@@ -10749,7 +11381,7 @@ inline void HDReply_HotelStaticData::set_chain(::google::protobuf::int32 value) 
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.chain)
 }
 
-// string lastUpdated = 42;
+// string lastUpdated = 43;
 inline void HDReply_HotelStaticData::clear_lastupdated() {
   lastupdated_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10802,7 +11434,7 @@ inline void HDReply_HotelStaticData::set_allocated_lastupdated(::std::string* la
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.lastUpdated)
 }
 
-// int32 transferMandatory = 43;
+// int32 transferMandatory = 44;
 inline void HDReply_HotelStaticData::clear_transfermandatory() {
   transfermandatory_ = 0;
 }
@@ -10816,7 +11448,7 @@ inline void HDReply_HotelStaticData::set_transfermandatory(::google::protobuf::i
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.transferMandatory)
 }
 
-// string tariffNotes = 44;
+// string tariffNotes = 45;
 inline void HDReply_HotelStaticData::clear_tariffnotes() {
   tariffnotes_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10869,7 +11501,7 @@ inline void HDReply_HotelStaticData::set_allocated_tariffnotes(::std::string* ta
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.tariffNotes)
 }
 
-// string chainName = 45;
+// string chainName = 46;
 inline void HDReply_HotelStaticData::clear_chainname() {
   chainname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10922,7 +11554,7 @@ inline void HDReply_HotelStaticData::set_allocated_chainname(::std::string* chai
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.chainName)
 }
 
-// int32 hotelProperty = 46;
+// int32 hotelProperty = 47;
 inline void HDReply_HotelStaticData::clear_hotelproperty() {
   hotelproperty_ = 0;
 }
@@ -10936,7 +11568,7 @@ inline void HDReply_HotelStaticData::set_hotelproperty(::google::protobuf::int32
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.hotelProperty)
 }
 
-// string fullAddress = 47;
+// string fullAddress = 48;
 inline void HDReply_HotelStaticData::clear_fulladdress() {
   fulladdress_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -10989,7 +11621,7 @@ inline void HDReply_HotelStaticData::set_allocated_fulladdress(::std::string* fu
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.fullAddress)
 }
 
-// string attraction = 48;
+// string attraction = 49;
 inline void HDReply_HotelStaticData::clear_attraction() {
   attraction_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -11042,7 +11674,7 @@ inline void HDReply_HotelStaticData::set_allocated_attraction(::std::string* att
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.attraction)
 }
 
-// bool exclusive = 49;
+// bool exclusive = 50;
 inline void HDReply_HotelStaticData::clear_exclusive() {
   exclusive_ = false;
 }
@@ -11060,7 +11692,21 @@ inline void HDReply_HotelStaticData::set_exclusive(bool value) {
 
 // HDReply
 
-// repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 1;
+// int32 key = 1;
+inline void HDReply::clear_key() {
+  key_ = 0;
+}
+inline ::google::protobuf::int32 HDReply::key() const {
+  // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.key)
+  return key_;
+}
+inline void HDReply::set_key(::google::protobuf::int32 value) {
+  
+  key_ = value;
+  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.key)
+}
+
+// repeated .protobuffer.dotwproto.HDReply.HotelStaticData hotelStaticDataList = 2;
 inline int HDReply::hotelstaticdatalist_size() const {
   return hotelstaticdatalist_.size();
 }
@@ -11090,7 +11736,7 @@ HDReply::hotelstaticdatalist() const {
   return hotelstaticdatalist_;
 }
 
-// string error = 2;
+// string error = 3;
 inline void HDReply::clear_error() {
   error_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -11143,7 +11789,7 @@ inline void HDReply::set_allocated_error(::std::string* error) {
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.error)
 }
 
-// string errorCode = 3;
+// string errorCode = 4;
 inline void HDReply::clear_errorcode() {
   errorcode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -11196,7 +11842,7 @@ inline void HDReply::set_allocated_errorcode(::std::string* errorcode) {
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.errorCode)
 }
 
-// string replystring = 4;
+// string replystring = 5;
 inline void HDReply::clear_replystring() {
   replystring_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -11249,7 +11895,7 @@ inline void HDReply::set_allocated_replystring(::std::string* replystring) {
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.replystring)
 }
 
-// int32 replystringInt = 5;
+// int32 replystringInt = 6;
 inline void HDReply::clear_replystringint() {
   replystringint_ = 0;
 }
@@ -11266,6 +11912,10 @@ inline void HDReply::set_replystringint(::google::protobuf::int32 value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

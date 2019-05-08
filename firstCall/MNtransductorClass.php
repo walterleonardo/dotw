@@ -8,7 +8,7 @@ ini_set('memory_limit', '-1');
  * dev = virtualServer
  * prod = production IP
  */
-$platform = 'dev';
+$platform = 'prod';
 $includeConfigFile = '../config/' . $platform . '/config.php';
 include_once $includeConfigFile;
 
@@ -34,7 +34,7 @@ class ArrayChannelCodes {
 /*
  * You need replace this previous require for your objets files
  */
-require 'classFromPartner_wps92_phase_2_wps129.php';
+require 'classFromPartner_wps92_phase_2_wps129_1_1_1_1_1_1.php';
 
 
 if ($platform == 'test')

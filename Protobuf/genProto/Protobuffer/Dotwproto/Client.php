@@ -6,6 +6,8 @@ namespace Protobuffer\Dotwproto;
 
 use Google\Protobuf\Internal\Message;
 
+
+
 class Client implements ServerDotwInterface
 {
     
@@ -63,11 +65,11 @@ class Client implements ServerDotwInterface
         $port = 10003;
         //$seconds = 3;
         //$var = $this->string;
-        error_log("Mensaje a enviar: ");
+        //error_log("Mensaje a enviar: ");
         //if (debug) var_dump($messagePROTO);
         $message = $messagePROTO->serializeToString();
         
-        error_log($message . "\r");
+        //error_log($message . "\r");
         $message = $message . "\r\n";
         $buffer = '';
         //////////////////////////////
@@ -130,19 +132,28 @@ class Client implements ServerDotwInterface
             $buf .= $buffer;
             if (strlen($buf) > 2)
             {
-                $string = substr($buf, -2);
-                if ($string === "\r\n" or $string === "\n\r")
+                $string = substr($buf, -11);
+                //$string === "\r\n" or $string === "\n\r")
+                if ($string === "ENDPROTO \r\n" or $string === "ENDPROTO \n\r") 
                 {
                     break;
+                } else{
+                    echo "Looking for END \n\r ";
+                    echo "->";
+                    echo $string;
+                    echo "<-";
+                    echo "\n\r";
                 }
             }
-            if ($debug)
+            
+        }
+       if ($debug)
             {
                 echo "Answer from server: $buf";
             }
-        }
-       
-        $str = str_replace ("\r\n", "", $buf);
+            
+        
+        $str = str_replace (" ENDPROTO \r\n", "", $buf);
         socket_close($socket);
         return $str;
     }

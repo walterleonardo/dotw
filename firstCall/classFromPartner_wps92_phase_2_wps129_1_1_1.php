@@ -10,43 +10,50 @@ namespace Hotel\PreSupplier;
 //$message="PSFILTER |164|prod|1|Y|14,24,34,44,54,64|||||1~5#5#10~N~N,2~2#3#6~N~N||\r\n";
 class Input {
  
-    public $customerId = 1481805;//1534906; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
+    public $customerId = 1589125;//1534906; //integer 1124718 84/12844 --- 1237928 CITY 12624 country 81
     public $environment = 'prod'; //string
     public $requestSource = 1; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (2241555,1175688,2249295 /*0 => 820415,*/); //array(int)
+    public $hotelIds = array (30434,1046818 /*0 => 820415,*/); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
     public $bookingChannelsWithAutoMapping = array (
-           0 => 1011,
-    1 => 1005,
-    2 => 1529,
-    3 => 1017,
-    4 => 1005,
-    5 => 1004,
-    6 => 1022,
-    7 => 1027,
-    8 => 1689,
-    9 => 1797,
-    10 => 1519,
-    11 => 1808,
-    12 => 1746,
-    13 => 1821,
-    14 => 1006,
-    15 => 1818,
-    16 => 1819,
-    17 => 1801,
-    18 => 1828,
-    19 => 1749,
-    20 => 1669,
-    21 => 1825,
-    22 => 1014,
-    23 => 1823,
-    24 => 1025,
-    25 => 1599,
-    26 => 1741,
+           0 => 1011, 
+    1 => 1003, 
+    2 => 1529, 
+    3 => 1017, 
+    4 => 1005, 
+    5 => 1004, 
+    6 => 1022, 
+    7 => 1027, 
+    8 => 1689, 
+    9 => 1797, 
+    10 => 1519, 
+    11 => 1808, 
+    12 => 1746, 
+    13 => 1821, 
+    14 => 1006, 
+    15 => 1818, 
+    16 => 1819, 
+    17 => 1828, 
+    18 => 1749, 
+    19 => 1669, 
+    20 => 1825, 
+    21 => 1014, 
+    22 => 1823, 
+    23 => 1599, 
+    24 => 1741, 
+    25 => 1699, 
+    26 => 1835, 
+    27 => 1025, 
+    28 => 1801, 
+    29 => 1830, 
+    30 => 1013, 
+    31 => 1831, 
+    32 => 1832, 
+    33 => 1833
  
   ); //array(int)
     public $bookingChannelTypes = array (); //array(int)
@@ -91,9 +98,9 @@ class Input {
  
 
 class  SearchPeriodCriteria{ //Mandatory
-    public $travelFrom = 1551591477;//1553558400; //Mandatory
-    public $travelTo = 1551591477;//Mandatory
-    public $bookingDateTime = 1551591477;//1529331799; //1528974697;//Mandatory
+    public $travelFrom = 1556323200;//1553558400; //Mandatory
+    public $travelTo = 1556323200;//Mandatory
+    public $bookingDateTime = 1557125832;//1529331799; //1528974697;//Mandatory
 }
  
 

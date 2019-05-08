@@ -93,22 +93,25 @@ message PSFRequest {
 message PSFReply {
 
 	message RoomData{
-		int32 roomTypeCode = 1;
+                string key = 1; //RoomMap or RoomId
+		int32 roomTypeCode = 2; //RoomId
 	}
 
 	message HotelCode{
-		int32 hotelCodeOriginal = 1;
-		string cityCode = 2;
-		repeated RoomData roomData = 3;
+                int32 key = 1; //HotelMap
+		string hotelCodeOriginal = 2; //hotelMap
+		string cityCode = 3; //CityCode
+		repeated RoomData roomData = 4;
 	}
 
 	message BookingChannelCode{
-		repeated HotelCode hotelCode = 1;
+                int32 key = 1;//XMLPARTY
+		repeated HotelCode hotelCodeArray = 2;
 	}
 
-
 	message RoomIndex{
-		repeated BookingChannelCode roomIndex = 1;
+                int32 key = 1; //D.Occupancy
+		repeated BookingChannelCode roomIndexArray = 2;
 	}
 
 	repeated RoomIndex Results = 1;
@@ -231,114 +234,126 @@ message HDRequest {
 }
 
 message HDReply {
+        int32 key = 1;
 	message HotelStaticData{
+                int32 key = 1;
 
-		message RoomTypeStaticData{
-			bool twin = 1;
-			repeated string roomAmenities = 2;
-			string name = 3;
+                    message RoomTypeStaticData{
+                            int32 key = 1;
+                            bool twin = 2;
+                            repeated string roomAmenities = 3;
+                            string name = 4;
 
-			message SupplierRoomName {
-				repeated int32 roomName = 1;
-			}
 
-			repeated SupplierRoomName supplierRoomName = 4;
+                            message RoomName {
+                                    string roomCode = 1;
+                                    string roomName = 2;
+                            }
+                            message RoomNames {
+                                    int32 key = 1;
+                                    repeated RoomName roomName = 2;
+                            }
 
-			message RoomInfo{
-				int32 maxOccupancy = 1;
-				int32 maxAdultWithChildren = 2;
-				int32 minChildAge = 3;
-				int32 maxChildAge = 4;
-				int32 maxAdult = 5;
-				bool maxExtraBed = 6;
-				int32 maxChildren = 7;
-				int32 children = 8;
-			}
+                            message SupplierRoomName {
+                                    repeated RoomNames roomNames = 1;
+                            }
 
-			repeated RoomInfo roomInfo = 5;
+                            repeated SupplierRoomName supplierRoomName = 5;
 
-			message RoomCategory{
-				string code = 1;
-				string name = 2;
-			}
+                            message RoomInfo{
+                                    int32 maxOccupancy = 1;
+                                    int32 maxAdultWithChildren = 2;
+                                    int32 minChildAge = 3;
+                                    int32 maxChildAge = 4;
+                                    int32 maxAdult = 5;
+                                    bool maxExtraBed = 6;
+                                    int32 maxChildren = 7;
+                                    int32 children = 8;
+                            }
 
-			RoomCategory roomCategory = 6;
-		}
+                            repeated RoomInfo roomInfo = 6;
 
-		repeated RoomTypeStaticData roomTypeStaticDataList = 1;
-		string description1 = 2;
-		string description2 = 3;
-		repeated string geoPoint = 4;
-		string ratingDescription = 5;
+                            message RoomCategory{
+                                    string code = 1;
+                                    string name = 2;
+                            }
 
-		message ImagesData{
-			string thumb = 1;
-			string alt = 2;
-			string category = 3;
-			string url = 4;
-			int32 roomTypeId = 5;
-		}
+                            RoomCategory roomCategory = 7;
+                    }
 
-		repeated ImagesData images = 6;
-		bool direct = 7;
-		repeated int32 hotelPreference = 8;
-		bool preferred = 9;
-		int32 builtYear = 10;
-		int32 renovationYear = 11;
-		int32 floors = 12;
-		int32 noOfRooms = 13;
-		bool luxury = 14;
-		string hotelName = 15;
-		string address = 16;
-		string zipCode = 17;
-		string location = 18;
-		int32 locationId = 19;
-		string location1 = 20;
-		string location2 = 21;
-		string location3 = 22;
-		string cityName = 23;
-		int32 cityCode = 24;
-		string stateName = 25;
-		int32 stateCode = 26;
-		string countryName = 27;
-		int32 countryCode = 28;
-		string regionName = 29;
-		int32 regionCode = 30;
-		repeated string amenitie = 31;
-		repeated string leisure = 32;
-		repeated string business = 33;
+                    repeated RoomTypeStaticData roomTypeStaticDataList = 2;
+                    string description1 = 3;
+                    string description2 = 4;
+                    repeated string geoPoint = 5;
+                    string ratingDescription = 6;
 
-		message TransportationData{
-			string type = 1;
-			string name = 2;
-			string dist = 3;
-			string distanceUnit = 4;
-			string distTime = 5;
-			string directions = 6;
-		}
+                    message ImagesData{
+                            string thumb = 1;
+                            string alt = 2;
+                            string category = 3;
+                            string url = 4;
+                            int32 roomTypeId = 5;
+                    }
 
-		repeated TransportationData transportation = 34;
-		string hotelPhone = 35;
-		int32 hotelCheckIn = 36;
-		int32 hotelCheckOut = 37;
-		int32 minAge = 38;
-		int32 rating = 39;
-		bool fireSafety = 40;
-		int32 chain = 41;
-		string lastUpdated = 42; //Will be change for datetime
-		int32 transferMandatory = 43;
-		string tariffNotes = 44;
-		string chainName = 45;
-		int32 hotelProperty = 46;
-		string fullAddress = 47;
-		string attraction = 48;
-		bool exclusive = 49;			
-	}
+                    repeated ImagesData images = 7;
+                    bool direct = 8;
+                    repeated int32 hotelPreference = 9;
+                    bool preferred = 10;
+                    int32 builtYear = 11;
+                    int32 renovationYear = 12;
+                    int32 floors = 13;
+                    int32 noOfRooms = 14;
+                    bool luxury = 15;
+                    string hotelName = 16;
+                    string address = 17;
+                    string zipCode = 18;
+                    string location = 19;
+                    int32 locationId = 20;
+                    string location1 = 21;
+                    string location2 = 22;
+                    string location3 = 23;
+                    string cityName = 24;
+                    int32 cityCode = 25;
+                    string stateName = 26;
+                    int32 stateCode = 27;
+                    string countryName = 28;
+                    int32 countryCode = 29;
+                    string regionName = 30;
+                    int32 regionCode = 31;
+                    repeated string amenitie = 32;
+                    repeated string leisure = 33;
+                    repeated string business = 34;
 
-	repeated HotelStaticData hotelStaticDataList = 1;
-	string error = 2;
-	string errorCode = 3;
-	string replystring = 4;
-	int32 replystringInt = 5;
+                    message TransportationData{
+                            string type = 1;
+                            string name = 2;
+                            string dist = 3;
+                            string distanceUnit = 4;
+                            string distTime = 5;
+                            string directions = 6;
+                    }
+
+                    repeated TransportationData transportation = 35;
+                    string hotelPhone = 36;
+                    int32 hotelCheckIn = 37;
+                    int32 hotelCheckOut = 38;
+                    int32 minAge = 39;
+                    int32 rating = 40;
+                    bool fireSafety = 41;
+                    int32 chain = 42;
+                    string lastUpdated = 43; //Will be change for datetime
+                    int32 transferMandatory = 44;
+                    string tariffNotes = 45;
+                    string chainName = 46;
+                    int32 hotelProperty = 47;
+                    string fullAddress = 48;
+                    string attraction = 49;
+                    bool exclusive = 50;			
+                }   
+	repeated HotelStaticData hotelStaticDataList = 2;
+	string error = 3;
+	string errorCode = 4;
+	string replystring = 5;
+	int32 replystringInt = 6;
 	
 }
