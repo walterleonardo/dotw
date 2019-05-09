@@ -55,7 +55,7 @@ class Client implements ServerDotwInterface
 
     Private function requestTCP(Message $messagePROTO, string $method): string
     {
-        $debug = TRUE;
+        $debug = FALSE;
         $timeout = 3000;
         set_time_limit(0); //TIMEOUT into receive
         ini_set("default_socket_timeout", "3"); //TIMEOUT into send
@@ -137,13 +137,14 @@ class Client implements ServerDotwInterface
                 if ($string === "ENDPROTO \r\n" or $string === "ENDPROTO \n\r") 
                 {
                     break;
-                } else{
-                    echo "Looking for END \n\r ";
-                    echo "->";
-                    echo $string;
-                    echo "<-";
-                    echo "\n\r";
-                }
+                } 
+//                else{
+//                    echo "Looking for END \n\r ";
+//                    echo "->";
+//                    echo $string;
+//                    echo "<-";
+//                    echo "\n\r";
+//                }
             }
             
         }

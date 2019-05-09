@@ -1263,7 +1263,7 @@ void AddDescriptorsImpl() {
       "\002 \001(\t\022\021\n\terrorCode\030\003 \001(\t\022\023\n\013replystring\030"
       "\004 \001(\t\022\026\n\016replystringInt\030\005 \001(\005\032-\n\010RoomDat"
       "a\022\013\n\003key\030\001 \001(\t\022\024\n\014roomTypeCode\030\002 \001(\005\032\201\001\n"
-      "\tHotelCode\022\013\n\003key\030\001 \001(\005\022\031\n\021hotelCodeOrig"
+      "\tHotelCode\022\013\n\003key\030\001 \001(\t\022\031\n\021hotelCodeOrig"
       "inal\030\002 \001(\t\022\020\n\010cityCode\030\003 \001(\t\022:\n\010roomData"
       "\030\004 \003(\0132(.protobuffer.dotwproto.PSFReply."
       "RoomData\032d\n\022BookingChannelCode\022\013\n\003key\030\001 "
@@ -5723,6 +5723,10 @@ PSFReply_HotelCode::PSFReply_HotelCode(const PSFReply_HotelCode& from)
       roomdata_(from.roomdata_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.key().size() > 0) {
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
   hotelcodeoriginal_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.hotelcodeoriginal().size() > 0) {
     hotelcodeoriginal_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hotelcodeoriginal_);
@@ -5731,14 +5735,13 @@ PSFReply_HotelCode::PSFReply_HotelCode(const PSFReply_HotelCode& from)
   if (from.citycode().size() > 0) {
     citycode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.citycode_);
   }
-  key_ = from.key_;
   // @@protoc_insertion_point(copy_constructor:protobuffer.dotwproto.PSFReply.HotelCode)
 }
 
 void PSFReply_HotelCode::SharedCtor() {
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hotelcodeoriginal_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   citycode_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  key_ = 0;
   _cached_size_ = 0;
 }
 
@@ -5748,6 +5751,7 @@ PSFReply_HotelCode::~PSFReply_HotelCode() {
 }
 
 void PSFReply_HotelCode::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hotelcodeoriginal_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   citycode_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -5782,9 +5786,9 @@ void PSFReply_HotelCode::Clear() {
   (void) cached_has_bits;
 
   roomdata_.Clear();
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hotelcodeoriginal_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   citycode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  key_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -5798,14 +5802,16 @@ bool PSFReply_HotelCode::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 key = 1;
+      // string key = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &key_)));
+            static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), static_cast<int>(this->key().length()),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "protobuffer.dotwproto.PSFReply.HotelCode.key"));
         } else {
           goto handle_unusual;
         }
@@ -5881,9 +5887,14 @@ void PSFReply_HotelCode::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 key = 1;
-  if (this->key() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->key(), output);
+  // string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), static_cast<int>(this->key().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.PSFReply.HotelCode.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->key(), output);
   }
 
   // string hotelCodeOriginal = 2;
@@ -5927,9 +5938,15 @@ void PSFReply_HotelCode::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 key = 1;
-  if (this->key() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->key(), target);
+  // string key = 1;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), static_cast<int>(this->key().length()),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "protobuffer.dotwproto.PSFReply.HotelCode.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->key(), target);
   }
 
   // string hotelCodeOriginal = 2;
@@ -5990,6 +6007,13 @@ size_t PSFReply_HotelCode::ByteSizeLong() const {
     }
   }
 
+  // string key = 1;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
   // string hotelCodeOriginal = 2;
   if (this->hotelcodeoriginal().size() > 0) {
     total_size += 1 +
@@ -6002,13 +6026,6 @@ size_t PSFReply_HotelCode::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->citycode());
-  }
-
-  // int32 key = 1;
-  if (this->key() != 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->key());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -6041,6 +6058,10 @@ void PSFReply_HotelCode::MergeFrom(const PSFReply_HotelCode& from) {
   (void) cached_has_bits;
 
   roomdata_.MergeFrom(from.roomdata_);
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
   if (from.hotelcodeoriginal().size() > 0) {
 
     hotelcodeoriginal_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hotelcodeoriginal_);
@@ -6048,9 +6069,6 @@ void PSFReply_HotelCode::MergeFrom(const PSFReply_HotelCode& from) {
   if (from.citycode().size() > 0) {
 
     citycode_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.citycode_);
-  }
-  if (from.key() != 0) {
-    set_key(from.key());
   }
 }
 
@@ -6079,9 +6097,9 @@ void PSFReply_HotelCode::Swap(PSFReply_HotelCode* other) {
 void PSFReply_HotelCode::InternalSwap(PSFReply_HotelCode* other) {
   using std::swap;
   roomdata_.InternalSwap(&other->roomdata_);
+  key_.Swap(&other->key_);
   hotelcodeoriginal_.Swap(&other->hotelcodeoriginal_);
   citycode_.Swap(&other->citycode_);
-  swap(key_, other->key_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
 }

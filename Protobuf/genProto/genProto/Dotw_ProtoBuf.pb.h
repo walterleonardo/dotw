@@ -1640,6 +1640,20 @@ class PSFReply_HotelCode : public ::google::protobuf::Message /* @@protoc_insert
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_RoomData >&
       roomdata() const;
 
+  // string key = 1;
+  void clear_key();
+  static const int kKeyFieldNumber = 1;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  #if LANG_CXX11
+  void set_key(::std::string&& value);
+  #endif
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
   // string hotelCodeOriginal = 2;
   void clear_hotelcodeoriginal();
   static const int kHotelCodeOriginalFieldNumber = 2;
@@ -1668,20 +1682,14 @@ class PSFReply_HotelCode : public ::google::protobuf::Message /* @@protoc_insert
   ::std::string* release_citycode();
   void set_allocated_citycode(::std::string* citycode);
 
-  // int32 key = 1;
-  void clear_key();
-  static const int kKeyFieldNumber = 1;
-  ::google::protobuf::int32 key() const;
-  void set_key(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:protobuffer.dotwproto.PSFReply.HotelCode)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::PSFReply_RoomData > roomdata_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
   ::google::protobuf::internal::ArenaStringPtr hotelcodeoriginal_;
   ::google::protobuf::internal::ArenaStringPtr citycode_;
-  ::google::protobuf::int32 key_;
   mutable int _cached_size_;
   friend struct ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::TableStruct;
   friend void ::protobuf_genProto_2fDotw_5fProtoBuf_2eproto::InitDefaultsPSFReply_HotelCodeImpl();
@@ -6774,18 +6782,57 @@ inline void PSFReply_RoomData::set_roomtypecode(::google::protobuf::int32 value)
 
 // PSFReply_HotelCode
 
-// int32 key = 1;
+// string key = 1;
 inline void PSFReply_HotelCode::clear_key() {
-  key_ = 0;
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::google::protobuf::int32 PSFReply_HotelCode::key() const {
+inline const ::std::string& PSFReply_HotelCode::key() const {
   // @@protoc_insertion_point(field_get:protobuffer.dotwproto.PSFReply.HotelCode.key)
-  return key_;
+  return key_.GetNoArena();
 }
-inline void PSFReply_HotelCode::set_key(::google::protobuf::int32 value) {
+inline void PSFReply_HotelCode::set_key(const ::std::string& value) {
   
-  key_ = value;
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.PSFReply.HotelCode.key)
+}
+#if LANG_CXX11
+inline void PSFReply_HotelCode::set_key(::std::string&& value) {
+  
+  key_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protobuffer.dotwproto.PSFReply.HotelCode.key)
+}
+#endif
+inline void PSFReply_HotelCode::set_key(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:protobuffer.dotwproto.PSFReply.HotelCode.key)
+}
+inline void PSFReply_HotelCode::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:protobuffer.dotwproto.PSFReply.HotelCode.key)
+}
+inline ::std::string* PSFReply_HotelCode::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.PSFReply.HotelCode.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* PSFReply_HotelCode::release_key() {
+  // @@protoc_insertion_point(field_release:protobuffer.dotwproto.PSFReply.HotelCode.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void PSFReply_HotelCode::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.PSFReply.HotelCode.key)
 }
 
 // string hotelCodeOriginal = 2;

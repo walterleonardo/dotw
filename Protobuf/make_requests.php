@@ -13,6 +13,13 @@ require "genProto/DotwCalls/SecondCall/classFromPartner_Demo_jiraWPS92_phase_2_w
 use DotwCalls\FirstCall\Input;
 use DotwCalls\SecondCall\StaticInput;
 
+
+//List of Channel Manager codes 
+class ArrayChannelCodes {
+    public static $array_of_channel_manager_code_1 = 1000;
+    public static $array_of_channel_manager_code_2 = 1010; 
+}
+
 //FIRST CALL REQUEST
 function managerSupplierRequest(Input &$inputObj)
     {
@@ -86,36 +93,6 @@ function managerSupplierRequest(Input &$inputObj)
         $valueBC = new Protobuffer\Dotwproto\PSFReply_BookingChannelCode();
         $valueHC = new Protobuffer\Dotwproto\PSFReply_HotelCode();   
         $valueRD = new Protobuffer\Dotwproto\PSFReply_RoomData();
-        
-        foreach ($reply->getResults() as $valueRI)
-        {            
-            echo $valueRI->getKey();
-             echo "\n\r";
-            
-           foreach ($valueRI->getRoomIndexArray() as $valueBC)
-            {
-               echo $valueBC->getKey();
-                echo "\n\r";
-               
-                foreach ($valueBC->getHotelCodeArray() as $valueHC)
-              {
-                echo "CITYCODE";
-                echo $valueHC->getCityCode();
-                 echo "\n\r";
-                echo $valueHC->getHotelCodeOriginal();
-                 echo "\n\r";
-                
-                 foreach ($valueHC->getRoomData() as $valueRD)
-              {
-                     $valueRD->getKey();
-                     echo "ROOMTYPECODE";
-                     echo $valueRD->getRoomTypeCode();
-                      echo "\n\r";
-                 }
-                
-             }
-           }
-        }
 
         if ($reply->getReplyString() == "") 
         {
@@ -123,10 +100,214 @@ function managerSupplierRequest(Input &$inputObj)
         } else {
             echo 'PSFILTER = ' . $reply->getReplyString() . PHP_EOL;
         }
-       
+        
+        $array_need = array();
+        foreach ($reply->getResults() as $valueRI)
+            {  
+                foreach ($valueRI->getRoomIndexArray() as $valueBC)
+                {
+                    if ($array_of_channel_manager_code_1 == $valueBC->getKey() or $array_of_channel_manager_code_2 == $valueBC->getKey())
+                    {
+                        foreach ($valueBC->getHotelCodeArray() as $valueHC)
+                        {
+                            $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['cityCode'] = $valueHC->getCityCode();
+                                foreach ($valueHC->getRoomData() as $valueRD)
+                                {
+                                    if ($valueRD->getKey() == "automapping")
+                                    {
+                                 $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getKey(); 
+                                    } else if ($valueRD->getKey() == "")
+                                    {
+                                 $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getRoomTypeCode();
+                                    } else 
+                                    {
+                                        $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getRoomTypeCode();
+                                    }
+
+                                }
+                                $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['hotelCodeOriginal'] = $valueHC->getHotelCodeOriginal();
+                        } 
+                    } else
+                    {
+                        foreach ($valueBC->getHotelCodeArray() as $valueHC)
+                        {
+                            $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['cityCode'] = $valueHC->getCityCode();
+                                foreach ($valueHC->getRoomData() as $valueRD)
+                                {
+                                    if ($valueRD->getKey() == "automapping")
+                                    {
+                                 $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getKey(); 
+                                    } else if ($valueRD->getKey() == "")
+                                    {
+                                 $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getRoomTypeCode();
+                                    } else 
+                                    {
+                                        $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getKey()] = $valueRD->getRoomTypeCode();
+                                    }
+
+                                }
+                                $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['hotelCodeOriginal'] = $valueHC->getHotelCodeOriginal();
+                        } 
+                    }
+                }
+            
+            
+//            
+//                if ($valueRI != 0)
+//                {
+//                    //$folders = explode(",", $array_values);
+//                    // Possible solution to a new line problem. For the future.
+//                    $valueBC = $valueRI->getRoomIndexArray();
+//                    $valueHC = $valueBC->getHotelCodeArray();
+//                    $valueRD = $valueHC->getRoomData();
+//                   
+//                    //$folders5 = $folders[5];
+//                    $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['cityCode'] = $valueHC->getCityCode();                    
+//                    
+//                    if ($valueBC->getKey())
+//                    {
+//                        if ($valueRD->getKey())
+//                        {
+//                            if ($valueRD->getKey() != '' )
+//                            {
+//                                if ($valueRD->getKey() == 'automapping')
+//                                {
+//                                    $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getKey(); 
+//                                } else
+//                                {
+//                                    $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getRoomTypeCode();
+//                                }
+//                            } else
+//                            {
+//                                 $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getRoomTypeCode();
+//                            }
+//                        } else
+//                        {
+//                            $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getRoomTypeCode();
+//                        }
+//                    } else
+//                    {
+//                        if ($valueRD->getKey())
+//                        {
+//                            if ($valueRD->getKey() != '')
+//                            {
+//                                 if($valueRD->getKey() == 'automapping')
+//                                {
+//                                    $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getKey(); 
+//                                } else
+//                                {
+//                                $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getKey()] = $valueRD->getRoomTypeCode();
+//                                }
+//                            } else
+//                            {
+//                                $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['roomData'][$valueRD->getRoomTypeCode()] = $valueRD->getRoomTypeCode(); 
+//                                
+//                            }
+//                        }
+//                    }
+//                    $array_need[$valueRI->getKey()][$valueBC->getKey()][$valueHC->getKey()]['hotelCodeOriginal'] = $valueHC->getHotelCodeOriginal();
+//                }
+            }
+            
+            
+            if (count($array_need) > 0)
+            {
+                echo "Se ha distribuido el array \n\r";
+                var_export($array_need);
+            }else {
+                echo "No Se ha distribuido el array \n\r";
+            }
+            //var_dump($array_need);
     }
 
 
+    
+class fillArrayValues
+{
+
+    public static $answerStatic = array();
+
+    public function distributeValues(&$param)
+    {
+        //$arrayAnswer = explode("|||", $param);
+        $array_need = array();
+        //$arrayAnswerSplice = array_splice($arrayAnswer, 1);
+
+        if (count($arrayAnswerSplice) >= 1)
+        {
+            foreach ($arrayAnswerSplice as $array_values)
+            {
+                if ($array_values)
+                {
+                    $folders = explode(",", $array_values);
+                    // Possible solution to a new line problem. For the future.
+                    $folders5 = \trim($folders[5], "\t\n\r\0\x0B");
+                    //$folders5 = $folders[5];
+                    $array_need[$folders[0]][$folders[1]][$folders5]['cityCode'] = $folders[2];                    
+                    
+                    if (in_array($folders[1], ArrayChannelCodes::$array_of_channel_manager_codes))
+                    {
+                        if (isset($folders[6]))
+                        {
+                            if (trim($folders[6]) != '' )
+                            {
+                                if (trim($folders[6], "\t\n\r\0\x0B") == 'automapping')
+                                {
+                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = trim($folders[6], "\t\n\r\0\x0B"); 
+                                } else
+                                {
+                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = trim($folders[4], "\t\n\r\0\x0B");
+                                }
+                            } else
+                            {
+                                 $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = $folders[4];
+                            }
+                        } else
+                        {
+                            $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = $folders[4];
+                        }
+                    } else
+                    {
+                        if (isset($folders[6]))
+                        {
+                            if (trim($folders[6]) != '')
+                            {
+                                 if(trim($folders[6], "\t\n\r\0\x0B") == 'automapping')
+                                {
+                                    $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[4], "\t\n\r\0\x0B")] = trim($folders[6], "\t\n\r\0\x0B"); 
+                                } else
+                                {
+                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][trim($folders[6], "\t\n\r\0\x0B")] = trim($folders[4], "\t\n\r\0\x0B");
+                                }
+                            } else
+                            {
+                                $array_need[$folders[0]][$folders[1]][$folders5]['roomData'][$folders[4]] = $folders[4]; 
+                                
+                            }
+                        }
+                    }
+                    $array_need[$folders[0]][$folders[1]][$folders5]['hotelCodeOriginal'] = $folders[3];
+                }
+            }
+        } else
+        {
+            //self::$answerStatic = false;
+            self::$answerStatic = $array_need;
+            return true;
+        }
+        unset($folders, $arrayAnswer, $array_values, $arrayAnswerSplice);
+        self::$answerStatic = $array_need;
+        return true;
+    }
+
+    public function __destruct()
+    {
+        
+    }
+
+}
+    
+    
 
 ////SECOND CALL REQUEST 
 function managerHotelRequest(StaticInput &$inputObj)

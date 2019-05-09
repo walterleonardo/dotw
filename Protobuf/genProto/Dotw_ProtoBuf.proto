@@ -98,8 +98,8 @@ message PSFReply {
 	}
 
 	message HotelCode{
-                int32 key = 1; //HotelMap
-		string hotelCodeOriginal = 2; //hotelMap
+                string key = 1; //hotelMap or HotelId
+		string hotelCodeOriginal = 2; //hotelMap or HotelId
 		string cityCode = 3; //CityCode
 		repeated RoomData roomData = 4;
 	}
