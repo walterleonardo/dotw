@@ -1335,7 +1335,7 @@ void AddDescriptorsImpl() {
       "taList\030\002 \003(\0132A.protobuffer.dotwproto.HDR"
       "eply.HotelStaticData.RoomTypeStaticData\022"
       "\024\n\014description1\030\003 \001(\t\022\024\n\014description2\030\004 "
-      "\001(\t\022\020\n\010geoPoint\030\005 \003(\t\022\031\n\021ratingDescripti"
+      "\001(\t\022\020\n\010geoPoint\030\005 \001(\t\022\031\n\021ratingDescripti"
       "on\030\006 \001(\t\022I\n\006images\030\007 \003(\01329.protobuffer.d"
       "otwproto.HDReply.HotelStaticData.ImagesD"
       "ata\022\016\n\006direct\030\010 \001(\010\022\027\n\017hotelPreference\030\t"
@@ -14556,7 +14556,6 @@ HDReply_HotelStaticData::HDReply_HotelStaticData(const HDReply_HotelStaticData& 
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       roomtypestaticdatalist_(from.roomtypestaticdatalist_),
-      geopoint_(from.geopoint_),
       images_(from.images_),
       hotelpreference_(from.hotelpreference_),
       amenitie_(from.amenitie_),
@@ -14572,6 +14571,10 @@ HDReply_HotelStaticData::HDReply_HotelStaticData(const HDReply_HotelStaticData& 
   description2_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.description2().size() > 0) {
     description2_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description2_);
+  }
+  geopoint_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.geopoint().size() > 0) {
+    geopoint_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.geopoint_);
   }
   ratingdescription_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.ratingdescription().size() > 0) {
@@ -14654,6 +14657,7 @@ HDReply_HotelStaticData::HDReply_HotelStaticData(const HDReply_HotelStaticData& 
 void HDReply_HotelStaticData::SharedCtor() {
   description1_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description2_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  geopoint_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ratingdescription_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hotelname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   address_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -14686,6 +14690,7 @@ HDReply_HotelStaticData::~HDReply_HotelStaticData() {
 void HDReply_HotelStaticData::SharedDtor() {
   description1_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description2_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  geopoint_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ratingdescription_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hotelname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   address_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -14736,7 +14741,6 @@ void HDReply_HotelStaticData::Clear() {
   (void) cached_has_bits;
 
   roomtypestaticdatalist_.Clear();
-  geopoint_.Clear();
   images_.Clear();
   hotelpreference_.Clear();
   amenitie_.Clear();
@@ -14745,6 +14749,7 @@ void HDReply_HotelStaticData::Clear() {
   transportation_.Clear();
   description1_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   description2_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  geopoint_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ratingdescription_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hotelname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
@@ -14836,15 +14841,14 @@ bool HDReply_HotelStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated string geoPoint = 5;
+      // string geoPoint = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(42u /* 42 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->add_geopoint()));
+                input, this->mutable_geopoint()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->geopoint(this->geopoint_size() - 1).data(),
-            static_cast<int>(this->geopoint(this->geopoint_size() - 1).length()),
+            this->geopoint().data(), static_cast<int>(this->geopoint().length()),
             ::google::protobuf::internal::WireFormatLite::PARSE,
             "protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint"));
         } else {
@@ -15585,14 +15589,14 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
       4, this->description2(), output);
   }
 
-  // repeated string geoPoint = 5;
-  for (int i = 0, n = this->geopoint_size(); i < n; i++) {
+  // string geoPoint = 5;
+  if (this->geopoint().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->geopoint(i).data(), static_cast<int>(this->geopoint(i).length()),
+      this->geopoint().data(), static_cast<int>(this->geopoint().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint");
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->geopoint(i), output);
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      5, this->geopoint(), output);
   }
 
   // string ratingDescription = 6;
@@ -15984,14 +15988,15 @@ void HDReply_HotelStaticData::SerializeWithCachedSizes(
         4, this->description2(), target);
   }
 
-  // repeated string geoPoint = 5;
-  for (int i = 0, n = this->geopoint_size(); i < n; i++) {
+  // string geoPoint = 5;
+  if (this->geopoint().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->geopoint(i).data(), static_cast<int>(this->geopoint(i).length()),
+      this->geopoint().data(), static_cast<int>(this->geopoint().length()),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint");
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(5, this->geopoint(i), target);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->geopoint(), target);
   }
 
   // string ratingDescription = 6;
@@ -16384,14 +16389,6 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
     }
   }
 
-  // repeated string geoPoint = 5;
-  total_size += 1 *
-      ::google::protobuf::internal::FromIntSize(this->geopoint_size());
-  for (int i = 0, n = this->geopoint_size(); i < n; i++) {
-    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
-      this->geopoint(i));
-  }
-
   // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 7;
   {
     unsigned int count = static_cast<unsigned int>(this->images_size());
@@ -16466,6 +16463,13 @@ size_t HDReply_HotelStaticData::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->description2());
+  }
+
+  // string geoPoint = 5;
+  if (this->geopoint().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->geopoint());
   }
 
   // string ratingDescription = 6;
@@ -16768,7 +16772,6 @@ void HDReply_HotelStaticData::MergeFrom(const HDReply_HotelStaticData& from) {
   (void) cached_has_bits;
 
   roomtypestaticdatalist_.MergeFrom(from.roomtypestaticdatalist_);
-  geopoint_.MergeFrom(from.geopoint_);
   images_.MergeFrom(from.images_);
   hotelpreference_.MergeFrom(from.hotelpreference_);
   amenitie_.MergeFrom(from.amenitie_);
@@ -16782,6 +16785,10 @@ void HDReply_HotelStaticData::MergeFrom(const HDReply_HotelStaticData& from) {
   if (from.description2().size() > 0) {
 
     description2_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.description2_);
+  }
+  if (from.geopoint().size() > 0) {
+
+    geopoint_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.geopoint_);
   }
   if (from.ratingdescription().size() > 0) {
 
@@ -16948,7 +16955,6 @@ void HDReply_HotelStaticData::Swap(HDReply_HotelStaticData* other) {
 void HDReply_HotelStaticData::InternalSwap(HDReply_HotelStaticData* other) {
   using std::swap;
   roomtypestaticdatalist_.InternalSwap(&other->roomtypestaticdatalist_);
-  geopoint_.InternalSwap(&other->geopoint_);
   images_.InternalSwap(&other->images_);
   hotelpreference_.InternalSwap(&other->hotelpreference_);
   amenitie_.InternalSwap(&other->amenitie_);
@@ -16957,6 +16963,7 @@ void HDReply_HotelStaticData::InternalSwap(HDReply_HotelStaticData* other) {
   transportation_.InternalSwap(&other->transportation_);
   description1_.Swap(&other->description1_);
   description2_.Swap(&other->description2_);
+  geopoint_.Swap(&other->geopoint_);
   ratingdescription_.Swap(&other->ratingdescription_);
   hotelname_.Swap(&other->hotelname_);
   address_.Swap(&other->address_);

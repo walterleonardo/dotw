@@ -4441,28 +4441,6 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   const ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData >&
       roomtypestaticdatalist() const;
 
-  // repeated string geoPoint = 5;
-  int geopoint_size() const;
-  void clear_geopoint();
-  static const int kGeoPointFieldNumber = 5;
-  const ::std::string& geopoint(int index) const;
-  ::std::string* mutable_geopoint(int index);
-  void set_geopoint(int index, const ::std::string& value);
-  #if LANG_CXX11
-  void set_geopoint(int index, ::std::string&& value);
-  #endif
-  void set_geopoint(int index, const char* value);
-  void set_geopoint(int index, const char* value, size_t size);
-  ::std::string* add_geopoint();
-  void add_geopoint(const ::std::string& value);
-  #if LANG_CXX11
-  void add_geopoint(::std::string&& value);
-  #endif
-  void add_geopoint(const char* value);
-  void add_geopoint(const char* value, size_t size);
-  const ::google::protobuf::RepeatedPtrField< ::std::string>& geopoint() const;
-  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_geopoint();
-
   // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.ImagesData images = 7;
   int images_size() const;
   void clear_images();
@@ -4592,6 +4570,20 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::std::string* mutable_description2();
   ::std::string* release_description2();
   void set_allocated_description2(::std::string* description2);
+
+  // string geoPoint = 5;
+  void clear_geopoint();
+  static const int kGeoPointFieldNumber = 5;
+  const ::std::string& geopoint() const;
+  void set_geopoint(const ::std::string& value);
+  #if LANG_CXX11
+  void set_geopoint(::std::string&& value);
+  #endif
+  void set_geopoint(const char* value);
+  void set_geopoint(const char* value, size_t size);
+  ::std::string* mutable_geopoint();
+  ::std::string* release_geopoint();
+  void set_allocated_geopoint(::std::string* geopoint);
 
   // string ratingDescription = 6;
   void clear_ratingdescription();
@@ -4982,7 +4974,6 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData > roomtypestaticdatalist_;
-  ::google::protobuf::RepeatedPtrField< ::std::string> geopoint_;
   ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_ImagesData > images_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > hotelpreference_;
   mutable int _hotelpreference_cached_byte_size_;
@@ -4992,6 +4983,7 @@ class HDReply_HotelStaticData : public ::google::protobuf::Message /* @@protoc_i
   ::google::protobuf::RepeatedPtrField< ::protobuffer::dotwproto::HDReply_HotelStaticData_TransportationData > transportation_;
   ::google::protobuf::internal::ArenaStringPtr description1_;
   ::google::protobuf::internal::ArenaStringPtr description2_;
+  ::google::protobuf::internal::ArenaStringPtr geopoint_;
   ::google::protobuf::internal::ArenaStringPtr ratingdescription_;
   ::google::protobuf::internal::ArenaStringPtr hotelname_;
   ::google::protobuf::internal::ArenaStringPtr address_;
@@ -10121,73 +10113,57 @@ inline void HDReply_HotelStaticData::set_allocated_description2(::std::string* d
   // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.description2)
 }
 
-// repeated string geoPoint = 5;
-inline int HDReply_HotelStaticData::geopoint_size() const {
-  return geopoint_.size();
-}
+// string geoPoint = 5;
 inline void HDReply_HotelStaticData::clear_geopoint() {
-  geopoint_.Clear();
+  geopoint_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& HDReply_HotelStaticData::geopoint(int index) const {
+inline const ::std::string& HDReply_HotelStaticData::geopoint() const {
   // @@protoc_insertion_point(field_get:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-  return geopoint_.Get(index);
+  return geopoint_.GetNoArena();
 }
-inline ::std::string* HDReply_HotelStaticData::mutable_geopoint(int index) {
-  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-  return geopoint_.Mutable(index);
-}
-inline void HDReply_HotelStaticData::set_geopoint(int index, const ::std::string& value) {
+inline void HDReply_HotelStaticData::set_geopoint(const ::std::string& value) {
+  
+  geopoint_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
   // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-  geopoint_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-inline void HDReply_HotelStaticData::set_geopoint(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-  geopoint_.Mutable(index)->assign(std::move(value));
+inline void HDReply_HotelStaticData::set_geopoint(::std::string&& value) {
+  
+  geopoint_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
 }
 #endif
-inline void HDReply_HotelStaticData::set_geopoint(int index, const char* value) {
+inline void HDReply_HotelStaticData::set_geopoint(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  geopoint_.Mutable(index)->assign(value);
+  
+  geopoint_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
   // @@protoc_insertion_point(field_set_char:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
 }
-inline void HDReply_HotelStaticData::set_geopoint(int index, const char* value, size_t size) {
-  geopoint_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
+inline void HDReply_HotelStaticData::set_geopoint(const char* value, size_t size) {
+  
+  geopoint_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
   // @@protoc_insertion_point(field_set_pointer:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
 }
-inline ::std::string* HDReply_HotelStaticData::add_geopoint() {
-  // @@protoc_insertion_point(field_add_mutable:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-  return geopoint_.Add();
+inline ::std::string* HDReply_HotelStaticData::mutable_geopoint() {
+  
+  // @@protoc_insertion_point(field_mutable:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
+  return geopoint_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void HDReply_HotelStaticData::add_geopoint(const ::std::string& value) {
-  geopoint_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
+inline ::std::string* HDReply_HotelStaticData::release_geopoint() {
+  // @@protoc_insertion_point(field_release:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
+  
+  return geopoint_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-#if LANG_CXX11
-inline void HDReply_HotelStaticData::add_geopoint(::std::string&& value) {
-  geopoint_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-}
-#endif
-inline void HDReply_HotelStaticData::add_geopoint(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  geopoint_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-}
-inline void HDReply_HotelStaticData::add_geopoint(const char* value, size_t size) {
-  geopoint_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-}
-inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
-HDReply_HotelStaticData::geopoint() const {
-  // @@protoc_insertion_point(field_list:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-  return geopoint_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::std::string>*
-HDReply_HotelStaticData::mutable_geopoint() {
-  // @@protoc_insertion_point(field_mutable_list:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
-  return &geopoint_;
+inline void HDReply_HotelStaticData::set_allocated_geopoint(::std::string* geopoint) {
+  if (geopoint != NULL) {
+    
+  } else {
+    
+  }
+  geopoint_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), geopoint);
+  // @@protoc_insertion_point(field_set_allocated:protobuffer.dotwproto.HDReply.HotelStaticData.geoPoint)
 }
 
 // string ratingDescription = 6;

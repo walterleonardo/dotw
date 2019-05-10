@@ -284,7 +284,7 @@ message HDReply {
                     repeated RoomTypeStaticData roomTypeStaticDataList = 2;
                     string description1 = 3;
                     string description2 = 4;
-                    repeated string geoPoint = 5;
+                    string geoPoint = 5;
                     string ratingDescription = 6;
 
                     message ImagesData{
