@@ -17,5 +17,5 @@ class RoomTypeStaticData
     public $name;
     public $supplierRoomName;
     public $roomInfo;
-    public $roomCategory;
+    public $roomCategory = array();
 } 

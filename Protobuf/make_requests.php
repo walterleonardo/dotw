@@ -299,15 +299,15 @@ function managerHotelRequest(StaticInput &$inputObj)
             echo 'HOTELDATAREQUEST = ' . $reply->getReplyString() . PHP_EOL;
         }
        
-        //$valueHSD = new Protobuffer\Dotwproto\HDReply_HotelStaticData();
-        $valueID = new Protobuffer\Dotwproto\HDReply_HotelStaticData_ImagesData();
-        $valueHSD = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData();
-        $valueHSDRC = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory();
-        $valueHSDRI = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo();
-        $valueHSDRN = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomName();
-        $valueHSDRNS = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
-        $valueHSDSRN = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName();
-        $valueHSDTD = new Protobuffer\Dotwproto\HDReply_HotelStaticData_TransportationData();
+//        $valueHSD = new Protobuffer\Dotwproto\HDReply_HotelStaticData();
+//        $valueID = new Protobuffer\Dotwproto\HDReply_HotelStaticData_ImagesData();
+//        $valueRSD = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData();
+//        $valueHSDRC = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory();
+//        $valueHSDRI = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo();
+//        $valueHSDRN = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+//        $valueHSDRNS = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
+//        $valueHSDSRN = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName();
+//        $valueHSDTD = new Protobuffer\Dotwproto\HDReply_HotelStaticData_TransportationData();
                             
         $valueHSD = $reply->getHotelStaticDataList();
         //var_dump($reply->serializeToString());
@@ -318,18 +318,97 @@ function managerHotelRequest(StaticInput &$inputObj)
         /*
          * Separate in information packets of each hotel
          */
-
+        $value = new Protobuffer\Dotwproto\HDReply_HotelStaticData();
         foreach ($valueHSD as $value)
         {
         $hotelStaticData = new \DotwCalls\SecondCall\output\HotelStaticData();
+
+        
+        $valueRSD = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData();
+        foreach ($value->getRoomTypeStaticDataList() as $valueRSD)
+        {
+            $roomTypeStaticData = new \DotwCalls\SecondCall\output\RoomTypeStaticData();
+            
+            $roomTypeStaticData->twin = $valueRSD->getTwin();
+            
+            foreach ($valueRSD->getRoomAmenities() as $roomAmenities)
+            {
+                $roomTypeStaticData->roomAmenities[] = $roomAmenities;
+            }
+
+            
+            $roomTypeStaticData->name = $valueRSD->getName();
+            
+            
+            
+
+             
+            
+            $supplier = array();
+            $supplierIndex = array();
+            $valueHSDSRN = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName();
+            foreach ($valueRSD->getSupplierRoomName() as $valueHSDSRN)
+            {
+
+           $arraySupplierRoomNames = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
+                            foreach ($valueHSDSRN->getRoomNames() as $arraySupplierRoomNames)
+                            {
+                             $arraySupplierRoomName = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+                             
+                                        
+                                foreach ($arraySupplierRoomNames->getRoomName() as $arraySupplierRoomName)
+                                {
+                                    
+                                   $supplierIndex[$arraySupplierRoomName->getRoomCode()] = $arraySupplierRoomName->getRoomName();
+                                   $supplier[$arraySupplierRoomNames->getKey()] = $supplierIndex;
+                                    
+                                }
+                                           
+                            }
+            $roomTypeStaticData->supplierRoomName = $supplier;
+            }
+            
+            
+            
+            $roomInfo = new \DotwCalls\SecondCall\output\RoomInfo();
+            $valueHSDRI = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo();
+            foreach ($valueRSD->getRoomInfo() as $valueHSDRI)
+            {
+                            $roomInfo->children = $valueHSDRI->getChildren();
+                            $roomInfo->maxChildren = $valueHSDRI->getMaxChildren();
+                            $roomInfo->maxExtraBed = $valueHSDRI->getMaxExtraBed();
+                            $roomInfo->maxAdult = $valueHSDRI->getMaxAdult();
+                            $roomInfo->maxChildAge = $valueHSDRI->getMaxChildAge();
+                            $roomInfo->minChildAge = $valueHSDRI->getMinChildAge();
+                            $roomInfo->maxAdultWithChildren = $valueHSDRI->getMaxAdultWithChildren();
+                            $roomInfo->maxOccupancy = $valueHSDRI->getMaxOccupancy();
+                            $roomTypeStaticData->roomInfo = $roomInfo;
+            }
+            
+            $roomCategory = new \DotwCalls\SecondCall\output\RoomCategory();
+            $valueHSDRC = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory();
+            
+//            foreach ($valueRSD->getRoomCategory() as $valueHSDRC)
+//            {
+//                            $roomCategory->code = $valueHSDRC->getCode();
+//                            $roomCategory->name = $valueHSDRC->getName();
+//                            $roomTypeStaticData->roomCategory[] = $roomCategory;
+//            }
+            
+            $hotelStaticData->RoomTypeStaticDataList[$valueRSD->getKey()] = $roomTypeStaticData;
+        }
+        
+        
+        
+        
+        
         
         $hotelStaticData->description1 = $value->getDescription1();
         $hotelStaticData->description2 = $value->getDescription2();
         $hotelStaticData->geoPoint = $value->getGeoPoint();
         $hotelStaticData->ratingDescription = $value->getRatingDescription();
        
-        $valueID = $value->getImages();
-        foreach ( $valueID as $images)
+        foreach ( $value->getImages() as $images)
         {
             $imagesData = new \DotwCalls\SecondCall\output\ImageData();
             $imagesData->thumb = $images->getThumb();
@@ -383,20 +462,17 @@ function managerHotelRequest(StaticInput &$inputObj)
         $transportation = new \DotwCalls\SecondCall\output\TransportationData();
         foreach ($value->getTransportation() as $transportationData)
         {
-            //$transportation->Name = $transportationData
-                    
-                    /*
-                     *     public $Type;
-    public $Name;
-    public $Dist;
-    public $DistanceUnit;
-    public $DistTime;
-    public $Directions;
-
-                     */
+               $transportation->Name = "asdasd";
+               $transportation->Dist = "Name";
+               $transportation->DistanceUnit = "Name";
+               $transportation->DistTime = "Name";
+               $transportation->Directions = "Name";
+               $transportation->Name = "Name";
+               $transportation->Name = "Name";
+               
+        $hotelStaticData->transportation[] = $transportation;
         }
         
-        //$hotelStaticData->transportation = $value->getTransportation(); //array
         $hotelStaticData->hotelPhone = $value->getHotelPhone();
         $hotelStaticData->hotelCheckIn = $value->getHotelCheckIn();
         $hotelStaticData->hotelCheckOut = $value->getHotelCheckOut();
@@ -418,458 +494,7 @@ function managerHotelRequest(StaticInput &$inputObj)
         }
 
 
-        var_export($answerStatic);
-        
-//        foreach ($valueHSD as $valueHSD)
-//        {
-//
-//            $valuefinal = explode("-[-", $value);
-//                
-//            $indexFromLastValue = trim($valuefinal[47], "\t\n\r\0\x0B"); //Sanitize HOTEL INDEX
-//
-//            
-//            unset($valuefinal[47]); //Remove HOTEL INDEX, to use like ARRAY INDEX
-//            $hotelStaticData = new \Hotel\StaticData\HotelStaticData();
-//            for ($x = 0; $x < count($key); $x++)
-//            {
-//
-//                /*
-//                 * Management object HOTELSTATICDATA
-//                 */
-//                for ($i = 0; $i < count($valuefinal); $i++)
-//                {
-//                    $var = self::$Labels[$i];
-//                    $type = self::$types[$i];
-//
-//                    //CHECK if is array of ~
-//                    if ($type == 'array')
-//                    {
-//                        $array1 = explode("-~-", $valuefinal[$i]);
-//                        if (isset($array1) and $array1[0] != "")
-//                        {
-//                            $hotelStaticData->$var = $array1;
-//                        } else
-//                        {
-//                            $hotelStaticData->$var = array();
-//                        }
-//                    } elseif ($type == 'integer')
-//                    {
-//                        if (isset($valuefinal[$i]) and $valuefinal[$i] != '')
-//                        {
-//                            $hotelStaticData->$var = (int) $valuefinal[$i];
-//                        } else
-//                        {
-//                            $hotelStaticData->$var = 0;
-//                        }
-//                    } elseif ($type == 'string')
-//                    {
-//                        if (isset($valuefinal[$i]))
-//                        {
-//                            if ($valuefinal[$i] == '0,0')
-//                            {
-//                                $valuefinal[$i] = '';
-//                            }
-//                            if ($var == 'hotelPreference')
-//                            {
-//                                $hotelStaticData->$var = NULL;
-//                            } elseif ($var == 'description1' || $var == 'tariffNotes' || $var == 'address')
-//                            {
-//                                /* CORRECT THE TRANSLATION OF CRETURN */
-//                                $hotelStaticData->$var = self::translateSimilsAnswerData($valuefinal[$i]);
-//                            } else
-//                            {
-//                                /*
-//                                 * Translate symbolsData to symbols
-//                                 * 
-//                                 */
-//
-//                                if ($valuefinal[$i] != '')
-//                                {
-//
-//                                    $hotelStaticData->$var = $valuefinal[$i]; //self::translateSimilsAnswerData($valuefinal[$i]);
-//                                } else
-//                                {
-//                                    $hotelStaticData->$var = '';
-//                                }
-//                            }
-//                        } else
-//                        {
-//                            $hotelStaticData->$var = '';
-//                        }
-//                    } elseif ($type == 'boolean')
-//                    {
-//                        if (isset($valuefinal[$i]) and $valuefinal[$i] != '')
-//                        {
-//                            if ($valuefinal[$i] == 'Y' or $valuefinal[$i] == '1')
-//                            {
-//                                $valuefinal[$i] = true;
-//                            } else
-//                            {
-//                                $valuefinal[$i] = false;
-//                            }
-//                        }
-//
-//                        $hotelStaticData->$var = $valuefinal[$i];
-//                    } else
-//                    {
-//                        if (isset($valuefinal[$i]) and $valuefinal[$i] != '')
-//                        {
-//                            $hotelStaticData->$var = $valuefinal[$i];
-//                        }
-//                    }
-//                    //}
-//                    unset($array1);
-//                }
-//            }
-//            /*
-//             * Management object IMAGES
-//             */
-//            if (isset($hotelStaticData->images) and is_array($hotelStaticData->images))
-//            {
-//                $arrayImage = array();
-//
-//                if (is_array($hotelStaticData->images))
-//                {
-//                    foreach ($hotelStaticData->images as $keyIn => $valueIn)
-//                    {
-//                        $imageData = new \Hotel\StaticData\ImageData();
-//                        $array1 = explode("-#-", $valueIn);
-//                        foreach ($array1 as $keyInIn => $valueInIn)
-//                        {
-//                            $labelImage = self::$LabelsImages[$keyInIn];
-//                            if (self::$LabelsImagesTypes[$keyInIn] == 'string' && $labelImage == 'alt')
-//                            {
-//                                $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
-//                            } else
-//                            {
-//                                $imageData->$labelImage = $valueInIn;
-//                            }
-//                        }
-//                        $arrayImage[] = $imageData;
-//                    }
-//                } else
-//                {
-//                    $imageData = new \Hotel\StaticData\ImageData();
-//                    $array1 = explode("-#-", $valueIn);
-//                    foreach ($array1 as $keyInIn => $valueInIn)
-//                    {
-//                        $labelImage = self::$LabelsImages[$keyInIn];
-//                        if (self::$LabelsImagesTypes[$keyInIn] == 'string' && $labelImage == 'alt')
-//                        {
-//                            $imageData->$labelImage = self::translateSimilsAnswerData($valueInIn);
-//                        } else
-//                        {
-//                            $imageData->$labelImage = $valueInIn;
-//                        }
-//                    }
-//                    $arrayImage[] = $imageData;
-//                }
-//                $hotelStaticData->images = $arrayImage;
-//                unset($imageData, $valueInIn, $keyInIn, $valueIn, $keyIn, $arrayImage);
-//            }
-//            /*
-//             * Management object Transportation
-//             */
-//
-//            if (isset($hotelStaticData->transportation))
-//            {
-//                $arrayTransportation = array();
-//                if (is_array($hotelStaticData->transportation))
-//                {
-//                    foreach ($hotelStaticData->transportation as $keyIn => $valueIn)
-//                    {
-//                        $transportationData = new \Hotel\StaticData\TransportationData();
-//                        $array1 = explode("-#-", $valueIn);
-//                        foreach ($array1 as $keyInIn => $valueInIn)
-//                        {
-//                            $labelTransportation = self::$LabelsTransportation[$keyInIn];
-//                            if ($valueInIn != '')
-//                            {
-//                                if (self::$LabelsTransportationTypes[$keyInIn] == 'string')
-//                                {
-//
-//                                    $transportationData->$labelTransportation = $valueInIn; 
-//                                } else
-//                                {
-//                                    $transportationData->$labelTransportation = $valueInIn;
-//                                }
-//                            } else
-//                            {
-//                                $transportationData->$labelTransportation = '';
-//                            }
-//                        }
-//                        $arrayTransportation[] = $transportationData;
-//                    }
-//                    $hotelStaticData->transportation = $arrayTransportation;
-//                } else
-//                {
-//                    $transportationData = new \Hotel\StaticData\TransportationData();
-//                    $array1 = explode("-#-", $hotelStaticData->transportation);
-//                    foreach ($array1 as $keyInIn => $valueInIn)
-//                    {
-//                        $labelTransportation = self::$LabelsTransportation[$keyInIn];
-//                        if ($valueInIn != '')
-//                        {
-//                            if (self::$LabelsTransportationTypes[$keyInIn] == 'string')
-//                            {
-//
-//                                $transportationData->$labelTransportation = $valueInIn; //self::translateSimilsAnswerData($valueInIn);
-//                            } else
-//                            {
-//                                $transportationData->$labelTransportation = $valueInIn;
-//                            }
-//                        } else
-//                        {
-//                            $transportationData->$labelTransportation = '';
-//                        }
-//                    }
-//                    $arrayTransportation[] = $transportationData;
-//                    $hotelStaticData->transportation = $arrayTransportation;
-//                }
-//                unset($valueInIn, $keyInIn, $valueIn, $keyIn);
-//            } else
-//            {
-//                $hotelStaticData->transportation = array();
-//            }
-//
-//
-//
-//            /*
-//             * Management object LastUpdate
-//             */
-//            if (isset($hotelStaticData->lastUpdated) and $hotelStaticData->lastUpdated != '')
-//            {
-//                $hotelStaticData->lastUpdated = gmdate("Y-m-d H:i:s", $hotelStaticData->lastUpdated);
-//            }
-//
-//            /*
-//             * Management object RoomTypeStaticDataList and the internal objects RoomINFO
-//             */
-//
-//            if (isset($hotelStaticData->RoomTypeStaticDataList) and is_array($hotelStaticData->RoomTypeStaticDataList))
-//            {
-//             
-//                $arrayRoomTypeStatic = array();
-//                $arrayRoomTypeCode = array();
-//                foreach ($hotelStaticData->RoomTypeStaticDataList as $keytr => $valuetr)
-//                {
-//                    $roomTypeStaticData = new \Hotel\StaticData\RoomTypeStaticData;
-//
-//            
-//            
-//                    if (preg_match('/-#-/', $valuetr))
-//                    {
-//                        $array1 = explode("-#-", $valuetr);
-//                        $roomInfo = new \Hotel\StaticData\RoomInfo();
-//                        $roomCategory = new \Hotel\StaticData\RoomCategory();
-//
-//
-//                        foreach ($array1 as $keyIn => $valueIn)
-//                        {
-//                            //Obtain the label for the room data
-//                            $labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-//                            if ($keyIn == 0)
-//                            {
-//                                $arrayRoomTypeCode[] = $valueIn;
-//                            }
-//                         
-//
-//                            if (preg_match('/-{-/', $valueIn))
-//                            {
-//                                if ($labelRoom == 'roomInfo')
-//                                {
-//                                    $arrayIn = explode("-{-", $valueIn);
-//                                    foreach ($arrayIn as $keytri => $valuetri)
-//                                    {
-//                                        $labelRoomInfo = self::$LabelsRoomInfo[$keytri];
-//                                        if (isset($valuetri))
-//                                        {
-//                                            //$labelRoomInfo = self::$LabelsRoomInfo[$keytri];
-//
-//
-//                                            if ($labelRoomInfo == 'maxExtraBed')
-//                                            {
-//                                                if ($valuetri == 'Y')
-//                                                {
-//                                                    $roomInfo->$labelRoomInfo = true;
-//                                                } else if ($valuetri == 'N')
-//                                                {
-//                                                    $roomInfo->$labelRoomInfo = false;
-//                                                } else
-//                                                {
-//                                                    $roomInfo->$labelRoomInfo = NULL;
-//                                                }
-//                                            } else
-//                                            {
-//                                                $roomInfo->$labelRoomInfo = (int) $valuetri; //(int)
-//                                            }
-//                                            //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-//                                            $roomTypeStaticData->$labelRoom = $roomInfo;
-//                                        }
-//                                    }
-//                                } elseif ($labelRoom == 'roomCategory')
-//                                {
-//                                    $arrayIn = explode("-{-", $valueIn);
-//                                    foreach ($arrayIn as $keytri => $valuetri)
-//                                    {
-//                                        $labelRoomCategory = self::$LabelsRoomCategory[$keytri];
-//                                        if (isset($valuetri))
-//                                        {
-//                                            //$labelRoomInfo = self::$LabelsRoomInfo[$keytri];
-//                                            $roomCategory->$labelRoomCategory = $valuetri; //(int)
-//                                            
-//                                            //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-//                                            $roomTypeStaticData->$labelRoom = $roomCategory;
-//                                        }
-//                                    }
-//                                    
-//                                    
-//                                } elseif ($labelRoom == 'supplierRoomName')
-//                                {
-//                                    $arrayIn = explode("-{-", $valueIn);
-//                                    $arrayoutput = null;
-//                                    
-//                                    foreach ($arrayIn as $keytri => $valuetri)
-//                                    {
-//                                        $arrayinsider = array();
-//                                        $valueinto = explode("~", $valuetri);
-//                                        $arrayoutput[$valueinto[0]][$valueinto[1]] = $valueinto[2];
-//                                        
-//                                    }
-//                                    
-//                                    $roomTypeStaticData->$labelRoom = $arrayoutput;
-//  
-//                                } else
-//                                {
-//                                    //$arrayIn = array_map('intval', explode('{', $valueIn));
-//                                    $arrayIn = array_map(null, explode("-{-", $valueIn));
-//                                    //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-//                                    $roomTypeStaticData->$labelRoom = $arrayIn;
-//                                }
-//                                
-//                                
-//                                
-//                            } else
-//                            {
-//                                //Convert and save booleans
-//                                if (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'boolean')
-//                                {
-//                                    if (isset($valueIn))
-//                                    {
-//                                        if ($valueIn == 'Y' or $valueIn == '1')
-//                                        {
-//                                            $valueIn = true;
-//                                        } else
-//                                        {
-//                                            $valueIn = false;
-//                                        }
-//                                    } else
-//                                    {
-//                                        $valueIn = NULL;
-//                                    }
-//                                    $roomTypeStaticData->$labelRoom = $valueIn;
-//
-//                                    //Convert and save array
-//                                } elseif (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'array')
-//                                {                                  
-//                                    if (isset($valueIn) and $valueIn != "")
-//                                    {
-//                                        //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-//                                        if ($labelRoom == 'supplierRoomName')
-//                                        {
-//                                            $arrayoutput = array();
-//                                            $valueinto = explode("~", $valueIn);
-//                                            $arrayoutput[$valueinto[0]][$valueinto[1]] = $valueinto[2];
-//
-//                                            $roomTypeStaticData->$labelRoom = $arrayoutput;
-//                                        } else
-//                                        {
-//                                        $roomTypeStaticData->$labelRoom = array($valueIn);
-//                                        }
-//                                    } else
-//                                    {
-//                                        //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-//                                        if (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'array')
-//                                            $roomTypeStaticData->$labelRoom = array();
-//                                        else
-//                                            $roomTypeStaticData->$labelRoom = null;
-//                                    }
-//                                } elseif (self::$LabelsRoomTypeStaticDataTypes[$labelRoom] == 'string')
-//                                {
-//                                    //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-//                                    if (isset($valueIn) && $valueIn != '')
-//                                    {
-//                                        $roomTypeStaticData->$labelRoom = $valueIn; //self::translateSimilsAnswerData($valueIn);
-//                                    } else
-//                                    {
-//                                        $roomTypeStaticData->$labelRoom = '';
-//                                    }
-//                                } else
-//                                {
-//                                    if ($labelRoom != 'roomTypeID')
-//                                    {
-//                                        //$labelRoom = self::$LabelsRoomTypeStaticData[$keyIn];
-//                                        $roomTypeStaticData->$labelRoom = $valueIn;
-//                                    }
-//                                }
-//                            }
-//
-//                            foreach ($roomTypeStaticData as $keyRTSD => $valueRTSD)
-//                            {
-//                                if (Constructor::$arrayConverted['ReturnRoomTypeStaticData'][$keyRTSD] == 'N')
-//                                {
-//                                    $roomTypeStaticData->$keyRTSD = NULL;
-//                                }
-//                            }
-//                            $arrayRoomTypeStatic[$array1[0]] = $roomTypeStaticData;
-//                        }
-//                    } else
-//                    {
-//                        echo "INCORRECT ROOMTYPESTATICDATALIST\n\r";
-//                        return false;
-//                    }
-//                }
-//
-//                $hotelStaticData->RoomTypeStaticDataList = $arrayRoomTypeStatic;
-//            }
-//
-//
-//////            ORDER FROM INDEX_HOTELCODE, include like index the HOTELIDS in each case. 
-////            if (isset($index["hotelIds"][$key])) {
-////                $arrayKeys = $index["hotelIds"];
-////                ksort($hotelStaticData->RoomTypeStaticDataList);
-////            } else {
-////                $arrayKeys = array_keys($index["hotelIds"]);
-////                ksort($hotelStaticData->RoomTypeStaticDataList);
-////            }
-//
-//
-//
-//
-//
-//            if (Constructor::$arrayConverted['ReturnRoomTypeStaticData']['twin'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomAmenities'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['name'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['supplierRoomName'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomInfo'] == 'N' and Constructor::$arrayConverted['ReturnRoomTypeStaticData']['roomCategory'] == 'N')
-//            {
-//                $hotelStaticData->RoomTypeStaticDataList = array();
-//            }
-//
-//            foreach ($hotelStaticData as $keyHSD => $valueHSD)
-//            {
-//                if (isset(Constructor::$arrayConverted['ReturnHotelStaticData'][$keyHSD]))
-//                {
-//                    if (Constructor::$arrayConverted['ReturnHotelStaticData'][$keyHSD] == 'N')
-//                    {
-//                        $hotelStaticData->$keyHSD = NULL;
-//                    }
-//                }
-//            }
-//
-//
-//            self::$answerStatic[$indexFromLastValue] = $hotelStaticData;
-//            unset($key, $hotelStaticData);
-//        }
-        
-        
-        
+        var_export($answerStatic);        
     }
 
     

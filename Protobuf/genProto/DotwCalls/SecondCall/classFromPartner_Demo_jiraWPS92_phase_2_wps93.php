@@ -8,8 +8,6 @@ class StaticInput {
     71934 => 
     array (
     0 => 116104,
-        1 => 116105,
-     
     ),
     );
     public $LanguageId = 1;
