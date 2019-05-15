@@ -278,7 +278,7 @@ message HDReply {
                                     string name = 2;
                             }
 
-                            RoomCategory roomCategory = 7;
+                            repeated RoomCategory roomCategory = 7;
                     }
 
                     repeated RoomTypeStaticData roomTypeStaticDataList = 2;

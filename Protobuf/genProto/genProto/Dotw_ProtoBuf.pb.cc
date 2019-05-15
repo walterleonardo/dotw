@@ -1368,7 +1368,7 @@ void AddDescriptorsImpl() {
       "aticData.SupplierRoomName\022\\\n\010roomInfo\030\006 "
       "\003(\0132J.protobuffer.dotwproto.HDReply.Hote"
       "lStaticData.RoomTypeStaticData.RoomInfo\022"
-      "d\n\014roomCategory\030\007 \001(\0132N.protobuffer.dotw"
+      "d\n\014roomCategory\030\007 \003(\0132N.protobuffer.dotw"
       "proto.HDReply.HotelStaticData.RoomTypeSt"
       "aticData.RoomCategory\032.\n\010RoomName\022\020\n\010roo"
       "mCode\030\001 \001(\t\022\020\n\010roomName\030\002 \001(\t\032v\n\tRoomNam"
@@ -12965,8 +12965,6 @@ void HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory::InternalSwap(HDRep
 // ===================================================================
 
 void HDReply_HotelStaticData_RoomTypeStaticData::InitAsDefaultInstance() {
-  ::protobuffer::dotwproto::_HDReply_HotelStaticData_RoomTypeStaticData_default_instance_._instance.get_mutable()->roomcategory_ = const_cast< ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory*>(
-      ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int HDReply_HotelStaticData_RoomTypeStaticData::kKeyFieldNumber;
@@ -12992,16 +12990,12 @@ HDReply_HotelStaticData_RoomTypeStaticData::HDReply_HotelStaticData_RoomTypeStat
       roomamenities_(from.roomamenities_),
       supplierroomname_(from.supplierroomname_),
       roominfo_(from.roominfo_),
+      roomcategory_(from.roomcategory_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.name().size() > 0) {
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
-  if (from.has_roomcategory()) {
-    roomcategory_ = new ::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory(*from.roomcategory_);
-  } else {
-    roomcategory_ = NULL;
   }
   ::memcpy(&key_, &from.key_,
     static_cast<size_t>(reinterpret_cast<char*>(&twin_) -
@@ -13011,9 +13005,9 @@ HDReply_HotelStaticData_RoomTypeStaticData::HDReply_HotelStaticData_RoomTypeStat
 
 void HDReply_HotelStaticData_RoomTypeStaticData::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&roomcategory_, 0, static_cast<size_t>(
+  ::memset(&key_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&twin_) -
-      reinterpret_cast<char*>(&roomcategory_)) + sizeof(twin_));
+      reinterpret_cast<char*>(&key_)) + sizeof(twin_));
   _cached_size_ = 0;
 }
 
@@ -13024,7 +13018,6 @@ HDReply_HotelStaticData_RoomTypeStaticData::~HDReply_HotelStaticData_RoomTypeSta
 
 void HDReply_HotelStaticData_RoomTypeStaticData::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete roomcategory_;
 }
 
 void HDReply_HotelStaticData_RoomTypeStaticData::SetCachedSize(int size) const {
@@ -13059,11 +13052,8 @@ void HDReply_HotelStaticData_RoomTypeStaticData::Clear() {
   roomamenities_.Clear();
   supplierroomname_.Clear();
   roominfo_.Clear();
+  roomcategory_.Clear();
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (GetArenaNoVirtual() == NULL && roomcategory_ != NULL) {
-    delete roomcategory_;
-  }
-  roomcategory_ = NULL;
   ::memset(&key_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&twin_) -
       reinterpret_cast<char*>(&key_)) + sizeof(twin_));
@@ -13163,12 +13153,11 @@ bool HDReply_HotelStaticData_RoomTypeStaticData::MergePartialFromCodedStream(
         break;
       }
 
-      // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
+      // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(58u /* 58 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_roomcategory()));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_roomcategory()));
         } else {
           goto handle_unusual;
         }
@@ -13245,10 +13234,11 @@ void HDReply_HotelStaticData_RoomTypeStaticData::SerializeWithCachedSizes(
       6, this->roominfo(static_cast<int>(i)), output);
   }
 
-  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
-  if (this->has_roomcategory()) {
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->roomcategory_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, *this->roomcategory_, output);
+      7, this->roomcategory(static_cast<int>(i)), output);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -13312,11 +13302,12 @@ void HDReply_HotelStaticData_RoomTypeStaticData::SerializeWithCachedSizes(
         6, this->roominfo(static_cast<int>(i)), deterministic, target);
   }
 
-  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
-  if (this->has_roomcategory()) {
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->roomcategory_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        7, *this->roomcategory_, deterministic, target);
+        7, this->roomcategory(static_cast<int>(i)), deterministic, target);
   }
 
   if ((_internal_metadata_.have_unknown_fields() &&  ::google::protobuf::internal::GetProto3PreserveUnknownsDefault())) {
@@ -13366,18 +13357,22 @@ size_t HDReply_HotelStaticData_RoomTypeStaticData::ByteSizeLong() const {
     }
   }
 
+  // repeated .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
+  {
+    unsigned int count = static_cast<unsigned int>(this->roomcategory_size());
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          this->roomcategory(static_cast<int>(i)));
+    }
+  }
+
   // string name = 4;
   if (this->name().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->name());
-  }
-
-  // .protobuffer.dotwproto.HDReply.HotelStaticData.RoomTypeStaticData.RoomCategory roomCategory = 7;
-  if (this->has_roomcategory()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::MessageSize(
-        *this->roomcategory_);
   }
 
   // int32 key = 1;
@@ -13424,12 +13419,10 @@ void HDReply_HotelStaticData_RoomTypeStaticData::MergeFrom(const HDReply_HotelSt
   roomamenities_.MergeFrom(from.roomamenities_);
   supplierroomname_.MergeFrom(from.supplierroomname_);
   roominfo_.MergeFrom(from.roominfo_);
+  roomcategory_.MergeFrom(from.roomcategory_);
   if (from.name().size() > 0) {
 
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
-  }
-  if (from.has_roomcategory()) {
-    mutable_roomcategory()->::protobuffer::dotwproto::HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory::MergeFrom(from.roomcategory());
   }
   if (from.key() != 0) {
     set_key(from.key());
@@ -13466,8 +13459,8 @@ void HDReply_HotelStaticData_RoomTypeStaticData::InternalSwap(HDReply_HotelStati
   roomamenities_.InternalSwap(&other->roomamenities_);
   supplierroomname_.InternalSwap(&other->supplierroomname_);
   roominfo_.InternalSwap(&other->roominfo_);
+  roomcategory_.InternalSwap(&other->roomcategory_);
   name_.Swap(&other->name_);
-  swap(roomcategory_, other->roomcategory_);
   swap(key_, other->key_);
   swap(twin_, other->twin_);
   _internal_metadata_.Swap(&other->_internal_metadata_);

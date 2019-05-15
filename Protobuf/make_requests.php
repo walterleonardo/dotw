@@ -325,83 +325,64 @@ function managerHotelRequest(StaticInput &$inputObj)
 
         
         $valueRSD = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData();
-        foreach ($value->getRoomTypeStaticDataList() as $valueRSD)
-        {
-            $roomTypeStaticData = new \DotwCalls\SecondCall\output\RoomTypeStaticData();
-            
-            $roomTypeStaticData->twin = $valueRSD->getTwin();
-            
-            foreach ($valueRSD->getRoomAmenities() as $roomAmenities)
+            foreach ($value->getRoomTypeStaticDataList() as $valueRSD)
             {
-                $roomTypeStaticData->roomAmenities[] = $roomAmenities;
-            }
+                $roomTypeStaticData = new \DotwCalls\SecondCall\output\RoomTypeStaticData();
 
-            
-            $roomTypeStaticData->name = $valueRSD->getName();
-            
-            
-            
+                $roomTypeStaticData->twin = $valueRSD->getTwin();
 
-             
-            
-            $supplier = array();
-            $supplierIndex = array();
-            $valueHSDSRN = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName();
-            foreach ($valueRSD->getSupplierRoomName() as $valueHSDSRN)
-            {
+                foreach ($valueRSD->getRoomAmenities() as $roomAmenities)
+                {
+                    $roomTypeStaticData->roomAmenities[] = $roomAmenities;
+                }
 
-           $arraySupplierRoomNames = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
-                            foreach ($valueHSDSRN->getRoomNames() as $arraySupplierRoomNames)
-                            {
-                             $arraySupplierRoomName = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomName();
-                             
-                                        
-                                foreach ($arraySupplierRoomNames->getRoomName() as $arraySupplierRoomName)
-                                {
-                                    
-                                   $supplierIndex[$arraySupplierRoomName->getRoomCode()] = $arraySupplierRoomName->getRoomName();
-                                   $supplier[$arraySupplierRoomNames->getKey()] = $supplierIndex;
-                                    
-                                }
-                                           
-                            }
-            $roomTypeStaticData->supplierRoomName = $supplier;
+                $roomTypeStaticData->name = $valueRSD->getName();
+
+                $arrayoutput = array();
+                $valueHSDSRN = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_SupplierRoomName();
+                foreach ($valueRSD->getSupplierRoomName() as $valueHSDSRN)
+                {
+                    $arraySupplierRoomNames = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomNames();
+                    foreach ($valueHSDSRN->getRoomNames() as $arraySupplierRoomNames)
+                    {
+                    $arraySupplierRoomName = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomName();
+                        foreach ($arraySupplierRoomNames->getRoomName() as $arraySupplierRoomName)
+                        {
+                                $arrayoutput[$arraySupplierRoomNames->getKey()][$arraySupplierRoomName->getRoomCode()] = $arraySupplierRoomName->getRoomName();
+                        }
+                     }
+                }
+                $roomTypeStaticData->supplierRoomName = $arrayoutput;
+
+
+
+                $roomInfo = new \DotwCalls\SecondCall\output\RoomInfo();
+                $valueHSDRI = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo();
+                foreach ($valueRSD->getRoomInfo() as $valueHSDRI)
+                {
+                                $roomInfo->children = $valueHSDRI->getChildren();
+                                $roomInfo->maxChildren = $valueHSDRI->getMaxChildren();
+                                $roomInfo->maxExtraBed = $valueHSDRI->getMaxExtraBed();
+                                $roomInfo->maxAdult = $valueHSDRI->getMaxAdult();
+                                $roomInfo->maxChildAge = $valueHSDRI->getMaxChildAge();
+                                $roomInfo->minChildAge = $valueHSDRI->getMinChildAge();
+                                $roomInfo->maxAdultWithChildren = $valueHSDRI->getMaxAdultWithChildren();
+                                $roomInfo->maxOccupancy = $valueHSDRI->getMaxOccupancy();
+                                $roomTypeStaticData->roomInfo = $roomInfo;
+                }
+
+                $roomCategoryData = new \DotwCalls\SecondCall\output\RoomCategory();
+                $valueHSDRC = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory();
+
+                foreach ($valueRSD->getRoomCategory() as $valueHSDRC)
+                {
+                $roomCategoryData->code = $valueHSDRC->getCode();
+                $roomCategoryData->name = $valueHSDRC->getName();
+                $roomTypeStaticData->roomCategory = $roomCategoryData;
+                }
+                
+                $hotelStaticData->RoomTypeStaticDataList[$valueRSD->getKey()] = $roomTypeStaticData;
             }
-            
-            
-            
-            $roomInfo = new \DotwCalls\SecondCall\output\RoomInfo();
-            $valueHSDRI = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomInfo();
-            foreach ($valueRSD->getRoomInfo() as $valueHSDRI)
-            {
-                            $roomInfo->children = $valueHSDRI->getChildren();
-                            $roomInfo->maxChildren = $valueHSDRI->getMaxChildren();
-                            $roomInfo->maxExtraBed = $valueHSDRI->getMaxExtraBed();
-                            $roomInfo->maxAdult = $valueHSDRI->getMaxAdult();
-                            $roomInfo->maxChildAge = $valueHSDRI->getMaxChildAge();
-                            $roomInfo->minChildAge = $valueHSDRI->getMinChildAge();
-                            $roomInfo->maxAdultWithChildren = $valueHSDRI->getMaxAdultWithChildren();
-                            $roomInfo->maxOccupancy = $valueHSDRI->getMaxOccupancy();
-                            $roomTypeStaticData->roomInfo = $roomInfo;
-            }
-            
-            $roomCategory = new \DotwCalls\SecondCall\output\RoomCategory();
-            $valueHSDRC = new Protobuffer\Dotwproto\HDReply_HotelStaticData_RoomTypeStaticData_RoomCategory();
-            
-//            foreach ($valueRSD->getRoomCategory() as $valueHSDRC)
-//            {
-//                            $roomCategory->code = $valueHSDRC->getCode();
-//                            $roomCategory->name = $valueHSDRC->getName();
-//                            $roomTypeStaticData->roomCategory[] = $roomCategory;
-//            }
-            
-            $hotelStaticData->RoomTypeStaticDataList[$valueRSD->getKey()] = $roomTypeStaticData;
-        }
-        
-        
-        
-        
-        
         
         $hotelStaticData->description1 = $value->getDescription1();
         $hotelStaticData->description2 = $value->getDescription2();
@@ -446,31 +427,31 @@ function managerHotelRequest(StaticInput &$inputObj)
         $hotelStaticData->countryCode = $value->getCountryCode();
         $hotelStaticData->regionName = $value->getRegionName();
         $hotelStaticData->regionCode = $value->getRegionCode();
-        foreach ($value->getAmenitie() as $data)
+        foreach ($value->getAmenitie() as $amenitiesData)
         {
-            $hotelStaticData->amenitie[] = $data;
+            $hotelStaticData->amenitie[] = $amenitiesData;
         }
-        foreach ($value->getLeisure() as $data)
+        foreach ($value->getLeisure() as $leisureData)
         {
-            $hotelStaticData->leisure[] = $data;
+            $hotelStaticData->leisure[] = $leisureData;
         }
-        foreach ($value->getBusiness() as $data)
+        foreach ($value->getBusiness() as $businessData)
         {
-            $hotelStaticData->business[] = $data;
+            $hotelStaticData->business[] = $businessData;
         }
         
-        $transportation = new \DotwCalls\SecondCall\output\TransportationData();
-        foreach ($value->getTransportation() as $transportationData)
+        $transportationInfo = new \DotwCalls\SecondCall\output\TransportationData();
+        $transport = new Protobuffer\Dotwproto\HDReply_HotelStaticData_TransportationData();
+        foreach ($value->getTransportation() as $transport)
         {
-               $transportation->Name = "asdasd";
-               $transportation->Dist = "Name";
-               $transportation->DistanceUnit = "Name";
-               $transportation->DistTime = "Name";
-               $transportation->Directions = "Name";
-               $transportation->Name = "Name";
-               $transportation->Name = "Name";
+               $transportationInfo->Name = $transport->getName();
+               $transportationInfo->Dist = $transport->getDist();
+               $transportationInfo->DistanceUnit = $transport->getDistanceUnit();
+               $transportationInfo->DistTime = $transport->getDistTime();
+               $transportationInfo->Directions = $transport->getDirections();
+               $transportationInfo->Type = $transport->getType();
                
-        $hotelStaticData->transportation[] = $transportation;
+        $hotelStaticData->transportation = $transportationInfo;
         }
         
         $hotelStaticData->hotelPhone = $value->getHotelPhone();
@@ -485,8 +466,8 @@ function managerHotelRequest(StaticInput &$inputObj)
         $hotelStaticData->tariffNotes = $value->getTariffNotes();
         $hotelStaticData->chainName = $value->getChainName();
         $hotelStaticData->hotelProperty = $value->getHotelProperty();
-        $hotelStaticData->fullAddress = $value->getFullAddress();
-        $hotelStaticData->attraction = $value->getAttraction();
+        $hotelStaticData->fullAddress = ($value->getFullAddress() != "")? $value->getFullAddress() : NULL;
+        $hotelStaticData->attraction = ($value->getAttraction() != "")? $value->getAttraction() : NULL;
         $hotelStaticData->exclusive = $value->getExclusive();
         
         

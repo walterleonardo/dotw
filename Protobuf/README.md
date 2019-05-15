@@ -4,10 +4,12 @@ composer install
 
 # Generate the protobuf classes
 composer gen-proto
+composer gen-proto-cpp
 
-# Start the server
-php -S localhost:8000 -t ./public
+# Start PHP DAEMON server
+php -t ./public
 
 # (in a different terminal) make a request
-php make_requests.php
+php firstCall_requests.php
+php secondCall_requests.php
 ```

@@ -15,7 +15,7 @@ class Input {
     public $requestSource = 2; //integer
     public $exceptRestrictions = array(); //array integer No mandatory ,811555 804035
     public $passengerNationalityOrResidenceProvided = true; //boolean
-    public $hotelIds = array (228756,341405,7644/*0 => 820415,*/); //array(int)
+    public $hotelIds = array(228756,341405,7644/*0 => 820415,*/); //array(int)
     //country 143 and city 85516
     public $city = null; //364 dubai //12764; //7674; //integer 7674 // 13474 Zamora //12624 BUCHARESt //14 kuwait
     public $country = null; //integer 971
@@ -82,7 +82,7 @@ class Input {
     public $AdditionalFilters = null; //array(varios)
        
     function __construct() {
-           $this->RoomOccupancy = array(new RoomOccupancy());
+           $this->RoomOccupancy = array(new RoomOccupancy()/*,new RoomOccupancy1() */);
            $this->HotelFilters = new HotelFilters();
            $this->RoomTypeFilters = new RoomTypeFilters();
            $this->SearchPeriodCriteria = new SearchPeriodCriteria();
@@ -105,7 +105,7 @@ class RoomOccupancy {
 }
  
 class RoomOccupancy1 {
-    public $adults = 2; //integer
+    public $adults = 3; //integer
     public $children = array(2,3,6); //array(int)
     public $twin = false; //boolean
     public $extraBed = false; //boolean
@@ -126,7 +126,7 @@ class RoomTypeFilters {
     public $roomName = null; //string
     public $roomCategories = array(); //roomCategories Objects
         function __construct() {
-           $this->roomCategories = array( /*new RoomCategory(),new RoomCategory1()*/);
+           $this->roomCategories = array( new RoomCategory()/*,new RoomCategory1()*/);
        }
 }
  
@@ -149,7 +149,6 @@ class RoomCategory1{
 }
  
 class HotelFilters {
- 
 //    public $rating = null; //array(int)
 //    public $luxury = null; //integer
 //    public $location = null; //string
